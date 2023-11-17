@@ -1,6 +1,10 @@
+/build/
+/build/
+
 # Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse,visualstudiocode
-
+C:\dev\eclipse-workspace\javastudy\SemiProject\src\main\java\kr\co\project\common\DatabaseConnection.java
+/DatabaseConnection.java
 ### Eclipse ###
 .metadata
 bin/
@@ -139,3 +143,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse,visualstudiocode
+/kr/
