@@ -5,11 +5,19 @@
  <header>
    <h1>초특가 여기어때</h1>
    <div class="Signin-signup">
+  <c:choose>
+     	<c:when test="${sessionScope.id != null}"> 
+     		<a href="/form/updateForm.do">마이페이지</a>                       
+     		<a href="/logout.do">로그아웃</a>
+     	</c:when>
+     	<c:otherwise>
      		<!-- <a href="/views/member/login.jsp">로그인</a> -->
-     		<a href="/">로그인</a>
+     		<a href="/SigninForm.do">로그인</a>
 <!--      		<a href="/registerForm.do">회원가입</a> -->
-     		<a href="/">회원가입</a>
-  
+     		<a href="/form/registerForm.do">회원가입</a>
+     		
+     	</c:otherwise>
+     </c:choose>
    </div>
  </header>
  
