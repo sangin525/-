@@ -1,64 +1,65 @@
 @charset "UTF-8";
 
-body {
-	font-family: Arial, sans-serif;
-	margin: 0px;
-	padding: 0px;
-	background-color: #f4f4f4;
+.Main_body {
+   font-family: Arial, sans-serif;
+   margin: 0px;
+   padding: 0px;
+   background-color: #f4f4f4;
 }
 
-header {
-	background-color: #333;
-	color: #fff;
-	padding: 1em;
-	text-align: center;
+.Main_header {
+   background-color: #333;
+   color: #fff;
+   padding: 1em;
+   text-align: center;
 }
 
-section {
-	max-width: 800px;
-	margin: 20px auto;
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.Main_section {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: #fff;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
-h1 {
-	padding-top: 20px;
-	margin: 0px;
-	text-align: center;
+.Main_h1 {
+   padding-top: 20px;
+   margin: 0px;
+   text-align: center;
 }
 
 .Signin-signup {
-	text-align: right;
+   text-align: right;
 }
 
-nav ul li {
-	display: inline-block;
-	margin-right: 10px;
+.Main_nav ul li {
+   display: inline-block;
+   margin-right: 10px;
 }
 
-nav {
-	background-color: bisque;
-	position: relative;
-	display: flex;
-	justify-content: space-evenly;
+.Main_nav {
+   background-color: bisque;
+   position: relative;
+   display: flex;
+   justify-content: space-evenly;
 }
 /* A태그 스타일링 */
-a {
-	color: rgb(210, 98, 98);
-	text-decoration: none;
+.Main_a {
+   color: rgb(210, 98, 98);
+   text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
+a :hover {
+   text-decoration: underline;
 }
 
-footer {
-	background-color: #333;
-	color: #fff;
-	padding: 1em;
-	text-align: center;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
+.Main_footer {
+   background-color: #333;
+   color: #fff;
+   padding: 1em;
+   text-align: center;
+   position: fixed;
+   bottom: 0;
+   width: 100%;
 }
