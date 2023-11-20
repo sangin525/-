@@ -17,6 +17,7 @@ SemiProject/.classpath
 .loadpath
 .recommenders
 bulid/
+SemiProject/src/main/java/kr/co/project/common/DatabaseConnection.java
 
 # External tool builders
 .externalToolBuilders/
