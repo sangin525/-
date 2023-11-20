@@ -10,7 +10,10 @@ tmp/
 *.swp
 *~.nib
 local.properties
+SemiProject/.settings/
 .settings/
+.classpath/
+SemiProject/.classpath
 .loadpath
 .recommenders
 
