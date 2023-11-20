@@ -51,7 +51,7 @@
 		<tbody>
 			<tr class="tr_info">
 				<th>성명</th>
-				<td>이상인</td>
+				<td></td>
 			</tr>
 			<tr class="tr_info">
 				<th>아이디</th>

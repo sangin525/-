@@ -8,5 +8,5 @@ public interface MemberService {
 	public MemberDTO memberSignin(String id, String pwd);
 	
 	// 회원 정보 수정
-	public int memberUpdate(MemberDTO member, String id);
+	public int memberUpdate(MemberDTO member, String beforeEmail);
 }

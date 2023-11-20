@@ -41,28 +41,28 @@ public class MemberUpdateController extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String birth = request.getParameter("birth");
 		String addr = request.getParameter("addr");
-		String id = request.getParameter("id");
+		String beforeEmail = (String)session.getAttribute("email");
 
 		// DTO 객체 생성
-		MemberDTO member = new MemberDTO(email, phone, birth, addr);
+		MemberDTO member = new MemberDTO(phone, email, addr, birth);
 
 		// 서비스 객체 생성
 		MemberServiceImpl memberService = new MemberServiceImpl();
-		int result = memberService.memberUpdate(member, id);
+		int result = memberService.memberUpdate(member, beforeEmail);
 
 		if (result == 0) {
 			updateAlert(response, "정보 수정에 실패했습니다.");
 		} else {
-			session.removeAttribute("email"); // 세션 삭제
 			session.removeAttribute("phone"); // 세션 삭제
-			session.removeAttribute("birth"); // 세션 삭제
+			session.removeAttribute("email"); // 세션 삭제
 			session.removeAttribute("addr"); // 세션 삭제
+			session.removeAttribute("birth"); // 세션 삭제
 
 			// 세션 생성
-			session.setAttribute("email", member.getEmail());
 			session.setAttribute("phone", member.getPhone());
-			session.setAttribute("birth", member.getBirth());
+			session.setAttribute("email", member.getEmail());
 			session.setAttribute("addr", member.getAddr());
+			session.setAttribute("birth", member.getBirth());
 			updateAlert(response, "회원 정보가 수정되었습니다.");
 
 		}

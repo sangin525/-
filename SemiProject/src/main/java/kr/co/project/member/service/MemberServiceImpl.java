@@ -25,8 +25,8 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 회원 정보 수정
 	@Override
-	public int memberUpdate(MemberDTO member, String id) {
-		return memberDAO.memberUpdate(con, member, id);
+	public int memberUpdate(MemberDTO member, String beforeEmail) {
+		return memberDAO.memberUpdate(con, member, beforeEmail);
 	}
 	
 }

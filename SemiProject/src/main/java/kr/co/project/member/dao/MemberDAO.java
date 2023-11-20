@@ -77,25 +77,25 @@ public class MemberDAO {
 		return null;
 	}
 
-	public int memberUpdate(Connection con, MemberDTO member, String id) {
+	public int memberUpdate(Connection con, MemberDTO member, String beforeEmail) {
 		// 1. 쿼리 작성
 		String query = "UPDATE member"
-				+ "		SET m_email = ?,"
-				+ "			m_phone = ?,"
-				+ "			m_birth = ?,"
+				+ "		SET m_phone = ?,"
+				+ "		    m_email = ?,"
 				+ "			m_addr = ?,"
-				+ "		WHERE m_id = ?";
+				+ "			m_birth = ?"
+				+ "		WHERE m_email = ?";
 		
 		
 		// 2. 쿼리 실행할 준비
 		try {
 			pstmt = con.prepareStatement(query);
 			// 3. 물음표있으면 채우고
-			pstmt.setString(1, member.getEmail());
-			pstmt.setString(2, member.getPhone());
-			pstmt.setString(3, member.getBirth());
-			pstmt.setString(4, member.getAddr());
-			pstmt.setString(5, member.getId());
+			pstmt.setString(1, member.getPhone());
+			pstmt.setString(2, member.getEmail());
+			pstmt.setString(3, member.getAddr());
+			pstmt.setString(4, member.getBirth());
+			pstmt.setString(5, beforeEmail);
 			
 			// 4. 쿼리 실행
 			return pstmt.executeUpdate();

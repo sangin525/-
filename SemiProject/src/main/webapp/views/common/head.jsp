@@ -6,3 +6,4 @@
  <link rel="stylesheet" href="/resources/css/common/main.css">
  <link rel="stylesheet" href="/resources/css/member/Signin.css">
   <link rel="stylesheet" href="/resources/css/member/MyPage.css">
+  <script src="/resources/js/member/member.js"></script>

@@ -63,14 +63,11 @@ public class SigninController extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("id", member.getId());
 					session.setAttribute("name", member.getName());
+					session.setAttribute("phone", member.getPhone());
 					session.setAttribute("email", member.getEmail());
 					session.setAttribute("addr", member.getAddr());
-					session.setAttribute("phone", member.getPhone());
-					session.setAttribute("mlg", member.getMlg());
 					session.setAttribute("birth", member.getBirth());
-					
-					
-					
+					session.setAttribute("mlg", member.getMlg());
 					
 					RequestDispatcher view = request.getRequestDispatcher("/");         
 					view.forward(request, response);
