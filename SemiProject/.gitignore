@@ -142,4 +142,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse,visualstudiocode
+<<<<<<< HEAD
 /build/
+=======
+/.classpath
+>>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git

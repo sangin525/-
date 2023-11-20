@@ -6,20 +6,22 @@
    <h1 class="Main_h1">초특가 여기어때</h1>
    <div class="Signin-signup">
   <c:choose>
-     	<c:when test="${sessionScope.id != null}"> 
-     		<a href="/MyPageForm.do" class="Main_a">마이페이지</a>                       
-     		<a href="/logout.do" class="Main_a">로그아웃</a>
-     	</c:when>
-     	<c:otherwise>
-     		<!-- <a href="/views/member/login.jsp">로그인</a> -->
-     		<a href="/SigninForm.do" class="Main_a">로그인</a>
-<!--      		<a href="/registerForm.do">회원가입</a> -->
-     		<a href="/form/registerForm.do" class="Main_a">회원가입</a>
-     		
-     	</c:otherwise>
+        <c:when test="${sessionScope.id != null}"> 
+           <a href="/MyPageForm.do" class="Main_a">마이페이지</a>                       
+           <a href="/logout.do" class="Main_a">로그아웃</a>
+        </c:when>
+        <c:otherwise>
+           <!-- <a href="/views/member/login.jsp">로그인</a> -->
+           <a href="/SigninForm.do" class="Main_a">로그인</a>
+<!--            <a href="/registerForm.do">회원가입</a> -->
+           <a href="/form/registerForm.do" class="Main_a">회원가입</a>
+           
+        </c:otherwise>
+>>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git
      </c:choose>
    </div>
  </header>
+
  
  
  
