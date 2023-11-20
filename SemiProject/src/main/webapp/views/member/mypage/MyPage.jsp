@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -51,31 +52,31 @@
 		<tbody>
 			<tr class="tr_info">
 				<th>성명</th>
-				<td></td>
+				<td><%=session.getAttribute("name") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>아이디</th>
-				<td>admin</td>
+				<td><%=session.getAttribute("id") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>이메일</th>
-				<td>sangin525@naver.com</td>
+				<td><%=session.getAttribute("email") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>전화번호</th>
-				<td>01076601359</td>
+				<td><%=session.getAttribute("phone") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>생년월일</th>
-				<td>1992-05-25</td>
+				<td><%=session.getAttribute("birth") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>주소</th>
-				<td>안양</td>
+				<td><%=session.getAttribute("addr") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>마일리지</th>
-				<td>0</td>
+				<td><%=session.getAttribute("mlg") %></td>
 			</tr>
 		</tbody>
 	</table>
