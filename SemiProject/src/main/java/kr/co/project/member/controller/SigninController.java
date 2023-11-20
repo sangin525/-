@@ -62,6 +62,14 @@ public class SigninController extends HttpServlet {
 				} else { // 로그인 성공
 					HttpSession session = request.getSession();
 					session.setAttribute("id", member.getId());
+					session.setAttribute("name", member.getName());
+					session.setAttribute("email", member.getEmail());
+					session.setAttribute("addr", member.getAddr());
+					session.setAttribute("phone", member.getPhone());
+					session.setAttribute("mlg", member.getMlg());
+					session.setAttribute("birth", member.getBirth());
+					
+					
 					
 					
 					RequestDispatcher view = request.getRequestDispatcher("/");         

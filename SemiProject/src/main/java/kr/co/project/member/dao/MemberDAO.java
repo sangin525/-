@@ -37,7 +37,7 @@ public class MemberDAO {
 			// 4. 쿼리실행
 			ResultSet rs = pstmt.executeQuery();
 			
-			MemberDTO memberDTO = new MemberDTO();
+			MemberDTO member = new MemberDTO();
 			
 			while(rs.next()) {
 				String resultId = rs.getString("M_ID");
@@ -53,21 +53,21 @@ public class MemberDAO {
 				String resultDeleteDate = rs.getString("M_DELETE_DATE");
 				int resultMlg = rs.getInt("M_MLG");
 						
-				memberDTO.setId(resultId);
-				memberDTO.setPwd(resultPwd);
-				memberDTO.setNo(resultNo);
-				memberDTO.setName(resultName);
-				memberDTO.setPhone(resultPhone);
-				memberDTO.setEmail(resultEmail);
-				memberDTO.setAddr(resultAddr);
-				memberDTO.setBirth(resultBirth);
-				memberDTO.setInDate(resultInDate);
-				memberDTO.setDeleteDate(resultDeleteDate);
-				memberDTO.setMlg(resultMlg);
+				member.setId(resultId);
+				member.setPwd(resultPwd);
+				member.setNo(resultNo);
+				member.setName(resultName);
+				member.setPhone(resultPhone);
+				member.setEmail(resultEmail);
+				member.setAddr(resultAddr);
+				member.setBirth(resultBirth);
+				member.setInDate(resultInDate);
+				member.setDeleteDate(resultDeleteDate);
+				member.setMlg(resultMlg);
 				
 			}
 			
-			return memberDTO;
+			return member;
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -75,6 +75,42 @@ public class MemberDAO {
 
 		
 		return null;
+	}
+
+	public int memberUpdate(Connection con, MemberDTO member, String id) {
+		// 1. 쿼리 작성
+		String query = "UPDATE member"
+				+ "		SET m_email = ?,"
+				+ "			m_phone = ?,"
+				+ "			m_birth = ?,"
+				+ "			m_addr = ?,"
+				+ "		WHERE m_id = ?";
+		
+		
+		// 2. 쿼리 실행할 준비
+		try {
+			pstmt = con.prepareStatement(query);
+			// 3. 물음표있으면 채우고
+			pstmt.setString(1, member.getEmail());
+			pstmt.setString(2, member.getPhone());
+			pstmt.setString(3, member.getBirth());
+			pstmt.setString(4, member.getAddr());
+			pstmt.setString(5, member.getId());
+			
+			// 4. 쿼리 실행
+			return pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		return 0;
 	}
 
 }

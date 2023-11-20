@@ -22,4 +22,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO memberSignin(String id, String pwd) {
 		return memberDAO.memberSignin(con, id, pwd);
 	}
+	
+	// 회원 정보 수정
+	@Override
+	public int memberUpdate(MemberDTO member, String id) {
+		return memberDAO.memberUpdate(con, member, id);
+	}
+	
 }
