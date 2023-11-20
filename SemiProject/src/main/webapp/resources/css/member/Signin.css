@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.login_form {
+  position: absolute;
+  padding: 20px;
+  width: 300px;
+  background-color: #EEEFF1;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inputBox {
+	width : 90%;
+}

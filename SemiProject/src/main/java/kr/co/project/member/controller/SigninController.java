@@ -1,0 +1,81 @@
+package kr.co.project.member.controller;
+
+import java.io.IOException;
+import java.util.Objects;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.mindrot.jbcrypt.BCrypt;
+
+import kr.co.project.member.dto.MemberDTO;
+import kr.co.project.member.service.MemberServiceImpl;
+
+
+@WebServlet("/Signin.do")
+public class SigninController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+    public SigninController() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 1. 유저가 입력한 데이터 받기
+				String id = request.getParameter("id");
+				String pwd = request.getParameter("password");
+				
+				// 2. 받은 데이터(아이디, 패스워드)가 일치하는지
+				MemberServiceImpl memberService = new MemberServiceImpl();
+				
+				// 암호화된 패스워드 조회
+				MemberDTO member = memberService.memberSignin(id, pwd);
+				
+				System.out.println(member.getId());
+				System.out.println(member.getPwd());
+				// 암호화된 패스워드 확인
+//				if(BCrypt.checkpw("사용자가 입력한 패스워드", "암호화된 패스워드")) {
+//				if(BCrypt.checkpw(pwd, member.getPwd())) {	
+//					System.out.println("성공");
+//				} else {
+//					System.out.println("실패");
+//				}
+				
+				// 3. 일치하면 세션에 저장 후 홈페이지로 보냄
+				
+				// member.getId() == NULL
+				// Objects.isNull(member.getId())
+				if(Objects.isNull(member.getId())) { // 로그인 실패
+					response.sendRedirect("/views/common/error.jsp");
+				} else { // 로그인 성공
+					HttpSession session = request.getSession();
+					session.setAttribute("id", member.getId());
+					session.setAttribute("name", member.getName());
+					session.setAttribute("phone", member.getPhone());
+					session.setAttribute("email", member.getEmail());
+					session.setAttribute("addr", member.getAddr());
+					session.setAttribute("birth", member.getBirth());
+					session.setAttribute("mlg", member.getMlg());
+					
+					RequestDispatcher view = request.getRequestDispatcher("/");         
+					view.forward(request, response);
+				}
+		
+		
+		
+		
+	}
+
+}

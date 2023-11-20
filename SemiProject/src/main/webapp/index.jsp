@@ -10,8 +10,8 @@
    <%@ include file="./views/common/head.jsp" %>
 </head>
 <body class="Main_body">
-   <%@ include file="./views/common/header.jsp" %>
-   <%@ include file="./views/common/nav.jsp" %>
+	<%@ include file="./views/common/header.jsp" %>
+	<%@ include file="./views/common/nav.jsp" %>
 
   <section class="Main_section">
     <h2>홈</h2>
