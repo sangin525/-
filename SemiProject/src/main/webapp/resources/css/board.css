@@ -1,0 +1,330 @@
+.boardBody {
+    /* common CSS */
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f4f4f4;
+
+    /* board 추가 body 내용 */
+    height: 850px;
+}
+
+.boardSection {
+    /* common 내용 */
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    /* 추가 내용 */
+    height: 60%;
+    /* 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* ----------------------------table CSS 모음 ----------------------------------*/
+table {
+    /* 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* 크기 */
+    width: 80%;
+    height: 90%;
+
+    /* box 꾸미기 */
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+
+
+}
+
+td,
+th {
+    border: 1px solid black;
+    width: 50px;
+    padding: 10px;
+}
+
+
+.th1,
+.td1 {
+    /* 게시물 번호 */
+    width: 40px;
+    font-size: 12px;
+}
+
+.th2,
+.td2 {
+    /* 제목 */
+    width: 250px;
+    font-size: 12px;
+}
+
+.th3,
+.td3 {
+    /* 작성자 */
+    font-size: 12px;
+    width: 40px;
+}
+
+.th4,
+.td4 {
+    /* 작성 날짜 */
+    font-size: 12px;
+    width: 50px;
+}
+
+/* -------------------------------- div 모음 -------------------------------- */
+.divHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boardH1 {
+    margin: 10px;
+    padding: 0;
+}
+
+.boardDiv {
+    /* boardDetail */
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.boardSpan {
+    /* boardDetail */
+    font-size: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.boardRightDiv {
+    /* 우측 정렬 */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.boardEnroll {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 300px;
+
+}
+
+/* div 정렬 */
+.divCenter {
+    display: flex;
+    justify-content: center;
+
+}
+
+.divRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.divCenter2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+}
+
+.divComments{
+    display: flex;
+    /* flex-wrap: wrap; */
+    width: 580px;
+    height: 50px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.divCenter3{
+    width: 560px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divCenter4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.font14 {
+    font-size: 14px;
+    margin: 5px;
+}
+
+
+
+/* ----------------------------BTN 모음 ----------------------------------- */
+.boardBtn {
+    background-color: #002ead;
+    color: white;
+    border: none;
+
+    padding: 4px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.modifyBtn {
+    font-size: 10px;
+    background-color: #002ead;
+    color: white;
+    border: none;
+
+    width: 50px;
+    height: 30px;
+
+    padding: 4px;
+    border-radius: 5px;
+    margin-right: 110px;
+}
+
+.attachmentBtn{
+    font-size: 10px;
+    background-color: #002ead;
+    color: white;
+    border: none;
+
+    width: 70px;
+    height: 30px;
+
+    padding: 4px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.Btn2{
+    /* 댓글 작성 버튼 */
+    font-size: 10px;
+    background-color: #002ead;
+    color: white;
+    border: none;
+
+    width: 15%;
+    height: 41px;
+    margin-top: 5px;
+    margin-left: 5px;
+
+
+}
+
+/* ---------------------input 모음 ---------------------------- */
+.titleText {
+    width: 70%;
+    height: 10%;
+    resize: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 15px;
+    border: 2px solid #A1A1A1;
+}
+
+.contentText {
+    width: 70%;
+    margin-top: 20px;
+    height: 70%;
+    padding: 10px;
+    resize: none;
+
+    border-radius: 15px;
+    border: 2px solid #A1A1A1;
+
+}
+
+/* 댓글 모음 */
+.contentText2 {
+    /* 댓글 */
+    margin-top: 5px;
+    width: 100%;
+    height: 20px;
+    padding: 10px;
+
+    resize: none;
+    font-size: 12px;
+    border-radius: 15px;
+    border: 2px solid #A1A1A1;
+
+}
+
+.contentText3 {
+    /* 댓글 작성 란 */
+    margin-top: 5px;
+    width: 100%;
+    height: 20px;
+    padding: 10px;
+
+    resize: none;
+    font-size: 12px;
+    border-radius: 15px;
+    border: 2px solid #A1A1A1;
+}
+
+.TextArea{
+    /* 파일 첨부 정보란 */
+    resize: none;
+    font-size: 12px;
+
+    width: 100px;
+    height: 25px;
+    margin-right: 325px;
+    
+}
+
+
+
+/* Section 우측 상단 정보란 */
+.boardText {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* ---------------------------------------- 게시판 및 공지사항 버튼 CSS ------------------------------- */
+.pagination {
+    /* ul */
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.paginationLi {
+    /* li */
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    margin: 5px;
+}
