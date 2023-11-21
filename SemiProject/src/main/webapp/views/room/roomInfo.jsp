@@ -8,22 +8,19 @@
 <title>Insert title here</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
- <style src="/resources/css/room.css"></style>
+<link href="/resources/css/room/room.css" rel="stylesheet" type="text/css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<%@ include file="../common/head.jsp" %>
 </head>
 <body>
- <script src="/resources/js/room.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+ <script src="/resources/js/room/room.js"></script>
 	<%@ include file="../common/header.jsp" %>
 	<%@ include file="../common/nav.jsp" %>
   <section class="Main_section">
 <!--     <h1>객실정보</h1> -->
-	${roomDetail.roomName}
-        	${roomDetail.roomInfo}
-        	${roomDetail.roomGrade}
-        	${roomDetail.roomNotice}
+  	<c:set var="DetailCount" value="0"></c:set>
   <c:forEach var="item" items="${room}">
   	<c:set var="count" value="${count+1}"></c:set>
 		  		<h2><strong>초특가여기어때 ${item.roomGrade}</strong></h2>
@@ -87,12 +84,37 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-<%--         	${roomDetail.roomName} --%>
-<%--         	${roomDetail.roomInfo} --%>
-<%--         	${roomDetail.roomGrade} --%>
-<%--         	${roomDetail.roomNotice} --%>
+      <c:if test="${count == 1}"> 
+	      <c:forEach begin="${DetailCount}" end="${DetailCount +2}">
+			    <div class="roomDetailBox">
+					<h4><strong>객실등급 :${roomDetail.get(DetailCount).roomGrade}</strong></h4> 
+					<strong>객실이름 :${roomDetail.get(DetailCount).roomName}</strong><br>
+					<p class="roomDetailP">${roomDetail.get(DetailCount).roomInfo}</p> <br>
+					<ul class="roomDetailNotice">
+						<li>${roomDetail.get(DetailCount).roomNotice}</li>
+						<li>${roomDetail.get(DetailCount).roomNotice1}</li>
+						<li>${roomDetail.get(DetailCount).roomNotice2}</li>
+						<li>${roomDetail.get(DetailCount).roomNotice3}</li>
+					</ul>
+					
+					<p class="roomDetailChk">
+					 <input type="checkbox" id="Detailcheckbox${DetailCount}"
+					 value="${roomDetail.get(DetailCount).roomName}"
+					 onclick="getCheckboxValue(event)">
+					  
+					  <label for="Detailcheckbox${DetailCount}" >선택하기</label>
+					 </p>
+			    </div> 
+	      	<c:set var="DetailCount" value="${DetailCount +1 }"></c:set>
+	      </c:forEach>
+      </c:if>
       </div>
       <div class="modal-footer">
+	    <input type="text" placeholder="객실이름" class="R_room_small" id="R_name" disabled>
+		<input type="date" required  class="R_room" id="start_date" onclick="dateSum()">
+		 <input type="date" required class="R_room" id="end_date" onclick="dateSum()">
+		 <input type="number" placeholder="숙박일" class="R_room_small" id="date_sum"  disabled>
+		<input type="number" required placeholder="인원수" min="1" max="4" class="R_room_small">
         <button type="button" class="btn btn-primary">예약하기</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>

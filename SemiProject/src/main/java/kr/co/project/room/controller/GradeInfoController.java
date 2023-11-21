@@ -27,7 +27,6 @@ public class GradeInfoController extends HttpServlet {
 		ArrayList<RoomDTO> room = roomService.gradeInfo();
 		ArrayList<RoomDTO> roomDetail = roomService.roomDetail();
 		
-		System.out.println(roomDetail);
 		
 		request.setAttribute("room", room);
 		request.setAttribute("roomDetail", roomDetail);

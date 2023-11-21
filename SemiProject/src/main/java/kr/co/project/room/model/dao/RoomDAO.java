@@ -37,8 +37,6 @@ public class RoomDAO {
 				ro.setPhotoPath1(rs.getString("ROOM_PHOTO_2"));
 				ro.setPhotoPath2(rs.getString("ROOM_PHOTO_3"));
 				
-				System.out.println("asdasd");
-				
 				room.add(ro);
 			}
 		} catch (SQLException e) {
@@ -64,13 +62,12 @@ public class RoomDAO {
 				
 				room.setRoomNo(rs.getInt("ROOM_NO"));
 				room.setRoomGrade(rs.getString("ROOM_GRADE"));
-				room.setRoomName((String)rs.getString("ROOM_NAME"));
+				room.setRoomName(rs.getString("ROOM_NAME"));
 				room.setRoomInfo(rs.getString("ROOM_INFO"));
 				room.setRoomNotice(rs.getString("R_NOTICE_1"));
 				room.setRoomNotice1(rs.getString("R_NOTICE_2"));
 				room.setRoomNotice2(rs.getString("R_NOTICE_3"));
 				room.setRoomNotice3(rs.getString("R_NOTICE_4"));
-				
 				roomDetail.add(room);
 				
 			}
