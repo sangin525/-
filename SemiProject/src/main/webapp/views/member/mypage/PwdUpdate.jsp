@@ -13,21 +13,21 @@
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 
-
-<div class="container">
+<div class="main-container">
+	<div class="container-center">
 	<%@ include file="../../common/sidebar.jsp"%>
 	
 	<div class="contents">
-	<div >
+	<div class="table-title">
 		<h4>비밀번호 변경</h4>
 	</div>
 	<form action="PasswordUpdate.do" method="POST">
-	<table class="tableTypeA tableJoinForm tableUserInfo2">
+	<table class="mypage-table">
 		<colgroup>
 			<col width="13%" class="col1">
 			<col class="col2">
 		</colgroup>
-		<tbody>
+		<tbody class = "mypage-tbody">
 			<tr class="tr_info">
 				<th>현재 비밀번호</th>
 				<td><input type = "password" id = "password" name = "password"></td>
@@ -47,6 +47,7 @@
 		<button type="button" onclick="back()">취소</button>
 	</div>
 	</form>
+	</div>
 	</div>
 </div>
 	
