@@ -5,7 +5,7 @@
 	
 }
 
-.contents {
+ .contents {
     float: right;
     width: 866px;
     padding: 0;
@@ -29,29 +29,33 @@
 	float : left;
 }
 
+<<<<<<< HEAD
+/* ul, ol, li, dl, dt, dd {
+=======
 .mypage_tbody ul, ol, li, dl, dt, dd {
+>>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git
     list-style: none;
     margin: 0;
     padding: 0;
-}
+} */
 
-li {
+/* li {
     display: list-item;
     text-align: -webkit-match-parent;
-}
+} */
 
-body, div, p, textarea {
+/* body, div, p, textarea {
     margin: 0;
     padding: 0;
     font-size: 12px;
     color: #101010;
-}
-body, html {
+} */
+/* body, html {
     font-size: 12px;
     font-family: Dotum,'돋움',sans-serif,Arial, Helvetica;
-}
+} */
 
-ul {
+/* ul {
     display: block;
     list-style-type: disc;
     margin-block-start: 1em;
@@ -59,7 +63,7 @@ ul {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
-}
+} */
 
 
 .MyPageTitle li {
@@ -76,9 +80,9 @@ tbody {
     border-color: inherit;
 }
 
-col {
+/* col {
     display: table-column;
-}
+} */
 
 .tableTypeA {
     margin: 20px 0px 0px 0px;
@@ -89,7 +93,7 @@ col {
     table-layout: fixed;
 }
 
-table {
+/* table {
     display: table;
     border-collapse: separate;
     box-sizing: border-box;
@@ -105,7 +109,7 @@ th, td {
 
 th {
 	background-color : #cac0a6;
-}
+} */
 
 .UpdateBtn {
 	width : 100px;
