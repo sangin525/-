@@ -11,11 +11,11 @@ import javax.servlet.http.HttpSession;
 
 import kr.co.project.board.service.BoardServiceImpl;
 
-@WebServlet("/boardEnroll.do")
-public class BoardEnrollController extends HttpServlet {
+@WebServlet("/noticeEnroll.do")
+public class NoticeEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BoardEnrollController() {
+    public NoticeEnrollController() {
         super();
     }
 
@@ -24,28 +24,23 @@ public class BoardEnrollController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
 		HttpSession session = request.getSession();
-		
 		int memberNo = (Integer)session.getAttribute("M_NO");
-
-		System.out.println(title);
-		System.out.println(content);
-		System.out.println(memberNo);
-		
-		
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		
-		int result = boardService.boardEnroll(title, content, memberNo);
-		System.out.println(result);
+		int result = boardService.noticeEnroll(title, content, memberNo);
+		
 		if(result > 0) {
-			response.sendRedirect("/views/board/boardList.jsp");
+			response.sendRedirect("/views/board/noticeList.jsp");
 		}else {
-			response.sendRedirect("/views/common/error.jsp");
+			response.sendRedirect("/views/common/error.jsp");			
 		}
+		
 		
 	}
 

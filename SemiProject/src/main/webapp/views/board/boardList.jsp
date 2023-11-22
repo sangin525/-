@@ -15,7 +15,7 @@
 	<section class="boardSection">
 		<div class="divHead">
 			<h1 class="boardH1">문의 사항</h1>
-			<button class="boardBtn" href ="boardEnroll.jsp">글쓰기</button>
+			<button class="boardBtn" onClick="location.href= 'boardEnroll.jsp'">글쓰기</button>
 		</div>
 
 		<table>
@@ -43,6 +43,9 @@
 	</section>
 	<a href="./boardEnroll.jsp">boardEnroll</a>
 	<a href="./boardDetail.jsp">boardDetail.jsp</a>
+	<form action="/sessionTest.do" method="POST">
+		<button type="submit">Session Test</button>
+	</form>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

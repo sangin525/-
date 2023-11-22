@@ -18,12 +18,12 @@
 		<div class="divCenter">
 			<h1>문의 사항</h1>
 		</div>
-		<form action ="boardEnroll.do" method ="POST">
+		<form action ="/boardEnroll.do" method ="POST">
 			<div class="boardEnroll">
 				<div class="divCenter2">
-					<textarea name="" id="title" cols="30" rows="10" class="titleText"
+					<textarea name="title" id="title" cols="30" rows="10" class="titleText"
 						placeholder="제목을 입력해주세요"></textarea>
-					<textarea name="" id="content" cols="30" rows="10" class="contentText"
+					<textarea name="content" id="content" cols="30" rows="10" class="contentText"
 						placeholder="내용을 입력해주세요"></textarea>
 				</div>
 			</div>

@@ -8,14 +8,14 @@
 
 <title>Notice List</title>
 </head>
-<body class ="Main_body">
+<body class="Main_body">
 	<%@ include file="/views/common/header.jsp"%>
 	<%@ include file="/views/common/nav.jsp"%>
 
 	<section class="boardSection">
 		<div class="divHead">
 			<h1 class="boardH1">공지 사항</h1>
-			<button class="boardBtn">글쓰기</button>
+			<button class="boardBtn" onClick="location.href= 'noticeEnroll.jsp'">글쓰기</button>
 		</div>
 
 		<table>
@@ -43,6 +43,9 @@
 	</section>
 	<a href="./noticeEnroll.jsp">noticeEnroll</a>
 	<a href="./noticeDetail.jsp">noticeDetail</a>
+	<form action="/sessionTest.do" method="POST">
+		<button type="submit">Session Test</button>
+	</form>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
