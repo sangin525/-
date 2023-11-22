@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.project.member.dto.MemberDTO;
 import kr.co.project.member.service.MemberServiceImpl;
@@ -39,12 +40,15 @@ public class PasswordUpdateController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		//1. 값 가져오기( 현재 비밀번호, 새 비밀번호)
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
 		String pwd = request.getParameter("password");
 		String newPwd = request.getParameter("newPassword");
 		String pwdChk = request.getParameter("passwordChk");
 		
+		
 		//DTO 객체 생성
-		MemberDTO member = new MemberDTO(pwd, newPwd);
+		MemberDTO member = new MemberDTO(id, pwd, newPwd);
 		
 		
 		// 패스워드 유효성 검사
@@ -59,12 +63,20 @@ public class PasswordUpdateController extends HttpServlet {
 					// 서비스 객체 생성
 					MemberServiceImpl memberService = new MemberServiceImpl();
 					int result = memberService.pwdUpdate(member);
+					System.out.println(result);
 					if (result == 0) {
+						System.out.println(result);
+
 						PwdUpdateAlert(response, "비밀번호 수정에 실패했습니다.");
+						System.out.println(result);
+
 					} else {
-						
-						RequestDispatcher view = request.getRequestDispatcher("/MyPageForm.do");
-						
+						System.out.println(result);
+
+						RequestDispatcher view = request.getRequestDispatcher("/views/member/mypage/MyPage.jsp");
+						view.forward(request, response);
+						System.out.println(result);
+
 					}
 				} else if (!passwordMatcher.matches()) {
 					 PwdUpdateAlert(response, "비밀번호가 정책에 맞지 않습니다.");

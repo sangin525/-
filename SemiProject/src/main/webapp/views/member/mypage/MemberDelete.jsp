@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <%@ include file="../../common/head.jsp"%>
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
-
+<script src="/resources/js/member/member.js"></script>
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>
@@ -18,7 +18,7 @@
 	
 	<div class="contents">
 	<div >
-		<h4>회원탈퇴 요청</h4>
+		<h4>회원탈퇴 요청1</h4>
 	</div>
 	<form action="MemberDelete.do" method="POST">
 	<table class="tableTypeA tableJoinForm tableUserInfo2">

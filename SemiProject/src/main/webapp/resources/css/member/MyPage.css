@@ -29,7 +29,7 @@
 	float : left;
 }
 
-ul, ol, li, dl, dt, dd {
+.mypage_tbody ul, ol, li, dl, dt, dd {
     list-style: none;
     margin: 0;
     padding: 0;

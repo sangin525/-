@@ -16,6 +16,15 @@ public class MemberDTO {
 	
 	
 
+	public MemberDTO(String id, String pwd, String newPwd) {
+		super();
+		this.id = id;
+		this.pwd = pwd;
+		this.newPwd = newPwd;
+	}
+
+
+
 	public MemberDTO(String pwd) {
 		super();
 		this.pwd = pwd;
