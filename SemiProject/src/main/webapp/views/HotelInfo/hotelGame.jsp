@@ -19,12 +19,12 @@
       
 	<%@ include file="../common/nav2.jsp" %>
 	
-        <h3 class="secondtit">서울호텔</h3>
+        <h3 class="secondtit">호텔서비스</h3>
         <hr>
         <div class="sname">
-          <h4><a href="HotelPool.html">수영장</a></h4>
-          <h4><a href="Hotelspa.html">사우나</a></h4>
-          <h4><a href="HotelGame.html">오락실</a></h4>
+          <h4><a href="/hotel/HotelPool.do">수영장</a></h4>
+          <h4><a href="/hotel/HotelSpa.do">사우나</a></h4>
+          <h4><a href="/hotel/HotelGame.do">오락실</a></h4>
         </div>
         <br>
         <div class="pic">

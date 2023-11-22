@@ -5,7 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <%@ include file="../../common/head.jsp"%>
+<link rel="stylesheet" href="/resources/css/member/MyPage.css">
+<script src="/resources/js/member/member.js"></script>
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>
@@ -13,33 +16,8 @@
 
 
 <div class="container">
-	<div class = MyPageTitle_area>
-	<div class="MyPageTitle" >
-		<h2 class="tit">마이페이지</h2>
-		<ul class="menu">
-			<li class="m1">
-				<a href="/MyPageForm.do"  class="Main_a">
-					<span>내정보</span>
-				</a>
-			</li>
-			<li class="m2" >
-				<a href="#"  class="Main_a">
-					<span>예약 확인</span>
-				</a>
-			</li>
-			<li class="m3">
-				<a href="#"  class="Main_a">
-					<span>문의 내역</span>
-				</a>
-			</li>
-			<li class="m4">
-				<a href="#"  class="Main_a">
-					<span>탈퇴 요청</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-	</div>
+	<%@ include file="../../common/sidebar.jsp"%>
+	
 	<div class="contents">
 	<div >
 		<h4>내 정보</h4>
@@ -49,7 +27,7 @@
 			<col width="13%" class="col1">
 			<col class="col2">
 		</colgroup>
-		<tbody>
+		<tbody class = "mypage_tbody">
 			<tr class="tr_info">
 				<th>성명</th>
 				<td><%=session.getAttribute("name") %></td>

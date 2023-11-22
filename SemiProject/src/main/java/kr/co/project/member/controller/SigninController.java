@@ -1,6 +1,7 @@
 package kr.co.project.member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
@@ -32,7 +33,8 @@ public class SigninController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
 		// 1. 유저가 입력한 데이터 받기
 				String id = request.getParameter("id");
 				String pwd = request.getParameter("password");
@@ -43,8 +45,7 @@ public class SigninController extends HttpServlet {
 				// 암호화된 패스워드 조회
 				MemberDTO member = memberService.memberSignin(id, pwd);
 				
-				System.out.println(member.getId());
-				System.out.println(member.getPwd());
+
 				// 암호화된 패스워드 확인
 //				if(BCrypt.checkpw("사용자가 입력한 패스워드", "암호화된 패스워드")) {
 //				if(BCrypt.checkpw(pwd, member.getPwd())) {	
@@ -57,10 +58,11 @@ public class SigninController extends HttpServlet {
 				
 				// member.getId() == NULL
 				// Objects.isNull(member.getId())
-				if(Objects.isNull(member.getId())) { // 로그인 실패
-					response.sendRedirect("/views/common/error.jsp");
+				if(Objects.isNull(member.getId()) || !Objects.isNull(member.getDeleteDate())) { // 로그인 실패
+					SigninAlert(response, "아이디 또는 비밀번호를 확인해 주세요.");
 				} else { // 로그인 성공
 					HttpSession session = request.getSession();
+					session.setAttribute("no", member.getNo());
 					session.setAttribute("id", member.getId());
 					session.setAttribute("name", member.getName());
 					session.setAttribute("phone", member.getPhone());
@@ -77,5 +79,11 @@ public class SigninController extends HttpServlet {
 		
 		
 	}
-
+	private void SigninAlert(HttpServletResponse response, String msg) throws IOException {
+		PrintWriter out = response.getWriter();
+		out.println("<script>" + "		location.href='/';" + "		alert('" + msg + "');"
+				+ "	</script>");
+		out.flush();
+		out.close();
+	}
 }

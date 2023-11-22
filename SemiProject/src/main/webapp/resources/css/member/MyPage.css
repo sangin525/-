@@ -29,7 +29,11 @@
 	float : left;
 }
 
+<<<<<<< HEAD
 /* ul, ol, li, dl, dt, dd {
+=======
+.mypage_tbody ul, ol, li, dl, dt, dd {
+>>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git
     list-style: none;
     margin: 0;
     padding: 0;
