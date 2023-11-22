@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <%@ include file="../../common/head.jsp"%>
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 <script src="/resources/js/member/member.js"></script>
@@ -20,47 +19,34 @@
 	
 	<div class="contents">
 	<div >
-		<h4>내 정보</h4>
+		<h4>비밀번호 변경</h4>
 	</div>
+	<form action="PasswordUpdate.do" method="POST">
 	<table class="tableTypeA tableJoinForm tableUserInfo2">
 		<colgroup>
 			<col width="13%" class="col1">
 			<col class="col2">
 		</colgroup>
-		<tbody class = "mypage_tbody">
+		<tbody>
 			<tr class="tr_info">
-				<th>성명</th>
-				<td><%=session.getAttribute("name") %></td>
+				<th>현재 비밀번호</th>
+				<td><input type = "password" id = "password" name = "password"></td>
 			</tr>
 			<tr class="tr_info">
-				<th>아이디</th>
-				<td><%=session.getAttribute("id") %></td>
+				<th>새 비밀번호 </th>
+				<td><input type = "password" id = "newPassword" name = "newPassword" onkeyup="validatePassword()"><span id="PwdMsg"></span></td>
 			</tr>
 			<tr class="tr_info">
-				<th>이메일</th>
-				<td><%=session.getAttribute("email") %></td>
-			</tr>
-			<tr class="tr_info">
-				<th>전화번호</th>
-				<td><%=session.getAttribute("phone") %></td>
-			</tr>
-			<tr class="tr_info">
-				<th>생년월일</th>
-				<td><%=session.getAttribute("birth") %></td>
-			</tr>
-			<tr class="tr_info">
-				<th>주소</th>
-				<td><%=session.getAttribute("addr") %></td>
-			</tr>
-			<tr class="tr_info">
-				<th>마일리지</th>
-				<td><%=session.getAttribute("mlg") %></td>
+				<th>새 비밀번호 확인</th>
+				<td><input type = "password" id = "passwordChk" name = "passwordChk" onkeyup="validatePassword()"><span id="PwdChkMsg"></span></td>
 			</tr>
 		</tbody>
 	</table>
-	<div class="UpdateBtn">
-		<a href="/MemberUpdateForm.do"  class="Main_a"><span>정보 수정</span></a>
+	<div class="BtnForm">
+		<button type="submit">비밀번호 변경</button>
+		<button type="button" onclick="back()">취소</button>
 	</div>
+	</form>
 	</div>
 </div>
 	

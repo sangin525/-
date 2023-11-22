@@ -14,6 +14,7 @@ SemiProject/.settings/
 .settings/
 .classpath/
 SemiProject/.classpath
+SemiProject/src/main/java/kr/co/project/common/DatabaseConnection.java
 .loadpath
 .recommenders
 bulid/
