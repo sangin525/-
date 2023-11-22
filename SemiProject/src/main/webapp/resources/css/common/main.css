@@ -44,6 +44,7 @@
 	display: flex;
 	justify-content: space-evenly;
 }
+
 /* A태그 스타일링 */
 .Main_a {
 	color: rgb(210, 98, 98);

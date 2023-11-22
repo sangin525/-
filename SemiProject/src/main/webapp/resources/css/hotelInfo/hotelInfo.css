@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+/* 개요 */
+
+.contain {
+  position: relative;
+}
+.contain .container{
+  width: 1200px;
+    margin: auto;
+    margin: 0 auto 100px auto;
+}
+
+/* 사이드바 시작 */
+.sidebar{
+  padding: 10px;
+  margin: 10px;
+  width: 180px;
+  background-color: #f1e3c4;
+  height: 180px;
+  float: left;
+  padding-bottom: 10%;
+}
+
+.sidebartit{
+text-align: center;
+color: darkgray;
+}
+
+.menu li{
+  list-style: none;
+  padding: 10px;
+}
+.menu li a {
+  color: rgb(210, 98, 98);
+  display: inline-block;
+  text-decoration: none;
+
+
+}
+.menu li a:hover {
+  text-decoration: underline;
+}
+
+/* 화면 전체 묶기 */
+.contain {
+  position: relative;
+  bottom: 80px;
+}
+.contain .container{
+  width: 1200px;
+    margin: auto;
+    margin: 0 auto 100px auto;
+}
+
+/* 가운데 화면 */
+.contentss{
+  float: right;
+  padding: 0px;
+}
+.content-box {
+  background-color: #f5f5f5; 
+  padding: 20px; 
+  border: 1px solid #ddd;
+  margin-left: 18%;
+}
+
+.pic img {
+  max-width: 100%; 
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-left: 277px;
+  margin-right: 57px;
+}
+
+.secondtit {
+  color: #333; 
+  font-size: 30px; 
+}
+
+
+
+/* 서울호텔 식당 */
+.container-table {
+  max-width: 100%;
+  background-color: #f5f5f5; 
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  margin-left: 18%;
+}
+
+.tableclass {
+  width: 100%;
+  border-collapse: collapse; 
+  margin-top: 20px;
+}
+
+.tableclass th, .tableclass td {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: center;
+}
+
+.rIntro {
+  color: #333;
+  text-align: center; 
+  margin-bottom: 20px;
+}
+
+
+/* 호텔 서비스 */
+
+.sname {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ddd; 
+}
+
+.sname h4 {
+  margin: 0;
+}
+
+.sname a {
+  text-decoration: none;
+  color: #333;
+}
+
+.sname a:hover {
+  text-decoration: underline;
+}
