@@ -110,12 +110,13 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
       </c:if>
       </div>
       <div class="modal-footer">
-	    <input type="text" placeholder="객실이름" class="R_room_small" id="R_name" disabled>
-		<input type="date" required  class="R_room" id="start_date" onclick="dateSum()">
-		 <input type="date" required class="R_room" id="end_date" onclick="dateSum()">
-		 <input type="number" placeholder="숙박일" class="R_room_small" id="date_sum"  disabled>
-		<input type="number" required placeholder="인원수" min="1" max="4" class="R_room_small">
-        <button type="button" class="btn btn-primary">예약하기</button>
+	    <input type="text" placeholder="객실이름" class="R_room_small" name="R_name" id="R_name" disabled>
+		<input type="date" required  class="R_room" name="start_date" id="start_date" onclick="dateSum()">
+		 <input type="date" required class="R_room" name="end_date" id="end_date" onclick="dateSum()">
+		 <input type="number" placeholder="숙박일" name="date_sum" class="R_room_small" id="date_sum"  disabled>
+		<input type="number" required placeholder="인원수" min="1" max="4" name="R_person_count" id="R_person_count" class="R_room_small">
+        <button type="button" class="btn btn-primary" 
+        onclick="reserveRoom()">예약하기</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>

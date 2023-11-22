@@ -25,6 +25,12 @@ public class RoomDTO {
 	private String roomNotice2;
 	private String roomNotice3;
 	
+	//예약정보
+	private int RNo;
+	private int RPersonCount;
+	private String RChkIn;
+	private String RChkOut;
+	private int RCount;
 	
 	public int getRoomNo() {
 		return roomNo;
@@ -127,6 +133,36 @@ public class RoomDTO {
 	}
 	public void setRoomNotice3(String roomNotice3) {
 		this.roomNotice3 = roomNotice3;
+	}
+	public int getRNo() {
+		return RNo;
+	}
+	public void setRNo(int rNo) {
+		RNo = rNo;
+	}
+	public int getRPersonCount() {
+		return RPersonCount;
+	}
+	public void setRPersonCount(int rPersonCount) {
+		RPersonCount = rPersonCount;
+	}
+	public String getRChkIn() {
+		return RChkIn;
+	}
+	public void setRChkIn(String rChkIn) {
+		RChkIn = rChkIn;
+	}
+	public String getRChkOut() {
+		return RChkOut;
+	}
+	public void setRChkOut(String rChkOut) {
+		RChkOut = rChkOut;
+	}
+	public int getRCount() {
+		return RCount;
+	}
+	public void setRCount(int rCount) {
+		RCount = rCount;
 	}
 	
 	
