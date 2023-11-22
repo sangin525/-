@@ -1,128 +1,91 @@
 @charset "UTF-8";
+body{
+    margin: 0px;
+}
+
+.main-container{
+	width:100%;
+	height:100%;
+}
+
+.container-center{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.warpper{
+    float: left;
+}
 
 .container {
-	width: 1200px;
+	width: 100%;
 	
 }
 
- .contents {
-    float: right;
+.contents {
     width: 866px;
+    margin-left: 280px;
     padding: 0;
     background: #FFF;
     min-height: 440px;
 }
 
-.div {
-	display:block;
+.mypage-table{
+    width: 100%;
 }
 
-.MyPageTitle {
-	width: 216px;
-    border: #e9dab8 solid 1px;
-    background: #f1e3c4;
-    padding: 23px;
-    margin: 0 0 30px 0;
+.table-title {
+    font-size: 24px;
+    border-bottom: 3px solid #d04e4eff;
 }
 
-.MyPageTitle_area {
-	float : left;
+.mypage-thead td{
+    display: table-cell;
+    font-weight: bold;
+    color: #666;
+    background: #faf9f4;
+    border-right: #eceae1 solid 1px;
+    border-bottom: #eceae1 solid 1px;
 }
 
-<<<<<<< HEAD
-/* ul, ol, li, dl, dt, dd {
-=======
-.mypage_tbody ul, ol, li, dl, dt, dd {
->>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git
-    list-style: none;
-    margin: 0;
-    padding: 0;
-} */
+.mypage-tbody td{
+    display: table-cell;
+    font-weight: bold;
+    color: #666;
+    border-right: #eceae1 solid 1px;
+    border-bottom: #eceae1 solid 1px;
 
-/* li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-} */
-
-/* body, div, p, textarea {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    color: #101010;
-} */
-/* body, html {
-    font-size: 12px;
-    font-family: Dotum,'돋움',sans-serif,Arial, Helvetica;
-} */
-
-/* ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-} */
-
-
-.MyPageTitle li {
-    margin: 0 0 26px 0;
 }
 
-.MyPageTitle_area .MyPageTitle .menu li.m2 a {
-    background-position: 0px -21px;
-}
-
-tbody {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
-
-/* col {
-    display: table-column;
-} */
-
-.tableTypeA {
-    margin: 20px 0px 0px 0px;
+.tr_info th, .tr_info td{
     border: none;
-    border-top: #cdcbbe solid 1px;
-    width: 70%;
-    border-collapse: collapse;
-    table-layout: fixed;
+    padding: 6px 13px;
+    text-align: left;
+    line-height: 22px;
+    border-bottom: #eceae1 solid 1px;
 }
 
-/* table {
-    display: table;
-    border-collapse: separate;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 2px;
-    border-color: gray;
+.tr_info th {
+	display: table-cell;
+    font-weight: bold;
+    color: #666;
+    background: #faf9f4;
 }
 
-th, td {
-	padding : 6px;
-	border-bottom: #eceae1 solid 1px;
+.memberUpdate-btn{
+    text-align: center;
+    width: 100px;
+    background: rgb(173, 123, 123);
+    border-radius: 5px;
 }
 
-th {
-	background-color : #cac0a6;
-} */
-
-.UpdateBtn {
-	width : 100px;
-	height : 20px;
-	background-color : #302408;
+.MyPage-btn{
+    display: inline;
+    color: #666;
+    text-align: center;
+    text-decoration: none;
 }
 
-.CancelBtn {
-	width : 100px;
-	height : 20px;
-	background-color : #e6e1d5;
-}
-
-.BtnForm {
-	display : flex;
+a :hover{
+    text-decoration: none;
 }

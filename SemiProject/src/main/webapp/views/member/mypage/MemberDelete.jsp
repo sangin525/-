@@ -12,21 +12,22 @@
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 	
-<div class="container">
+<div class="main-container">
+	<div class="container-center">
 	<%@ include file="../../common/sidebar.jsp"%>
 	
 	
 	<div class="contents">
-	<div >
+	<div class="table-title">
 		<h4>회원탈퇴 요청1</h4>
 	</div>
 	<form action="MemberDelete.do" method="POST">
-	<table class="tableTypeA tableJoinForm tableUserInfo2">
+	<table class="mypage-table">
 		<colgroup>
 			<col width="13%" class="col1">
 			<col class="col2">
 		</colgroup>
-		<tbody>
+		<tbody class = "mypage-tbody">
 			<tr class="tr_info">
 				<th>아이디</th>
 				<td><input type="text" id="id" name="name" value="${sessionScope.id}" disabled></td>
@@ -46,6 +47,7 @@
 	</div>
 	</div>
 	</form>
+	</div>
 	</div>
 </div>
 	
