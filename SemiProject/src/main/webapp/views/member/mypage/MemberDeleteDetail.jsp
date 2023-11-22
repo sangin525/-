@@ -12,7 +12,8 @@
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 	
-<div class="container">
+<div class="main-container">
+	<div class="container-center">
 <%@ include file="../../common/sidebar.jsp"%>
 
 	<div class="contents">
@@ -37,6 +38,7 @@
 	</div>
 	</div>
 	</form>
+	</div>
 	</div>
 </div>
 	
