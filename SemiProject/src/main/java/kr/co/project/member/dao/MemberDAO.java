@@ -113,4 +113,81 @@ public class MemberDAO {
 		return 0;
 	}
 
+	public int pwdUpdate(Connection con, MemberDTO member) {
+		// 쿼리작성
+		String query = "UPDATE member"
+				+ "		SET m_pwd = ?"
+				+ "		WHERE m_pwd = ?";
+		// 쿼리 실행할 준비
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			// 물음표 채우고
+			pstmt.setString(1, member.getNewPwd());
+			pstmt.setString(2, member.getPwd());
+			// 실행
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		return 0;
+	}
+
+	public MemberDTO selectPwd(Connection con, String pwd) {
+		
+		// 쿼리작성
+		String query = "SELECT m_pwd"
+				+ "		FROM member"
+				+ "		WHERE m_pwd = ?";
+		// 쿼리 실행준비
+			try {
+				pstmt = con.prepareStatement(query);
+				// 물음표 채우기
+				pstmt.setString(1, pwd);
+				// 실행
+				ResultSet rs = pstmt.executeQuery();
+				
+				MemberDTO member = new MemberDTO();
+				
+				while(rs.next()) {
+					String resultPwd = rs.getString("M_PWD");
+					
+					member.setPwd(resultPwd);
+				}
+				return member;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return null;
+	}
+
+	public int memberDelete(Connection con, String id) {
+		
+		// 쿼리실행
+		String query = "UPDATE member"
+				+ "		SET M_DELETE_DATE = sysdate"
+				+ "		WHERE M_ID = ?";
+		// 실행준비
+		try {
+			pstmt = con.prepareStatement(query);
+			//물을표 채우기
+			pstmt.setString(1, id);
+			// 실행
+			return pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return 0;
+	}
+
 }

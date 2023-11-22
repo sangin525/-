@@ -22,7 +22,8 @@
 				<label for="password">비밀번호 : </label> <br>
 				<input class="inputBox" type="password" id="password" name="password" required>
 				<br><br>
-					<button type="submit">로그인</button>
+				<button class="btn btn-primary" type="submit">로그인</button>
+					<!--  <button type="submit">로그인</button>-->
 				</div>
 			</form>
 

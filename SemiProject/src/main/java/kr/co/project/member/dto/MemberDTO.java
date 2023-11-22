@@ -12,7 +12,36 @@ public class MemberDTO {
 	private String inDate;
 	private String deleteDate;
 	private int mlg;
+	private String newPwd;
 	
+	
+
+	public MemberDTO(String pwd) {
+		super();
+		this.pwd = pwd;
+	}
+
+
+
+	public MemberDTO(String pwd, String newPwd) {
+		super();
+		this.pwd = pwd;
+		this.newPwd = newPwd;
+	}
+
+
+
+	public String getNewPwd() {
+		return newPwd;
+	}
+
+
+
+	public void setNewPwd(String newPwd) {
+		this.newPwd = newPwd;
+	}
+
+
 
 	public MemberDTO() {
 		super();
