@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.price_info {
+	display: inline-block; 
+}
+
+.roomDetailBox{
+	border: 1px solid black;
+	background-color: bisque;
+	display:inline-block
+}
+
+.roomDetailNotice{
+	font-size: smaller;
+}
+
+.roomDetailChk{
+	text-align: center;
+}
+
+.roomDetailP{
+	margin-bottom: 0px;
+}
+.R_room{
+	width: 110px;
+}
+.R_room_small{
+	width: 70px;
+}
