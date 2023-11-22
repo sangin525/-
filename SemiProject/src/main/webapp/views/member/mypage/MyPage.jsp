@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <%@ include file="../../common/head.jsp"%>
+<link rel="stylesheet" href="/resources/css/member/MyPage.css">
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>

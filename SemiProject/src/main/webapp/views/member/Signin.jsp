@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 
 <%@ include file="../common/head.jsp"%>
+<link rel="stylesheet" href="/resources/css/member/Signin.css">
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
