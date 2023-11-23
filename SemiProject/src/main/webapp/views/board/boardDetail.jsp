@@ -16,26 +16,22 @@
     <section class="boardSection">
 
         <div class="boardRightDiv">
+        	<p type="hidden" name="boardNo"></p>
             <span class="boardSpan">
-                <p class="boardText">게시물 번호 : 1</p>
-                <p class="boardText">조회수 : 1</p>
-                <p class="boardText">작성자 : ***</p>
+                <p class="boardText" id ="boardNo" name ="boardNo">게시물 번호 : 1</p>
+                <p class="boardText" id ="boardViews" name ="boardViews">조회수 : 1</p>
+                <p class="boardText" id ="boardName" name="boardName">작성자 : ***</p>
             </span>
             <span class="boardSpan">
-                <p class="boardText">수정날짜 : YYYY-MM-DD</p>
+                <p class="boardText" id ="boardInDate" name="boardInDate">수정날짜 : YYYY-MM-DD</p>
             </span>
-        </div>
-        <div class="divCenter">
-            <div class="boardDiv">
-                <h1>문의사항제목</h1>
-            </div>
         </div>
 
         <!-- Title, Content -->
         <div class="boardEnroll">
             <div class="divCenter2">
-                <textarea name="" id="" cols="30" rows="10" class="titleText" disabled></textarea>
-                <textarea name="" id="" cols="30" rows="10" class="contentText" disabled></textarea>
+                <textarea name="boardTitle" id="boardTitle" cols="30" rows="10" class="titleText" disabled></textarea>
+                <textarea name="boardContent" id="boardContent" cols="30" rows="10" class="contentText" disabled></textarea>
             </div>
             <div class="divRight">
                 <button class="modifyBtn">수정</button>

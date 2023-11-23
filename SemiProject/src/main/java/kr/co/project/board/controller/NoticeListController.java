@@ -14,19 +14,21 @@ import javax.servlet.http.HttpSession;
 import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.service.BoardServiceImpl;
 
-@WebServlet("/BoardList.do")
-public class BoardListController extends HttpServlet {
+/**
+ * Servlet implementation class NoticeListController
+ */
+@WebServlet("/NoticeList.do")
+public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BoardListController() {
+    public NoticeListController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		
-		ArrayList<BoardDTO> list = boardService.boardList();
+		ArrayList<BoardDTO> list = boardService.noticeList();
 		BoardDTO boardDTO = new BoardDTO();
 		
 //		테스트 용도 세션, 이후 merge 이후 삭제 필요
@@ -35,11 +37,12 @@ public class BoardListController extends HttpServlet {
 		boardDTO.setName(name);
 		
 		request.setAttribute("list", list);
-		RequestDispatcher view = request.getRequestDispatcher("views/board/boardList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("views/board/noticeList.jsp");
 		view.forward(request, response);
+		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
 

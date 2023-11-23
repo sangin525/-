@@ -32,5 +32,18 @@ public class BoardServiceImpl implements BoardService{
 	public ArrayList<BoardDTO> boardList(){
 		return boardDAO.boardList(con);
 	}
+	// 공지사항 목록 조회
+	public ArrayList<BoardDTO> noticeList(){
+		return boardDAO.noticeList(con);
+	}
+	// 문의사항 상세보기
+	public int boardView(int boardNo){
+		return boardDAO.boardView(con, boardNo);
+	}
+	
+	@Override
+	public void boardSelect(BoardDTO board) {
+		boardDAO.boardSelect(con, board);
+	}
 	
 }

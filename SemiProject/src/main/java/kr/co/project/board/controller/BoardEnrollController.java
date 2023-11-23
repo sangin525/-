@@ -30,19 +30,13 @@ public class BoardEnrollController extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		int memberNo = (Integer)session.getAttribute("M_NO");
-
-		System.out.println(title);
-		System.out.println(content);
-		System.out.println(memberNo);
-		
-		
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		
 		int result = boardService.boardEnroll(title, content, memberNo);
 		System.out.println(result);
 		if(result > 0) {
-			response.sendRedirect("/views/board/boardList.jsp");
+			response.sendRedirect("/BoardList.do");
 		}else {
 			response.sendRedirect("/views/common/error.jsp");
 		}

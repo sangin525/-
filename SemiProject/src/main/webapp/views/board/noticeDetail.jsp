@@ -24,11 +24,6 @@
 				<p class="boardText">수정날짜 : YYYY-MM-DD</p>
 			</span>
 		</div>
-		<div class="divCenter">
-			<div class="boardDiv">
-				<h1>공지사항제목</h1>
-			</div>
-		</div>
 
 		<!-- Title, Content -->
 		<div class="boardEnroll">

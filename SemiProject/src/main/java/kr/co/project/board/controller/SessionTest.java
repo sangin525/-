@@ -22,6 +22,7 @@ public class SessionTest extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.setAttribute("M_NO", 100);
+		session.setAttribute("M_NAME", "테스트");
 		
 		response.sendRedirect("index.jsp");
 		

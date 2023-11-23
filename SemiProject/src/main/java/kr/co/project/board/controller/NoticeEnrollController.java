@@ -36,7 +36,7 @@ public class NoticeEnrollController extends HttpServlet {
 		int result = boardService.noticeEnroll(title, content, memberNo);
 		
 		if(result > 0) {
-			response.sendRedirect("/views/board/noticeList.jsp");
+			response.sendRedirect("/NoticeList.do");
 		}else {
 			response.sendRedirect("/views/common/error.jsp");			
 		}
