@@ -16,6 +16,7 @@
 	color: #fff;
 	padding: 1em;
 	text-align: center;
+	
 }
 
 .Main_section {
@@ -27,10 +28,15 @@
 
 }
 
-.Main_h1 {
+.Main_h1{
 	padding-top: 20px;
 	margin: 0px;
 	text-align: center;
+}
+
+.Main_h1 a{
+	color: #fff;
+	text-decoration: none;
 }
 
 .Signin-signup {

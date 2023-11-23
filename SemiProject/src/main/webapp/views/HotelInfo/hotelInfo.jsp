@@ -17,11 +17,11 @@
   <div class="contain">
     <div class="container">
 
+	<%@ include file="../common/hotelInfoSidebar.jsp" %>
       
       
       <div class="contentss" id="contents">
       
-	<%@ include file="../common/nav2.jsp" %>
 	
         <h3 class="secondtit">서울호텔</h3>
         <hr>
