@@ -11,14 +11,25 @@ public class BoardDTO {
 	private String inDate;
 	private String deleteDate;
 	private String answer;
+	private int views;
 
 	private String name;
 
 
 //	get,set 사용
-
+	
+	
+	
 	public String getTitle() {
 		return title;
+	}
+
+	public int getViews() {
+		return views;
+	}
+
+	public void setViews(int views) {
+		this.views = views;
 	}
 
 	public int getNoticeNo() {

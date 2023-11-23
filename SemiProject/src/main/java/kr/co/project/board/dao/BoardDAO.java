@@ -159,7 +159,7 @@ public class BoardDAO {
 	// 조회수 증가
 	public int boardView(Connection con, int boardNo) {
 		String query = "UPDATE BOARD"
-				+ "		SET BOARD_VIEWS = VOARD_VIEWS+1"
+				+ "		SET BOARD_VIEWS = BOARD_VIEWS+1"
 				+ "		WHERE BOARD_NO = ?";
 		try {
 			pstmt = con.prepareStatement(query);
@@ -174,6 +174,47 @@ public class BoardDAO {
 		
 		
 		return 0;
+	}
+	
+	public void boardSelect(Connection con, BoardDTO board) {
+		String query = "SELECT BOARD_NO,"
+				+ "		BOARD_TITLE,"
+				+ "		BOARD_CONTENT,"
+				+ "		BOARD_IN_DATE,"
+				+ "		BOARD_VIEWS,"
+				+ "		BOARD_ANSWER"
+				+ "		FROM BOARD"
+				+ "		WHERE BOARD_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, board.getBoardNo());
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int boardNo = rs.getInt("BOARD_NO");
+				String title = rs.getString("BOARD_TITLE");
+				String content = rs.getString("BOARD_CONTENT");
+				String inDate = rs.getString("BOARD_IN_DATE");
+				int views = rs.getInt("BOARD_VIEWS");
+				String answer = rs.getString("BOARD_ANSWER");
+				
+				board.setBoardNo(boardNo);
+				board.setTitle(title);
+				board.setContent(content);
+				board.setInDate(inDate);
+				board.setViews(views);
+				board.setAnswer(answer);
+			}
+			
+			pstmt.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 }

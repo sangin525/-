@@ -1,7 +1,9 @@
 package kr.co.project.board.controller;
 
 import java.io.IOException;
+import java.util.Objects;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,13 @@ public class BoardDetailController extends HttpServlet {
 			board.setBoardNo(boardNo);
 
 			boardService.boardSelect(board);
-
+			
+			if(!Objects.isNull(board.getBoardNo())) {
+				request.setAttribute("board", board);
+				RequestDispatcher view = request.getRequestDispatcher("/views/board/boardDetail.jsp");
+				view.forward(request, response);
+			}
+			
 		}
 
 	}

@@ -6,7 +6,7 @@
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" href="/resources/css/board.css">
-
+<script src="/resources/js/board/board.js"></script>
 <title>BoardList</title>
 </head>
 <body class="Main_body">
@@ -39,14 +39,13 @@
 
 					<c:otherwise>
 						<c:forEach var="item" items="${list}">
-							<tr onclick = "detailPage(${item.boardNo})">
-							<!-- 위에 자바스크립트로 작업해야함 -->
+							<tr class="BoardTr" onclick = "detailPage(${item.boardNo})">
 								<td class="td1">${item.boardNo}</td>
 								<td class="td2">${item.title}</td>
 								<td class="td3">작성자</td>
 								<td class="td4">${item.onDate}</td>
-								<td class="td5">1</td>
-								<td class="td6">-</td>
+								<td class="td5">${item.views}</td>
+								<td class="td6">${item.answer}</td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>

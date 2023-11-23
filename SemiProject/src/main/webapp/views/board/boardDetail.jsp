@@ -5,7 +5,7 @@
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" href="/resources/css/board.css">
-
+	<script src="/resources/js/board/board.js"></script>
 <title>BoardList</title>
 </head>
 <body class ="Main_body">
@@ -16,22 +16,22 @@
     <section class="boardSection">
 
         <div class="boardRightDiv">
-        	<p type="hidden" name="boardNo"></p>
+        	<input type="hidden" name="boardNo">
             <span class="boardSpan">
-                <p class="boardText" id ="boardNo" name ="boardNo">게시물 번호 : 1</p>
-                <p class="boardText" id ="boardViews" name ="boardViews">조회수 : 1</p>
+                <p class="boardText" id ="boardNo" name ="boardNo">게시물 번호 : ${board.boardNo}</p>
+                <p class="boardText" id ="boardViews" name ="boardViews">조회수 : ${board.views}</p>
                 <p class="boardText" id ="boardName" name="boardName">작성자 : ***</p>
             </span>
             <span class="boardSpan">
-                <p class="boardText" id ="boardInDate" name="boardInDate">수정날짜 : YYYY-MM-DD</p>
+                <p class="boardText" id ="boardInDate" name="boardInDate">수정날짜 : ${board.inDate}</p>
             </span>
         </div>
 
         <!-- Title, Content -->
         <div class="boardEnroll">
             <div class="divCenter2">
-                <textarea name="boardTitle" id="boardTitle" cols="30" rows="10" class="titleText" disabled></textarea>
-                <textarea name="boardContent" id="boardContent" cols="30" rows="10" class="contentText" disabled></textarea>
+                <textarea name="boardTitle" id="boardTitle" cols="30" rows="10" class="titleText" disabled>${board.title}</textarea>
+                <textarea name="boardContent" id="boardContent" cols="30" rows="10" class="contentText" disabled>${board.content}</textarea>
             </div>
             <div class="divRight">
                 <button class="modifyBtn">수정</button>

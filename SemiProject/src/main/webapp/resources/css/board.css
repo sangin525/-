@@ -60,8 +60,9 @@
 
 }
 
-.BoardTr{
-		border-bottom: 2px solid gray;
+.BoardTr:hover{
+	background-color: #ffc045;
+	cursor: pointer;
 }
 
 .tdEmpty {
