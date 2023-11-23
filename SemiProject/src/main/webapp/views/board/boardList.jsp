@@ -42,7 +42,7 @@
 							<tr class="BoardTr" onclick = "detailPage(${item.boardNo})">
 								<td class="td1">${item.boardNo}</td>
 								<td class="td2">${item.title}</td>
-								<td class="td3">작성자</td>
+								<td class="td3">${item.name}</td>
 								<td class="td4">${item.onDate}</td>
 								<td class="td5">${item.views}</td>
 								<td class="td6">${item.answer}</td>
@@ -63,8 +63,6 @@
 		</ul>
 
 	</section>
-	<a href="./boardEnroll.jsp">boardEnroll</a>
-	<a href="./boardDetail.jsp">boardDetail.jsp</a>
 	<form action="/sessionTest.do" method="POST">
 		<button type="submit">Session Test</button>
 	</form>

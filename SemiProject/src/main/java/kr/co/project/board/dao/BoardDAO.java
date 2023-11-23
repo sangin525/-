@@ -85,11 +85,15 @@ public class BoardDAO {
 	public ArrayList<BoardDTO> boardList(Connection con) {
 		ArrayList<BoardDTO> list = new ArrayList<>();
 
-		String query = "SELECT BOARD_NO," 
-				+ "			BOARD_TITLE," 
-				+ "			BOARD_ON_DATE,"
-				+ "			BOARD_ANSWER" 
-				+ "			FROM BOARD ORDER BY BOARD_ON_DATE DESC";
+		String query = "SELECT B.BOARD_NO, "
+		        + "B.BOARD_TITLE, "
+		        + "B.BOARD_ON_DATE, "
+		        + "B.BOARD_VIEWS,"
+		        + "B.BOARD_ANSWER, "
+		        + "M.M_NAME "
+		        + "FROM BOARD B "
+		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
+		        + "ORDER BY B.BOARD_ON_DATE DESC";
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -99,14 +103,18 @@ public class BoardDAO {
 				int boardNo = rs.getInt("Board_NO");
 				String title = rs.getString("BOARD_TITLE");
 				String onDate = rs.getString("BOARD_ON_DATE");
+				int views = rs.getInt("BOARD_VIEWS");
 				String answer = rs.getString("BOARD_ANSWER");
+				String name = rs.getString("M_NAME");
 
 				BoardDTO board = new BoardDTO();
 
 				board.setBoardNo(boardNo);
 				board.setTitle(title);
 				board.setOnDate(onDate);
+				board.setViews(views);
 				board.setAnswer(answer);
+				board.setName(name);
 
 				list.add(board);
 
@@ -176,15 +184,18 @@ public class BoardDAO {
 		return 0;
 	}
 	
+	// board detail 공지사항 상세보기
 	public void boardSelect(Connection con, BoardDTO board) {
-		String query = "SELECT BOARD_NO,"
-				+ "		BOARD_TITLE,"
-				+ "		BOARD_CONTENT,"
-				+ "		BOARD_IN_DATE,"
-				+ "		BOARD_VIEWS,"
-				+ "		BOARD_ANSWER"
-				+ "		FROM BOARD"
-				+ "		WHERE BOARD_NO = ?";
+		String query = "SELECT B.BOARD_NO, "
+		        + "B.BOARD_TITLE, "
+		        + "B.BOARD_CONTENT, "
+		        + "B.BOARD_IN_DATE, "
+		        + "B.BOARD_VIEWS, "
+		        + "B.BOARD_ANSWER, "
+		        + "M.M_NAME "
+		        + "FROM BOARD B "
+		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
+		        + "WHERE B.BOARD_NO = ?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -198,6 +209,7 @@ public class BoardDAO {
 				String inDate = rs.getString("BOARD_IN_DATE");
 				int views = rs.getInt("BOARD_VIEWS");
 				String answer = rs.getString("BOARD_ANSWER");
+				String name = rs.getString("M_NAME");
 				
 				board.setBoardNo(boardNo);
 				board.setTitle(title);
@@ -205,6 +217,7 @@ public class BoardDAO {
 				board.setInDate(inDate);
 				board.setViews(views);
 				board.setAnswer(answer);
+				board.setName(name);
 			}
 			
 			pstmt.close();

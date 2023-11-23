@@ -14,13 +14,13 @@
 
 
     <section class="boardSection">
-
+	<form>
         <div class="boardRightDiv">
         	<input type="hidden" name="boardNo">
             <span class="boardSpan">
                 <p class="boardText" id ="boardNo" name ="boardNo">게시물 번호 : ${board.boardNo}</p>
                 <p class="boardText" id ="boardViews" name ="boardViews">조회수 : ${board.views}</p>
-                <p class="boardText" id ="boardName" name="boardName">작성자 : ***</p>
+                <p class="boardText" id ="boardName" name="boardName">작성자 : ${board.name}</p>
             </span>
             <span class="boardSpan">
                 <p class="boardText" id ="boardInDate" name="boardInDate">수정날짜 : ${board.inDate}</p>
@@ -34,10 +34,11 @@
                 <textarea name="boardContent" id="boardContent" cols="30" rows="10" class="contentText" disabled>${board.content}</textarea>
             </div>
             <div class="divRight">
-                <button class="modifyBtn">수정</button>
+                <button onclick ="boardUpdate()" class="modifyBtn" style ="margin-right: 20px">수정</button>
+                <button onclick ="boardDelete()" class="modifyBtn">삭제</button>
             </div>
         </div>
-
+	</form>
         <!-- 댓글 -->
         <div class="divCenter2">
             <p class="font14">댓글</p>
