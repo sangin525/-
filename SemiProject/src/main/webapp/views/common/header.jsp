@@ -20,7 +20,6 @@
      </c:choose>
    </div>
  </header>
-
  
  
  

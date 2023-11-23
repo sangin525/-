@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.mindrot.jbcrypt.BCrypt;
-
 import kr.co.project.member.dto.MemberDTO;
 import kr.co.project.member.service.MemberServiceImpl;
 
