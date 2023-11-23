@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script src="/resources/js/room/payments.js"></script>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <%@ include file="../common/head.jsp" %>
@@ -13,16 +16,17 @@
 
 </head>
 <body>
+
+
 	<%@ include file="../common/header.jsp" %>
 	<%@ include file="../common/nav.jsp" %>
 <script src="/resources/js/room/room.js"></script>
 <section class="Main_section">
 
-	<form action="" method="POST">
 		<h2 class="reserveForm"> 객실예약 페이지</h2>
 		<div>
-		<p class="reserveForm">예약자 성함 :  ${sessionScope.name}</p>
-		<p class="reserveForm">객실이름 :  ${room.roomName} 룸</p>
+		<p class="reserveForm" id="memberName">예약자 성함 :  ${member.MName}</p>
+		<p class="reserveForm" id="roomName">객실이름 :  ${room.roomName} 룸</p>
 		<c:if test="${startDayWeekNumber == 7}">
 			<p class="reserveForm">숙박체크인 : ${room.RChkIn} 토요일</p>
 		</c:if>
@@ -68,9 +72,9 @@
 			<p class="reserveForm">숙박체크아웃 : ${room.RChkOut} 일요일</p>
 		</c:if>
 		
-		<p class="reserveForm">숙박일수 : ${room.RCount} 일</p>
-		<p class="reserveForm">숙박인원수 : ${room.RPersonCount} 명</p>
-		<c:set var="totalPrice" value="0"></c:set>
+		<p class="reserveForm" id="roomCount">숙박일수 : ${room.RCount} 일</p>
+		<p class="reserveForm" id="RPersonCount">숙박인원수 : ${room.RPersonCount} 명</p>
+		<c:set var="totalPrice"  value="0"></c:set>
 			<c:if test="${startDayWeekNumber >= 6}">
 				<c:set var="totalPrice" value="${totalWeekend * room.RCount}"></c:set>
 			</c:if>
@@ -78,14 +82,15 @@
 				<c:set var="totalPrice" value="${totalWeekday * room.RCount}"></c:set>
 			</c:if>
 			
-		<p class="reserveForm">결제금액 :  ${totalPrice} 원</p>
-		<p class="reserveForm">현재 마일리지 : ${memberMLG.MLG} 원</p>
+		<p class="reserveForm" id="totalPrice">결제금액 :  ${totalPrice} 원</p>
+		<p class="reserveForm" id="memberMLG">현재 마일리지 : ${member.MLG} 원</p>
 		<p class="reserveForm">적립 마일리지 : ${totalPrice *0.05} 원 (결제금액의 5%)</p>
 		</div>
 		
-	<button type="submit" class="payForm">결제하기</button>
+	<button type="button" class="payForm" onclick="requestPay('${member.MName}',
+								 '${room.roomName}', ${totalPrice}, '${member.MPhone}',
+								  '${member.MEmail}', '${member.MAddr}')">결제하기</button>
 	<button type="button" class="payForm">방구경하러가기</button>
-	</form>
 
 
 

@@ -68,21 +68,23 @@ public class ReserveController extends HttpServlet {
 		int memberNo = (int)session.getAttribute("no");
 		
 		// 마일리지 조회
-		RoomDTO memberMLG = RoomService.searchMLG(memberNo);
+		RoomDTO member = RoomService.searchMLG(memberNo);
 		
 		
 		int totalWeekday = Integer.parseInt(String.join("", roomPrice.getWeekdayPrice().split(",")));
 		int totalWeekend = Integer.parseInt(String.join("", roomPrice.getWeekendPrice().split(",")));
 		
-		
+		for(int i = 50; i<99999; i++) {
+			int number = 12;
+			
+		}
 		
 		room.setRoomName(RName);
 		room.setRChkIn(startDate);
 		room.setRChkOut(endDate);
 		room.setRCount(dateSum);
 		room.setRPersonCount(RPersonCount);
-		
-		request.setAttribute("memberMLG", memberMLG);
+		request.setAttribute("member", member);
 		request.setAttribute("totalWeekday", totalWeekday);
 		request.setAttribute("totalWeekend", totalWeekend);
 		
@@ -92,6 +94,7 @@ public class ReserveController extends HttpServlet {
 		
 		RequestDispatcher view = request.getRequestDispatcher("/views/room/roomReserve.jsp");
 		view.forward(request, response);
+		
 		
 		
 	}

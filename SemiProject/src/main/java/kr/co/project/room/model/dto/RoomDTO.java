@@ -32,7 +32,11 @@ public class RoomDTO {
 	private String RChkOut;
 	private int RCount;
 	
-	// 마일리지
+	// 고객정보 
+	private String MName;
+	private String MPhone;
+	private String MEmail;
+	private String MAddr;
 	private int MLG;
 	
 	public int getRoomNo() {
@@ -166,6 +170,30 @@ public class RoomDTO {
 	}
 	public void setRCount(int rCount) {
 		RCount = rCount;
+	}
+	public String getMName() {
+		return MName;
+	}
+	public String getMPhone() {
+		return MPhone;
+	}
+	public String getMEmail() {
+		return MEmail;
+	}
+	public String getMAddr() {
+		return MAddr;
+	}
+	public void setMName(String mName) {
+		MName = mName;
+	}
+	public void setMPhone(String mPhone) {
+		MPhone = mPhone;
+	}
+	public void setMEmail(String mEmail) {
+		MEmail = mEmail;
+	}
+	public void setMAddr(String mAddr) {
+		MAddr = mAddr;
 	}
 	public int getMLG() {
 		return MLG;

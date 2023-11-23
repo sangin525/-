@@ -102,7 +102,7 @@ public class RoomDAO {
 	}
 
 	public RoomDTO searchMLG(Connection con, int memberNo) {
-		String query = "SELECT M_MLG  FROM MEMBER m "
+		String query = "SELECT M_NAME, M_PHONE, M_EMAIL, M_ADDR, M_MLG  FROM MEMBER m "
 					+ 	"WHERE M_NO = ?";
 		
 		RoomDTO room = new RoomDTO();
@@ -114,6 +114,10 @@ public class RoomDAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				room.setMName(rs.getString("M_NAME"));
+				room.setMPhone(rs.getString("M_PHONE"));
+				room.setMEmail(rs.getString("M_EMAIL"));
+				room.setMAddr(rs.getString("M_ADDR"));
 				room.setMLG(rs.getInt("M_MLG"));
 			}
 		} catch (SQLException e) {
