@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
     
  <header class="Main_header">
-   <h1 class="Main_h1">초특가 여기어때</h1>
+   <h1 class="Main_h1"><a href="/">초특가 여기어때</a></h1>
    <div class="Signin-signup">
   <c:choose>
         <c:when test="${sessionScope.id != null}"> 
