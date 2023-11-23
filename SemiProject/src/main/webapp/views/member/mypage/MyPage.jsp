@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 <script src="/resources/js/member/member.js"></script>
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 
