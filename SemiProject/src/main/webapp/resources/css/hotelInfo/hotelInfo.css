@@ -1,5 +1,8 @@
 @charset "UTF-8";
-
+@font-face {
+  font-family: 'sejong';
+  src: url('../../fonts/KingSejongInstitute-Regular.ttf');
+}
 /* 개요 */
 
 .contain {
@@ -13,7 +16,6 @@
 
 .warpper{
     float: left;
-
 }
 
 

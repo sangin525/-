@@ -1,9 +1,14 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'sejong';
+    src: url('../../fonts/KingSejongInstitute-Regular.ttf');
+}
 
 .warpper{
 	height: 100%;
     width: 250px;
     position: relative;
+    font-family: 'sejong';
 }
 
 .wrapper #sidebar{
