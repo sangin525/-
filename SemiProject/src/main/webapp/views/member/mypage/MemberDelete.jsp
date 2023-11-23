@@ -8,25 +8,27 @@
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 <script src="/resources/js/member/member.js"></script>
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 	
-<div class="container">
+<div class="main-container">
+	<div class="container-center">
 	<%@ include file="../../common/sidebar.jsp"%>
 	
 	
 	<div class="contents">
-	<div >
-		<h4>회원탈퇴 요청1</h4>
+	<div class="table-title">
+		<h4>회원탈퇴 요청</h4>
 	</div>
+	<br>
 	<form action="MemberDelete.do" method="POST">
-	<table class="tableTypeA tableJoinForm tableUserInfo2">
+	<table class="mypage-table">
 		<colgroup>
 			<col width="13%" class="col1">
 			<col class="col2">
 		</colgroup>
-		<tbody>
+		<tbody class = "mypage-tbody">
 			<tr class="tr_info">
 				<th>아이디</th>
 				<td><input type="text" id="id" name="name" value="${sessionScope.id}" disabled></td>
@@ -37,8 +39,11 @@
 			</tr>
 		</tbody>
 	</table>
-		<button type="submit">탈퇴요청</button>
-		<button type="button" onclick="back()">취소</button>
+	<br>
+	<div id="btn-group">
+		<button type="submit" class="left-btn">탈퇴요청</button>
+		<button type="button" class="right-btn" onclick="back()">취소</button>
+	</div>
 	<div class="BtnForm">
 	<div class="UpdateBtn">
 	</div>
@@ -46,6 +51,7 @@
 	</div>
 	</div>
 	</form>
+	</div>
 	</div>
 </div>
 	

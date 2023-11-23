@@ -1,124 +1,131 @@
 @charset "UTF-8";
 
-.container {
+@font-face {
+    font-family: 'sejong';
+    src: url('../../fonts/KingSejongInstitute-Regular.ttf');
+}
+
+
+.main-container{
+	width:100%;
+	height:100%;
+    font-family: 'sejong';
+}
+
+.container-center{
 	width: 1200px;
+	margin: 0 auto;
+}
+
+.warpper{
+    float: left;
+}
+
+.container {
+	width: 100%;
 	
 }
 
 .contents {
-    float: right;
     width: 866px;
+    margin-left: 280px;
     padding: 0;
-    background: #FFF;
     min-height: 440px;
 }
 
-.div {
-	display:block;
+.mypage-table{
+    width: 100%;
+    text-align: center;
+    border-top: rgb(205, 202, 191) solid 2px;
+    border-bottom: rgb(205, 202, 191) solid 2px;
 }
 
-.MyPageTitle {
-	width: 216px;
-    border: #e9dab8 solid 1px;
-    background: #f1e3c4;
-    padding: 23px;
-    margin: 0 0 30px 0;
+.table-title {
+    font-size: 24px;
+    border-bottom: 3px solid black;
 }
 
-.MyPageTitle_area {
-	float : left;
-}
-
-.mypage_tbody ul, ol, li, dl, dt, dd {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
-body, div, p, textarea {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    color: #101010;
-}
-body, html {
-    font-size: 12px;
-    font-family: Dotum,'돋움',sans-serif,Arial, Helvetica;
-}
-
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+.mypage-thead td{
+    display: table-cell;
+    font-weight: bold;
+    color: #666;
+    background: #eae5cb;
+    border-right: #eceae1 solid 1px;
+    border-bottom: #eceae1 solid 1px;
 }
 
 
-.MyPageTitle li {
-    margin: 0 0 26px 0;
+.mypage-tbody td{
+    display: table-cell;
+    font-weight: bold;
+    color: #666;
+    border-right: #eceae1 solid 1px;
+    border-bottom: #eceae1 solid 1px;
 }
 
-.MyPageTitle_area .MyPageTitle .menu li.m2 a {
-    background-position: 0px -21px;
-}
-
-tbody {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
-
-col {
-    display: table-column;
-}
-
-.tableTypeA {
-    margin: 20px 0px 0px 0px;
+.tr_info th, .tr_info td{
     border: none;
-    border-top: #cdcbbe solid 1px;
-    width: 70%;
-    border-collapse: collapse;
-    table-layout: fixed;
+    padding: 6px 13px;
+    line-height: 22px;
+    border-bottom: #eceae1 solid 1px;
 }
 
-table {
-    display: table;
-    border-collapse: separate;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 2px;
-    border-color: gray;
+.tr_info th {
+    width: 20%;
+	display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    background: #eae5cb;
 }
 
-th, td {
-	padding : 6px;
-	border-bottom: #eceae1 solid 1px;
+.tr_info td{
+    text-align: left;
+
+}
+.memberUpdate-btn{
+    text-align: center;
+    width: 100px;
+    background: rgb(173, 123, 123);
+    border-radius: 5px;
 }
 
-th {
-	background-color : #cac0a6;
+/* .MyPage-btn{
+    display: inline;
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+} */
+
+.Main_a :hover{
+    text-decoration: none;
 }
 
-.UpdateBtn {
-	width : 100px;
-	height : 20px;
-	background-color : #302408;
+.left-btn{
+    width: 150px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
 }
 
-.CancelBtn {
-	width : 100px;
-	height : 20px;
-	background-color : #e6e1d5;
+.right-btn{
+    width: 150px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
 }
 
-.BtnForm {
-	display : flex;
+#btn-group button:hover {
+    color: white;
+    background-color: rgb(224, 162, 86);
 }

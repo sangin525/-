@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/resources/css/member/Signin.css">
 <script src="/resources/js/member/member.js"></script>
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../common/header.jsp"%>
 	<%@ include file="../common/nav.jsp"%>
 	<div class="Signin-main">

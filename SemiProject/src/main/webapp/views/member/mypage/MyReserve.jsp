@@ -10,25 +10,26 @@
 <script src="/resources/js/member/member.js"></script>
 
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 
-
-<div class="container">
+<div class="main-container">
+	<div class="container-center">
 	<%@ include file="../../common/sidebar.jsp"%>
 	
 	<div class="contents">
-	<div >
-		<h4>문의 내역</h4>
+	<div class="table-title">
+		<h4>예약 내역</h4>
 	</div>
+	<br>
 	<input type="hidden" name="cpage" value="1">
-		<table class="table table-hover tableTypeA tableJoinForm tableUserInfo2" id="content">
+		<table class="mypage-table" id="content">
 		<colgroup>
 			<col width="13%" class="col1">
 			<col class="col2">
 		</colgroup>
-				<thead>
+				<thead class="mypage-thead">
 					<tr>
 						<td>예약번호</td>
 						<td>인원수</td>
@@ -39,7 +40,7 @@
 						<td>객실번호</td>
 					</tr>
 				</thead>
-				<tbody class="table-group-divider" id="table-content">
+				<tbody class="mypage-tbody" id="table-content">
 					<c:choose>
 						<c:when test="${empty list}">
 							<tr>
@@ -64,6 +65,7 @@
 
 				</tbody>
 			</table>
+	</div>
 	</div>
 </div>
 	
