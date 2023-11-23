@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'sejong';
+    src: url('../../fonts/KingSejongInstitute-Regular.ttf');
+}
+
+.warpper{
+	height: 100%;
+    width: 250px;
+    position: relative;
+    font-family: 'sejong';
+}
+
+.wrapper #sidebar{
+    position: fixed;
+    height: 100%;
+    width: 240px;
+    background: bisque;
+    overflow: hidden;
+
+}
+
+#sidebar .sidebar-title{
+    color: rgb(137, 106, 13);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    background: bisque;
+    text-align: center;
+    margin: 0px;
+}
+
+#sidebar .list-items{
+    position: relative;
+    background: bisque;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#sidebar .list-items li {
+    padding-left: 40px;
+    line-height: 50px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid bisque;
+    transition: all 0.3s ease;
+}
+
+#sidebar .list-items li:hover{
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: 0 0 10px 3px rgb(224, 162, 86);
+}
+
+#sidebar .list-items li a{
+    color: rgb(166, 127, 11);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin-right: 20px;
+
+}
+

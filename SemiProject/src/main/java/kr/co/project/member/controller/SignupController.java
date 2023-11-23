@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import kr.co.project.member.model.dto.MemberDTO;
+import kr.co.project.member.dto.MemberDTO;
 import kr.co.project.member.service.MemberServiceImpl;
 
 @WebServlet("/Signup.do")
