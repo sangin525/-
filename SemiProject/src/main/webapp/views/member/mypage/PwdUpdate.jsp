@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 <script src="/resources/js/member/member.js"></script>
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 
@@ -21,6 +21,7 @@
 	<div class="table-title">
 		<h4>비밀번호 변경</h4>
 	</div>
+	<br>
 	<form action="PasswordUpdate.do" method="POST">
 	<table class="mypage-table">
 		<colgroup>
@@ -42,9 +43,10 @@
 			</tr>
 		</tbody>
 	</table>
-	<div class="BtnForm">
-		<button type="submit">비밀번호 변경</button>
-		<button type="button" onclick="back()">취소</button>
+	<br>
+<div id="btn-group">
+		<button type="submit" class="left-btn">비밀번호 변경</button>
+		<button type="button" class="right-btn" onclick="back()">취소</button>
 	</div>
 	</form>
 	</div>

@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 <script src="/resources/js/member/member.js"></script>
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 	
@@ -19,8 +19,9 @@
 	
 	<div class="contents">
 	<div class="table-title">
-		<h4>회원탈퇴 요청1</h4>
+		<h4>회원탈퇴 요청</h4>
 	</div>
+	<br>
 	<form action="MemberDelete.do" method="POST">
 	<table class="mypage-table">
 		<colgroup>
@@ -38,8 +39,11 @@
 			</tr>
 		</tbody>
 	</table>
-		<button type="submit">탈퇴요청</button>
-		<button type="button" onclick="back()">취소</button>
+	<br>
+	<div id="btn-group">
+		<button type="submit" class="left-btn">탈퇴요청</button>
+		<button type="button" class="right-btn" onclick="back()">취소</button>
+	</div>
 	<div class="BtnForm">
 	<div class="UpdateBtn">
 	</div>
