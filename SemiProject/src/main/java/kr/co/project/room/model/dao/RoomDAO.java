@@ -77,6 +77,51 @@ public class RoomDAO {
 		return roomDetail;
 	}
 
+	public RoomDTO getPrice(Connection con, String roomGrade) {
+		String query = "SELECT WEEKDAY_PRICE , WEEKEND_PRICE "
+				+ "		FROM ROOM_GRADE_INFO rgi "
+				+ "		WHERE ROOM_GRADE = ?";
+		RoomDTO room = new RoomDTO();
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, roomGrade);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				room.setWeekdayPrice(rs.getString("WEEKDAY_PRICE"));
+				room.setWeekendPrice(rs.getString("WEEKEND_PRICE"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return room;
+	}
+
+	public RoomDTO searchMLG(Connection con, int memberNo) {
+		String query = "SELECT M_MLG  FROM MEMBER m "
+					+ 	"WHERE M_NO = ?";
+		
+		RoomDTO room = new RoomDTO();
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, memberNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				room.setMLG(rs.getInt("M_MLG"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return room;
+	}
+
 	
 	
 	

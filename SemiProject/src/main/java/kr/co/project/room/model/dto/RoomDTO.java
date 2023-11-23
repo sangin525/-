@@ -32,6 +32,9 @@ public class RoomDTO {
 	private String RChkOut;
 	private int RCount;
 	
+	// 마일리지
+	private int MLG;
+	
 	public int getRoomNo() {
 		return roomNo;
 	}
@@ -163,6 +166,12 @@ public class RoomDTO {
 	}
 	public void setRCount(int rCount) {
 		RCount = rCount;
+	}
+	public int getMLG() {
+		return MLG;
+	}
+	public void setMLG(int mLG) {
+		MLG = mLG;
 	}
 	
 	

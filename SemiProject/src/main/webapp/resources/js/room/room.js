@@ -51,11 +51,13 @@ function reserveRoom(){
 	let endDate = document.getElementById("end_date").value
 	let dateSum = document.getElementById("date_sum").value
 	let RPersonCount = document.getElementById("R_person_count").value
+	let roomDetailGrade = document.getElementById("roomDetailGrade").value
 	
 	
 	const pageUrl = '/ReserveRoom.do?RName='+RName+'&startDate='+startDate+
 									'&endDate='+endDate+'&dateSum='+dateSum+
-									'&RPersonCount='+RPersonCount;
+									'&RPersonCount='+RPersonCount+
+									'&roomDetailGrade='+roomDetailGrade;
 	window.location.href = pageUrl;
 }
 

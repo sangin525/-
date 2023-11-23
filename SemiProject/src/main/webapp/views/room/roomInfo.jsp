@@ -87,6 +87,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
       <c:if test="${count == 1}"> 
 	      <c:forEach begin="${DetailCount}" end="${DetailCount +2}">
 			    <div class="roomDetailBox">
+      				<input type="hidden" name="roomDetailGrade" id="roomDetailGrade" value="${roomDetail.get(DetailCount).roomGrade}">
 					<h4><strong>객실등급 :${roomDetail.get(DetailCount).roomGrade}</strong></h4> 
 					<strong>객실이름 :${roomDetail.get(DetailCount).roomName}</strong><br>
 					<p class="roomDetailP">${roomDetail.get(DetailCount).roomInfo}</p> <br>
