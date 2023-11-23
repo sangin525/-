@@ -25,6 +25,19 @@ public class RoomDTO {
 	private String roomNotice2;
 	private String roomNotice3;
 	
+	//예약정보
+	private int RNo;
+	private int RPersonCount;
+	private String RChkIn;
+	private String RChkOut;
+	private int RCount;
+	
+	// 고객정보 
+	private String MName;
+	private String MPhone;
+	private String MEmail;
+	private String MAddr;
+	private int MLG;
 	
 	public int getRoomNo() {
 		return roomNo;
@@ -127,6 +140,66 @@ public class RoomDTO {
 	}
 	public void setRoomNotice3(String roomNotice3) {
 		this.roomNotice3 = roomNotice3;
+	}
+	public int getRNo() {
+		return RNo;
+	}
+	public void setRNo(int rNo) {
+		RNo = rNo;
+	}
+	public int getRPersonCount() {
+		return RPersonCount;
+	}
+	public void setRPersonCount(int rPersonCount) {
+		RPersonCount = rPersonCount;
+	}
+	public String getRChkIn() {
+		return RChkIn;
+	}
+	public void setRChkIn(String rChkIn) {
+		RChkIn = rChkIn;
+	}
+	public String getRChkOut() {
+		return RChkOut;
+	}
+	public void setRChkOut(String rChkOut) {
+		RChkOut = rChkOut;
+	}
+	public int getRCount() {
+		return RCount;
+	}
+	public void setRCount(int rCount) {
+		RCount = rCount;
+	}
+	public String getMName() {
+		return MName;
+	}
+	public String getMPhone() {
+		return MPhone;
+	}
+	public String getMEmail() {
+		return MEmail;
+	}
+	public String getMAddr() {
+		return MAddr;
+	}
+	public void setMName(String mName) {
+		MName = mName;
+	}
+	public void setMPhone(String mPhone) {
+		MPhone = mPhone;
+	}
+	public void setMEmail(String mEmail) {
+		MEmail = mEmail;
+	}
+	public void setMAddr(String mAddr) {
+		MAddr = mAddr;
+	}
+	public int getMLG() {
+		return MLG;
+	}
+	public void setMLG(int mLG) {
+		MLG = mLG;
 	}
 	
 	
