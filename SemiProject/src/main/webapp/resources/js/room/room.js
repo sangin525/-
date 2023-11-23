@@ -44,4 +44,40 @@ function dateSum(){
     }
 }
 
+// 예약 홈페이지로 이동
+function reserveRoom(){
+	let RName = document.getElementById("R_name").value
+	let startDate = document.getElementById("start_date").value
+	let endDate = document.getElementById("end_date").value
+	let dateSum = document.getElementById("date_sum").value
+	let RPersonCount = document.getElementById("R_person_count").value
+	let roomDetailGrade = document.getElementById("roomDetailGrade").value
+	
+	
+	const pageUrl = '/ReserveRoom.do?RName='+RName+'&startDate='+startDate+
+									'&endDate='+endDate+'&dateSum='+dateSum+
+									'&RPersonCount='+RPersonCount+
+									'&roomDetailGrade='+roomDetailGrade;
+	window.location.href = pageUrl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
