@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 <script src="/resources/js/member/member.js"></script>
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 	
@@ -18,7 +18,10 @@
 	
 	<div class="contents">
 	<div class="table-title">
-		<h4>개인 정보 수정</h4>
+		<h4>프로필 수정</h4>
+	</div>
+		<div>
+		<h4>개인정보</h4>
 	</div>
 	<form action="MemberUpdate.do" method="POST">
 	<table class="mypage-table">
@@ -57,14 +60,12 @@
 			</tr>
 		</tbody>
 	</table>
-		<button type="submit">수정</button>
-		<button type="button" onclick="back()">취소</button>
-	<div class="BtnForm">
-	<div class="UpdateBtn">
+	<br>
+<div id="btn-group">
+		<button type="submit" class="left-btn">수정</button>
+		<button type="button" class="right-btn" onclick="back()">취소</button>
 	</div>
-	<div class="CancelBtn">
-	</div>
-	</div>
+
 	</form>
 	</div>
 	</div>

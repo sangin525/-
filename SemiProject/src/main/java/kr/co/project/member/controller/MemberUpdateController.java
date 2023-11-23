@@ -71,7 +71,7 @@ public class MemberUpdateController extends HttpServlet {
 
 	private void updateAlert(HttpServletResponse response, String msg) throws IOException {
 		PrintWriter out = response.getWriter();
-		out.println("<script>" + "		location.href='/MemberUpdateForm.do';" + "		alert('" + msg + "');"
+		out.println("<script>" + "		location.href='/MyPageForm.do';" + "		alert('" + msg + "');"
 				+ "	</script>");
 		out.flush();
 		out.close();
