@@ -9,3 +9,4 @@
 		<li><a href="/BoardList.do" class="Main_a">문의게시판</a></li>
 	</ul>
 </nav>
+
