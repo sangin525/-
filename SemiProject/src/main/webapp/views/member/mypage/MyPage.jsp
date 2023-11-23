@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 
@@ -23,6 +23,7 @@
 	<div class="table-title" >
 		<h4>내 정보</h4>
 	</div>
+<br>
 	<table class="mypage-table">
 		<colgroup>
 			<col width="13%" class="col1">
@@ -59,9 +60,11 @@
 			</tr>
 		</tbody>
 	</table>
-	<div class="memberUpdate-btn">
-		<a href="/MemberUpdateForm.do"  class="MyPage-btn"><span>정보 수정</span></a>
-	</div>
+	<br>
+		<div id="btn-group">
+			<button class="left-btn" onclick="location.href='/MemberUpdateForm.do' "
+			>정보 수정</button>
+		</div>
 	</div>
 	</div>
 </div>

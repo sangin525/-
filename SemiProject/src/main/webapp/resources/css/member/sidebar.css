@@ -9,14 +9,14 @@
 .wrapper #sidebar{
     position: fixed;
     height: 100%;
-    width: 180px;
+    width: 240px;
     background: bisque;
     overflow: hidden;
 
 }
 
 #sidebar .sidebar-title{
-    color: #333;
+    color: rgb(137, 106, 13);
     font-size: 25px;
     font-weight: 600;
     line-height: 65px;
@@ -46,11 +46,11 @@
 #sidebar .list-items li:hover{
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    box-shadow: 0 0 10px 3px #222;
+    box-shadow: 0 0 10px 3px rgb(224, 162, 86);
 }
 
 #sidebar .list-items li a{
-    color: #333;
+    color: rgb(166, 127, 11);
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;

@@ -10,7 +10,7 @@
 <script src="/resources/js/member/member.js"></script>
 
 </head>
-<body>
+<body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
 	<%@ include file="../../common/nav.jsp"%>
 
@@ -22,6 +22,7 @@
 	<div class="table-title">
 		<h4>예약 내역</h4>
 	</div>
+	<br>
 	<input type="hidden" name="cpage" value="1">
 		<table class="mypage-table" id="content">
 		<colgroup>
