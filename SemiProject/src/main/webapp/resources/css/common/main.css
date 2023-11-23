@@ -1,10 +1,14 @@
 @charset "UTF-8";
-
+@font-face {
+    font-family: 'sejong';
+    src: url('../../fonts/KingSejongInstitute-Regular.ttf');
+}
 .Main_body {
 	font-family: Arial, sans-serif;
 	margin: 0px;
 	padding: 0px;
 	background-color: #f4f4f4;
+	font-family: 'sejong';
 }
 
 .Main_header {
@@ -12,6 +16,7 @@
 	color: #fff;
 	padding: 1em;
 	text-align: center;
+	
 }
 
 .Main_section {
@@ -23,10 +28,15 @@
 
 }
 
-.Main_h1 {
+.Main_h1{
 	padding-top: 20px;
 	margin: 0px;
 	text-align: center;
+}
+
+.Main_h1 a{
+	color: #fff;
+	text-decoration: none;
 }
 
 .Signin-signup {
@@ -44,6 +54,7 @@
 	display: flex;
 	justify-content: space-evenly;
 }
+
 /* A태그 스타일링 */
 .Main_a {
 	color: rgb(210, 98, 98);

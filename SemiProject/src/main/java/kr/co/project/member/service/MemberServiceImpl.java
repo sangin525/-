@@ -29,4 +29,22 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.memberUpdate(con, member, beforeEmail);
 	}
 	
+	// 비밀번호 수정
+	@Override
+	public int pwdUpdate(MemberDTO member) {
+		return memberDAO.pwdUpdate(con, member);
+	}
+	
+	// 회원탈퇴 비밀번호 일치 확인
+	@Override
+	public MemberDTO selectPwd(String pwd) {
+		return memberDAO.selectPwd(con, pwd);
+	}
+	
+	// 회원 탈퇴
+	@Override
+	public int memberDelete(String id) {
+		return memberDAO.memberDelete(con, id);
+	}
+	
 }

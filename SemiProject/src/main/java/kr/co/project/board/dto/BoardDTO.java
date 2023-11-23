@@ -14,6 +14,13 @@ public class BoardDTO {
 	private int views;
 
 	private String name;
+	
+	
+	private int no; // 게시글 번호
+	private int m_No; // 작성자 번호
+	private String delete; // 삭제일
+	private String photo; // 사진이름
+	private String route; // 사진경로
 
 
 //	get,set 사용
@@ -99,5 +106,64 @@ public class BoardDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public int getNo() {
+		return no;
+	}
 
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public int getM_No() {
+		return m_No;
+	}
+
+	public void setM_No(int m_No) {
+		this.m_No = m_No;
+	}
+
+	public String getDelete() {
+		return delete;
+	}
+
+	public void setDelete(String delete) {
+		this.delete = delete;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getRoute() {
+		return route;
+	}
+
+	public void setRoute(String route) {
+		this.route = route;
+	}
+	
+	public BoardDTO() {
+		super();
+	}
+	
+	public BoardDTO(int no, int m_No, String title, String content, String onDate, String inDate, String delete,
+			int views, String photo, String route, String answer) {
+		super();
+		this.no = no;
+		this.m_No = m_No;
+		this.title = title;
+		this.content = content;
+		this.onDate = onDate;
+		this.inDate = inDate;
+		this.delete = delete;
+		this.views = views;
+		this.photo = photo;
+		this.route = route;
+		this.answer = answer;
+	}
 }
