@@ -9,9 +9,11 @@
 
 <head>
    <%@ include file="./views/common/head.jsp" %>
+   <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 </head>
   
 <body class="Main_body">
+<div class="main-container">
    <%@ include file="./views/common/header.jsp" %>
    <%@ include file="./views/common/nav.jsp" %>
 
@@ -22,8 +24,8 @@
     <p> 안녕하세요! 홈페이지에 오신 것을 환영합니다.qqqq11221</p>
 
   </section>
+
+</div>
    <%@ include file="./views/common/footer.jsp" %>
-
-
 </body>
 </html>

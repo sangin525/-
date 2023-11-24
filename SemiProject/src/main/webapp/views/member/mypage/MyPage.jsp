@@ -56,8 +56,7 @@
 			</tr>
 			<tr class="tr_info">
 				<th>주소</th>
-				<td><%=session.getAttribute("addr1") %></td>
-				<td><%=session.getAttribute("addr2") %></td>
+				<td><%=session.getAttribute("addr1") %>&nbsp;<%=session.getAttribute("addr2") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>마일리지</th>
