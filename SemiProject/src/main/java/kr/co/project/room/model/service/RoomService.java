@@ -17,4 +17,9 @@ public interface RoomService {
 	
 	// no 로 마일리지조회
 	public RoomDTO searchMLG(int memberNo);
+
+	
+	// 예약DB 에 넣기
+	public int reserveEnroll(RoomDTO room);
+
 }

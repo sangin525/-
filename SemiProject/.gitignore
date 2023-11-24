@@ -19,7 +19,7 @@ SemiProject/src/main/java/kr/co/project/common/DatabaseConnection.java
 .recommenders
 bulid/
 SemiProject/src/main/java/kr/co/project/common/DatabaseConnection.java
-
+SemiProject/src/main/webapp/resources/js/room/apikey.js
 # External tool builders
 .externalToolBuilders/
 
