@@ -77,7 +77,102 @@ public class RoomDAO {
 		return roomDetail;
 	}
 
-	
+	public RoomDTO getPrice(Connection con, String roomGrade) {
+		String query = "SELECT WEEKDAY_PRICE , WEEKEND_PRICE "
+				+ "		FROM ROOM_GRADE_INFO rgi "
+				+ "		WHERE ROOM_GRADE = ?";
+		RoomDTO room = new RoomDTO();
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, roomGrade);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				room.setWeekdayPrice(rs.getString("WEEKDAY_PRICE"));
+				room.setWeekendPrice(rs.getString("WEEKEND_PRICE"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return room;
+	}
+
+	public RoomDTO searchMLG(Connection con, int memberNo) {
+		String query = "SELECT M_NAME, M_PHONE, M_EMAIL, M_ADDR, M_MLG  FROM MEMBER m "
+					+ 	"WHERE M_NO = ?";
+		
+		RoomDTO room = new RoomDTO();
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, memberNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				room.setMName(rs.getString("M_NAME"));
+				room.setMPhone(rs.getString("M_PHONE"));
+				room.setMEmail(rs.getString("M_EMAIL"));
+				room.setMAddr(rs.getString("M_ADDR"));
+				room.setMLG(rs.getInt("M_MLG"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return room;
+	}
+
+
+	public int reserveEnroll(Connection con, RoomDTO room) {
+		// 예약DB에 객실 번호가 있어서 객실이름 가지고 조회해서 값 가져오고나서 넣어야함
+		String selectRNo = "SELECT ROOM_NO  FROM ROOM_INFO ri "
+				+ 			"WHERE ROOM_NAME = ?";
+		
+		try {
+			pstmt = con.prepareStatement(selectRNo);
+			
+			pstmt.setString(1, room.getRoomName());
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				room.setRoomNo(rs.getInt("ROOM_NO"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		String query = "INSERT INTO ROOM_RESERVE rr values("
+				+ "			room_reserve_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
+				
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, room.getMNo());
+			pstmt.setString(2, room.getRChkIn());
+			pstmt.setString(3, room.getRChkOut());
+			pstmt.setInt(4, room.getRCount());
+			pstmt.setInt(5, room.getMNo());
+			pstmt.setInt(6, room.getRoomNo());
+			pstmt.setInt(7, room.getTotalPrice());
+			
+			int result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	// 회원 마일리지 적립
+
 	
 	
 	

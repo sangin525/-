@@ -6,20 +6,36 @@
 %>
 <!DOCTYPE html>
 <html>
+
 <head>
    <%@ include file="./views/common/head.jsp" %>
+
+   <link rel="stylesheet" href="/resources/css/member/MyPage.css">
+  <script src="/resources/js/common/slideImg.js"></script>
+
+
 </head>
+  
 <body class="Main_body">
+<div class="main-container">
    <%@ include file="./views/common/header.jsp" %>
    <%@ include file="./views/common/nav.jsp" %>
+   
+<div id="slideContainer">
+  <img class="slideImg" src="resources/uploads/메인페이지사진.jpg" />
+  <img class="slideImg slideImg2" src="resources/uploads/메인페이지사진2.jpg" />
+  <img class="slideImg slideImg2" src="resources/uploads/로얄스위트1.jpg" />
+</div>
 
   <section class="Main_section">
-    <h2>홈</h2>
 
-    <p> 안녕하세요! 홈페이지에 오신 것을 환영합니다.qqqq111</p>
+    <h2>홈</h2>
+    
+    <p> 안녕하세요! 홈페이지에 오신 것을 환영합니다.qqqq11221</p>
 
   </section>
 
+</div>
    <%@ include file="./views/common/footer.jsp" %>
 </body>
 </html>

@@ -29,7 +29,7 @@ public class NoticeEnrollController extends HttpServlet {
 		String content = request.getParameter("content");
 		
 		HttpSession session = request.getSession();
-		int memberNo = (Integer)session.getAttribute("M_NO");
+		int memberNo = (Integer)session.getAttribute("no");
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		
