@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import kr.co.project.room.model.dto.RoomDTO;
 import kr.co.project.room.model.service.RoomServiceImpl;
+/**
+ * Servlet implementation class ReserveEnrollController
+ */
 
 @WebServlet("/ReserveEnroll.do")
 public class ReserveEnrollController extends HttpServlet {
@@ -66,26 +69,4 @@ public class ReserveEnrollController extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
