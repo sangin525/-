@@ -16,6 +16,15 @@ public class MemberDTO {
 	private int mlg;
 	private String newPwd;
 
+	public MemberDTO(String phone, String email, String addr, String addr1, String addr2) {
+		super();
+		this.email = email;
+		this.phone = phone;
+		this.addr = addr;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+	}
+
 	public String getAddr1() {
 		return addr1;
 	}

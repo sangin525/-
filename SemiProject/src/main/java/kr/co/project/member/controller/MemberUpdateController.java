@@ -39,12 +39,13 @@ public class MemberUpdateController extends HttpServlet {
 		// 값 받아오기(이메일, 전화번호, 생년월일, 주소)
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-		String birth = request.getParameter("birth");
 		String addr = request.getParameter("addr");
+		String addr1 = request.getParameter("addr1");
+		String addr2 = request.getParameter("addr2");
 		String beforeEmail = (String)session.getAttribute("email");
 
 		// DTO 객체 생성
-		MemberDTO member = new MemberDTO(phone, email, addr, birth);
+		MemberDTO member = new MemberDTO(phone, email, addr, addr1, addr2);
 
 		// 서비스 객체 생성
 		MemberServiceImpl memberService = new MemberServiceImpl();
@@ -56,13 +57,15 @@ public class MemberUpdateController extends HttpServlet {
 			session.removeAttribute("phone"); // 세션 삭제
 			session.removeAttribute("email"); // 세션 삭제
 			session.removeAttribute("addr"); // 세션 삭제
-			session.removeAttribute("birth"); // 세션 삭제
+			session.removeAttribute("addr1"); // 세션 삭제
+			session.removeAttribute("addr2"); // 세션 삭제
 
 			// 세션 생성
 			session.setAttribute("phone", member.getPhone());
 			session.setAttribute("email", member.getEmail());
 			session.setAttribute("addr", member.getAddr());
-			session.setAttribute("birth", member.getBirth());
+			session.setAttribute("addr1", member.getAddr1());
+			session.setAttribute("addr2", member.getAddr2());
 			updateAlert(response, "회원 정보가 수정되었습니다.");
 
 		}

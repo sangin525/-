@@ -146,7 +146,7 @@ public class MemberDAO {
 	public int memberUpdate(Connection con, MemberDTO member, String beforeEmail) {
 		// 1. 쿼리 작성
 		String query = "UPDATE member" + "		SET m_phone = ?," + "		    m_email = ?," + "			m_addr = ?,"
-				+ "			m_birth = ?" + "		WHERE m_email = ?";
+				+ "			m_addr1 = ?,"+ "			m_addr2 = ?" + "		WHERE m_email = ?";
 
 		// 2. 쿼리 실행할 준비
 		try {
@@ -155,8 +155,9 @@ public class MemberDAO {
 			pstmt.setString(1, member.getPhone());
 			pstmt.setString(2, member.getEmail());
 			pstmt.setString(3, member.getAddr());
-			pstmt.setString(4, member.getBirth());
-			pstmt.setString(5, beforeEmail);
+			pstmt.setString(4, member.getAddr1());
+			pstmt.setString(5, member.getAddr2());
+			pstmt.setString(6, beforeEmail);
 
 			// 4. 쿼리 실행
 			return pstmt.executeUpdate();
