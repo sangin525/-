@@ -5,6 +5,7 @@
 <html>
 <head>
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script src="/resources/js/room/apikey.js"></script>
 <script src="/resources/js/room/payments.js"></script>
 
 <meta charset="UTF-8">
@@ -89,8 +90,9 @@
 		
 	<button type="button" class="payForm" onclick="requestPay('${member.MName}',
 								 '${room.roomName}', ${totalPrice}, '${member.MPhone}',
-								  '${member.MEmail}', '${member.MAddr}')">결제하기</button>
-	<button type="button" class="payForm">방구경하러가기</button>
+								  '${member.MEmail}', '${member.MAddr}', '${room.RChkIn}',
+								  '${room.RChkOut}', ${room.RPersonCount}, ${room.RCount})">결제하기</button>
+	<button type="button" class="payForm" onclick="intoInfoPage()">방구경하러가기</button>
 
 
 

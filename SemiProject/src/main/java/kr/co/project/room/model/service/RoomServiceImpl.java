@@ -42,4 +42,10 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public int reserveEnroll(RoomDTO room) {
+		
+		return roomDAO.reserveEnroll(con, room);
+	}
+
+
 }

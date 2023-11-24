@@ -61,7 +61,9 @@ function reserveRoom(){
 	window.location.href = pageUrl;
 }
 
-
+function intoInfoPage(){
+	window.location.replace("/gradeInfo.do");
+}
 
 
 
