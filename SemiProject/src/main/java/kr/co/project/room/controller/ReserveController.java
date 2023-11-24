@@ -73,8 +73,7 @@ public class ReserveController extends HttpServlet {
 		
 		int totalWeekday = Integer.parseInt(String.join("", roomPrice.getWeekdayPrice().split(",")));
 		int totalWeekend = Integer.parseInt(String.join("", roomPrice.getWeekendPrice().split(",")));
-		
-		
+    
 		room.setRoomName(RName);
 		room.setRChkIn(startDate);
 		room.setRChkOut(endDate);

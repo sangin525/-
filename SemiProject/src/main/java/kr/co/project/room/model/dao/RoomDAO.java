@@ -126,6 +126,7 @@ public class RoomDAO {
 		return room;
 	}
 
+
 	public int reserveEnroll(Connection con, RoomDTO room) {
 		// 예약DB에 객실 번호가 있어서 객실이름 가지고 조회해서 값 가져오고나서 넣어야함
 		String selectRNo = "SELECT ROOM_NO  FROM ROOM_INFO ri "
@@ -171,6 +172,7 @@ public class RoomDAO {
 	}
 
 	// 회원 마일리지 적립
+
 	
 	
 	

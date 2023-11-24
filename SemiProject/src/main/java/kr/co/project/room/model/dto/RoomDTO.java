@@ -33,17 +33,21 @@ public class RoomDTO {
 	private int RCount;
 	
 	// 고객정보 
+
 	private int MNo;
+
 	private String MName;
 	private String MPhone;
 	private String MEmail;
 	private String MAddr;
 	private int MLG;
+
 	
 	// 예약창에서 받아와서 DB 에 넣을 변수
 	private String memberName;
 	private int totalPrice;
 	private String memberPhone;
+
 	
 	public int getRoomNo() {
 		return roomNo;
