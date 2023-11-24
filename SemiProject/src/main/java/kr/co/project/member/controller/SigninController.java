@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import kr.co.project.member.dto.MemberDTO;
 import kr.co.project.member.service.MemberServiceImpl;
 
@@ -46,11 +48,11 @@ public class SigninController extends HttpServlet {
 
 				// 암호화된 패스워드 확인
 //				if(BCrypt.checkpw("사용자가 입력한 패스워드", "암호화된 패스워드")) {
-//				if(BCrypt.checkpw(pwd, member.getPwd())) {	
-//					System.out.println("성공");
-//				} else {
-//					System.out.println("실패");
-//				}
+				if(BCrypt.checkpw(pwd, member.getPwd())) {	
+					System.out.println("성공");
+				} else {
+					System.out.println("실패");
+				}
 				
 				// 3. 일치하면 세션에 저장 후 홈페이지로 보냄
 				

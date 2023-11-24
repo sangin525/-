@@ -4,6 +4,7 @@
     
  <header class="Main_header">
    <h1 class="Main_h1"><a href="/">초특가 여기어때</a></h1>
+   
    <div class="Signin-signup">
   <c:choose>
         <c:when test="${sessionScope.id != null}"> 
@@ -14,14 +15,10 @@
            <!-- <a href="/views/member/login.jsp">로그인</a> -->
            <a href="/SigninForm.do" class="Main_a">로그인</a>
 <!--            <a href="/registerForm.do">회원가입</a> -->
-           <a href="/form/registerForm.do" class="Main_a">회원가입</a>
+           <a href="/SignupForm.do" class="Main_a">회원가입</a>
            
         </c:otherwise>
      </c:choose>
    </div>
  </header>
- 
- 
- 
- 
- 
+
