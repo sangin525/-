@@ -1,22 +1,21 @@
 
 // 버튼선택시 이름가져오기
 
-function getCheckboxValue(event)  {
+function getCheckboxValue(event, DetailCount, count)  {
   let result = '';
   if(event.target.checked)  {
     result = event.target.value;
   }else {
     result = '';
   }
-	console.log(event.target.value);
-  var text = document.getElementById('R_name');
+  var text = document.getElementById('R_name'+count);
     text.value = result;
 }
 
 // 날짜계산
-function dateSum(){
-	let startDate = document.getElementById("start_date").value;
-	let endDate = document.getElementById("end_date").value;
+function dateSum(count){
+	let startDate = document.getElementById("start_date" + count).value;
+	let endDate = document.getElementById("end_date" + count).value;
 
     var ar1 = startDate.split('-');
     var ar2 = endDate.split('-');
@@ -29,29 +28,29 @@ function dateSum(){
 
     if(parseInt(dif/cDay) >= 10){
         alert("예약 10일을 초과할수 없습니다.");
-        document.getElementById("start_date").value = null;
-        document.getElementById("end_date").value = null;
-        document.getElementById('date_sum').value = 0;
+        document.getElementById("start_date" + count).value = null;
+        document.getElementById("end_date" + count).value = null;
+        document.getElementById('date_sum' + count).value = 0;
         
     }else if(parseInt(dif/cDay) <= 0){
         alert("오늘 이후로 예약해주세요.");
-        document.getElementById("start_date").value = null;
-        document.getElementById("end_date").value = null;
-        document.getElementById('date_sum').value = 0;
+        document.getElementById("start_date" + count).value = null;
+        document.getElementById("end_date" + count).value = null;
+        document.getElementById('date_sum' + count).value = 0;
     }else{
-        document.getElementById('date_sum').value = parseInt(dif/cDay);
+        document.getElementById('date_sum' + count).value = parseInt(dif/cDay);
         
     }
 }
 
 // 예약 홈페이지로 이동
-function reserveRoom(){
-	let RName = document.getElementById("R_name").value
-	let startDate = document.getElementById("start_date").value
-	let endDate = document.getElementById("end_date").value
-	let dateSum = document.getElementById("date_sum").value
-	let RPersonCount = document.getElementById("R_person_count").value
-	let roomDetailGrade = document.getElementById("roomDetailGrade").value
+function reserveRoom(count){
+	let RName = document.getElementById("R_name" + count).value
+	let startDate = document.getElementById("start_date" + count).value
+	let endDate = document.getElementById("end_date" + count).value
+	let dateSum = document.getElementById("date_sum" + count).value
+	let RPersonCount = document.getElementById("R_person_count" + count).value
+	let roomDetailGrade = document.getElementById("roomDetailGrade" + count).value
 	
 	
 	const pageUrl = '/ReserveRoom.do?RName='+RName+'&startDate='+startDate+
