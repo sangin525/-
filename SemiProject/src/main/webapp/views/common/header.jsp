@@ -3,7 +3,12 @@
     pageEncoding="UTF-8"%>
     
  <header class="Main_header">
-   <h1 class="Main_h1"><a href="/">초특가 여기어때</a></h1>
+ 	<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+   <h1 class="Main_h1"><a href="/">
+   <div>H.H <br>
+   Hotel Haru</div>
+   </a></h1>
    
    <div class="Signin-signup">
   <c:choose>

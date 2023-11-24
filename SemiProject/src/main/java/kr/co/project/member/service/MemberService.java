@@ -13,7 +13,7 @@ public interface MemberService {
 	public boolean duplicateEmail(String eamil);
 
 	// 로그인
-	public MemberDTO memberSignin(String id, String pwd);
+	public MemberDTO memberSignin(String id);
 
 	// 회원 정보 수정
 	public int memberUpdate(MemberDTO member, String beforeEmail);
