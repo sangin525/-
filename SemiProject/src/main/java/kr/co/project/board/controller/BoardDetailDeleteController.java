@@ -7,15 +7,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import kr.co.project.board.service.BoardServiceImpl;
 
-@WebServlet("/boardEnroll.do")
-public class BoardEnrollController extends HttpServlet {
+@WebServlet("/boardDelete.do")
+public class BoardDetailDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BoardEnrollController() {
+    public BoardDetailDeleteController() {
         super();
     }
 
@@ -23,24 +22,17 @@ public class BoardEnrollController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		
-		HttpSession session = request.getSession();
-		
-		int memberNo = (Integer)session.getAttribute("no");
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		
-		int result = boardService.boardEnroll(title, content, memberNo);
-		System.out.println(result);
+		int result = boardService.boardDelete(boardNo);
+		
 		if(result > 0) {
-			response.sendRedirect("/BoardList.do");
+			response.sendRedirect("BoardList.do");
 		}else {
 			response.sendRedirect("/views/common/error.jsp");
 		}
-		
 	}
 
 }

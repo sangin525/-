@@ -14,12 +14,16 @@
 
 
     <section class="boardSection">
-	<form>
+	<form id ="board-datail-form">
         <div class="boardRightDiv">
-        	<input type="hidden" name="boardNo">
+        	<input type="hidden" name="boardNo" value="${board.boardNo}">
+        	<input type="hidden" name="boardViews" value="${board.title}">
+        	<input type="hidden" name="boardName" value="${board.content}">
+        	<input type="hidden" name="boardNo" value="${board.m_No}">
+        	
             <span class="boardSpan">
-                <p class="boardText" id ="boardNo" name ="boardNo">게시물 번호 : ${board.boardNo}</p>
-                <p class="boardText" id ="boardViews" name ="boardViews">조회수 : ${board.views}</p>
+                <p class="boardText">게시물 번호 : ${board.boardNo}</p>
+                <p class="boardText" id ="boardViews" name ="boardViews" >조회수 : ${board.views}</p>
                 <p class="boardText" id ="boardName" name="boardName">작성자 : ${board.name}</p>
             </span>
             <span class="boardSpan">
@@ -30,17 +34,26 @@
         <!-- Title, Content -->
         <div class="boardEnroll">
             <div class="divCenter2">
-                <textarea name="boardTitle" id="boardTitle" cols="30" rows="10" class="titleText" disabled>${board.title}</textarea>
-                <textarea name="boardContent" id="boardContent" cols="30" rows="10" class="contentText" disabled>${board.content}</textarea>
+                <textarea name="boardTitle" id="boardTitle" cols="30" rows="10" class="titleText" required disabled>${board.title}</textarea>
+                <textarea name="boardContent" id="boardContent" cols="30" rows="10" class="contentText" required disabled>${board.content}</textarea>
             </div>
-            <div class="divRight">
-                <button onclick ="boardUpdate()" class="modifyBtn" style ="margin-right: 20px">수정</button>
-                <button onclick ="boardDelete()" class="modifyBtn">삭제</button>
+            
+            <c:if test = "${sessionScope.no == board.m_No}">
+            <div class="divRight" style ="margin-top: 5px"> 
+            	<c:set var="btn" value="0"></c:set>         
+                	<button id="submitBtn" onclick="boardUpdate()" class="modifyBtn" style="margin-right: 20px; display: none;">완료</button>
+                	<button id="modifyBtn" type="button" onclick="boardDisabled()" class="modifyBtn" style ="margin-right: 20px">수정</button>
+                </c:if>
+                <button onclick="boardDelete()" class="modifyBtn">삭제</button>
             </div>
         </div>
 	</form>
+	
+	
+	
+	
         <!-- 댓글 -->
-        <div class="divCenter2">
+        <div class="divCenter2" style ="margin-top:30px">
             <p class="font14">댓글</p>
             <div class="divCenter3">
                 <textarea name="" id="" cols="30" rows="10" class="contentText2" disabled></textarea>
