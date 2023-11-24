@@ -33,11 +33,21 @@ public class RoomDTO {
 	private int RCount;
 	
 	// 고객정보 
+
+	private int MNo;
+
 	private String MName;
 	private String MPhone;
 	private String MEmail;
 	private String MAddr;
 	private int MLG;
+
+	
+	// 예약창에서 받아와서 DB 에 넣을 변수
+	private String memberName;
+	private int totalPrice;
+	private String memberPhone;
+
 	
 	public int getRoomNo() {
 		return roomNo;
@@ -119,6 +129,30 @@ public class RoomDTO {
 	}
 	public String getRoomNotice() {
 		return roomNotice;
+	}
+	public int getMNo() {
+		return MNo;
+	}
+	public void setMNo(int mNo) {
+		MNo = mNo;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+	public String getMemberPhone() {
+		return memberPhone;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public void setMemberPhone(String memberPhone) {
+		this.memberPhone = memberPhone;
 	}
 	public void setRoomNotice(String roomNotice) {
 		this.roomNotice = roomNotice;
