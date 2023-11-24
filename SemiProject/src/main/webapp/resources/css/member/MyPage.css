@@ -83,12 +83,17 @@
     text-align: left;
 
 }
+
+.mypage_addr{
+	width: 150px;
+}
 .memberUpdate-btn{
     text-align: center;
     width: 100px;
     background: rgb(173, 123, 123);
     border-radius: 5px;
 }
+
 
 /* .MyPage-btn{
     display: inline;
