@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
     
  <header class="Main_header">
-   <h1 class="Main_h1"><a href="/">초특가 여기어때</a></h1>
+   <a href="/"><img class="Main_h1" src="/resources/uploads/호텔로고1.png"></a>
    
    <div class="Signin-signup">
   <c:choose>

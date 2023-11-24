@@ -12,7 +12,7 @@
 }
 
 .Main_header {
-	background-color: #333;
+	background-color: bisque;
 	color: #fff;
 	padding: 1em;
 	text-align: center;
@@ -74,3 +74,40 @@ a :hover {
 	bottom: 0;
 	width: 100%;
 }
+
+#slideContainer{
+	width: 2000px;
+  	height: 500px;
+  	overflow: hidden;
+  	margin: 0 auto;
+
+}
+
+#slideContainer img {
+  width: 2000px;
+  height: 500px;
+  animation: fadeIn 5s ease-in-out
+}
+
+.slideImg2{
+	display:none;
+}
+
+.slideImg .on {
+  display: block;
+}
+
+@keyframes fadeIn{
+	0%{
+	opacity: 0;
+	}
+	50%{
+	opacity: 100;
+	}
+	100%{
+	opacity: 0;
+	}
+}
+
+
+

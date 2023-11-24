@@ -18,3 +18,4 @@ public interface RoomService {
 	// no 로 마일리지조회
 	public RoomDTO searchMLG(int memberNo);
 }
+
