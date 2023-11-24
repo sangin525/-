@@ -88,3 +88,39 @@ a :hover {
 	text-align: center;
 	bottom: 0;
 }
+
+#slideContainer{
+	width: 2000px;
+  	height: 500px;
+  	overflow: hidden;
+  	margin: 0 auto;
+
+}
+
+#slideContainer img {
+  width: 2000px;
+  height: 500px;
+  animation: fadeIn 5s ease-in-out
+}
+
+.slideImg2{
+	display:none;
+}
+
+.slideImg .on {
+  display: block;
+}
+
+@keyframes fadeIn{
+	0%{
+	opacity: 0;
+	}
+	50%{
+	opacity: 100;
+	}
+	100%{
+	opacity: 0;
+	}
+}
+
+

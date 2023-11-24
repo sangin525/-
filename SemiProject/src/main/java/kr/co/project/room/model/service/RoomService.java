@@ -23,3 +23,4 @@ public interface RoomService {
 	public int reserveEnroll(RoomDTO room);
 
 }
+
