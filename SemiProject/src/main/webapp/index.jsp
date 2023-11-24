@@ -9,10 +9,15 @@
 
 <head>
    <%@ include file="./views/common/head.jsp" %>
+
+   <link rel="stylesheet" href="/resources/css/member/MyPage.css">
   <script src="/resources/js/common/slideImg.js"></script>
+
+
 </head>
   
 <body class="Main_body">
+<div class="main-container">
    <%@ include file="./views/common/header.jsp" %>
    <%@ include file="./views/common/nav.jsp" %>
    
@@ -30,7 +35,7 @@
 
   </section>
 
+</div>
    <%@ include file="./views/common/footer.jsp" %>
-
 </body>
 </html>

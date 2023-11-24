@@ -3,7 +3,12 @@
     pageEncoding="UTF-8"%>
     
  <header class="Main_header">
+
+ 	<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
    <a href="/"><img class="Main_h1" src="/resources/uploads/호텔로고1.png"></a>
+
+
    
    <div class="Signin-signup">
   <c:choose>

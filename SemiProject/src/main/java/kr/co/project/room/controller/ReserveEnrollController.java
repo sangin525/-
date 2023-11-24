@@ -1,41 +1,72 @@
 package kr.co.project.room.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import kr.co.project.room.model.dto.RoomDTO;
+import kr.co.project.room.model.service.RoomServiceImpl;
 /**
  * Servlet implementation class ReserveEnrollController
  */
+
 @WebServlet("/ReserveEnroll.do")
 public class ReserveEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public ReserveEnrollController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String memberName = request.getParameter("memberName");
+		String roomName = request.getParameter("roomName");
+		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
+		String memberPhone = request.getParameter("memberPhone");
+		String RChkIn = request.getParameter("RChkIn");
+		String RChkOut = request.getParameter("RChkOut");
+		int RPersonCount = Integer.parseInt(request.getParameter("RPersonCount"));
+		int RCount = Integer.parseInt(request.getParameter("RCount"));
+		
+		System.out.println(RCount);
+		
+		
+		HttpSession session = request.getSession();
+		int MNo = (int)session.getAttribute("no");
+		RoomDTO room = new RoomDTO();
+		
+		room.setMNo(MNo);
+		room.setMemberName(memberName);
+		room.setRoomName(roomName);
+		room.setTotalPrice(totalPrice);
+		room.setMemberPhone(memberPhone);
+		room.setRChkIn(RChkIn);
+		room.setRChkOut(RChkOut);
+		room.setRPersonCount(RPersonCount);
+		room.setRCount(RCount);
+		
+		RoomServiceImpl roomService = new RoomServiceImpl();
+		int result = roomService.reserveEnroll(room);
+		
+		if(result > 0) {
+			PrintWriter out = response.getWriter();
+			out.print(result);
+			
+		}
+		
+		
 	}
 
 }
+

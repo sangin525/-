@@ -14,6 +14,7 @@
 <body class="Main_body">
 	<%@ include file="../common/header.jsp"%>
 	<%@ include file="../common/nav.jsp"%>
+	<div class="Sigin-contain">
 	<div class="Signin-main">
 		
 		<div class="SignIn">
@@ -35,7 +36,7 @@
 		
 	</div>
 
-
+</div>
 	<%@ include file="../common/footer.jsp"%>
 
 </body>

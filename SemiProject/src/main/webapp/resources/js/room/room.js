@@ -62,6 +62,10 @@ function reserveRoom(){
 }
 
 
+function intoInfoPage(){
+	window.location.replace("/gradeInfo.do");
+}
+
 
 
 

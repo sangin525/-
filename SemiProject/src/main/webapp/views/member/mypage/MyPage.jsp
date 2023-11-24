@@ -51,8 +51,12 @@
 				<td><%=session.getAttribute("birth") %></td>
 			</tr>
 			<tr class="tr_info">
+				<th>우편번호</th>
+				<td class="mypage_addr"><%=session.getAttribute("addr") %></td>
+			</tr>
+			<tr class="tr_info">
 				<th>주소</th>
-				<td><%=session.getAttribute("addr") %></td>
+				<td><%=session.getAttribute("addr1") %>&nbsp;<%=session.getAttribute("addr2") %></td>
 			</tr>
 			<tr class="tr_info">
 				<th>마일리지</th>

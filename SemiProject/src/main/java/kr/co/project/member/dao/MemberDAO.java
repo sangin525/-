@@ -81,23 +81,25 @@ public class MemberDAO {
 	}
 
 	// 로그인
-	public MemberDTO memberSignin(Connection con, String id, String pwd) {
+	public MemberDTO memberSignin(Connection con, String id) {
 		// 1. 쿼리 작성
 		String query = "SELECT m_no," + "			   m_id, " + "			   m_pwd," + "			   m_name,"
 				+ "			   m_phone," + "			   m_email," + "			   m_addr," + "			   m_birth,"
-				+ "			   m_in_date," + "			   m_delete_date," + "			   m_mlg "
-				+ "		FROM member " + "		WHERE m_id = ? " + "		AND m_pwd = ?";
+				+ "			   m_in_date," + "			   m_delete_date," + "			   m_mlg,"
+						+ "m_addr1, "
+						+ "m_addr2 "
+				+ "		FROM member " + "		WHERE m_id = ? ";
 
+		MemberDTO member = new MemberDTO();
 		// 2. 쿼리 실행할 준비
 		try {
 			pstmt = con.prepareStatement(query);
 			// 3. 물음표있으면 채우고
 			pstmt.setString(1, id);
-			pstmt.setString(2, pwd);
+			
 			// 4. 쿼리실행
 			ResultSet rs = pstmt.executeQuery();
 
-			MemberDTO member = new MemberDTO();
 
 			while (rs.next()) {
 				String resultId = rs.getString("M_ID");
@@ -108,6 +110,8 @@ public class MemberDAO {
 				String resultPhone = rs.getString("M_PHONE");
 				String resultEmail = rs.getString("M_EMAIL");
 				String resultAddr = rs.getString("M_ADDR");
+				String resultAddr1 = rs.getString("M_ADDR1");
+				String resultAddr2 = rs.getString("M_ADDR2");
 				String resultBirth = rs.getString("M_BIRTH");
 				String resultInDate = rs.getString("M_IN_DATE");
 				String resultDeleteDate = rs.getString("M_DELETE_DATE");
@@ -120,6 +124,8 @@ public class MemberDAO {
 				member.setPhone(resultPhone);
 				member.setEmail(resultEmail);
 				member.setAddr(resultAddr);
+				member.setAddr1(resultAddr1);
+				member.setAddr2(resultAddr2);
 				member.setBirth(resultBirth);
 				member.setInDate(resultInDate);
 				member.setDeleteDate(resultDeleteDate);
@@ -140,7 +146,7 @@ public class MemberDAO {
 	public int memberUpdate(Connection con, MemberDTO member, String beforeEmail) {
 		// 1. 쿼리 작성
 		String query = "UPDATE member" + "		SET m_phone = ?," + "		    m_email = ?," + "			m_addr = ?,"
-				+ "			m_birth = ?" + "		WHERE m_email = ?";
+				+ "			m_addr1 = ?,"+ "			m_addr2 = ?" + "		WHERE m_email = ?";
 
 		// 2. 쿼리 실행할 준비
 		try {
@@ -149,8 +155,9 @@ public class MemberDAO {
 			pstmt.setString(1, member.getPhone());
 			pstmt.setString(2, member.getEmail());
 			pstmt.setString(3, member.getAddr());
-			pstmt.setString(4, member.getBirth());
-			pstmt.setString(5, beforeEmail);
+			pstmt.setString(4, member.getAddr1());
+			pstmt.setString(5, member.getAddr2());
+			pstmt.setString(6, beforeEmail);
 
 			// 4. 쿼리 실행
 			return pstmt.executeUpdate();
