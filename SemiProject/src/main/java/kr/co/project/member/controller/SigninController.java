@@ -43,9 +43,8 @@ public class SigninController extends HttpServlet {
 				MemberServiceImpl memberService = new MemberServiceImpl();
 				
 				// 암호화된 패스워드 조회
-				MemberDTO member = memberService.memberSignin(id, pwd);
+				MemberDTO member = memberService.memberSignin(id);
 				
-
 				// 암호화된 패스워드 확인
 //				if(BCrypt.checkpw("사용자가 입력한 패스워드", "암호화된 패스워드")) {
 				if(BCrypt.checkpw(pwd, member.getPwd())) {	
@@ -58,7 +57,7 @@ public class SigninController extends HttpServlet {
 				
 				// member.getId() == NULL
 				// Objects.isNull(member.getId())
-				if(Objects.isNull(member.getId()) || !Objects.isNull(member.getDeleteDate())) { // 로그인 실패
+				if(Objects.isNull(member.getId()) || !Objects.isNull(member.getDeleteDate()) || !BCrypt.checkpw(pwd, member.getPwd())) { // 로그인 실패
 					SigninAlert(response, "아이디 또는 비밀번호를 확인해 주세요.");
 				} else { // 로그인 성공
 					HttpSession session = request.getSession();
@@ -68,6 +67,8 @@ public class SigninController extends HttpServlet {
 					session.setAttribute("phone", member.getPhone());
 					session.setAttribute("email", member.getEmail());
 					session.setAttribute("addr", member.getAddr());
+					session.setAttribute("addr1", member.getAddr1());
+					session.setAttribute("addr2", member.getAddr2());
 					session.setAttribute("birth", member.getBirth());
 					session.setAttribute("mlg", member.getMlg());
 					
