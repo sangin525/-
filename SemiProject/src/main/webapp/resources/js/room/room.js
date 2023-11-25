@@ -12,6 +12,34 @@ function getCheckboxValue(event, DetailCount, count)  {
     text.value = result;
 }
 
+// 체크박스선택시 나버지버튼 비활성화
+
+function unlockChkBtn(event, DetailCount){
+	let Detailcheckbox = document.getElementById("Detailcheckbox" + DetailCount);
+	let allChkbox = document.getElementsByClassName("Detailcheckbox");
+	if(event.target.checked){
+		for(let i = 0; i<allChkbox.length; i++){
+			allChkbox[i].disabled = true;
+		}
+		Detailcheckbox.disabled = false;
+		console.log("체크됨");
+	}else{
+		for(let i = 0; i<allChkbox.length; i++){
+			allChkbox[i].disabled = false;
+		}
+		console.log("asdasdasd엘즈문");
+	}
+}
+// 모달창에서 close 누를시 전체체크해제, disabled 해제
+function unChkBtn(){
+	let allChkbox = document.getElementsByClassName("Detailcheckbox");
+	for(let i = 0; i<allChkbox.length; i++){
+		allChkbox[i].disabled = false;
+		allChkbox[i].checked = false;
+	}
+}
+
+
 // 날짜계산
 function dateSum(count){
 	let startDate = document.getElementById("start_date" + count).value;
@@ -42,6 +70,11 @@ function dateSum(count){
         
     }
 }
+
+function getDate(count){
+	dateSum(count);
+} 
+
 
 // 예약 홈페이지로 이동
 function reserveRoom(count){

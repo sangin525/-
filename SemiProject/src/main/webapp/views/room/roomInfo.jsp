@@ -108,9 +108,9 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 							</ul>
 							
 							<p class="roomDetailChk">
-							 <input type="checkbox" id="Detailcheckbox${DetailCount}"
+							 <input type="checkbox" class ="Detailcheckbox" id="Detailcheckbox${DetailCount}"
 							 value="${roomDetail.get(DetailCount).roomName}"
-							 onclick="getCheckboxValue(event , ${DetailCount}, ${count})">
+							 onclick="getCheckboxValue(event , ${DetailCount}, ${count}),unlockChkBtn(event, ${DetailCount})">
 							  
 							  <label for="Detailcheckbox${DetailCount}" >선택하기</label>
 							 </p>
@@ -121,7 +121,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 	      </div>
       </c:forEach>
       
-	      <div class="modal-footer">
+	      <div class="modal-footer" onmousemove="getDate(${count})">
 		    <input type="text" placeholder="객실이름" class="R_room_small" name="R_name" id="R_name${count}" disabled>
 			<input type="date" required  class="R_room" name="start_date" id="start_date${count}" onclick="dateSum(${count})">
 			 <input type="date" required class="R_room" name="end_date" id="end_date${count}" onclick="dateSum(${count})">
@@ -130,7 +130,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 	
 	        <button type="button" class="btn btn-primary" 
 	        onclick="reserveRoom(${count})">예약하기</button>
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="unChkBtn()">Close</button>
 	      </div>
       
     </div>
