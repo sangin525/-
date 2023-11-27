@@ -14,6 +14,7 @@
 .Main_header {
 	background-color: bisque;
 	padding: 1em;
+	padding-bottom: 0px;
 	text-align: center;
 	display: flex;
 	justify-content: space-between; 
@@ -27,20 +28,31 @@
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
-.Main_header img {
-	width:150px;
-	height:150px;
-	padding: 0px;
-	margin: 0px;
-	display: inline-block;
+
+
+
+
+.Main_header img{
+	width: 150px;
+	height: 150px;
+}
+
+
+
+.Main_header a{
+	width: 150px;
+	height: 150px;
 
 }
 
 .Signin-signup {
-	djustify-content: flex-end; 
+	justify-content: flex-end; 
 	text-align: right;
 }
 
+#non-signin{
+	padding-left: 0.95px;
+}
 
 .nav_last {
 	display: inline-block;
@@ -111,6 +123,7 @@
 	width: 100%;
 }
 
+
 .Main_footer img {
 	width:150px;
 	height:150px;
@@ -124,33 +137,29 @@ float:left;
 
 
 /* 메인화면 사진 슬라이드 */
-#slideContainer{
-	width: 2000px;
+
+.change-image{
+
+	width: 100%;
   	height: 500px;
-  	overflow: hidden;
-  	margin: 0 auto;
+  	background-image: url("/resources/uploads/메인페이지사진.jpg");
+  	background-size : 100% 500px;
+  	animation-name: after;
+  animation-duration: 5s;
+  animation-iteration-count: infinite; 
 
 }
-#slideContainer img {
-  width: 2000px;
-  height: 500px;
-  animation: fadeIn 5s ease-in-out
+
+
+
+@keyframes after {
+  33% { 
+    background-image: url("/resources/uploads/메인페이지사진2.jpg");
+  }
+  
+  66%{
+  background-image: url("/resources/uploads/로얄스위트1.jpg");
+  }
 }
-.slideImg2{
-	display:none;
-}
-.slideImg .on {
-  display: block;
-}
-@keyframes fadeIn{
-	0%{
-	opacity: 0;
-	}
-	50%{
-	opacity: 100;
-	}
-	100%{
-	opacity: 0;
-	}
-}
+
 

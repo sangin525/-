@@ -21,11 +21,9 @@
    <%@ include file="./views/common/header.jsp" %>
    <%@ include file="./views/common/nav.jsp" %>
    
-<div id="slideContainer">
-  <img class="slideImg" src="resources/uploads/메인페이지사진.jpg" />
-  <img class="slideImg slideImg2" src="resources/uploads/메인페이지사진2.jpg" />
-  <img class="slideImg slideImg2" src="resources/uploads/로얄스위트1.jpg" />
-</div>
+
+<img class="change-image"></img>
+
 
   <section class="Main_section">
 

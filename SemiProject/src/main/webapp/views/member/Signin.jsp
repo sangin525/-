@@ -10,6 +10,8 @@
 <%@ include file="../common/head.jsp"%>
 <link rel="stylesheet" href="/resources/css/member/Signin.css">
 <script src="/resources/js/member/member.js"></script>
+
+
 </head>
 <body class="Main_body">
 	<%@ include file="../common/header.jsp"%>
@@ -33,7 +35,7 @@
 			
 			<!--  <button type="submit">로그인</button>-->
 		</form>
-		
+
 	</div>
 
 </div>
