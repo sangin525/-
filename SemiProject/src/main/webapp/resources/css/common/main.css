@@ -92,9 +92,14 @@ a :hover {
 	bottom: 0;
 }
 
+.img-div{
+	text-align: center;
+}
+
 .change-image{
 	width: 2000px;
   	height: 500px;
+  	margin: 0 auto;
   	background-image: url("/resources/uploads/메인페이지사진.jpg");
   	background-size : 2000px 500px;
   	animation-name: after;
