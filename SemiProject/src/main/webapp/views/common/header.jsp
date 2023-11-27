@@ -8,6 +8,7 @@
  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  	&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
    <a href="/"><img src="/resources/uploads/호텔로고1.png"></a>
 
 
