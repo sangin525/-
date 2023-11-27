@@ -60,6 +60,69 @@
 
 				</tbody>
 			</table>
+			<br><br>
+			
+			<nav class="pageNav">
+				<ul class="pagination">
+
+					<c:choose>
+						<c:when test="${pi.currentPage == 1}">
+							<li class="page-item"><a class="page-link" href="#"
+								aria-label="Previous"> 
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+							</li>
+						</c:when>
+						
+						<c:otherwise>
+							<li class="page-item">
+								<a class="page-link" href="/MyBoardList.do?cpage=${pi.currentPage-1}" aria-label="Previous"> 
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+						</c:otherwise>
+					</c:choose>
+
+
+					
+					<!-- 1부터 10까지의 버튼 나열 -->
+    <c:forEach var = "page" begin = "${pi.startPage}" end = "${pi.endPage}">
+        <!-- if문을 작성해 현재 페이지가 pageNum과 동일하면 active 클래스가 추가된 리스트가 보여지도록 함 -->
+        <c:if test = "${pi.currentPage == page}">
+            <li class = "page-item-active">
+                <a class = "page-link" href="/MyBoardList.do?cpage=${page}">${page}
+                </a>
+            </li>
+        </c:if>
+        
+        <!-- 현재 페이지와 pageNum이 동일하지 않은 9개의 버튼은 active가 활성화되지 않은 리스트가 보여지도록 함 -->
+        <c:if test = "${pi.currentPage != page}">
+            <li class = "page-item">
+                <a class = "page-link" href="/MyBoardList.do?cpage=${page}">${page}
+                </a>
+            </li>
+        </c:if>
+    </c:forEach>
+					
+					<c:choose>
+						<c:when test="${pi.currentPage == pi.maxPage}">
+							<li class="page-item">
+								<a class="page-link" href="#" aria-label="Next"> 
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</c:when>
+						
+						<c:otherwise>
+							<li class="page-item">
+								<a class="page-link" href="/MyBoardList.do?cpage=${pi.currentPage+1}" aria-label="Next"> 
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			</nav>
 	</div>
 	</div>
 </div>
