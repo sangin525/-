@@ -15,6 +15,7 @@
 	background-color: bisque;
 	color: #fff;
 	padding: 1em;
+	padding-bottom: 0px;
 	text-align: center;
 	display: flex;
 	justify-content: space-between; 
@@ -29,22 +30,24 @@
 
 }
 
-.Main_h1{
-	padding-top: 20px;
-	margin: 0px;
-	display: inline-block;
+.Main_header img{
+	width: 150px;
+	height: 150px;
 }
 
-.Main_h1 a{
-	color: black;
-	text-decoration: none;
+.Main_header a{
+	width: 150px;
+	height: 150px;
 }
 
 .Signin-signup {
-	djustify-content: flex-end; 
+	justify-content: flex-end; 
 	text-align: right;
 }
 
+#non-signin{
+	padding-left: 0.95px;
+}
 
 .nav_last {
 	display: inline-block;
@@ -100,7 +103,7 @@ a :hover {
 #slideContainer img {
   width: 2000px;
   height: 500px;
-  animation: fadeIn 5s ease-in-out
+  animation: fadeIn 5s ease-in-out;
 }
 
 .slideImg2{
@@ -122,5 +125,3 @@ a :hover {
 	opacity: 0;
 	}
 }
-
-
