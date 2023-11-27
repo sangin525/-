@@ -92,36 +92,23 @@ a :hover {
 	bottom: 0;
 }
 
-#slideContainer{
+.change-image{
 	width: 2000px;
   	height: 500px;
-  	overflow: hidden;
-  	margin: 0 auto;
-
+  	background-image: url("/resources/uploads/메인페이지사진.jpg");
+  	background-size : 2000px 500px;
+  	animation-name: after;
+  animation-duration: 5s;
+  animation-iteration-count: infinite; 
 }
 
-#slideContainer img {
-  width: 2000px;
-  height: 500px;
-  animation: fadeIn 5s ease-in-out;
+@keyframes after {
+  33% { 
+    background-image: url("/resources/uploads/메인페이지사진2.jpg");
+  }
+  
+  66%{
+  background-image: url("/resources/uploads/로얄스위트1.jpg");
+  }
 }
 
-.slideImg2{
-	display:none;
-}
-
-.slideImg .on {
-  display: block;
-}
-
-@keyframes fadeIn{
-	0%{
-	opacity: 0;
-	}
-	50%{
-	opacity: 100;
-	}
-	100%{
-	opacity: 0;
-	}
-}
