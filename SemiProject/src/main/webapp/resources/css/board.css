@@ -262,6 +262,7 @@
 	margin-top: 10px;
 	border-radius: 15px;
 	border: 2px solid #A1A1A1;
+	font-family: 'sejong';
 }
 
 .contentText {
@@ -272,6 +273,7 @@
 	resize: none;
 	border-radius: 15px;
 	border: 2px solid #A1A1A1;
+	font-family: 'sejong';
 }
 
 /* 댓글 모음 */
@@ -285,6 +287,7 @@
 	font-size: 12px;
 	border-radius: 15px;
 	border: 2px solid #A1A1A1;
+	font-family: 'sejong';
 }
 
 .contentText3 {
@@ -296,7 +299,8 @@
 	resize: none;
 	font-size: 12px;
 	border-radius: 15px;
-	border: 2px solid #A1A1A1;
+	border: 2px solid #A1A1A1;	
+	font-family: 'sejong';
 }
 
 .TextArea {

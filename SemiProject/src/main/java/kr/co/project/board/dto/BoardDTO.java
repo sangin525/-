@@ -59,6 +59,9 @@ public class BoardDTO {
 		this.content = content;
 	}
 
+
+
+
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -166,4 +169,13 @@ public class BoardDTO {
 		this.route = route;
 		this.answer = answer;
 	}
+	
+	public BoardDTO(String title, String content, int boardNo) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.boardNo = boardNo;
+	}
+	
+	
 }

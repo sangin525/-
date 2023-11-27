@@ -19,12 +19,15 @@ public interface BoardService {
 	public int boardView(int boardNo);
 	// 문의사항 상세보기
 	public void boardSelect(BoardDTO board);
-
+	// 문의사항 상세보기 수정
+	public int boardUpdate(BoardDTO board);
+	// 문의사항 삭제
+	public int boardDelete(int BoardNo);
 	
 	
+	// 마이페이지
 	// 내 게시글 수 조회
 	public int myListCount(int no);
-	
 	// 내 게시글 목록 조회
 	public ArrayList<BoardDTO> myBoardList(MyBoardPageInfo pi, int no);
 	
