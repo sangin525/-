@@ -22,12 +22,10 @@ function unlockChkBtn(event, DetailCount){
 			allChkbox[i].disabled = true;
 		}
 		Detailcheckbox.disabled = false;
-		console.log("체크됨");
 	}else{
 		for(let i = 0; i<allChkbox.length; i++){
 			allChkbox[i].disabled = false;
 		}
-		console.log("asdasdasd엘즈문");
 	}
 }
 // 모달창에서 close 누를시 전체체크해제, disabled 해제

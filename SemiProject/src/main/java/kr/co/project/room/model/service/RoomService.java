@@ -22,4 +22,7 @@ public interface RoomService {
 	// 예약DB 에 넣기
 	public int reserveEnroll(RoomDTO room);
 
+	// nav 에 등급선택에따른 객실정보 가져오기
+	public ArrayList<String> navRoomName(String gradeMenu);
+	
 }
