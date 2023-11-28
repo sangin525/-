@@ -5,8 +5,11 @@
  <header class="Main_header">
 
  	<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-   <a href="/"><img class="Main_h1" src="/resources/uploads/호텔로고1.png"></a>
+ 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 	&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+   <a href="/"><img src="/resources/uploads/호텔로고1.png"></a>
 
 
    
@@ -17,8 +20,9 @@
            <a href="/SignOut.do" class="Main_a">로그아웃</a>
         </c:when>
         <c:otherwise>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <!-- <a href="/views/member/login.jsp">로그인</a> -->
-           <a href="/SigninForm.do" class="Main_a">로그인</a>
+           <a href="/SigninForm.do" class="Main_a" id="non-signin">로그인</a>
 <!--            <a href="/registerForm.do">회원가입</a> -->
            <a href="/SignupForm.do" class="Main_a">회원가입</a>
            

@@ -48,4 +48,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public ArrayList<String> navRoomName(String gradeMenu) {
+		return roomDAO.navRoomName(con, gradeMenu);
+	}
+
+
 }
