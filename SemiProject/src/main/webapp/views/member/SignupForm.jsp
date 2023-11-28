@@ -8,6 +8,7 @@
 <%@ include file="../common/head.jsp"%>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/member/SignupForm.js"></script>
+<title>회원가입</title>
 </head>
 <body class="Main_body">
 	<%@ include file="../common/header.jsp"%>
@@ -96,7 +97,7 @@
 								이용에 동의합니다.</label>
 						</div>
 						<div class="mb-4"></div>
-						<button type="submit" id="subtn" class="btn btn-secondary">가입 완료</button>
+					<button type="submit" id="subtn" class="btn btn-secondary">가입 완료</button>
 					</form>
 				</div>
 			</div>
