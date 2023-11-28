@@ -71,6 +71,7 @@ public class SigninController extends HttpServlet {
 					session.setAttribute("addr2", member.getAddr2());
 					session.setAttribute("birth", member.getBirth());
 					session.setAttribute("mlg", member.getMlg());
+					session.setAttribute("admin", member.getAdmin());
 					
 					RequestDispatcher view = request.getRequestDispatcher("/");         
 					view.forward(request, response);

@@ -36,7 +36,7 @@ public class BoardEnrollController extends HttpServlet {
 		int result = boardService.boardEnroll(title, content, memberNo);
 		System.out.println(result);
 		if(result > 0) {
-			response.sendRedirect("/BoardList.do");
+			response.sendRedirect("/BoardList.do?cpage=1");
 		}else {
 			response.sendRedirect("/views/common/error.jsp");
 		}
