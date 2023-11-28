@@ -195,10 +195,10 @@
 
 .change-image{
    width: 2000px;
-     height: 500px;
+     height: 800px;
      margin: 0 auto;
      background-image: url("/resources/uploads/메인페이지사진.jpg");
-     background-size : 2000px 500px;
+     background-size : 2000px 800px;
      animation-name: after;
   animation-duration: 5s;
   animation-iteration-count: infinite; 
