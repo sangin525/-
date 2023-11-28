@@ -22,11 +22,6 @@
    width:100%;
 }
 
-.Main_section {
-   max-width: 800px;
-   margin: 20px auto;
-   padding: 20px;
-}
 
 .Main_header img{
    width: 150px;
@@ -202,4 +197,49 @@ animation-timing-function: cubic-bezier(0, 2.72, 0.85, 0.97);
   background-image: url("/resources/uploads/로얄스위트1.jpg");
   }
 }
+
+/* 주변 할것들 사진 및 css */
+.Main_section hr{
+	width:50%;
+	float:left;
+}
+.Main_section h2{
+	margin-left:19%;
+	margin-top:0;
+	margin-bottom:0;
+	font-size: 32px;
+	color: rgb(210, 98, 98);
+}
+.traditional1 p{
+	font-size: 28px;
+	margin:0px auto;
+	text-align:center;
+	color: rgb(210, 98, 98);
+}
+
+.traditional {
+	display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    width:60%;
+    height:auto;
+}
+  .traditional1 {
+    width:40%;
+    margin: 10px;
+    text-align:center;
+  }
+  .traditional1 img{
+    width: 350px;
+    height: 350px;
+  }
+
+
+
+
+
+
+
+
+
 

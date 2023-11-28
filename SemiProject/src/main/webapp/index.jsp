@@ -27,18 +27,32 @@
 
 
   <section class="Main_section">
-    <h2>홈</h2>
-    
-    <p> 안녕하세요! 홈페이지에 오신 것을 환영합니다.qqqq11220</p>
+  	<h2><strong>호텔 주변 명소</strong></h2>
+  	<hr>
+  	<br>
+
   	<div class="traditional">
-  	
-  
+  	<div class="traditional1">
+  	 	<img src="/resources/uploads/한강사진.png">
+  	 	<p>한강</p>
+  	 </div>
+  	 <div class="traditional1">
+  	 	<img src="/resources/uploads/명동거리사진.jpg">
+  	 	<p>명동거리</p>
+  	 </div>
+  	 <div class="traditional1">
+  	 	<img src="/resources/uploads/남산타워.jpg">
+  	 	<p>남산타워</p>
+  	 </div>
+  	 <div class="traditional1">
+  	 	<img src="/resources/uploads/광화문사진.webp">
+  	 	<p>광화문</p>
+  	</div>
   	</div>
 
-
   </section>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+<br>
 
 </div>
    <%@ include file="./views/common/footer.jsp" %>
