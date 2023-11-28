@@ -32,7 +32,7 @@ public class MemberServiceImpl implements MemberService {
 	// 이메일 중복검사
 	@Override
 	public boolean duplicateEmail(String email) {
-		return memberDAO.duplicateId(con, email);
+		return memberDAO.duplicateEmail(con, email);
 	}
 
 	// 로그인

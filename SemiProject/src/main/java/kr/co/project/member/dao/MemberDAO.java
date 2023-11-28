@@ -64,8 +64,8 @@ public class MemberDAO {
 	// 이메일 중복 검사
 	public boolean duplicateEmail(Connection con, String email) {
 		String query = "SELECT M_EMAIL FROM member" + "		WHERE M_EMAIL = ?";
-
 		try {
+			System.out.println("DAO :" + email);
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, email);
 			ResultSet rs = pstmt.executeQuery();
