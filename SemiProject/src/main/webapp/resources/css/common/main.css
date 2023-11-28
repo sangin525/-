@@ -4,20 +4,21 @@
     src: url('../../fonts/KingSejongInstitute-Regular.ttf');
 }
 .Main_body {
-	font-family: Arial, sans-serif;
-	margin: 0px;
-	padding: 0px;
-	background-color: #f4f4f4;
-	font-family: 'sejong';
+   font-family: Arial, sans-serif;
+   margin: 0px;
+   padding: 0px;
+   background-color: #f4f4f4;
+   font-family: 'sejong';
 }
 
 .Main_header {
-	background-color: bisque;
-	color: #fff;
-	padding: 1em;
-	text-align: center;
-	display: flex;
-	justify-content: space-between; 
+   background-color: bisque;
+   color: #fff;
+   padding: 1em;
+   padding-bottom: 0px;
+   text-align: center;
+   display: flex;
+   justify-content: space-between; 
 }
 
 .Main_section {
@@ -29,59 +30,82 @@
 
 }
 
-.Main_h1{
-	padding-top: 20px;
-	margin: 0px;
-	display: inline-block;
+.Main_header img{
+   width: 150px;
+   height: 150px;
 }
 
-.Main_h1 a{
-	color: black;
-	text-decoration: none;
+.Main_header a{
+   width: 150px;
+   height: 150px;
 }
 
 .Signin-signup {
-	djustify-content: flex-end; 
-	text-align: right;
+   justify-content: flex-end; 
+   text-align: right;
 }
 
+#non-signin{
+   padding-left: 0.95px;
+}
 
 .nav_last {
-	display: inline-block;
-	margin-right: 0px;
+   display: inline-block;
+   margin-right: 0px;
 }
 
 .nav_bar {
-	display: inline-block;
-	margin-right: 150px;
+   display: inline-block;
+   margin-right: 150px;
 }
 
 
 .Main_nav {
-	width: 100%;
-	background-color: bisque;
-	position: relative;
-	display: flex;
-	justify-content: space-around;
+   width: 100%;
+   background-color: bisque;
+   position: relative;
+   display: flex;
+   justify-content: space-around;
 }
 
 .Main_nav ul {
-	padding: 0px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+   padding: 0px;
+   margin-top: 10px;
+   margin-bottom: 10px;
 }
 
 /* A태그 스타일링 */
 .Main_a {
-	color: rgb(210, 98, 98);
-	text-decoration: none;
+   color: rgb(210, 98, 98);
+   text-decoration: none;
+   position: relative;
+   margin-right: 15px;
 }
 
-a :hover {
-	text-decoration: underline;
+.Main_a:hover {
+   color: #dc6b6b;
 }
 
+.Main_a:after {    
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 3px;
+   bottom: -6px;
+   left: 0;
+   background-color: #dc6b6b;
+   visibility: hidden;
+   transform: scaleX(0);
+   transition: all 0.3s ease-in-out;
+}
+.Main_a:hover:after { 
+   visibility: visible;
+   transform: scaleX(1);
+}
+
+/* 푸터 */
 .Main_footer {
+
 	background-color: #333;
 	color: #fff;
 	padding: 1em;
@@ -115,4 +139,78 @@ a :hover {
 
 
 
+
+.Main_footer {
+   background-color: bisque;
+   color: #fff;
+	padding-top:20px;
+
+   text-align: left;
+   bottom: 0;
+   color: rgb(210, 98, 98);
+   text-decoration: none;
+   height:180px;
+   width: 100%;
+
+
+}
+
+.Main_footer img {
+   width:150px;
+   height:150px;
+   padding: 0px;
+   margin-left: 20px;
+   float:left;
+}
+
+
+
+.Main_footer ul {
+    list-style: none;
+    padding: 0; 
+    padding-right:100px;
+
+}
+
+.Main_footer li {
+    margin-right: 20px;
+       display: flex;
+   justify-content: space-around;
+      display: inline-block;
+
+}
+
+.footer5 {
+	float:right;
+
+}
+
+
+
+
+/* 메인화면 슬라이드*/
+.img-div{
+   text-align: center;
+}
+
+.change-image{
+   width: 2000px;
+     height: 500px;
+     margin: 0 auto;
+     background-image: url("/resources/uploads/메인페이지사진.jpg");
+     background-size : 2000px 500px;
+     animation-name: after;
+  animation-duration: 5s;
+  animation-iteration-count: infinite; 
+}
+
+@keyframes after {
+  33% { 
+    background-image: url("/resources/uploads/메인페이지사진2.jpg");
+  }
+  
+  66%{
+  background-image: url("/resources/uploads/로얄스위트1.jpg");
+  }
+}
 
