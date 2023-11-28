@@ -15,6 +15,7 @@ public class MemberDTO {
 	private String deleteDate;
 	private int mlg;
 	private String newPwd;
+	private String admin;
 
 	public MemberDTO(String phone, String email, String addr, String addr1, String addr2) {
 		super();
@@ -197,5 +198,15 @@ public class MemberDTO {
 	public void setMlg(int mlg) {
 		this.mlg = mlg;
 	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
+	
+	
 
 }
