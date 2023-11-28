@@ -45,9 +45,6 @@ public class CommentEnroll extends HttpServlet {
 		}else {
 			System.out.println("관리자 인증 실패 / CommentEnroll");
 		}
-		
-		//jsp에 작성자, 수정날짜, 작성날짜 추가해야함 23.11.27 15:54 삭제버튼 추가 필요
-		
 	}
 
 }

@@ -16,10 +16,10 @@
 	<section class="boardSection">
 		
 		<div class="divHead">
-			<div style="display:flex; justify-content:right;">
+			<div style="display:flex; align-items:center; justify-content:center; width:200px;">
 				<h1 class="boardH1">문의 사항</h1>
 				
-					<button class="boardBtn" onclick="boardEnrollBtn()">글쓰기</button>				
+					<button style="width:60px; height:30px;" class="right-btn-board" onclick="boardEnrollBtn()">글쓰기</button>				
 					<input type="hidden" id="test" value="${sessionScope.no}">
 			</div>
 		</div>

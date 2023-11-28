@@ -29,9 +29,9 @@
 			</div>
 			<div class="divCenter4">
 				<div class="divComments">
-					<button class="attachmentBtn">파일 첨부</button>
+					<button style="width:100px; margin-right:10px;" class="right-btn-board">파일 첨부</button>
 					<textarea name="" id="" cols="30" rows="10" class="TextArea" disabled></textarea>
-					<button type="submit" class="attachmentBtn">제출</button>
+					<button type="submit" class="right-btn-board">제출</button>
 				</div>
 			</div>
 		</form>
