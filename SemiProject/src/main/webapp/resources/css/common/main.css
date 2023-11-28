@@ -192,12 +192,12 @@
 
 .change-image{
    width: 2000px;
-     height: 500px;
+     height: 1000px;
      margin: 0 auto;
      background-image: url("/resources/uploads/메인페이지사진.jpg");
-     background-size : 2000px 500px;
+     background-size : 2000px 1000px;
      animation-name: after;
-  animation-duration: 5s;
+  animation-duration: 10s;
   animation-iteration-count: infinite; 
 }
 
