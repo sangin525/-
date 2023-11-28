@@ -27,12 +27,16 @@ public class DuplicateEmailController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
-
+		System.out.println("aaaa");
 		String email = request.getParameter("email");
+		System.out.println("controller : " + email);
 
 		// 중복 검사 로직
 		MemberServiceImpl memberService = new MemberServiceImpl();
 		boolean isEmailDuplicate = memberService.duplicateEmail(email);
+
+		System.out.println(isEmailDuplicate);
+
 		PrintWriter out = response.getWriter();
 
 		out.print(isEmailDuplicate);
