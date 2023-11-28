@@ -261,6 +261,37 @@
 	margin-left: 5px;
 	border-radius: 15px;
 }
+/* 팀장님 버튼 가져온 내용 */
+/* 공용 버튼 */
+.left-btn{
+    width: 150px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.right-btn-board{
+    width: 50px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.right-btn-board:hover  {
+    color: white;
+    background-color: rgb(224, 162, 86);
+}
+
 
 /* ---------------------input 모음 ---------------------------- */
 .titleText {
@@ -332,9 +363,9 @@
 	/* 파일 첨부 정보란 */
 	resize: none;
 	font-size: 12px;
-	width: 100px;
+	width: 170px;
 	height: 25px;
-	margin-right: 325px;
+	margin-right: 250px;
 }
 
 /* Section 우측 상단 정보란 */
