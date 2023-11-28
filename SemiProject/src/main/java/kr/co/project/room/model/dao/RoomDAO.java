@@ -171,6 +171,29 @@ public class RoomDAO {
 		return 0;
 	}
 
+	public ArrayList<String> navRoomName(Connection con, String gradeMenu) {
+		String query = "SELECT ROOM_NAME  FROM ROOM_INFO ri "
+				+ 		"WHERE ROOM_GRADE = ?";
+		ArrayList<String> room = new ArrayList<>();
+		String name;
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, gradeMenu);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				room.add(rs.getString("ROOM_NAME"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return room;
+	}
+
 	// 회원 마일리지 적립
 
 	
