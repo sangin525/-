@@ -12,6 +12,7 @@ function reserveDisplay(){
 function dropdownGrade(){
 	let gradeMenu = document.getElementById("grade-menu").value;
 	let roomMenu = document.getElementById("room-menu");
+	roomMenu.textContent = "";
 	console.log("ajax 시작부분");
 		$.ajax({
 				url: '/navRoomGrade.do',

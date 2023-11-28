@@ -1,13 +1,83 @@
 
 var IMP = window.IMP;
 IMP.init(config.IMP); // 예: imp00000000
+	let useMLGPrice;
+	let addMLG;
+	let minMLG;
+function addMLGChk(totalPrice, memberMLG){
+	let MLGChk = document.getElementById("MLGChk");
+	let textTotalPrice = document.getElementById("totalPrice");
+	let textAddMLG = document.getElementById("addMLG");
+	
+	if(MLGChk.checked){
+		if((totalPrice-memberMLG) <= 0){
+			useMLGPrice = 0;
+			addMLG = 0;
+			minMLG = totalPrice;
+			console.log(totalPrice)
+			console.log(memberMLG)
+			console.log(minMLG)
+			console.log(totalPrice)
+		}else{
+			useMLGPrice = totalPrice - memberMLG;
+			addMLG = useMLGPrice*0.05;
+			minMLG = memberMLG;
+		}
+		textTotalPrice.innerHTML = "결제금액 : "+ useMLGPrice + " 원";
+		textAddMLG.innerHTML = "적립 마일리지 : " +addMLG+" 원 (결제금액의 5%)"
+		
+	}
+	else{
+		useMLGPrice = totalPrice;
+		addMLG = totalPrice*0.05;
+		textTotalPrice.innerHTML = "결제금액 : "+ useMLGPrice + " 원";
+		textAddMLG.innerHTML = "적립 마일리지 : " +addMLG+" 원 (결제금액의 5%)"
+		minMLG = 0;
+	}
+	
+}
 
 function requestPay(memberName, roomName, totalPrice, memberPhone, memberEmail, memberAddr, RChkIn, RChkOut, RPersonCount, RCount) {
+	if(useMLGPrice == null){
+		useMLGPrice = totalPrice;
+	}
+	if(addMLG == null){
+		addMLG = totalPrice *0.05;
+	}
+	if(minMLG == null){
+		minMLG = 0;
+	}
+	if(useMLGPrice == 0){
+		$.ajax({
+				url: '/ReserveEnroll.do',
+				type: 'post',
+				data: { memberName: memberName,
+						 roomName : roomName,
+						 totalPrice : useMLGPrice,
+						memberPhone : memberPhone,
+						RChkIn : RChkIn,
+						RChkOut : RChkOut,
+						RPersonCount : RPersonCount,
+						RCount : RCount,
+						addMLG : addMLG,
+						minMLG : minMLG},
+				success: function(data) {
+					if(data > 0){
+						alert("예왁완료되었습니다 예약완료페이지로 이동합니다.");
+						window.location.href="/MyReserve.do?cpage=1";
+					}
+
+				},
+				error: function(err) {
+
+				}
+			});
+	}else{
 	IMP.request_pay({
     pg : 'kakaopay',
     merchant_uid: "IMP" +new Date().getTime(), // 상점에서 관리하는 주문 번호
     name : roomName,
-    amount : 100,               //연습이후 고치기  totalPrice 로
+    amount : useMLGPrice,               //연습이후 고치기  totalPrice 로
     buyer_email : memberEmail,
     buyer_name : memberName,
     buyer_tel : memberPhone,
@@ -22,12 +92,14 @@ function requestPay(memberName, roomName, totalPrice, memberPhone, memberEmail, 
 				type: 'post',
 				data: { memberName: memberName,
 						 roomName : roomName,
-						 totalPrice : totalPrice,
+						 totalPrice : useMLGPrice,
 						memberPhone : memberPhone,
 						RChkIn : RChkIn,
 						RChkOut : RChkOut,
 						RPersonCount : RPersonCount,
-						RCount : RCount},
+						RCount : RCount,
+						addMLG : addMLG,
+						minMLG : minMLG},
 				success: function(data) {
 					if(data > 0){
 						alert("예왁완료되었습니다 예약완료페이지로 이동합니다.");
@@ -44,6 +116,7 @@ function requestPay(memberName, roomName, totalPrice, memberPhone, memberEmail, 
 			alert("결제실패");
 		}
 	}); 
+}
 	
 //            IMP.request_pay({
 //                pg : 'TC0ONETIME',

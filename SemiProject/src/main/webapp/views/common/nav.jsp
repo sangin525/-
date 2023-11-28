@@ -32,7 +32,8 @@
 		</c:when>
 		<c:otherwise>
 			<button type="button" class="left-btn"
-				onclick="alert('로그인 후 이용해주세요')">예약하기</button>
+				window.location.href="/views/member/Signin.jsp">예약하기</button>
+
 		</c:otherwise>
 	</c:choose>
 </div>
