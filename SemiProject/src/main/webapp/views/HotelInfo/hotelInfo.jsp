@@ -23,7 +23,7 @@
       <div class="contentss" id="contents">
       
 	
-        <h3 class="secondtit">서울호텔</h3>
+        <h3 class="secondtit">Hotel Haru</h3>
         <hr>
         <br>
         <div class="pic">
@@ -32,7 +32,7 @@
         <br>        
         <div class="content-box">
           <h3><Strong>호텔 개요</Strong></h3>
-          <p>한국의 전통미와 현대적인 감각을 겸비하고 있는 세계 속의 명문 호텔 땡땡호텔은 철학이 있는 
+          <p>한국의 전통미와 현대적인 감각을 겸비하고 있는 세계 속의 명문 호텔 Hotel Haru는 철학이 있는 
             서비스와 격조 높은 휴식을 제공하는 프리미엄 라이프스타일 호텔입니다.
             전통적인 아름다움으로 귀한 손님을 맞이하던 영빈관과 피터 리미디우스가 디자인한 현대적인 감각의 인테리어,
             우아한 남산의 자연미가 어우러져 한국을 대표하는 호텔로서의 품격과 美를 지니고 있는 땡땡호텔은
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-
 	<%@ include file="../common/footer.jsp"%>
+
 </body>
 </html>

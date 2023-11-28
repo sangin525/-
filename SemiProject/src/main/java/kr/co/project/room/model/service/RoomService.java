@@ -17,4 +17,13 @@ public interface RoomService {
 	
 	// no 로 마일리지조회
 	public RoomDTO searchMLG(int memberNo);
+
+	
+	// 예약DB 에 넣기
+	public int reserveEnroll(RoomDTO room);
+
+	// nav 에 등급선택에따른 객실정보 가져오기
+	public ArrayList<String> navRoomName(String gradeMenu);
+	
 }
+

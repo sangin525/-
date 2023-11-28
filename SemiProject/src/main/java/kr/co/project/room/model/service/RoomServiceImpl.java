@@ -42,4 +42,15 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public int reserveEnroll(RoomDTO room) {
+		
+		return roomDAO.reserveEnroll(con, room);
+	}
+
+
+	public ArrayList<String> navRoomName(String gradeMenu) {
+		return roomDAO.navRoomName(con, gradeMenu);
+	}
+
+
 }

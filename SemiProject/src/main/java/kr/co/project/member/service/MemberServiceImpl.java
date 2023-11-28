@@ -37,8 +37,8 @@ public class MemberServiceImpl implements MemberService {
 
 	// 로그인
 	@Override
-	public MemberDTO memberSignin(String id, String pwd) {
-		return memberDAO.memberSignin(con, id, pwd);
+	public MemberDTO memberSignin(String id) {
+		return memberDAO.memberSignin(con, id);
 	}
 
 	// 회원 정보 수정

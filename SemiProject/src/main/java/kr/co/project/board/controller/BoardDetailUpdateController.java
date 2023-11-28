@@ -7,15 +7,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.service.BoardServiceImpl;
 
-@WebServlet("/boardEnroll.do")
-public class BoardEnrollController extends HttpServlet {
+@WebServlet("/boardUpdate.do")
+public class BoardDetailUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BoardEnrollController() {
+    public BoardDetailUpdateController() {
         super();
     }
 
@@ -24,21 +24,20 @@ public class BoardEnrollController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		String title = request.getParameter("boardTitle");
+		String content = request.getParameter("boardContent");
 		
-		HttpSession session = request.getSession();
-		
-		int memberNo = (Integer)session.getAttribute("no");
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
+		BoardDTO board = new BoardDTO(title, content, boardNo);
 		
-		int result = boardService.boardEnroll(title, content, memberNo);
-		System.out.println(result);
+		int result = boardService.boardUpdate(board);
 		if(result > 0) {
-			response.sendRedirect("/BoardList.do");
+			response.sendRedirect("BoardList.do");
 		}else {
-			response.sendRedirect("/views/common/error.jsp");
+			response.sendRedirect("views/common.error.jsp");
 		}
 		
 	}

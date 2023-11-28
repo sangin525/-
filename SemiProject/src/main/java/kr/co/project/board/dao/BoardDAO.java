@@ -89,11 +89,12 @@ public class BoardDAO {
 		String query = "SELECT B.BOARD_NO, "
 		        + "B.BOARD_TITLE, "
 		        + "B.BOARD_ON_DATE, "
-		        + "B.BOARD_VIEWS,"
+		        + "B.BOARD_VIEWS, "
 		        + "B.BOARD_ANSWER, "
 		        + "M.M_NAME "
 		        + "FROM BOARD B "
 		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
+		        + "WHERE B.BOARD_DELETE IS NULL "
 		        + "ORDER BY B.BOARD_ON_DATE DESC";
 
 		try {
@@ -193,6 +194,7 @@ public class BoardDAO {
 		        + "B.BOARD_IN_DATE, "
 		        + "B.BOARD_VIEWS, "
 		        + "B.BOARD_ANSWER, "
+		        + "M.M_NO, "
 		        + "M.M_NAME "
 		        + "FROM BOARD B "
 		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
@@ -211,6 +213,7 @@ public class BoardDAO {
 				int views = rs.getInt("BOARD_VIEWS");
 				String answer = rs.getString("BOARD_ANSWER");
 				String name = rs.getString("M_NAME");
+				int m_No = rs.getInt("M_NO");
 				
 				board.setBoardNo(boardNo);
 				board.setTitle(title);
@@ -219,6 +222,7 @@ public class BoardDAO {
 				board.setViews(views);
 				board.setAnswer(answer);
 				board.setName(name);
+				board.setM_No(m_No);
 			}
 			
 			pstmt.close();
@@ -228,6 +232,60 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
+	// 게시글 수정
+	public int boardUpdate(Connection con, BoardDTO board) {
+		String query = "UPDATE BOARD"
+				+ "	SET	BOARD_TITLE = ?,"
+				+ "		BOARD_CONTENT =?,"
+				+ "		BOARD_IN_DATE =SYSDATE"
+				+ "		WHERE BOARD_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent());
+			pstmt.setInt(3, board.getBoardNo());
+			
+			int result = pstmt.executeUpdate();
+			pstmt.close();
+			con.close();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	// 문의게시판 삭제 
+	public int boardDelete(Connection con, int boardNo) {
+		String query = "UPDATE BOARD"
+				+ "		SET BOARD_DELETE = SYSDATE"
+				+ "		WHERE BOARD_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, boardNo);
+			int result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+	// 마이페이지
+	
 		// 내 게시글 목록 불러오기
 		public ArrayList<BoardDTO> myBoardList(Connection con, MyBoardPageInfo pi, int no) {
 

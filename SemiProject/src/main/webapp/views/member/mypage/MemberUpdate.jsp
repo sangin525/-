@@ -7,6 +7,8 @@
 <%@ include file="../../common/head.jsp"%>
 <link rel="stylesheet" href="/resources/css/member/MyPage.css">
 <script src="/resources/js/member/member.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/resources/js/member/memberUpdate.js"></script>
 </head>
 <body class="Main_body">
 	<%@ include file="../../common/header.jsp"%>
@@ -46,13 +48,18 @@
 				<th>이메일</th>
 				<td><input type="text" id="email" name="email" value="${sessionScope.email}"></td>
 			</tr>
+
+			<tr class="tr_info">
+				<th>우편번호</th>
+				<td><input type="text" id="addr" name="addr" value="${sessionScope.addr}">&nbsp;<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></td>
+			</tr>
 			<tr class="tr_info">
 				<th>주소</th>
-				<td><input type="text" id="addr" name="addr" value="${sessionScope.addr}"></td>
+				<td><input type="text" id="addr1" name="addr1" value="${sessionScope.addr1}">&nbsp;<input type="text" id="addr2" name="addr2" value="${sessionScope.addr2}"></td>
 			</tr>
 			<tr class="tr_info">
 				<th>생년월일</th>
-				<td><input type="text" id="birth" name="birth" value="${sessionScope.birth}"></td>
+				<td><input type="text" id="birth" name="birth" value="${sessionScope.birth}" disabled></td>
 			</tr>
 			<tr class="tr_info">
 				<th>마일리지</th>
