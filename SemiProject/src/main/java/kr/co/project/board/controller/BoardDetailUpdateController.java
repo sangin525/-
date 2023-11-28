@@ -35,7 +35,7 @@ public class BoardDetailUpdateController extends HttpServlet {
 		
 		int result = boardService.boardUpdate(board);
 		if(result > 0) {
-			response.sendRedirect("BoardList.do");
+			response.sendRedirect("BoardList.do?cpage=1");
 		}else {
 			response.sendRedirect("views/common.error.jsp");
 		}

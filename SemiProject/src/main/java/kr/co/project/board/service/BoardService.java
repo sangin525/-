@@ -3,6 +3,7 @@ package kr.co.project.board.service;
 import java.util.ArrayList;
 
 import kr.co.project.board.dto.BoardDTO;
+import kr.co.project.board.page.BoardPageInfo;
 import kr.co.project.common.MyBoardPageInfo;
 
 public interface BoardService {
@@ -12,7 +13,7 @@ public interface BoardService {
 	// 공지사항 생성 (Notice)
 	public int noticeEnroll(String title, String content, int memberNo);
 	// 문의사항 List up
-	public ArrayList<BoardDTO> boardList();
+	public ArrayList<BoardDTO> boardList(BoardPageInfo pi);
 	// 공지사항 List up
 	public ArrayList<BoardDTO> noticeList();
 	//조회수 증가
@@ -23,6 +24,10 @@ public interface BoardService {
 	public int boardUpdate(BoardDTO board);
 	// 문의사항 삭제
 	public int boardDelete(int BoardNo);
+	// 문의사항 전체 게시글 수
+	public int boardListCount();
+	// 문의사항 답변 추가
+	public int answerEnroll(String answer,String name, int boardNo);
 	
 	
 	// 마이페이지

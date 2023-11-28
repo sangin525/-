@@ -87,7 +87,8 @@ public class MemberDAO {
 				+ "			   m_phone," + "			   m_email," + "			   m_addr," + "			   m_birth,"
 				+ "			   m_in_date," + "			   m_delete_date," + "			   m_mlg,"
 						+ "m_addr1, "
-						+ "m_addr2 "
+						+ "m_addr2, "
+						+ "m_admin"
 				+ "		FROM member " + "		WHERE m_id = ? ";
 
 		MemberDTO member = new MemberDTO();
@@ -116,6 +117,7 @@ public class MemberDAO {
 				String resultInDate = rs.getString("M_IN_DATE");
 				String resultDeleteDate = rs.getString("M_DELETE_DATE");
 				int resultMlg = rs.getInt("M_MLG");
+				String resultAdmin = rs.getString("M_ADMIN");
 
 				member.setId(resultId);
 				member.setPwd(resultPwd);
@@ -130,6 +132,7 @@ public class MemberDAO {
 				member.setInDate(resultInDate);
 				member.setDeleteDate(resultDeleteDate);
 				member.setMlg(resultMlg);
+				member.setAdmin(resultAdmin);
 
 			}
 
