@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import kr.co.project.board.dto.BoardDTO;
+import kr.co.project.board.page.BoardPageInfo;
 import kr.co.project.common.MyBoardPageInfo;
 
 public class BoardDAO {
@@ -83,7 +84,7 @@ public class BoardDAO {
 	}
 
 	// boardList 가져오기
-	public ArrayList<BoardDTO> boardList(Connection con) {
+	public ArrayList<BoardDTO> boardList(Connection con, BoardPageInfo pi) {
 		ArrayList<BoardDTO> list = new ArrayList<>();
 
 		String query = "SELECT B.BOARD_NO, "
@@ -95,10 +96,15 @@ public class BoardDAO {
 		        + "FROM BOARD B "
 		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
 		        + "WHERE B.BOARD_DELETE IS NULL "
-		        + "ORDER BY B.BOARD_ON_DATE DESC";
+		        + "ORDER BY B.BOARD_ON_DATE DESC "
+		        + "OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 		try {
 			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, pi.getOffset());
+			pstmt.setInt(2, pi.getBoardLimit()); // 5
+			
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -280,6 +286,63 @@ public class BoardDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return 0;
+	}
+	
+	public int boardListCount(Connection con) {
+		String query = "SELECT count(*) AS cnt"
+				+ "		FROM BOARD"
+				+ "		WHERE BOARD_DELETE IS NULL";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int result = rs.getInt("CNT");
+				return result;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	
+	//공지사항 답변 추가
+	public int answerEnroll(Connection con, String answer,String name, int boardNo) {
+	    String query = "INSERT INTO ANSWER VALUES" 
+	            + " (answer_seq.nextval, " // answer NO
+	            + " ?, " // Board NO
+	            + " ?, " // ANSWER_CONTENT
+	            + " SYSDATE, " // ANSWER_ON_DATE
+	            + " NULL, " // ANSWER_IN_DATE
+	            + " NULL, " // ANSWER_DELETE
+	            + " ?)"; // ANSWER_WRITER
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1,boardNo);
+			pstmt.setString(2, answer);
+			pstmt.setString(3, name);
+			
+			int result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		return 0;
 	}
 	

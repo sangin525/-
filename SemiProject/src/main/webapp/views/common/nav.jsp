@@ -6,7 +6,7 @@
       <li class="nav_bar"><a href="/gradeInfo.do" class="Main_a">객실소개</a></li>
 		<li class="nav_bar"><a onclick="reserveDisplay()" id="reserve" class="Main_a">예약</a></li>
 		<li class="nav_bar"><a href="/NoticeList.do" class="Main_a">공지사항</a></li>
-		<li class="nav_last"><a href="/BoardList.do" class="Main_a">문의게시판</a></li>
+		<li class="nav_last"><a href="/BoardList.do?cpage=1" class="Main_a">문의게시판</a></li>
 	</ul>
 </nav>
 <div class="reserveRoom" id="reserveRoom" onmousemove="navgetDate()">
@@ -32,7 +32,7 @@
 		</c:when>
 		<c:otherwise>
 			<button type="button" class="btn btn-primary"
-				onclick="alert('로그인 후 이용해주세요')">예약하기</button>
+				window.location.href="/views/member/Signin.jsp">예약하기</button>
 		</c:otherwise>
 	</c:choose>
 </div>

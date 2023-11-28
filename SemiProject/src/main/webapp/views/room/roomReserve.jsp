@@ -15,7 +15,9 @@
  <%@ include file="../common/head.jsp" %>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="/resources/css/room/roomReserve.css" rel="stylesheet" type="text/css">
+<style>
 
+</style>
 
 </head>
 <body>
@@ -85,17 +87,20 @@
 				<c:set var="totalPrice" value="${totalWeekday * room.RCount}"></c:set>
 			</c:if>
 			
+		<p class="reserveForm"> <input type="checkbox" id="MLGChk" onchange="addMLGChk(${totalPrice},${member.MLG})"> 마일리지 사용여부 </p>
 		<p class="reserveForm" id="totalPrice">결제금액 :  ${totalPrice} 원</p>
 		<p class="reserveForm" id="memberMLG">현재 마일리지 : ${member.MLG} 원</p>
-		<p class="reserveForm">적립 마일리지 : ${totalPrice *0.05} 원 (결제금액의 5%)</p>
+		<p class="reserveForm" id="addMLG">적립 마일리지 : ${totalPrice *0.05} 원 (결제금액의 5%)</p>
 		</div>
-		
-	<button type="button" class="payForm" onclick="requestPay('${member.MName}',
+		<br>
+		<div class="reserve-btn">
+	<button type="button" class="payForm" id="left-btn" onclick="requestPay('${member.MName}',
 								 '${room.roomName}', ${totalPrice}, '${member.MPhone}',
 
 								  '${member.MEmail}', '${member.MAddr}', '${room.RChkIn}',
 								  '${room.RChkOut}', ${room.RPersonCount}, ${room.RCount})">결제하기</button>
-	<button type="button" class="payForm" onclick="intoInfoPage()">방구경하러가기</button>
+	<button type="button" class="payForm" id="left-btn" onclick="intoInfoPage()">방구경하러가기</button>
+		</div>
 
 
 

@@ -33,3 +33,14 @@ function boardDisabled() {
 	modifyBtn.style.display = 'none';
 	submitBtn.style.display = 'block';
 }
+
+function boardEnrollBtn() {
+	const test = document.getElementById("test").value;
+	if(test === ''){
+		alert("로그인을 해주시길 바랍니다.");
+   		location.href = 'views/member/Signin.jsp';
+		
+	}else{		
+   		location.href = 'views/board/boardEnroll.jsp';
+	}
+}

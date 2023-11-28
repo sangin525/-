@@ -9,9 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import kr.co.project.board.dto.BoardDTO;
+import kr.co.project.board.page.BoardPageInfo;
+import kr.co.project.board.page.BoardPagination;
 import kr.co.project.board.service.BoardServiceImpl;
 
 /**
@@ -32,9 +33,10 @@ public class NoticeListController extends HttpServlet {
 		BoardDTO boardDTO = new BoardDTO();
 		
 //		테스트 용도 세션, 이후 merge 이후 삭제 필요
-		HttpSession session = request.getSession();
-		String name = (String)session.getAttribute("M_NAME");
-		boardDTO.setName(name);
+//		HttpSession session = request.getSession();
+//		String name = (String)session.getAttribute("M_NAME");
+//		boardDTO.setName(name);
+		
 		
 		request.setAttribute("list", list);
 		RequestDispatcher view = request.getRequestDispatcher("views/board/noticeList.jsp");

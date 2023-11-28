@@ -21,10 +21,9 @@
 
 /* 가운데 화면 */
 .contentss{
-	    width: 866px;
+	width: 866px;
     margin-left: 280px;
     padding: 0;
-
     min-height: 440px;
 
 }
@@ -32,15 +31,12 @@
   background-color: #f5f5f5; 
   padding: 20px; 
   border: 1px solid #ddd;
-
 }
 
 .pic img {
   max-width: 100%; 
   height: auto;
   display: block;
-
-
 }
 
 .secondtit {

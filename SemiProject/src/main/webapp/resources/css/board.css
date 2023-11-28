@@ -120,6 +120,12 @@
 	align-items: center;
 }
 
+.divHead2{
+	display:inline-block;
+	display:flex;
+	justify-content: flex-end;
+}
+
 .boardH1 {
 	margin: 10px;
 	padding: 0;
@@ -173,23 +179,25 @@
 .divCenter2 {
 	display: flex;
 	align-items: center;
+	justify-content: flex-start;
 	flex-direction: column;
 	width: 100%;
-	height: 300px;
+	height: 250px;
 }
 
 .divComments {
 	display: flex;
-	/* flex-wrap: wrap; */
+	flex-direction:row;
 	width: 580px;
 	height: 50px;
-	/* justify-content: center; */
 	align-items: center;
+	
+	margin-bottom: 5px;
 }
 
 .divCenter3 {
 	width: 560px;
-	height: 100px;
+	height: 150px;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -251,7 +259,39 @@
 	height: 41px;
 	margin-top: 5px;
 	margin-left: 5px;
+	border-radius: 15px;
 }
+/* 팀장님 버튼 가져온 내용 */
+/* 공용 버튼 */
+.left-btn{
+    width: 150px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.right-btn-board{
+    width: 50px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.right-btn-board:hover  {
+    color: white;
+    background-color: rgb(224, 162, 86);
+}
+
 
 /* ---------------------input 모음 ---------------------------- */
 .titleText {
@@ -277,11 +317,27 @@
 }
 
 /* 댓글 모음 */
+.answerDiv{
+	width: 100%;
+	height: 150px;
+	display:flex;
+	justify-content: center;
+	flex-direction:column;
+	align-items:center;
+}
+.answerSpan{
+	width : 100%;
+	height: 20px;
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	
+}
 .contentText2 {
 	/* 댓글 */
 	margin-top: 5px;
 	width: 100%;
-	height: 20px;
 	padding: 10px;
 	resize: none;
 	font-size: 12px;
@@ -307,15 +363,23 @@
 	/* 파일 첨부 정보란 */
 	resize: none;
 	font-size: 12px;
-	width: 100px;
+	width: 170px;
 	height: 25px;
-	margin-right: 325px;
+	margin-right: 250px;
 }
 
 /* Section 우측 상단 정보란 */
 .boardText {
 	padding-left: 5px;
 	padding-right: 5px;
+}
+/* 댓글 위 상세 정보 모음 */
+.answerText{
+	padding-left: 5px;
+	padding-right: 15px;
+	margin-left: 10px;
+	margin: 0;
+	font-size:10px;
 }
 
 /* ---------------------------------------- 게시판 및 공지사항 버튼 CSS ------------------------------- */

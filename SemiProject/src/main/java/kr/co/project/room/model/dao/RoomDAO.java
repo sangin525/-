@@ -145,8 +145,26 @@ public class RoomDAO {
 			e.printStackTrace();
 		}
 		
+		// 결제시 마일리지적립, 마일리지 사용시  마일리지 증감
+		String addMinMLG = "UPDATE MEMBER "
+				+ "		 SET M_MLG  = M_MLG + ? - ? "
+				+ "		WHERE M_NO = ? ";
+		try {
+			pstmt = con.prepareStatement(addMinMLG);
+			
+			pstmt.setInt(1, room.getAddMLG());
+			pstmt.setInt(2, room.getMinMLG());
+			pstmt.setInt(3, room.getMNo());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		
 		
+		
+		
+		// 예약정보에 값 넣기
 		String query = "INSERT INTO ROOM_RESERVE rr values("
 				+ "			room_reserve_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
 				
@@ -169,6 +187,8 @@ public class RoomDAO {
 			e.printStackTrace();
 		}
 		return 0;
+		
+		
 	}
 
 	public ArrayList<String> navRoomName(Connection con, String gradeMenu) {

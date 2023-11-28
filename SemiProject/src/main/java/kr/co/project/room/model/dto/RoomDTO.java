@@ -47,6 +47,8 @@ public class RoomDTO {
 	private String memberName;
 	private int totalPrice;
 	private String memberPhone;
+	private int addMLG;
+	private int minMLG;
 
 	
 	public int getRoomNo() {
@@ -234,6 +236,18 @@ public class RoomDTO {
 	}
 	public void setMLG(int mLG) {
 		MLG = mLG;
+	}
+	public int getAddMLG() {
+		return addMLG;
+	}
+	public void setAddMLG(int addMLG) {
+		this.addMLG = addMLG;
+	}
+	public int getMinMLG() {
+		return minMLG;
+	}
+	public void setMinMLG(int minMLG) {
+		this.minMLG = minMLG;
 	}
 	
 	
