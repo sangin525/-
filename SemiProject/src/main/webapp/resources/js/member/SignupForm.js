@@ -1,47 +1,49 @@
 // 아이디 중복확인
 function duplicateId() {
-		const id = document.getElementById("M_ID").value;
-		const idCheck = document.getElementById("M_IdCheck");
-		$.ajax({
-			type: "POST",
-			url: "/duplicateId.do",
-			data: { id : id },
-			success : function(res) {
-				console.log(res);
-				if(res == 'true') { // 중복(true) : 빨간색
-					idCheck.style.color = "red";
-					idCheck.innerHTML = "중복된 아이디입니다.";
-				} else { // 사용가능(false) : 초록색
-					idCheck.style.color = "green";
-					idCheck.innerHTML = "사용 가능한 아이디입니다.";               
-				}
-			},
-			error : function(response) {
-			}
-		})
-	}
+	var mid = $("[name='M_ID']").val();    
+    if (mid === '') {
+        alert('아이디를 입력하세요.');
+        $("name='M_ID'").focus();
+        return false;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "/duplicateId.do",
+        data: { id: mid },
+        success: function (res) {
+            if (res == true) {
+                alert("이미 사용중인 아이디입니다.");
+                return false;
+            } else {
+  			 	$("[name='checked_id']").val('y');
+                alert("사용 가능한 아이디입니다.");
+                return false;
+            }
+        },
+        error: function (response) {s}
+    });
+	
+}
+	
 // 이메일 중복확인
 function duplicateEmail() {
-		const email = document.getElementById("M_EMAIL").value;
-		const emailCheck = document.getElementById("M_EmailCheck");
-		$.ajax({
-			type: "POST",
-			url: "/duplicateEmail.do",
-			data: { email : email },
-			success : function(res) {
-				console.log(res);
-				if(res == 'true') { // 중복(true) : 빨간색
-					emailCheck.style.color = "red";
-					emailCheck.innerHTML = "중복된 이메일입니다.";
-				} else { // 사용가능(false) : 초록색
-					emailCheck.style.color = "green";
-					emailCheck.innerHTML = "사용 가능한 이메일입니다.";               
-				}
-			},
-			error : function(response) {
+	const email = $("[name='M_EMAIL']").val();
+
+	$.ajax({
+		type: "POST",
+		url: "/duplicateEmail.do",
+		data: { email : email },
+		success : function(res) {
+			if(res == true) { // 중복(true) : 빨간색
+				alert("이미 등록된 이메일입니다.");
+			} else {
+				$("[name='checked_email']").val("y");
+				alert("사용 가능한 이메일입니다.");
 			}
-		})
-	}
+		}
+	});
+}
 
 	
 	// 이름 유효성 검사
@@ -90,9 +92,10 @@ function duplicateEmail() {
            msg2.style.color = "red";
        }
    }
+   
    // 생년월일 유효성 검사
   function validateBirth() {
-      const BirthRegex = /^\d{4}-\d{2}-\d{2}$/;
+      const BirthRegex = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
       const Birth = document.getElementById("M_Birth").value;
       const msg = document.getElementById("M_BirthMsg");
 
@@ -107,6 +110,7 @@ function duplicateEmail() {
            msg.style.color = "red";
        }
     }
+    
 	// 이메일 유효성 검사
 	 function validateEmail() {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -124,6 +128,7 @@ function duplicateEmail() {
            msg.style.color = "red";
        }
     }
+    
 	// 전화번호 유효성 검사     
      function validatePhone() {
       const phoneRegex = /^\d{3}\d{4}\d{4}$/;
@@ -145,6 +150,7 @@ function duplicateEmail() {
            msg.style.color = "red";
        }
     }
+    
 	// 우편번호번호 카카오api    
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -193,6 +199,22 @@ function duplicateEmail() {
             }
         }).open();
     }
-    
-    
+   
+function sendChk(){
+	
+	
+	if($("[name='checked_id']").val()=="n"){
+		alert("아이디 중복 체크하세요.");
+		return false;
+	}
+	
+	if($("[name='checked_email']").val()=="n"){
+		alert("이메일 중복 체크하세요.");
+		return false;
+	}
+	
+	return true;
+}
+
+
  

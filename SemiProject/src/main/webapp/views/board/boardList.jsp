@@ -14,12 +14,16 @@
 	<%@ include file="/views/common/nav.jsp"%>
 
 	<section class="boardSection">
+		
 		<div class="divHead">
-			<h1 class="boardH1">문의 사항</h1>
-			<button class="boardBtn"
-				onClick="location.href= 'views/board/boardEnroll.jsp'">글쓰기</button>
+			<div style="display:flex; align-items:center; justify-content:center; width:200px;">
+				<h1 class="boardH1">문의 사항</h1>
+				
+					<button style="width:60px; height:30px;" class="right-btn-board" onclick="boardEnrollBtn()">글쓰기</button>				
+					<input type="hidden" id="test" value="${sessionScope.no}">
+			</div>
 		</div>
-
+		
 		<table class="boardTable">
 			<thead class="boardThead">
 				<th class="th1">게시물 번호</th>
@@ -57,14 +61,45 @@
 
 		<!-- 페이지 버튼 -->
 		<ul class="pagination">
-			<li class="paginationLi"><a href=""> << </a></li>
-			<li class="paginationLi"><a href=""> 1 </a></li>
-			<li class="paginationLi"><a href=""> >> </a></li>
+			<!-- 페이지 처리 첫번째 << 표시  -->
+			<c:choose>
+				<c:when test="${pi.currentPage == 1}">
+					<li class="paginationLi">
+						<a href="#">&laquo;</a>
+					</li>
+				</c:when>
+			
+				<c:otherwise>
+					<li class="paginationLi">
+						<a href="BoardList.do?cpage=${pi.currentPage-1}">&laquo;</a>
+					</li>					
+				</c:otherwise>
+			</c:choose>
+			
+			<!-- 페이지 번호 -->
+			<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
+					<li class="paginationLi">
+						<a href="/BoardList.do?cpage=${page}">${page}</a>
+					</li>
+			</c:forEach>
+			
+			<!-- 페이지 처리 첫번째 << 표시  -->
+			<c:choose>
+				<c:when test="${pi.currentPage == pi.maxPage}">
+					<li class="paginationLi">
+						<a href="#">&raquo;</a>
+					</li>			
+				</c:when>
+				<c:otherwise>
+					<li class="paginationLi">
+						<a href="/BoardList.do?cpage=${pi.currentPage+1}">&raquo;</a>
+					</li>			
+				</c:otherwise>
+			</c:choose>
 		</ul>
 
 	</section>
 	<form action="/sessionTest.do" method="POST">
-		<button type="submit">Session Test</button>
 	</form>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>

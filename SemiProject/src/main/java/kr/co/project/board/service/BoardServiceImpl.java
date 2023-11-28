@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import kr.co.project.board.dao.BoardDAO;
 import kr.co.project.board.dto.BoardDTO;
+import kr.co.project.board.page.BoardPageInfo;
 import kr.co.project.common.DatabaseConnection;
 import kr.co.project.common.MyBoardPageInfo;
 
@@ -30,8 +31,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	//게시글 목록 조회
-	public ArrayList<BoardDTO> boardList(){
-		return boardDAO.boardList(con);
+	public ArrayList<BoardDTO> boardList(BoardPageInfo pi){
+		return boardDAO.boardList(con, pi);
 	}
 	// 공지사항 목록 조회
 	public ArrayList<BoardDTO> noticeList(){
@@ -55,6 +56,15 @@ public class BoardServiceImpl implements BoardService{
 	// 문의사항 삭제
 	public int boardDelete(int BoardNo) {
 		return boardDAO.boardDelete(con, BoardNo);
+	}
+	
+	// 문의사항 전체 게시글 수
+	public int boardListCount() {
+		return boardDAO.boardListCount(con);
+	}
+	
+	public int answerEnroll(String answer,String name, int boardNo) {
+		return boardDAO.answerEnroll(con, answer, name, boardNo);
 	}
 	
 	
