@@ -15,6 +15,10 @@ public class BoardDTO {
 
 	private String name;
 	
+	//답변 DTO
+	private int answerNo;
+//	private 
+	
 	
 	private int no; // 게시글 번호
 	private int m_No; // 작성자 번호
