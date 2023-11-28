@@ -41,12 +41,12 @@
 					<c:if test="${sessionScope.no == board.m_No}">
 						<div class="divRight" style="margin-top: 5px">
 							<c:set var="btn" value="0"></c:set>
-							<button id="submitBtn" onclick="boardUpdate()" class="modifyBtn"
+							<button id="submitBtn" onclick="boardUpdate()" class="right-btn-board"
 								style="margin-right: 20px; display: none;">완료</button>
 							<button id="modifyBtn" type="button" onclick="boardDisabled()"
-								class="modifyBtn" style="margin-right: 20px">수정</button>
+								class="right-btn-board" style="margin-right: 20px">수정</button>
 					</c:if>
-					<button onclick="boardDelete()" class="modifyBtn">삭제</button>
+					<button onclick="boardDelete()" class="right-btn-board" style="margin-right:110px;">삭제</button>
 				</div>
 			</div>
 		</form>
@@ -63,7 +63,7 @@
 				<div class="divCenter3">
 					<div class="divComments"> <!-- 답변 입력칸 -->
 						<textarea name="comment" id="comment" cols="30" rows="10" class="contentText3" placeholder="답변을 입력해주세요"></textarea>
-						<button name="answerEnroll" id="answerEnroll" type="submit" class="Btn2">입력</button>
+						<button name="answerEnroll" id="answerEnroll" type="submit" class="right-btn-board" style="width:15%; height:41px; margin-top:5px;margin-left:5px;">입력</button>
 					</div>
 					
 					<!-- List -->

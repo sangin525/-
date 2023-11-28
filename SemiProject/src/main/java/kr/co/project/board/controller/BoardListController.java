@@ -31,13 +31,6 @@ public class BoardListController extends HttpServlet {
 
 		BoardDTO boardDTO = new BoardDTO();
 
-//		테스트 용도 세션, 이후 merge 이후 삭제 필요
-//		HttpSession session = request.getSession();
-//		String name = (String)session.getAttribute("M_NAME");
-//		boardDTO.setName(name);
-
-		// 페이징 처리
-		// cpage = 현재 내 페이지
 		int cpage = Integer.parseInt(request.getParameter("cpage"));
 
 		// 전체 게시글 수
