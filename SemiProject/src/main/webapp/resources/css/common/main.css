@@ -106,6 +106,13 @@
 	transition: all 0.3s ease-in-out;
 }
 
+#lang{
+		color: rgb(210, 98, 98);
+	text-decoration: none;
+	position: relative;
+	margin-right: 15px;
+}
+
 .Main_a:hover:after {
 	visibility: visible;
 	transform: scaleX(1);
@@ -160,7 +167,7 @@
 .Main_footer ul {
 	list-style: none;
 	padding: 0;
-	padding-right: 100px;
+
 }
 
 .Main_footer li {
@@ -205,4 +212,14 @@
 	display: none;
 }
 
+/*상단 플로팅 바 옵션 가리기  */
+	body { position: static !important; top:0px !important; }	
+	iframe.goog-te-banner-frame { display: none !important; }
+	.skiptranslate { display: none !important; }
 
+	.goog-logo-link { display:none !important; } 
+	.goog-te-gadget { color: transparent !important; overflow: hidden;} 
+	.goog-te-balloon-frame{display: none !important;} 
+	.goog-tooltip {display: none !important;}
+	.goog-tooltip:hover {display: none !important;}
+	.goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}

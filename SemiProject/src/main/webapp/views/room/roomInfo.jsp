@@ -12,6 +12,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <%@ include file="../common/head.jsp" %>
+<style>
+.left-btn{
+    width: 150px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.left-btn:hover {
+    color: white;
+    background-color: rgb(224, 162, 86);
+}
+</style>
 </head>
 <body class="Main_body">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
@@ -72,12 +90,12 @@
 <!-- Button trigger modal -->
       <c:choose>
       	<c:when test="${sessionScope.no !=null}">
-      		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop${count}" >
+      		<button type="button" class="left-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop${count}" >
 			  세부정보/예약하기
 			</button>
       	</c:when>
       	<c:otherwise>
-      		<button type="button" class="btn btn-primary" onclick="alert('로그인후 이용해주세요')">세부정보/예약하기</button>
+      		<button type="button" class="left-btn" onclick="alert('로그인후 이용해주세요')">세부정보/예약하기</button>
       	</c:otherwise>
       </c:choose>
 
@@ -128,7 +146,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 			 <input type="number" placeholder="숙박일" name="date_sum" class="R_room_small" id="date_sum${count}"  disabled>
 			<input type="number" required placeholder="인원수" min="1" max="4" name="R_person_count" id="R_person_count${count}" class="R_room_small">
 	
-	        <button type="button" class="btn btn-primary" 
+	        <button type="button" class="left-btn" 
 	        onclick="reserveRoom(${count})">예약하기</button>
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="unChkBtn()">Close</button>
 	      </div>
