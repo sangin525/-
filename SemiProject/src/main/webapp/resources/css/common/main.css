@@ -105,6 +105,42 @@
 
 /* 푸터 */
 .Main_footer {
+
+	background-color: #333;
+	color: #fff;
+	padding: 1em;
+	text-align: center;
+	bottom: 0;
+}
+
+.reserveRoom{
+	width : 100%;
+	display : none;
+	background-color: antiquewhite; 
+	position : fixed; z-index: 1;
+	
+}
+
+#reserve {
+	cursor: pointer;
+}
+
+
+/* .reserveRoom input{ */
+/* 	margin-right: 30px; */
+/* } */
+.R_room{
+	width: 120px;
+}
+.R_room_small{
+	width: 80px;
+}
+
+
+
+
+
+.Main_footer {
    background-color: bisque;
    color: #fff;
 
