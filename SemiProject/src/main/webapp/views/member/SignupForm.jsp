@@ -23,12 +23,12 @@
 						
 						<div class="row">
 							<div class="mb-3">
-								<label for="nickname">■ 이름 *</label> <input type="text"
+								<label for="nickname">이름 *</label> <input type="text"
 									class="form-control" id="M_Name" name="M_Name" placeholder="이름" value="" onkeyup="validateName()">
 									<span id="NameMsg"></span>
 							</div>				
 							<div class="col-sm-10">
-								<label for="zipp_btn" class="form-label">■ 아이디 *</label><br /> 
+								<label for="zipp_btn" class="form-label">아이디 *</label><br /> 
 								<div class="input-group mb-3">
   								<input type="text" class="form-control" id="M_ID" name="M_ID" placeholder="아이디" aria-label="Recipient's userid" aria-describedby="button-addon2">
   								<button class="btn btn-outline-secondary" onclick="duplicateId()" id="M_IdCheckbtn" type="button">중복확인</button>
@@ -43,7 +43,7 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="M_Pwd">■ 비밀번호 *</label> <input type="password"
+							<label for="M_Pwd">비밀번호 *</label> <input type="password"
 								class="form-control" id="M_Pwd" name="M_Pwd" onkeyup="validatePassword()" placeholder="비밀번호" >
 							<span id="passwordHelpInline" class="form-text">
 						      비밀번호는 8~20자 길이로 문자와 숫자를 포함해야 하며 공백, 특수 문자 또는 이모티콘을 포함할 수 없습니다.
@@ -52,18 +52,18 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="M_Pwdchek">■ 비밀번호확인 *</label> <input type="password"
+							<label for="M_Pwdchek">비밀번호확인 *</label> <input type="password"
 								class="form-control" id="M_Pwdchek" name="M_Pwdchek" onkeyup="validatePassword()" placeholder="비밀번호확인">
 								<span id="M_PwdchekMsg"></span>
 						</div>
 
 						<div class="mb-3">
-							<label for="email">■ 생년월일 *</label> <input type="date"
+							<label for="email">생년월일 *</label> <input type="date"
 								class="form-control" id="M_Birth" name="M_Birth" onkeyup="validateBirth()" placeholder="(예:20031015)">
 								<span id="M_BirthMsg"></span>
 						</div>
 							<div class="col-sm-10">
-							<label for="M_EMAIL">■ 이메일 *</label> <br />  
+							<label for="M_EMAIL">이메일 *</label> <br />  
 							<div class="input-group mb-3">
 							<input type="email" class="form-control" id="M_EMAIL" name="M_EMAIL" onkeyup="validateEmail()" placeholder="you@example.com">
 							<button class="btn btn-outline-secondary" onclick="duplicateEmail()" id="M_EamilCheckbtn" type="button">중복확인</button>
@@ -73,12 +73,12 @@
 						</div>
 					
 					<div class="mb-3">
-							<label for="M_Phone">■ 전화번호 *</label> <input type="text"
+							<label for="M_Phone">전화번호 *</label> <input type="text"
 								class="form-control" id="M_Phone" name="M_Phone" onkeyup="validatePhone()" placeholder="'-'제외하고 숫자만 입력"
 								maxlength="13">
 								<span id="M_PhoneMsg"></span>
 						</div>
-						<label for="addr">■ 주소 *</label>
+						<label for="addr">주소 *</label>
 						<div class="col-sm-10">
 							<div class="input-group mb-1">
 								<input type="text" class="form-control" id="sample6_postcode" name="M_Addr" placeholder="우편번호">
