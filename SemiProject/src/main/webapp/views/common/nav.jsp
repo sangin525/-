@@ -27,12 +27,14 @@
 
 	<c:choose>
 		<c:when test="${sessionScope.no != null}">
-			<button type="button" class="btn btn-primary"
+			<button type="button" class="left-btn"
 				onclick="navReserveRoom()">예약하기</button>
 		</c:when>
 		<c:otherwise>
+
 			<button type="button" class="btn btn-primary"
 				onclick="loginEnter()">예약하기</button>
+
 		</c:otherwise>
 	</c:choose>
 </div>
