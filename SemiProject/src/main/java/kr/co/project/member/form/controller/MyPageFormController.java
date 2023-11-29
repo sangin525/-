@@ -8,14 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.co.project.member.dto.MemberDTO;
+import kr.co.project.member.service.MemberServiceImpl;
 
 
 @WebServlet("/MyPageForm.do")
-public class MyPagerFormController extends HttpServlet {
+public class MyPageFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public MyPagerFormController() {
+    public MyPageFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -23,6 +27,17 @@ public class MyPagerFormController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
+		HttpSession session = request.getSession();
+		int no = (int) session.getAttribute("no");
+		
+		MemberServiceImpl memberService = new MemberServiceImpl();
+		
+		MemberDTO member = memberService.selectMlg(no);
+		
+		session.removeAttribute("mlg");
+		
+		session.setAttribute("mlg", member.getMlg());
 		
 		RequestDispatcher view = request.getRequestDispatcher("/views/member/mypage/MyPage.jsp");
 		view.forward(request, response);
