@@ -8,10 +8,9 @@
 <%@ include file="../common/head.jsp"%>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/member/SignupForm.js"></script>
-<<<<<<< HEAD
 <title>회원가입</title>
-=======
 <style>
+
 .left-btn{
     width: 100px;
     font-family: 'sejong';
@@ -29,7 +28,6 @@
     background-color: rgb(224, 162, 86);
 }
 </style>
->>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git
 </head>
 <body class="Main_body">
 	<%@ include file="../common/header.jsp"%>

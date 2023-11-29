@@ -38,6 +38,8 @@ public class ReserveEnrollController extends HttpServlet {
 		String RChkOut = request.getParameter("RChkOut");
 		int RPersonCount = Integer.parseInt(request.getParameter("RPersonCount"));
 		int RCount = Integer.parseInt(request.getParameter("RCount"));
+		int addMLG =  Integer.parseInt(request.getParameter("addMLG"));
+		int minMLG = Integer.parseInt(request.getParameter("minMLG"));
 		
 		System.out.println(RCount);
 		
@@ -55,6 +57,8 @@ public class ReserveEnrollController extends HttpServlet {
 		room.setRChkOut(RChkOut);
 		room.setRPersonCount(RPersonCount);
 		room.setRCount(RCount);
+		room.setAddMLG(addMLG);
+		room.setMinMLG(minMLG);
 		
 		RoomServiceImpl roomService = new RoomServiceImpl();
 		int result = roomService.reserveEnroll(room);
@@ -62,7 +66,7 @@ public class ReserveEnrollController extends HttpServlet {
 		if(result > 0) {
 			PrintWriter out = response.getWriter();
 			out.print(result);
-			
+
 		}
 		
 		

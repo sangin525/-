@@ -87,9 +87,10 @@
 				<c:set var="totalPrice" value="${totalWeekday * room.RCount}"></c:set>
 			</c:if>
 			
+		<p class="reserveForm"> <input type="checkbox" id="MLGChk" onchange="addMLGChk(${totalPrice},${member.MLG})"> 마일리지 사용여부 </p>
 		<p class="reserveForm" id="totalPrice">결제금액 :  ${totalPrice} 원</p>
 		<p class="reserveForm" id="memberMLG">현재 마일리지 : ${member.MLG} 원</p>
-		<p class="reserveForm">적립 마일리지 : ${totalPrice *0.05} 원 (결제금액의 5%)</p>
+		<p class="reserveForm" id="addMLG">적립 마일리지 : ${totalPrice *0.05} 원 (결제금액의 5%)</p>
 		</div>
 		<br>
 		<div class="reserve-btn">

@@ -65,4 +65,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.memberDelete(con, id);
 	}
 
+	// 마일리지 조회
+	public MemberDTO selectMlg(int no) {
+		return memberDAO.selectMlg(con, no);
+	}
+	
 }
