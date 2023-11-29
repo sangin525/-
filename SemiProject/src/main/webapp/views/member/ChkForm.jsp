@@ -37,9 +37,10 @@
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
-							id="termsCheckbox"> <label class="custom-control-label"
-							for="termsCheckbox" data-toggle="modal" data-target="#termsModal">이용
-							약관에 동의합니다. (필수)</label>
+							id="termsCheckbox" name="termsCheckbox"> <label
+							class="custom-control-label" for="termsCheckbox"
+							data-toggle="modal" data-target="#termsModal">이용 약관에
+							동의합니다. (필수)</label>
 					</div>
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
@@ -60,12 +61,12 @@
 							data-toggle="modal" data-target="#snsModal">SNS 관련 이용약관에
 							동의합니다. (선택)</label>
 					</div>
-
+					
+					
 					<!-- 다른 약관에 대한 체크박스 추가 가능 -->
 				</div>
 
-				<button class="left-btn btn-block" onclick="validateAndSubmit()">동의
-					완료</button>
+				<button id="submitBtn" class="left-btn btn-block">동의 완료</button>
 			</form>
 		</div>
 		<!-- 이용 약관 모달 -->
@@ -245,5 +246,6 @@
 		</div>
 	</section>
 	<%@ include file="../common/footer.jsp"%>
+	<script src="/resources/js/member/ChkForm.js"></script>
 </body>
 </html>
