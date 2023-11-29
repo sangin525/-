@@ -14,6 +14,14 @@
 	-ms-overflow-style: none;
 }
 
+.Main_section {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: #fff;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .Main_header {
 
 	width: 100%; 
@@ -116,17 +124,22 @@
 }
 
 
-
+/* 예약 */
 .reserveRoom {
 	width: 100%;
 	display: none;
-	background-color: antiquewhite;
+	background-color: rgb(255,228,196,0.5);
 	position: fixed;
 	z-index: 1;
+	height:100px;
+	text-align:center;
 }
-
 #reserve {
 	cursor: pointer;
+}
+.grade-menu{
+	padding: 10px;
+
 }
 
 /* .reserveRoom input{ */
@@ -207,11 +220,7 @@
 
 
 /* 주변 할것들 사진 및 css */
-.Main_section hr{
-	width:50%;
-	float:left;
-}
-.Main_section h2{
+.Main_sectio h2{
 	margin-left:19%;
 	margin-top:0;
 	margin-bottom:0;
