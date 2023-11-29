@@ -14,24 +14,25 @@
 	-ms-overflow-style: none;
 }
 
+.Main_section {
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: #fff;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .Main_header {
+
 	width: 100%; 
 	background-color : bisque;
 	color: #fff;
-
 	padding-bottom: 0px;
 	text-align: center;
 	display: flex;
 	justify-content: space-between;
 	background-color: bisque;
-}
 
-.Main_section {
-	max-width: 800px;
-	margin: 20px auto;
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .Main_header img {
@@ -49,6 +50,7 @@
 	padding-right: 15px;
 	justify-content: flex-end;
 	text-align: right;
+
 }
 
 #non-signin {
@@ -66,6 +68,7 @@
 }
 
 .Main_nav {
+
 	width: 100%;
 	background-color: bisque;
 	position: relative;
@@ -74,6 +77,7 @@
 	justify-content: space-around;
 	padding-bottom: 0px;
 }
+
 
 .Main_nav ul {
 	padding: 0px;
@@ -107,11 +111,12 @@
 }
 
 #lang{
-		color: rgb(210, 98, 98);
+	color: rgb(210, 98, 98);
 	text-decoration: none;
 	position: relative;
 	margin-right: 15px;
 }
+
 
 .Main_a:hover:after {
 	visibility: visible;
@@ -119,17 +124,22 @@
 }
 
 
-
+/* 예약 */
 .reserveRoom {
 	width: 100%;
 	display: none;
-	background-color: antiquewhite;
+	background-color: rgb(255,228,196,0.5);
 	position: fixed;
 	z-index: 1;
+	height:100px;
+	text-align:center;
 }
-
 #reserve {
 	cursor: pointer;
+}
+.grade-menu{
+	padding: 10px;
+
 }
 
 /* .reserveRoom input{ */
@@ -186,6 +196,7 @@
 	text-align: center;
 }
 
+
 .change-image {
 	width: 2000px;
 	height: 800px;
@@ -207,6 +218,50 @@
 	}
 }
 
+
+/* 주변 할것들 사진 및 css */
+.Main_sectio h2{
+	margin-left:19%;
+	margin-top:0;
+	margin-bottom:0;
+	font-size: 32px;
+	color: rgb(210, 98, 98);
+}
+.traditional1 p{
+	font-size: 28px;
+	margin:0px auto;
+	text-align:center;
+	color: rgb(210, 98, 98);
+	text-decoration: none;
+}
+
+.traditional {
+	display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    width:60%;
+    height:auto;
+}
+  .traditional1 {
+    width:40%;
+    margin: 10px;
+    text-align:center;
+  }
+  .traditional1 img{
+    width: 350px;
+    height: 350px;
+  }
+
+
+
+
+
+
+
+
+
+
+
 /* 스크롤바 안보이게 숨기기 */
 ::-webkit-scrollbar {
 	display: none;
@@ -223,3 +278,4 @@
 	.goog-tooltip {display: none !important;}
 	.goog-tooltip:hover {display: none !important;}
 	.goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+
