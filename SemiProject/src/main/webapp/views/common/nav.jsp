@@ -36,9 +36,9 @@
 			<button type="button" class="btn btn-primary"
 			onclick="alert('로그인 후 이용해주세요')">예약하기</button>
 
-			<button type="button" class="left-btn"
-				window.location.href="/views/member/Signin.jsp">예약하기</button>
+			<button type="button" class="left-btn" onclick="loginEnter()">예약하기</button>
 				
+				<!--window.location.href="/views/member/Signin.jsp">예약하기</button>-->
 		</c:otherwise>
 	</c:choose>
 </div>
