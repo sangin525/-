@@ -247,4 +247,36 @@ public class MemberDAO {
 
 	}
 
+	// 마일리지 조회
+	public MemberDTO selectMlg(Connection con, int no) {
+		
+		String query = "SELECT m_mlg"
+				+ "		FROM member"
+				+ "		WHERE m_no = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, no);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			MemberDTO member = new MemberDTO();
+			
+			while(rs.next()) {
+				int ResultMlg = rs.getInt("M_MLG");
+				
+				member.setMlg(ResultMlg);
+			}
+			return member;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+
 }
