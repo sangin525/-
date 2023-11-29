@@ -66,7 +66,7 @@ public class ReserveEnrollController extends HttpServlet {
 		if(result > 0) {
 			PrintWriter out = response.getWriter();
 			out.print(result);
-			
+
 		}
 		
 		
