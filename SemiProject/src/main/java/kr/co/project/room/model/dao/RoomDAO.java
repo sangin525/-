@@ -214,7 +214,7 @@ public class RoomDAO {
 		return room;
 	}
 
-	// 회원 마일리지 적립
+	
 
 	
 	
