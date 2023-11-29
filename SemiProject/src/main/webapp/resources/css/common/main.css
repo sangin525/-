@@ -220,12 +220,17 @@
 
 
 /* 주변 할것들 사진 및 css */
+.section-div{
+	display: flex;
+	justify-content: space-evenly;
+}
+
 .Main_sectio h2{
-	margin-left:19%;
 	margin-top:0;
 	margin-bottom:0;
 	font-size: 32px;
 	color: rgb(210, 98, 98);
+	text-align: center;
 }
 .traditional1 p{
 	font-size: 28px;
@@ -239,8 +244,9 @@
 	display: flex;
     flex-direction:row;
     flex-wrap: wrap;
-    width:60%;
+    width:1200px;
     height:auto;
+    justify-content: center;
 }
   .traditional1 {
     width:40%;
@@ -279,3 +285,58 @@
 	.goog-tooltip:hover {display: none !important;}
 	.goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
 
+
+
+/* 메인화면 공지사항 */
+
+.main-notice{
+	width: 900px;
+	height: 300px;
+	margin-top: 75px;
+    margin-right: 75px;
+}
+
+.notice_title{
+	font-size: 24px;
+    border-bottom: 1px solid black;
+    display:flex;
+    justify-content: space-between;
+}
+
+.notice_list_go{
+	font-size: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+.main-notice p{
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 30px;
+}
+
+.main-notice ul{
+	list-style: none;
+}
+
+.notice-link{
+	color: rgb(210, 98, 98);
+}
+
+.notice-tit:hover{
+	text-decoration: underline;
+}
+
+.notice-tit{
+	width: 80%;
+	float: left;
+	font-size: 25px;
+    line-height: 40px;
+}
+
+.notice-date{
+	float: right;
+	font-size: 25px;
+	padding-right: 20px;
+	pointer-events : none;
+}
