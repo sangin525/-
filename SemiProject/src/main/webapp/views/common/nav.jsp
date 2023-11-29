@@ -9,7 +9,7 @@
 		<li class="nav_last"><a href="/BoardList.do?cpage=1" class="Main_a">문의게시판</a></li>
 	</ul>
 </nav>
-<div class="reserveRoom" id="reserveRoom" onmousemove="navgetDate()">
+<div class="reserveRoom" id="reserveRoom" onmousemove="navgetDate()" style="display:none">
 		<select class="grade-menu" id="grade-menu" onchange="dropdownGrade()">
 		    <option value="" class="dropdown-item" selected>--선택--</option>
 		    <option value="디럭스" class="dropdown-item" >디럭스</option>
@@ -31,7 +31,6 @@
 				onclick="navReserveRoom()">예약하기</button>
 		</c:when>
 		<c:otherwise>
-
 			<button type="button" class="btn btn-primary"
 				onclick="loginEnter()">예약하기</button>
 

@@ -29,7 +29,5 @@
 			<p>광화문</p>
 		</div>
 	</div>
-	
-	
 
 </section>
