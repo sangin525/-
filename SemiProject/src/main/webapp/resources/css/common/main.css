@@ -124,33 +124,124 @@
 }
 
 
-/* 예약 */
+/* 예약 css*/
 .reserveRoom {
 	width: 100%;
-	display: none;
+	position: absolute;
 	background-color: rgb(255,228,196,0.5);
-	position: fixed;
 	z-index: 1;
-	height:100px;
+	height:auto;
 	text-align:center;
+	padding:2%;
 }
 #reserve {
 	cursor: pointer;
 }
-.grade-menu{
-	padding: 10px;
 
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  
+  color: #444;
+  background-color: #fff;
+  
+  border: 1px solid #aaa;
+  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
 }
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+select:disabled {
+  opacity: 0.5;
+}
+
 
 /* .reserveRoom input{ */
 /* 	margin-right: 30px; */
 /* } */
 .R_room {
 	width: 120px;
+	  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  
+  color: #444;
+  background-color: #fff;
+  
+  border: 1px solid #aaa;
+  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
 }
 
 .R_room_small {
-	width: 80px;
+	width: 150px;
+	-moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  
+  color: #444;
+  background-color: #fff;
+  
+  border: 1px solid #aaa;
+  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+}
+.R_room:hover {
+  border-color: #888;
+}
+
+.R_room:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+.R_room:disabled {
+  opacity: 0.5;
+}
+.left-btn {
+	width: 150px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+.left-btn:hover{
+	 color: white;
+    background-color: rgb(224, 162, 86);
 }
 
 /* 푸터 */
@@ -265,9 +356,6 @@
 
 
 
-
-
-
 /* 스크롤바 안보이게 숨기기 */
 ::-webkit-scrollbar {
 	display: none;
@@ -284,7 +372,6 @@
 	.goog-tooltip {display: none !important;}
 	.goog-tooltip:hover {display: none !important;}
 	.goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
-
 
 
 /* 메인화면 공지사항 */
@@ -340,3 +427,4 @@
 	padding-right: 20px;
 	pointer-events : none;
 }
+

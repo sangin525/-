@@ -31,6 +31,7 @@
 			<p>광화문</p>
 		</div>
 	</div>
+
 </div>
 <div>
 	<div class="main-notice">
