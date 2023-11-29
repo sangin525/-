@@ -32,7 +32,7 @@
 		</c:when>
 		<c:otherwise>
 			<button type="button" class="btn btn-primary"
-				window.location.href="/views/member/Signin.jsp">예약하기</button>
+				onclick="loginEnter()">예약하기</button>
 		</c:otherwise>
 	</c:choose>
 </div>
