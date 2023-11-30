@@ -12,7 +12,7 @@ public class MemberDAO {
 
 	// 회원가입
 	public int memberEnroll(Connection con, MemberDTO memberDTO) {
-		String query = "INSERT INTO member VALUES(member_seq.nextval, ?, ?, ?, ?, ?, ?, ?,?,?,sysdate,NULL,500,?)";
+		String query = "INSERT INTO member VALUES(member_seq.nextval, ?, ?, ?, ?, ?, ?, ?,?,?,sysdate,NULL,0,?,?)";
 
 		try {
 			// 2. 쿼리 사용할 준비
@@ -29,8 +29,9 @@ public class MemberDAO {
 			pstmt.setString(8, memberDTO.getAddr1());
 			pstmt.setString(9, memberDTO.getAddr2());
 			pstmt.setString(10, "N");
+			pstmt.setString(11, memberDTO.getSnsCheckbox());
 
-			System.out.println(memberDTO.getName());
+			System.out.println(memberDTO.getSnsCheckbox());
 
 			// 4. 쿼리 실행
 			int result = pstmt.executeUpdate();
@@ -85,11 +86,8 @@ public class MemberDAO {
 		// 1. 쿼리 작성
 		String query = "SELECT m_no," + "			   m_id, " + "			   m_pwd," + "			   m_name,"
 				+ "			   m_phone," + "			   m_email," + "			   m_addr," + "			   m_birth,"
-				+ "			   m_in_date," + "			   m_delete_date," + "			   m_mlg,"
-						+ "m_addr1, "
-						+ "m_addr2, "
-						+ "m_admin"
-				+ "		FROM member " + "		WHERE m_id = ? ";
+				+ "			   m_in_date," + "			   m_delete_date," + "			   m_mlg," + "m_addr1, "
+				+ "m_addr2, " + "m_admin" + "		FROM member " + "		WHERE m_id = ? ";
 
 		MemberDTO member = new MemberDTO();
 		// 2. 쿼리 실행할 준비
@@ -97,10 +95,9 @@ public class MemberDAO {
 			pstmt = con.prepareStatement(query);
 			// 3. 물음표있으면 채우고
 			pstmt.setString(1, id);
-			
+
 			// 4. 쿼리실행
 			ResultSet rs = pstmt.executeQuery();
-
 
 			while (rs.next()) {
 				String resultId = rs.getString("M_ID");
@@ -149,7 +146,7 @@ public class MemberDAO {
 	public int memberUpdate(Connection con, MemberDTO member, String beforeEmail) {
 		// 1. 쿼리 작성
 		String query = "UPDATE member" + "		SET m_phone = ?," + "		    m_email = ?," + "			m_addr = ?,"
-				+ "			m_addr1 = ?,"+ "			m_addr2 = ?" + "		WHERE m_email = ?";
+				+ "			m_addr1 = ?," + "			m_addr2 = ?" + "		WHERE m_email = ?";
 
 		// 2. 쿼리 실행할 준비
 		try {
@@ -249,33 +246,30 @@ public class MemberDAO {
 
 	// 마일리지 조회
 	public MemberDTO selectMlg(Connection con, int no) {
-		
-		String query = "SELECT m_mlg"
-				+ "		FROM member"
-				+ "		WHERE m_no = ?";
-		
+
+		String query = "SELECT m_mlg" + "		FROM member" + "		WHERE m_no = ?";
+
 		try {
 			pstmt = con.prepareStatement(query);
-			
+
 			pstmt.setInt(1, no);
-			
+
 			ResultSet rs = pstmt.executeQuery();
-			
+
 			MemberDTO member = new MemberDTO();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int ResultMlg = rs.getInt("M_MLG");
-				
+
 				member.setMlg(ResultMlg);
 			}
 			return member;
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		return null;
 	}
 
