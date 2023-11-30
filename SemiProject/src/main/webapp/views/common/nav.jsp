@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <nav class="Main_nav">
@@ -34,8 +35,11 @@
 		</c:when>
 		<c:otherwise>
 			<button type="button" class="btn btn-primary"
-				onclick="loginEnter()">예약하기</button>
+			onclick="alert('로그인 후 이용해주세요')">예약하기</button>
 
+			<button type="button" class="left-btn" onclick="loginEnter()">예약하기</button>
+				
+				<!--window.location.href="/views/member/Signin.jsp">예약하기</button>-->
 		</c:otherwise>
 	</c:choose>
 </div>
