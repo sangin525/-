@@ -154,15 +154,12 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  
   font-family: Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 2;
-  
   color: #444;
   background-color: #fff;
-  
   border: 1px solid #aaa;
   border-radius: .5em;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
@@ -300,7 +297,6 @@ select:disabled {
 
 /* 메인화면 슬라이드*/
 .img-div {
-	position:relative;
    text-align: center;
 }
 
@@ -326,14 +322,13 @@ select:disabled {
 }
 
 /* 이미지 안 text */
-
 .text-image1{
 	font-size:68px;
 	position: absolute;
     top: 33%;
     left: 50%;
     transform: translate( -50%, -50% );
-  	color: white;
+  	color: bisque;
   	animation: fadeInUp 3s ease-out forwards;
 }
 @keyframes fadeInUp {
