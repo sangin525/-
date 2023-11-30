@@ -15,6 +15,7 @@ SemiProject/.settings/
 .classpath/
 SemiProject/.classpath
 SemiProject/src/main/java/kr/co/project/common/DatabaseConnection.java
+SemiProject/SemiProject/src/main/webapp/resources/js/room/apikey.js
 .loadpath
 .recommenders
 bulid/

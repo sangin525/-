@@ -10,10 +10,19 @@ public class BoardDTO {
 	private String onDate;
 	private String inDate;
 	private String deleteDate;
-	private String answer;
 	private int views;
+	private String answer;
 
 	private String name;
+	
+	//답변 DTO
+	private int answerNo;
+	private String answerContent;
+	private String answerOnDate;
+	private String answerInDate;
+	private String answerDelete;
+	private String answerWriter;
+
 	
 	
 	private int no; // 게시글 번호
@@ -150,6 +159,54 @@ public class BoardDTO {
 		this.route = route;
 	}
 	
+	public int getAnswerNo() {
+		return answerNo;
+	}
+
+	public void setAnswerNo(int answerNo) {
+		this.answerNo = answerNo;
+	}
+
+	public String getAnswerOnDate() {
+		return answerOnDate;
+	}
+
+	public void setAnswerOnDate(String answerOnDate) {
+		this.answerOnDate = answerOnDate;
+	}
+
+	public String getAnswerInDate() {
+		return answerInDate;
+	}
+
+	public void setAnswerInDate(String answerInDate) {
+		this.answerInDate = answerInDate;
+	}
+
+	public String getAnswerDelete() {
+		return answerDelete;
+	}
+
+	public void setAnswerDelete(String answerDelete) {
+		this.answerDelete = answerDelete;
+	}
+
+	public String getAnswerWriter() {
+		return answerWriter;
+	}
+
+	public void setAnswerWriter(String answerWriter) {
+		this.answerWriter = answerWriter;
+	}
+	
+	public String getAnswerContent() {
+		return answerContent;
+	}
+
+	public void setAnswerContent(String answerContent) {
+		this.answerContent = answerContent;
+	}
+
 	public BoardDTO() {
 		super();
 	}

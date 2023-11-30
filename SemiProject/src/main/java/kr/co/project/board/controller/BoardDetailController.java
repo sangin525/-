@@ -24,7 +24,6 @@ public class BoardDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
-
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		int result = boardService.boardView(boardNo);
 
@@ -32,7 +31,8 @@ public class BoardDetailController extends HttpServlet {
 		if (result > 0) {
 			BoardDTO board = new BoardDTO();
 			board.setBoardNo(boardNo);
-
+			
+			// 댓글 관련도 같이 가져옴
 			boardService.boardSelect(board);
 			
 			if(!Objects.isNull(board.getBoardNo())) {
