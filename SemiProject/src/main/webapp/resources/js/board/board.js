@@ -44,3 +44,23 @@ function boardEnrollBtn() {
    		location.href = 'views/board/boardEnroll.jsp';
 	}
 }
+
+function test(){
+	alert("Hello");
+	
+}
+
+function answerInput(){
+	let input = document.getElementById("answerInput");
+	input.style.display = 'block';
+	
+}
+
+function answerUpdate(){
+	const form = document.getElementById("answer-form");
+
+	form.action = "/answerDetailUpdate.do";
+	form.method = "POST";
+	form.submit();
+}
+
