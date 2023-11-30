@@ -9,7 +9,9 @@
 		<li class="nav_last"><a href="/BoardList.do?cpage=1" class="Main_a">문의게시판</a></li>
 	</ul>
 </nav>
+
 <div class="reserveRoom" id="reserveRoom" onmousemove="navgetDate()" style="display:none">
+
 		<select class="grade-menu" id="grade-menu" onchange="dropdownGrade()">
 		    <option value="" class="dropdown-item" selected>--선택--</option>
 		    <option value="디럭스" class="dropdown-item" >디럭스</option>
@@ -37,3 +39,4 @@
 		</c:otherwise>
 	</c:choose>
 </div>
+
