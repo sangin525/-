@@ -201,9 +201,15 @@ public class BoardDAO {
 		        + "B.BOARD_VIEWS, "
 		        + "B.BOARD_ANSWER, "
 		        + "M.M_NO, "
-		        + "M.M_NAME "
+		        + "M.M_NAME, "
+		        + "A.ANSWER_NO, "
+		        + "A.ANSWER_CONTENT, "
+		        + "A.ANSWER_ON_DATE, "
+		        + "A.ANSWER_IN_DATE, "
+		        + "A.ANSWER_WRITER "
 		        + "FROM BOARD B "
 		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
+		        + "LEFT JOIN ANSWER A ON B.BOARD_NO = A.BOARD_NO "
 		        + "WHERE B.BOARD_NO = ?";
 		
 		try {
@@ -220,6 +226,11 @@ public class BoardDAO {
 				String answer = rs.getString("BOARD_ANSWER");
 				String name = rs.getString("M_NAME");
 				int m_No = rs.getInt("M_NO");
+				int answerNo = rs.getInt("ANSWER_NO");
+				String answerContent = rs.getString("ANSWER_CONTENT");
+				String answerOnDate = rs.getString("ANSWER_ON_DATE");
+				String answerInDate = rs.getString("ANSWER_IN_DATE");
+				String answerWriter = rs.getString("ANSWER_WRITER");
 				
 				board.setBoardNo(boardNo);
 				board.setTitle(title);
@@ -229,6 +240,12 @@ public class BoardDAO {
 				board.setAnswer(answer);
 				board.setName(name);
 				board.setM_No(m_No);
+				board.setAnswerNo(answerNo);
+				board.setAnswerContent(answerContent);
+				board.setAnswerOnDate(answerOnDate);
+				board.setAnswerInDate(answerInDate);
+				board.setAnswerWriter(answerWriter);
+				
 			}
 			
 			pstmt.close();
@@ -330,6 +347,48 @@ public class BoardDAO {
 			pstmt.setInt(1,boardNo);
 			pstmt.setString(2, answer);
 			pstmt.setString(3, name);
+			
+			int result = pstmt.executeUpdate();
+			
+
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	// 답변 추가 시 list에 답변 여부 Y로 변경
+	public int answerUpdate(Connection con, int boardNo) {
+	    String query = "UPDATE BOARD SET BOARD_ANSWER = 'Y' WHERE BOARD_NO = ?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		
+		return 0;
+	}
+	// 답변 수정
+	public int answerDetailUpdate(Connection con, String content, int answerNo) {
+		String query = "UPDATE ANSWER SET ANSWER_CONTENT = ?, ANSWER_IN_DATE = SYSDATE WHERE ANSWER_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, content);
+			pstmt.setInt(2, answerNo);
 			
 			int result = pstmt.executeUpdate();
 			

@@ -161,7 +161,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 800px;
-	height: 300px;
+	height: 210px;
 }
 
 /* div 정렬 */
@@ -179,10 +179,10 @@
 .divCenter2 {
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	flex-direction: column;
 	width: 100%;
-	height: 250px;
+	height: 170px;
 }
 
 .divComments {
@@ -194,10 +194,13 @@
 	
 	margin-bottom: 5px;
 }
+.answerInput{
+	display:none;
+}
 
 .divCenter3 {
 	width: 560px;
-	height: 150px;
+	height: 170px;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -332,6 +335,8 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	border-bottom: 1px solid black;
+	padding-bottom:5px;
 	
 }
 .contentText2 {
@@ -344,6 +349,7 @@
 	border-radius: 15px;
 	border: 2px solid #A1A1A1;
 	font-family: 'sejong';
+	overflow:auto;
 }
 
 .contentText3 {
@@ -358,6 +364,7 @@
 	border: 2px solid #A1A1A1;	
 	font-family: 'sejong';
 }
+
 
 .TextArea {
 	/* 파일 첨부 정보란 */
@@ -375,11 +382,23 @@
 }
 /* 댓글 위 상세 정보 모음 */
 .answerText{
+	width:70px;
 	padding-left: 5px;
 	padding-right: 15px;
 	margin-left: 10px;
 	margin: 0;
 	font-size:10px;
+}
+/* 답변 수정, 삭제 버튼 */
+.answerTextClick{
+	width:70px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-left: 10px;
+	margin: 0;
+	font-size:10px;
+	cursor: pointer;
+	color: red;
 }
 
 /* ---------------------------------------- 게시판 및 공지사항 버튼 CSS ------------------------------- */
