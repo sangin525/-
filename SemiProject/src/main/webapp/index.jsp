@@ -24,8 +24,10 @@
    
 <div class="img-div">
 <img class="change-image"></img>
-<h1 class="text-image">Welcome to HotelHaru</h1>
+<div class="text-image">
+<h1 class="text-image1">Welcome to HotelHaru</h1>
 <h1 class="text-image2">호텔 하루를 찾아주셔서 감사합니다.</h1>
+</div>
 </div>
 
 <%@ include file="./views/common/section.jsp" %>

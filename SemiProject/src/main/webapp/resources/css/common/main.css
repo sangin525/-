@@ -300,6 +300,7 @@ select:disabled {
 
 /* 메인화면 슬라이드*/
 .img-div {
+	position:relative;
    text-align: center;
 }
 
@@ -325,7 +326,9 @@ select:disabled {
    }
 }
 
-.text-image{
+/* 이미지 안 text */
+
+.text-image1{
 	font-size:68px;
 	position: absolute;
     top: 35%;
@@ -347,7 +350,7 @@ select:disabled {
 .text-image2 {
     font-size: 40px;
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
