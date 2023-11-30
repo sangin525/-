@@ -105,7 +105,31 @@ function intoInfoPage(){
 }
 
 
-
+function checkReserveInfo(count){
+	let Rname = document.getElementById("R_name"+count).value;
+	let startDate = document.getElementById("start_date"+count).value;
+	let endDate = document.getElementById("end_date"+count).value;
+	$.ajax({
+		url: '/checkReserveInfo.do',
+		type: 'get',
+		data: {
+			Rname: Rname,
+			startDate: startDate,
+			endDate: endDate
+		},
+		success: function(data) {
+			if(data == 'true'){
+				alert("해당일자에 예약된 내역이 있습니다. 다른날짜를 선택해주세요.");
+				document.getElementById("start_date" + count).value = null;
+		        document.getElementById("end_date" + count).value = null;
+		        document.getElementById('date_sum' + count).value = 0;
+			}
+		},
+		error: function(err) {
+			alert("에러발생");
+		}
+	});
+}
 
 
 
