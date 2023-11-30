@@ -22,6 +22,7 @@ public class SignupForm extends HttpServlet {
 		String termsCheckbox = request.getParameter("termsCheckbox");
 		String privacyCheckbox = request.getParameter("privacyCheckbox");
 		String confirmCheckbox = request.getParameter("confirmCheckbox");
+		String snsCheckboxFl = request.getParameter("snsCheckbox");
 
 		if (termsCheckbox == null || privacyCheckbox == null || confirmCheckbox == null) {
 			response.sendRedirect("/");
