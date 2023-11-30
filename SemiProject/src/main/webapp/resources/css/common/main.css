@@ -304,7 +304,6 @@ select:disabled {
    text-align: center;
 }
 
-
 .change-image {
    width: 2000px;
    height: 800px;
@@ -368,11 +367,6 @@ select:disabled {
         transform: translate(-50%, 0px);
     }
 }
-
-
-
-
-
 
 /* 주변 할것들 사진 및 css */
 .section-div{
