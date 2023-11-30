@@ -21,6 +21,7 @@
    <%@ include file="./views/common/header.jsp" %>
    <%@ include file="./views/common/nav.jsp" %>
    
+   
 <div class="img-div">
 <img class="change-image"></img>
 </div>

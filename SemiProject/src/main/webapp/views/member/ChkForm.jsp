@@ -27,7 +27,7 @@
 	<section class="Main_section">
 		<div class="container">
 			<h2 class="text-center mb-4">호텔 사이트 이용약관</h2>
-			<form name="frm" action="SignupForm.do" method="GET">
+			<form name="frm" action="SignupForm.do" method="Post">
 				<div class="checkbox-container">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input"
@@ -36,36 +36,35 @@
 							선택</label>
 					</div>
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input"
-							id="termsCheckbox" name="termsCheckbox"> <label
+						<input type="checkbox" class="custom-control-input chkInp"
+							id="termsCheckbox" name="termsCheckbox" value="y"> <label
 							class="custom-control-label" for="termsCheckbox"
 							data-toggle="modal" data-target="#termsModal">이용 약관에
 							동의합니다. (필수)</label>
 					</div>
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input"
-							id="privacyCheckbox"> <label class="custom-control-label"
-							for="privacyCheckbox" data-toggle="modal"
-							data-target="#privacyModal">개인 정보 수집 및 이용에 동의합니다. (필수)</label>
+						<input type="checkbox" class="custom-control-input chkInp"
+							id="privacyCheckbox" name="privacyCheckbox" value="y"> <label
+							class="custom-control-label" for="privacyCheckbox"
+							data-toggle="modal" data-target="#privacyModal">개인 정보 수집
+							및 이용에 동의합니다. (필수)</label>
 					</div>
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input"
-							id="confirmCheckbox"> <label class="custom-control-label"
-							for="confirmCheckbox" data-toggle="modal"
-							data-target="#confirmModal">회원가입 안내사항을 확인했습니다. (필수)</label>
+						<input type="checkbox" class="custom-control-input chkInp"
+							id="confirmCheckbox" name="confirmCheckbox" value="y"> <label
+							class="custom-control-label" for="confirmCheckbox"
+							data-toggle="modal" data-target="#confirmModal">회원가입
+							안내사항을 확인했습니다. (필수)</label>
 					</div>
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input"
-							id="snsCheckbox" name="snsCheckbox"> <label
+						<input type="checkbox" class="custom-control-input chkInp"
+							id="snsCheckbox" name="snsCheckbox" value="y"> <label
 							class="custom-control-label" for="snsCheckbox"
 							data-toggle="modal" data-target="#snsModal">SNS 관련 이용약관에
 							동의합니다. (선택)</label>
 					</div>
-					
-					
 					<!-- 다른 약관에 대한 체크박스 추가 가능 -->
 				</div>
-
 				<button id="submitBtn" class="left-btn btn-block">동의 완료</button>
 			</form>
 		</div>

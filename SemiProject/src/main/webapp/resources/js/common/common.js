@@ -40,12 +40,13 @@ function navdateSum(){
     var ar1 = startDate.split('-');
     var ar2 = endDate.split('-');
 
-    var da1 = new Date(ar1[0], ar1[1]-1, ar1[2]);
-    var da2 = new Date(ar2[0], ar2[1]-1, ar2[2]);
+    var da1 = new Date(ar1[0], ar1[1]-1, ar1[2], 23, 59, 59);
+    var da2 = new Date(ar2[0], ar2[1]-1, ar2[2], 23, 59, 59);
 
+	var difDate = new Date();
+	
     var dif = da2 - da1;
     var cDay = 24 * 60 * 60 * 1000;
-
 	var difDay = parseInt(dif/cDay);
     if(difDay >= 10){
         alert("예약 10일을 초과할수 없습니다.");
@@ -53,6 +54,12 @@ function navdateSum(){
         document.getElementById("end_date").value = null;
         document.getElementById('date_sum').value = 0;
         
+	}else if(da1 < difDate){
+        alert("날짜를 다시선택해주세요.");
+        document.getElementById("start_date").value = null;
+        document.getElementById("end_date").value = null;
+        document.getElementById('date_sum').value = 0;
+
     }else if(difDay <= 0){
         alert("오늘 이후로 예약해주세요.");
         document.getElementById("start_date").value = null;

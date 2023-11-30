@@ -19,8 +19,16 @@ public class SignupForm extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("/views/member/SignupForm.jsp");
-		view.forward(request, response);
+		String termsCheckbox = request.getParameter("termsCheckbox");
+		String privacyCheckbox = request.getParameter("privacyCheckbox");
+		String confirmCheckbox = request.getParameter("confirmCheckbox");
+
+		if (termsCheckbox == null || privacyCheckbox == null || confirmCheckbox == null) {
+			response.sendRedirect("/");
+		} else {
+			RequestDispatcher view = request.getRequestDispatcher("/views/member/SignupForm.jsp");
+			view.forward(request, response);
+		}
 
 	}
 

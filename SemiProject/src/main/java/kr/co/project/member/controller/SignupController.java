@@ -45,6 +45,7 @@ public class SignupController extends HttpServlet {
 		String addr = request.getParameter("M_Addr");
 		String addr1 = request.getParameter("M_Addr1");
 		String addr2 = request.getParameter("M_Addr2");
+		String snsCheckbox = request.getParameter("snsCheckbox");
 
 		// 패스워드 암호화
 		// 임의의 문자열 생성
@@ -53,7 +54,8 @@ public class SignupController extends HttpServlet {
 		// 사용자가 입력한 비밀번호 + Slat 암호화
 		String hashedPassword = BCrypt.hashpw(pwd, salt);
 
-		MemberDTO memberDTO = new MemberDTO(name, id, hashedPassword, birth, email, phone, addr, addr1, addr2);
+		MemberDTO memberDTO = new MemberDTO(name, id, hashedPassword, birth, email, phone, addr, addr1, addr2,
+				snsCheckbox);
 
 		MemberServiceImpl memberService = new MemberServiceImpl();
 		int result = memberService.memberEnroll(memberDTO);
