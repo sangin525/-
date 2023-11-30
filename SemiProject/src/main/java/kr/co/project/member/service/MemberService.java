@@ -26,5 +26,8 @@ public interface MemberService {
 
 	// 회원 탈퇴
 	public int memberDelete(String id);
+	
+	// 마일리지 조회
+	public MemberDTO selectMlg(int no);
 
 }

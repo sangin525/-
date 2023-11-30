@@ -25,7 +25,7 @@
            <!-- <a href="/views/member/login.jsp">로그인</a> -->
            <a href="/SigninForm.do" class="Main_a" id="non-signin">로그인</a>
 <!--            <a href="/registerForm.do">회원가입</a> -->
-           <a href="/SignupForm.do" class="Main_a">회원가입</a>
+           <a href="ChkForm.do" class="Main_a">회원가입</a>
            
         </c:otherwise>
      </c:choose>

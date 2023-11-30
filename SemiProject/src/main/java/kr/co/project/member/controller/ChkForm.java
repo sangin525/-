@@ -9,27 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/SignupForm.do")
-public class SignupForm extends HttpServlet {
+@WebServlet("/ChkForm.do")
+public class ChkForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public SignupForm() {
+	public ChkForm() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String termsCheckbox = request.getParameter("termsCheckbox");
-		String privacyCheckbox = request.getParameter("privacyCheckbox");
-		String confirmCheckbox = request.getParameter("confirmCheckbox");
 
-		if (termsCheckbox == null || privacyCheckbox == null || confirmCheckbox == null) {
-			response.sendRedirect("/");
-		} else {
-			RequestDispatcher view = request.getRequestDispatcher("/views/member/SignupForm.jsp");
-			view.forward(request, response);
-		}
-
+		RequestDispatcher view = request.getRequestDispatcher("/views/member/ChkForm.jsp");
+		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

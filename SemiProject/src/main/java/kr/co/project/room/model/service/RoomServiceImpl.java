@@ -53,4 +53,10 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public boolean checkInfo(String Rname, String startDate, String endDate) {
+		
+		return roomDAO.checkInfo(con, Rname, startDate, endDate);
+	}
+
+
 }

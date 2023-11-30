@@ -25,5 +25,7 @@ public interface RoomService {
 	// nav 에 등급선택에따른 객실정보 가져오기
 	public ArrayList<String> navRoomName(String gradeMenu);
 	
+	// 예약되어있는값이랑 선택한 방,날짜와 같은값이 있는지 확인
+	public boolean checkInfo(String Rname, String startDate, String endDate);
 }
 
