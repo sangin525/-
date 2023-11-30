@@ -32,13 +32,18 @@ public class CommentEnroll extends HttpServlet {
 		String admin = (String)session.getAttribute("admin");
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
-		
-		int result = boardService.answerEnroll(answer, name, boardNo);
-		
+				
 		// 공지사항이기에 Admin만 작성이 가능하여 아래와 같은 비교문이 추가됨
 		if("Y".equals(admin)){
+			int result = boardService.answerEnroll(answer, name, boardNo);
+			
 			if(result > 0) {
-				response.sendRedirect("/BoardDetail.do?boardNo=" + boardNo);
+				int answerUpdate = boardService.answerUpdate(boardNo);
+					if(answerUpdate > 0) {
+						response.sendRedirect("/BoardDetail.do?boardNo=" + boardNo);
+					}else {
+						System.out.println("answer Update 오류");
+					}
 			}else {
 				response.sendRedirect("/views/common/error.jsp");
 			}			

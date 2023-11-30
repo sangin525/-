@@ -28,7 +28,10 @@ public interface BoardService {
 	public int boardListCount();
 	// 문의사항 답변 추가
 	public int answerEnroll(String answer,String name, int boardNo);
-	
+	// 문의사항 답변 추가 시 답변 여부 변경
+	public int answerUpdate(int boardNo);
+	// 문의사항 답변 수정
+	public int answerDetailUpdate(String content, int answerNo);
 	
 	// 마이페이지
 	// 내 게시글 수 조회
