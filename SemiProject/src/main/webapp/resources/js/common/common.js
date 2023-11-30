@@ -8,11 +8,11 @@ function reserveDisplay(){
 	}
 }
 
-
+let roomMenu;
 function dropdownGrade(){
 	let gradeMenu = document.getElementById("grade-menu").value;
-	let roomMenu = document.getElementById("room-menu");
-	roomMenu.textContent = "";
+	roomMenu = document.getElementById("room-menu");
+	roomMenu.textContent = null;
 	console.log("ajax 시작부분");
 		$.ajax({
 				url: '/navRoomGrade.do',
@@ -21,6 +21,7 @@ function dropdownGrade(){
 				success: function(data) {
 					var data = data.replace('[','');
 					data = data.replace(']','');
+					data = data.replaceAll(' ','');
 					data = data.split(',');
 					for(let i =0; i<data.length; i++){
 					let option=document.createElement("option");
@@ -97,7 +98,31 @@ function loginEnter(){
 	window.location.href="/views/member/Signin.jsp";
 }
 
-
+function navCheckReserveInfo(){
+	let startDate = document.getElementById("start_date").value;
+	let endDate = document.getElementById("end_date").value;
+	let Rname = roomMenu.value;
+	$.ajax({
+		url: '/checkReserveInfo.do',
+		type: 'get',
+		data: {
+			Rname: Rname,
+			startDate: startDate,
+			endDate: endDate
+		},
+		success: function(data) {
+			if(data == 'true'){
+				alert("해당일자에 예약된 내역이 있습니다. 다른날짜를 선택해주세요.");
+				document.getElementById("start_date").value = null;
+		        document.getElementById("end_date").value = null;
+		        document.getElementById('date_sum').value = 0;
+			}
+		},
+		error: function(err) {
+			alert("에러발생");
+		}
+	});
+}
 
 
 
