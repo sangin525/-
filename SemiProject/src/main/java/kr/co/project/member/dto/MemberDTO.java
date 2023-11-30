@@ -16,6 +16,7 @@ public class MemberDTO {
 	private int mlg;
 	private String newPwd;
 	private String admin;
+	private String snsCheckbox;
 
 	public MemberDTO(String phone, String email, String addr, String addr1, String addr2) {
 		super();
@@ -42,8 +43,16 @@ public class MemberDTO {
 		this.addr2 = addr2;
 	}
 
+	public String getSnsCheckbox() {
+		return snsCheckbox;
+	}
+
+	public void setSnsCheckbox(String snsCheckbox) {
+		this.snsCheckbox = snsCheckbox;
+	}
+
 	public MemberDTO(String name, String id, String pwd, String birth, String email, String phone, String addr,
-			String addr1, String addr2) {
+			String addr1, String addr2, String snsCheckbox) {
 		super();
 		this.name = name;
 		this.id = id;
@@ -54,6 +63,7 @@ public class MemberDTO {
 		this.addr = addr;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
+		this.snsCheckbox = snsCheckbox;
 	}
 
 	public MemberDTO(String id, String pwd, String newPwd) {
@@ -206,7 +216,5 @@ public class MemberDTO {
 	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
-	
-	
 
 }
