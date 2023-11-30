@@ -407,13 +407,6 @@ select:disabled {
     height: 350px;
   }
 
-
-
-
-
-
-
-
 /* 스크롤바 안보이게 숨기기 */
 ::-webkit-scrollbar {
    display: none;
@@ -430,7 +423,6 @@ select:disabled {
    .goog-tooltip {display: none !important;}
    .goog-tooltip:hover {display: none !important;}
    .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
-
 
 /* 메인화면 공지사항 */
 
