@@ -214,6 +214,31 @@ public class RoomDAO {
 		return room;
 	}
 
+	public boolean checkInfo(Connection con, String Rname, String startDate, String endDate) {
+		String query = "SELECT ri.ROOM_NAME , R_CHECK_IN, R_CHECK_OUT FROM ROOM_RESERVE rr "
+				+ "		JOIN ROOM_INFO ri "
+				+ "		ON rr.ROOM_NO = ri.ROOM_NO "
+				+ "		WHERE ri.ROOM_NAME = ?"
+				+ "		AND RR.R_CHECK_IN <= ?"
+				+ "		AND RR.R_CHECK_OUT > ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, Rname);
+			pstmt.setString(2, startDate);
+			pstmt.setString(3, startDate);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			return rs.next();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 
 	
