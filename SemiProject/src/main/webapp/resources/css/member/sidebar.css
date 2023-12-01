@@ -9,6 +9,7 @@
     width: 250px;
     position: relative;
     font-family: 'sejong';
+    z-index:0;
 }
 
 .wrapper #sidebar{

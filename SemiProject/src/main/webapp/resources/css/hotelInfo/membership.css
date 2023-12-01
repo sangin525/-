@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.membership{
+	width: 866px;
+	margin-left: 280px;
+    padding: 0;
+}
+
+
+.reward-title{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.membershipBox{
+	display: flex;
+}
+
+.membershipCard{
+	margin-right: 20px;
+	font-size: 11px;
+}
+
+.membershipCard p{
+	text-align: center;
+	font-weight : bold;
+	font-size: 13px;
+}
+
+.membershipCard img{
+	width: 230px;
+	height: 146px;
+}
+
+.membershipCard li{
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
