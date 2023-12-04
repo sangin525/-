@@ -35,6 +35,7 @@
 		<div class="reward-content">
 			<h4>POINT</h4>
 			<p>레스토랑 이용시 1% 포인트 적립</p>
+			<p>숙박 이용시 1% 포인트 적립</p>
 			<p>1,000점 이상부터 사용 가능</p>
 		</div>
 		<div class="reward-content">
@@ -43,7 +44,7 @@
 			<p>레스토랑 10% 할인</p>
 		</div>
 		<div class="reward-content">
-			<span>회원가입</span>
+			<button onclick="location.href='/ChkForm.do'" class="left-btn">회원가입</button>
 		</div>
 	</div>
 	<br><br>

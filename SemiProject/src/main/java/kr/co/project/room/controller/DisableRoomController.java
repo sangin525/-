@@ -27,7 +27,6 @@ public class DisableRoomController extends HttpServlet {
 		String roomGrade = request.getParameter("roomGrade");
 		HashSet<String> chkInOut = new HashSet<>();
 		RoomServiceImpl roomService = new RoomServiceImpl();
-		
 		roomService.disableRoom(roomGrade, chkInOut);
 		
 		PrintWriter out = response.getWriter();
