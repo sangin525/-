@@ -364,10 +364,10 @@ select:disabled {
 }
 
 /* 주변 할것들 사진 및 css */
-
   .Main_sectio {
     display: flex;
     justify-content: space-evenly;
+    position:relative;
   }
   
   .imgtitle{
@@ -384,18 +384,18 @@ select:disabled {
 	font-size: 36px;
   }
 
-
 .swiper-container {
 	height:600px;
-	margin:0px;
-	
+	margin-top:10px;
+	width:1600px;
 }
 .swiper-slide {
 	text-align:center;
+
 }
 .swiper-slide img {
 	max-width:100%; 
-	width:450px;
+	width:470px;
 	height:350px;
 	padding:0;
 	margin:0px;
@@ -415,7 +415,22 @@ select:disabled {
 .img-explain{
 	color: rgb(210, 98, 98);
 	margin:0px;
-	font-size: 24px;
+	font-size: 20px;
+}
+
+
+.swiper-button-next{
+	padding-right:300px;
+	
+}
+
+.swiper-button-prev{
+	padding-left:300px;
+
+}
+
+.swiper-pagination{
+	margin-bottom:30px;
 }
 
 

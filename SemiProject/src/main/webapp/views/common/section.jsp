@@ -12,37 +12,61 @@
 		<p class="imgsubtitle">호텔하루의 아름다운 전망과 함께</p>
 		<p class="imgsubtitle">아름다운 한국 명소들을 즐겨보세요</p>
 </div>
-
+<br>
 <div class="Main_sectio">
 
 <div class="swiper-container">
 	<div class="swiper-wrapper">
-		<div class="swiper-slide" ><img src="/resources/uploads/광화문사진.webp">
+		<div class="swiper-slide"><img src="/resources/uploads/광화문사진.webp"><br><br>
 		<div class="img-introduce">
-		 	<span class="img-name">광화문</span>
-		 	<p class="img-explain">광화문은 오늘날 서울를 넘어 대한민국을 상징하는 대표 건축물로 남아 있다.</p>
+		 	<span class="img-name">광화문</span><br><br>
+		 	<p class="img-explain">광화문은 오늘날 서울를 넘어 대한민국을 상징하는</p>
+		<p class="img-explain">대표 건축물로 남아 있다.</p>
 		</div>
 		</div>
-		<div class="swiper-slide"><img src="/resources/uploads/한강사진.png"></div>
-		<div class="swiper-slide"><img src="/resources/uploads/명동거리사진.jpg"></div>
-		<div class="swiper-slide"><img src="/resources/uploads/남산타워.jpg"></div>
-		<div class="swiper-slide"><img src="/resources/uploads/개요사진.jpg"></div>
-		<div class="swiper-slide"><img src="/resources/uploads/개요사진.jpg"></div>
-		<div class="swiper-slide"><img src="/resources/uploads/개요사진.jpg"></div>
-		<div class="swiper-slide"><img src="/resources/uploads/개요사진.jpg"></div>
-		<div class="swiper-slide"><img src="/resources/uploads/개요사진.jpg"></div>
+		<div class="swiper-slide"><img src="/resources/uploads/한강사진.png"><br><br>
+		<div class="img-introduce">
+		<span class="img-name">한 강</span><br><br>
+		 	<p class="img-explain">한강은 서울에서 가장 큰 강으로 공원에서 자전거를 즐기거나</p>
+		 	<p class="img-explain">크루즈등 다양한 휴양시설을 갖추었다.</p>
+		</div>
+		</div>
+		<div class="swiper-slide"><img src="/resources/uploads/명동거리사진.jpg"><br><br>
+		<div class="img-introduce">
+		<span class="img-name">명동거리</span><br><br>
+		 	<p class="img-explain">각종 브랜드매장, 백화점,보세가게 등이 밀집되어 있다.</p>
+		 	<p class="img-explain">의류,신발,액세서리 등의 다양한 제품을 구입할 수 있다.</p>
+		</div>
+		</div>
+		<div class="swiper-slide"><img src="/resources/uploads/남산타워.jpg"><br><br>
+		<div class="img-introduce">
+		<span class="img-name">남산타워</span><br><br>
+		 	<p class="img-explain">대한민국 수도 서울의 공간적 중심이자 상징적인</p>
+		 	<p class="img-explain">랜드마크이다. 서울의 경치를 한눈에 볼 수 있다.</p>
+		</div>
+		</div>
+
 
 	</div>
 
 
 	<!-- 네비게이션 -->
-	<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-	<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
 
 	<!-- 페이징 -->
 	<div class="swiper-pagination"></div>
 
 </div>
+	<div class="swiper-button-next" style="top:30%"></div>
+	<div class="swiper-button-prev" style="top:30%"></div>
+
+</div>
+
+
+
+
+
+
+
 <div>
 	<div class="main-notice">
 		<div class="notice_title">
@@ -96,10 +120,3 @@
 
 </div>
 </div>
-
-
-
-
-
-</section>
-
