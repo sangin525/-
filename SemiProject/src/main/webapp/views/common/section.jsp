@@ -43,63 +43,37 @@
 	<div class="swiper-pagination"></div>
 
 </div>
-<div>
-	<div class="main-notice">
-		<div class="notice_title">
-		<p>공지사항</p>
-		<p><a href="/NoticeList.do" class="notice_list_go">더보기</a></p>
-		</div>
-		<ul>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-		</ul>
-		
-	</div>
-	
-	<div>
-		<div class="main-membership">
+
+
+</div>
+
+
+	<div class="main-membership">
+		<div class="membership-img">
 		<img alt="" src="/resources/uploads/호텔로고1.png">
+		<div class="membership-img-msg">
+		<p>THE HARU</p>
+		<p>MEMBERSHIP</p>
 		</div>
+		</div>
+		<div class="membership-text">
 		<h2>CLUB HARU</h2>
 		
 		<p>품격 있는 서비스와 다채로운 라이프 스타일을 선사하는</p>
 		<p>호텔 하루의 멤버십 프로그램, 클럽하루(CLUB HARU)</p>
 		<p>지금 회원만을 위한 특별한 혜택과 경험을 확인해보세요.</p>
 		
+		<div class="membership-btn">
+		<button onclick="location.href='/hotel/HotelMemberShip.do'" class="membership-link">view more</button>
+		</div>
+		
+		</div>
 	</div>
+
+
 	
-	
-	
-	
-
-</div>
-</div>
 
 
 
 
-
-</section>
 

@@ -38,10 +38,9 @@ public class ReserveEnrollController extends HttpServlet {
 		String RChkOut = request.getParameter("RChkOut");
 		int RPersonCount = Integer.parseInt(request.getParameter("RPersonCount"));
 		int RCount = Integer.parseInt(request.getParameter("RCount"));
-		int addMLG =  Integer.parseInt(request.getParameter("addMLG"));
+		double addMLGDB = Double.parseDouble(request.getParameter("addMLG")) ;
+		int addMLG = (int)Math.floor(addMLGDB);
 		int minMLG = Integer.parseInt(request.getParameter("minMLG"));
-		
-		System.out.println(RCount);
 		
 		
 		HttpSession session = request.getSession();
@@ -62,6 +61,8 @@ public class ReserveEnrollController extends HttpServlet {
 		
 		RoomServiceImpl roomService = new RoomServiceImpl();
 		int result = roomService.reserveEnroll(room);
+		
+		roomService.priceGrade(room);
 		
 		if(result > 0) {
 			PrintWriter out = response.getWriter();
