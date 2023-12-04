@@ -31,5 +31,8 @@ public interface RoomService {
 	
 	// datepicker disabled 주기
 	public void disableRoom(String roomGrade, HashSet<String> chkInOut);
+	
+	// 누적금액, 등급업그레이드
+	public void priceGrade(RoomDTO room);
 }
 
