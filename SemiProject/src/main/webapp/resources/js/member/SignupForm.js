@@ -8,10 +8,11 @@ function duplicateId() {
     }
 
     $.ajax({
-        type: "POST",
+        type: "POST",                                                   
         url: "/duplicateId.do",
         data: { id: mid },
         success: function (res) {
+			console.log(res);
             if (res == true) {
                 alert("이미 사용중인 아이디입니다.");
                 return false;
@@ -23,7 +24,6 @@ function duplicateId() {
         },
         error: function (response) {s}
     });
-	
 }
 	
 // 이메일 중복확인
@@ -35,7 +35,7 @@ function duplicateEmail() {
 		url: "/duplicateEmail.do",
 		data: { email : email },
 		success : function(res) {
-			if(res == true) { // 중복(true) : 빨간색
+			if(res == true) { 
 				alert("이미 등록된 이메일입니다.");
 			} else {
 				$("[name='checked_email']").val("y");

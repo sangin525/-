@@ -28,7 +28,7 @@ public class DuplicateIdController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 
-		String id = request.getParameter("id");
+		String id = request.getParameter("M_ID");
 
 		// 중복 검사 로직
 		MemberServiceImpl memberService = new MemberServiceImpl();
