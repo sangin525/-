@@ -66,4 +66,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public void priceGrade(RoomDTO room) {
+		roomDAO.priceGrade(con, room);
+	}
+
+
 }

@@ -451,6 +451,63 @@ select:disabled {
    .goog-tooltip {display: none !important;}
    .goog-tooltip:hover {display: none !important;}
    .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+   
+   
+/* 메인화면 멤버십 */
+.main-membership{
+	display:flex;
+	justify-content: center;
+	margin-top: 60px;
+}
+
+.membership-img{
+	display: flex;
+	width: 700px;
+	height: 444px;
+	background: rgb(191, 159, 121);
+	color: white;
+	border-radius: 15px;
+	text-align:center;
+	flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.membership-img img{
+	width: 200px;
+	height: 200px;
+	margin-top: 37px;
+}
+
+.membership-img p{
+	font-size: 48px;
+}
+
+.membership-text{
+	margin-left: 100px;
+}
+
+.membership-text h2{
+	font-size: 48px;
+}
+
+.membership-text p{
+	font-size: 24px;
+}
+
+.membership-link{
+	width: 150px;
+	height: 40px;
+	border-radius: 40px;
+	border: 1px solid black;
+	text-align: center;
+	align-items:center;
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+	font-size: 18px;
+}
+   
 
 /* 메인화면 공지사항 */
 

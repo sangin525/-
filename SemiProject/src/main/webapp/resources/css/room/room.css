@@ -43,6 +43,7 @@
      right: 300px; 
      left: 20px; 
      display:inline;
+     z-index: 2;
  } 
  @media screen and (max-width: 1400px) {
     #datepicker, #datepickerRoom {display:none;}

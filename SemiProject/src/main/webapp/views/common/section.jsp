@@ -56,6 +56,7 @@
 	<div class="swiper-pagination"></div>
 
 </div>
+
 	<div class="swiper-button-next" style="top:30%"></div>
 	<div class="swiper-button-prev" style="top:30%"></div>
 
@@ -104,19 +105,40 @@
 	
 	<div>
 		<div class="main-membership">
+
+
+
+</div>
+
+
+	<div class="main-membership">
+		<div class="membership-img">
+
 		<img alt="" src="/resources/uploads/호텔로고1.png">
+		<div class="membership-img-msg">
+		<p>THE HARU</p>
+		<p>MEMBERSHIP</p>
 		</div>
+		</div>
+		<div class="membership-text">
 		<h2>CLUB HARU</h2>
 		
 		<p>품격 있는 서비스와 다채로운 라이프 스타일을 선사하는</p>
 		<p>호텔 하루의 멤버십 프로그램, 클럽하루(CLUB HARU)</p>
 		<p>지금 회원만을 위한 특별한 혜택과 경험을 확인해보세요.</p>
 		
+		<div class="membership-btn">
+		<button onclick="location.href='/hotel/HotelMemberShip.do'" class="membership-link">view more</button>
+		</div>
+		
+		</div>
 	</div>
+
+
 	
-	
-	
-	
+
 
 </div>
 </div>
+
+
