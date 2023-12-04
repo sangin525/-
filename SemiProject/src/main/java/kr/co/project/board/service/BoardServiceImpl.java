@@ -62,11 +62,18 @@ public class BoardServiceImpl implements BoardService{
 	public int boardListCount() {
 		return boardDAO.boardListCount(con);
 	}
-	
+	// 답변 추가
 	public int answerEnroll(String answer,String name, int boardNo) {
 		return boardDAO.answerEnroll(con, answer, name, boardNo);
 	}
-	
+	// 답변 추가 시 답변 여부 업데이트
+	public int answerUpdate(int boardNo) {
+		return boardDAO.answerUpdate(con, boardNo);
+	}
+	// 답변 수정
+	public int answerDetailUpdate(String content, int answerNo) {
+		return boardDAO.answerDetailUpdate(con, content, answerNo);
+	}
 	
 	// 마이페이지
 	// 내 게시글 수 조회

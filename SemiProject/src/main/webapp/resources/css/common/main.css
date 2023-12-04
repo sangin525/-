@@ -23,15 +23,16 @@
 }
 
 .Main_header {
-
-   width: 100%; 
-   background-color : bisque;
-   color: #fff;
-   padding-bottom: 0px;
-   text-align: center;
-   display: flex;
-   justify-content: space-between;
-   background-color: bisque;
+	position: relative;
+	width: 100%; 
+	background-color : bisque;
+	color: #fff;
+	padding-bottom: 0px;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	background-color: bisque;
+	z-index: 2;
 
 }
 
@@ -68,14 +69,14 @@
 }
 
 .Main_nav {
-
-   width: 100%;
-   background-color: bisque;
-   position: relative;
-   padding-bottom : 0px;
-   display: flex;
-   justify-content: space-around;
-   padding-bottom: 0px;
+	width: 100%;
+	background-color: bisque;
+	position: relative;
+	padding-bottom : 0px;
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 0px;
+	z-index: 2;
 }
 
 
@@ -126,14 +127,25 @@
 
 /* 예약 css*/
 .reserveRoom {
-   width: 100%;
-   position: absolute;
-   background-color: rgb(255,228,196,0.5);
-   z-index: 1;
-   height:auto;
-   text-align:center;
-   padding:2%;
+	width: 100%;
+	position: absolute;
+	background-color: rgb(255,228,196,0.5);
+	z-index: 1;
+	height:auto;
+	text-align:center;
+	padding:2%;
+	animation: slideDown 2s ease-out;
 }
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
 #reserve {
    cursor: pointer;
 }
@@ -142,18 +154,17 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  
   font-family: Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 2;
-  
   color: #444;
   background-color: #fff;
-  
   border: 1px solid #aaa;
   border-radius: .5em;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  padding:5px;
+  margin-left:10px;
 }
 
 select:hover {
@@ -177,22 +188,22 @@ select:disabled {
 /*    margin-right: 30px; */
 /* } */
 .R_room {
-   width: 120px;
-     -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 2;
-  
-  color: #444;
-  background-color: #fff;
-  
+	width: 120px;
+	-moz-appearance: none;
+  	-webkit-appearance: none;
+  	appearance: none;
+  	font-family: Arial, sans-serif;
+  	font-size: 1rem;
+  	font-weight: 400;
+  	line-height: 2;
+  	color: #444;
+  	background-color: #fff;
   border: 1px solid #aaa;
   border-radius: .5em;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  padding: 5px;
+  margin-left:10px;
+  
 }
 
 .R_room_small {
@@ -212,6 +223,7 @@ select:disabled {
   border: 1px solid #aaa;
   border-radius: .5em;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    margin-left:10px;
 }
 .R_room:hover {
   border-color: #888;
@@ -238,6 +250,7 @@ select:disabled {
     color: rgb(224, 162, 86);
     padding: 5px;
     cursor: pointer;
+     margin-left:10px;
 }
 .left-btn:hover{
     color: white;
@@ -287,7 +300,6 @@ select:disabled {
    text-align: center;
 }
 
-
 .change-image {
    width: 2000px;
    height: 800px;
@@ -309,6 +321,47 @@ select:disabled {
    }
 }
 
+/* 이미지 안 text */
+.text-image1{
+	font-size:68px;
+	position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+  	color: bisque;
+  	animation: fadeInUp 3s ease-out forwards;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0px);
+    }
+}
+.text-image2 {
+    font-size: 40px;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    animation: fadeInDown 3s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 50px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0px);
+    }
+}
 
 /* 주변 할것들 사진 및 css */
 .section-div{
@@ -349,13 +402,6 @@ select:disabled {
     height: 350px;
   }
 
-
-
-
-
-
-
-
 /* 스크롤바 안보이게 숨기기 */
 ::-webkit-scrollbar {
    display: none;
@@ -372,7 +418,6 @@ select:disabled {
    .goog-tooltip {display: none !important;}
    .goog-tooltip:hover {display: none !important;}
    .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
-
 
 /* 메인화면 공지사항 */
 
