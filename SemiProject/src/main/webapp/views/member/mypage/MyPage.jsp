@@ -62,6 +62,14 @@
 				<th>마일리지</th>
 				<td><%=session.getAttribute("mlg") %></td>
 			</tr>
+			<tr class="tr_info">
+				<th>멤버십 등급</th>
+				<td><%=session.getAttribute("membership") %></td>
+			</tr>
+			<tr class="tr_info">
+				<th>누적 숙박금액</th>
+				<td><%=session.getAttribute("accamount") %></td>
+			</tr>
 		</tbody>
 	</table>
 	<br>

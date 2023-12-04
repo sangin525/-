@@ -31,7 +31,10 @@
 				<input type="password" id="password" name="password" placeholder="비밀번호" required>
 				<label for="password">비밀번호</label>
 			</div>
+			<div class="member-btn-box">
+			<a href="/ChkForm.do" class="Main_a" >회원가입</a>
 			<input type="submit" value="로그인">
+			</div>
 			
 			<!--  <button type="submit">로그인</button>-->
 		</form>

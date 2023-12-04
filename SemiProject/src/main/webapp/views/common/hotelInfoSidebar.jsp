@@ -12,6 +12,11 @@
 					<span>호텔 개요</span>
 				</a>
 			</li>
+			<li class="item">
+				<a href="/hotel/HotelMemberShip.do">
+					<span>호텔 멤버십</span>
+				</a>
+			</li>
 				<li class="item">
 				<a href="/hotel/HotelPath.do">
 					<span>오시는 길</span>

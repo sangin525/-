@@ -36,8 +36,12 @@ public class MyPageFormController extends HttpServlet {
 		MemberDTO member = memberService.selectMlg(no);
 		
 		session.removeAttribute("mlg");
+		session.removeAttribute("membership");
+		session.removeAttribute("accamount");
 		
 		session.setAttribute("mlg", member.getMlg());
+		session.setAttribute("membership", member.getMembership());
+		session.setAttribute("accamount", member.getAccAmount());
 		
 		RequestDispatcher view = request.getRequestDispatcher("/views/member/mypage/MyPage.jsp");
 		view.forward(request, response);

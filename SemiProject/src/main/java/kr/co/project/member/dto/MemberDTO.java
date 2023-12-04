@@ -17,6 +17,26 @@ public class MemberDTO {
 	private String newPwd;
 	private String admin;
 	private String snsCheckbox;
+	private int accAmount;
+	private String membership;
+	
+	
+
+	public int getAccAmount() {
+		return accAmount;
+	}
+
+	public void setAccAmount(int accAmount) {
+		this.accAmount = accAmount;
+	}
+
+	public String getMembership() {
+		return membership;
+	}
+
+	public void setMembership(String membership) {
+		this.membership = membership;
+	}
 
 	public MemberDTO(String phone, String email, String addr, String addr1, String addr2) {
 		super();
