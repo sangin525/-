@@ -44,7 +44,7 @@
 			<p>레스토랑 10% 할인</p>
 		</div>
 		<div class="reward-content">
-			<span>회원가입</span>
+			<button onclick="location.href='/ChkForm.do'" class="left-btn">회원가입</button>
 		</div>
 	</div>
 	<br><br>
