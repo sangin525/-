@@ -64,53 +64,6 @@
 
 
 
-
-
-
-
-<div>
-	<div class="main-notice">
-		<div class="notice_title">
-		<p>공지사항</p>
-		<p><a href="/NoticeList.do" class="notice_list_go">더보기</a></p>
-		</div>
-		<ul>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-			<li>
-				<a href="http://localhost/BoardDetail.do?boardNo=16" class="notice-link">
-					<span class="notice-tit">환영합니다.</span>
-					<span class="notice-date">2023-11-29</span>
-				</a>
-			</li>
-		</ul>
-		
-	</div>
-	
-	<div>
-		<div class="main-membership">
-
-
-
-</div>
-
-
 	<div class="main-membership">
 		<div class="membership-img">
 
@@ -135,10 +88,6 @@
 	</div>
 
 
-	
 
-
-</div>
-</div>
 
 
