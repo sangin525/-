@@ -1,9 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-String snsCheckboxFl = (request.getParameter("snsCheckbox") == null) ? "n" : request.getParameter("snsCheckbox");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +46,7 @@ String snsCheckboxFl = (request.getParameter("snsCheckbox") == null) ? "n" : req
 						<input type="hidden" id="checked_id" name="checked_id" value="n">
 						<input type="hidden" id="checked_email" name="checked_email"
 							value="n"> <input type="hidden" id="snsCheckbox"
-							name="snsCheckbox" value="<%=snsCheckboxFl%>">
+							name="snsCheckbox" value="${snsCheckbox}">
 
 						<div class="row">
 							<div class="mb-3">

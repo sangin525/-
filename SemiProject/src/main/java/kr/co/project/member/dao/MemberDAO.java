@@ -32,7 +32,7 @@ public class MemberDAO {
 			pstmt.setString(11, memberDTO.getSnsCheckbox());
 
 			System.out.println(memberDTO.getSnsCheckbox());
-
+			System.out.println(memberDTO.getName());
 			// 4. 쿼리 실행
 			int result = pstmt.executeUpdate();
 			return result;
