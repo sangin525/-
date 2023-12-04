@@ -31,3 +31,19 @@
 .R_room_small{
 	width: 80px;
 }
+#datepickerRoom{
+	 position: fixed; 
+     display:inline;
+     width: 170px;
+     left: 20px;
+}
+#datepicker { 
+     position: fixed; 
+     top: 230px; 
+     right: 300px; 
+     left: 20px; 
+     display:inline;
+ } 
+ @media screen and (max-width: 1400px) {
+    #datepicker, #datepickerRoom {display:none;}
+}
