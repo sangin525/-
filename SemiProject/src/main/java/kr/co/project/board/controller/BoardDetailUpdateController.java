@@ -24,11 +24,12 @@ public class BoardDetailUpdateController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
-		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
-		String title = request.getParameter("boardTitle");
-		String content = request.getParameter("boardContent");
 		
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("contents");
+		
+		System.out.println(boardNo);
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		BoardDTO board = new BoardDTO(title, content, boardNo);
