@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import kr.co.project.room.model.dto.RoomDTO;
 
@@ -237,6 +238,47 @@ public class RoomDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public void disableRoom(Connection con, String roomGrade, HashSet<String> chkInOut) {
+		
+		String query = "SELECT rr.R_CHECK_IN , rr.R_CHECK_OUT  FROM ROOM_RESERVE rr "
+				+ "		JOIN ROOM_INFO ri "
+				+ "		ON ri.ROOM_NO = rr.ROOM_NO "
+				+ "		JOIN ROOM_GRADE_INFO rgi "
+				+ "		ON ri.ROOM_GRADE = rgi.ROOM_GRADE "
+				+ "		WHERE rgi.ROOM_GRADE = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, roomGrade);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String chkInSt = rs.getString("R_CHECK_IN");
+				String chkOutSt = rs.getString("R_CHECK_OUT");
+				chkInSt = chkInSt.replaceAll("00:00:00", "");
+				chkOutSt = chkOutSt.replaceAll("00:00:00", "");
+				
+				chkInSt = chkInSt.replaceAll(" ", "");
+				chkOutSt = chkOutSt.replaceAll(" ", "");
+				
+				String[] chkIn = chkInSt.split("-");
+				String[] chkOut = chkOutSt.split("-");
+				
+				int dateChkIn = Integer.parseInt(chkIn[2]);
+				int dateChkOut = Integer.parseInt(chkOut[2]);
+				
+				for(int i = dateChkIn; i<dateChkOut; i++) {
+					String disableDate = chkIn[0]+"-"+chkIn[1]+"-"+i;
+					chkInOut.add(disableDate);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
