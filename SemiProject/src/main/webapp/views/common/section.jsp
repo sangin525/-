@@ -67,7 +67,26 @@
 		</ul>
 		
 	</div>
+	
+	<div>
+		<div class="main-membership">
+		<img alt="" src="/resources/uploads/호텔로고1.png">
+		</div>
+		<h2>CLUB HARU</h2>
+		
+		<p>품격 있는 서비스와 다채로운 라이프 스타일을 선사하는</p>
+		<p>호텔 하루의 멤버십 프로그램, 클럽하루(CLUB HARU)</p>
+		<p>지금 회원만을 위한 특별한 혜택과 경험을 확인해보세요.</p>
+		
+	</div>
+	
+	
+	
+	
 </div>
 </div>
+
+
+
 
 </section>

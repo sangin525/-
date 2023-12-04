@@ -87,7 +87,8 @@ public class MemberDAO {
 		String query = "SELECT m_no," + "			   m_id, " + "			   m_pwd," + "			   m_name,"
 				+ "			   m_phone," + "			   m_email," + "			   m_addr," + "			   m_birth,"
 				+ "			   m_in_date," + "			   m_delete_date," + "			   m_mlg," + "m_addr1, "
-				+ "m_addr2, " + "m_admin" + "		FROM member " + "		WHERE m_id = ? ";
+				+ "m_addr2, " + "m_admin,"
+						+ "m_accamount," + "m_membership" + "		FROM member " + "		WHERE m_id = ? ";
 
 		MemberDTO member = new MemberDTO();
 		// 2. 쿼리 실행할 준비
@@ -115,6 +116,8 @@ public class MemberDAO {
 				String resultDeleteDate = rs.getString("M_DELETE_DATE");
 				int resultMlg = rs.getInt("M_MLG");
 				String resultAdmin = rs.getString("M_ADMIN");
+				String resultMembership = rs.getString("M_MEMBERSHIP");
+				int resultAccamount = rs.getInt("M_ACCAMOUNT");
 
 				member.setId(resultId);
 				member.setPwd(resultPwd);
@@ -130,6 +133,8 @@ public class MemberDAO {
 				member.setDeleteDate(resultDeleteDate);
 				member.setMlg(resultMlg);
 				member.setAdmin(resultAdmin);
+				member.setAccAmount(resultAccamount);
+				member.setMembership(resultMembership);
 
 			}
 
@@ -247,7 +252,9 @@ public class MemberDAO {
 	// 마일리지 조회
 	public MemberDTO selectMlg(Connection con, int no) {
 
-		String query = "SELECT m_mlg" + "		FROM member" + "		WHERE m_no = ?";
+		String query = "SELECT m_mlg, "
+				+ "m_membership,"
+				+ "m_accamount" + "		FROM member" + "		WHERE m_no = ?";
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -260,8 +267,12 @@ public class MemberDAO {
 
 			while (rs.next()) {
 				int ResultMlg = rs.getInt("M_MLG");
+				String ResultMembership = rs.getString("M_MEMBERSHIP");
+				int ResultAccamount = rs.getInt("M_ACCAMOUNT");
 
 				member.setMlg(ResultMlg);
+				member.setAccAmount(ResultAccamount);
+				member.setMembership(ResultMembership);
 			}
 			return member;
 
