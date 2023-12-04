@@ -74,6 +74,14 @@ public class BoardServiceImpl implements BoardService{
 	public int answerDetailUpdate(String content, int answerNo) {
 		return boardDAO.answerDetailUpdate(con, content, answerNo);
 	}
+	// 답변 삭제
+	public int answerDelete(int answerNo) {
+		return boardDAO.answerDelete(con, answerNo);
+	}
+	// 답변 삭제 시 답변 여부 업데이트
+	public int answerDeleteUpdate(int boardNo) {
+		return boardDAO.answerDeleteUpdate(con, boardNo);
+	}
 	
 	// 마이페이지
 	// 내 게시글 수 조회
