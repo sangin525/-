@@ -32,6 +32,11 @@ public interface BoardService {
 	public int answerUpdate(int boardNo);
 	// 문의사항 답변 수정
 	public int answerDetailUpdate(String content, int answerNo);
+	// 문의사항 답변 삭제
+	public int answerDelete(int answerNo);
+	// 문의사항 답변 삭제 시 답변 여부 변경
+	public int answerDeleteUpdate(int boardNo);
+	
 	
 	// 마이페이지
 	// 내 게시글 수 조회

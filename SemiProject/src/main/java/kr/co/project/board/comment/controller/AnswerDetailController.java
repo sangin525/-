@@ -34,8 +34,6 @@ public class AnswerDetailController extends HttpServlet {
 		int result = boardService.answerDetailUpdate(content, answerNo);
 		
 		if(result > 0) {
-			System.out.println("여기여기여기");
-//			response.sendRedirect("/views/board/boardDetail.jsp");
 			response.sendRedirect("BoardDetail.do?boardNo=" + boardNo);
 		}else{
 			response.sendRedirect("views/common/error.jsp");

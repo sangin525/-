@@ -209,7 +209,7 @@ public class BoardDAO {
 		        + "A.ANSWER_WRITER "
 		        + "FROM BOARD B "
 		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
-		        + "LEFT JOIN ANSWER A ON B.BOARD_NO = A.BOARD_NO "
+		        + "LEFT JOIN ANSWER A ON B.BOARD_NO = A.BOARD_NO AND A.ANSWER_DELETE IS NULL "
 		        + "WHERE B.BOARD_NO = ?";
 		
 		try {
@@ -404,7 +404,49 @@ public class BoardDAO {
 		
 		return 0;
 	}
-	
+	//답변 삭제
+	public int answerDelete(Connection con, int answerNo) {
+		String query = "UPDATE ANSWER SET ANSWER_DELETE = SYSDATE WHERE ANSWER_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, answerNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return 0;
+	}
+	// 답변 삭제 시 답변 여부 업데이트
+	public int answerDeleteUpdate(Connection con, int boardNo) {
+		String query = "UPDATE BOARD SET BOARD_ANSWER = 'N' WHERE BOARD_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, boardNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
 	
 	// 마이페이지
 	
