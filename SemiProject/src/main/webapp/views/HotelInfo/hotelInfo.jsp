@@ -21,7 +21,7 @@
       
       
       <div class="contentss" id="contents">
-      
+         
 	
         <h3 class="secondtit">Hotel Haru</h3>
         <hr>

@@ -4,6 +4,7 @@
 	
 	<div class = "warpper">
 		<nav id = "sidebar">
+		
 		<h2 class="sidebar-title">호텔소개</h2>
 		<ul class="list-items">
 			<li class="item">
