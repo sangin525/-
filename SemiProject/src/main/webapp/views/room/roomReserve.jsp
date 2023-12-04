@@ -31,6 +31,7 @@
 		<h2 class="reserveForm"> 객실예약 페이지</h2>
 		<div>
 		<p class="reserveForm" id="memberName">예약자 성함 :  ${member.MName}</p>
+		<p class="reserveForm" id="memberPhone">예약자 번호 :  ${member.MPhone}</p>
 		<p class="reserveForm" id="roomName">객실이름 :  ${room.roomName} 룸</p>
 		<c:if test="${startDayWeekNumber == 7}">
 			<p class="reserveForm">숙박체크인 : ${room.RChkIn} 토요일</p>

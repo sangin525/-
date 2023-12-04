@@ -104,7 +104,6 @@ function intoInfoPage(){
 	window.location.replace("/gradeInfo.do");
 }
 
-
 function checkReserveInfo(count){
 	let Rname = document.getElementById("R_name"+count).value;
 	let startDate = document.getElementById("start_date"+count).value;
@@ -132,10 +131,50 @@ function checkReserveInfo(count){
 }
 
 
-
-
-
-
+function disableDays() {
+	let roomGrade = document.getElementById("datepickerRoom").value;
+	$("#datepicker").datepicker("destroy");
+	$.ajax({
+		url: '/DisableRoom.do',
+		type: 'post',
+		data: {
+			roomGrade: roomGrade
+		},
+		success: function(ajaxData) {
+			$("#datepicker").datepicker({
+		        dateFormat: 'yy-mm-dd',
+		        prevText: '이전 달',
+		        nextText: '다음 달',
+		        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		        showMonthAfterYear: true,
+		        yearSuffix: '년',
+				beforeShowDay : function(date){
+				    var m = date.getMonth();
+					var d = date.getDate();
+					var y = date.getFullYear();
+					var data = ajaxData.replace('[','');
+						data = data.replace(']','');
+						data = data.replaceAll(' ','');
+						data = data.split(',');
+				    for (i = 0; i < data.length; i++) {
+				        if($.inArray(y + '-' +(m+1) + '-' + d, data) != -1) {
+				            return [false, ''];
+				        }
+				    }
+				    return [true, ''];
+				}
+			});
+		},
+		error: function(err) {
+			return [true, "", ""];
+		}
+	});
+	
+}
 
 
 
