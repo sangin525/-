@@ -17,10 +17,8 @@ public class MemberDTO {
 	private String newPwd;
 	private String admin;
 	private String snsCheckbox;
-	private int accAmount;
 	private String membership;
-	
-	
+	private int accAmount;
 
 	public int getAccAmount() {
 		return accAmount;

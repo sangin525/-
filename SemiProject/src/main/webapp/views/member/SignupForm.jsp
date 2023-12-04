@@ -49,7 +49,7 @@
 							name="snsCheckbox" value="${snsCheckbox}">
 
 						<div class="row">
-							<div class="mb-3">
+							<div class="col-sm-10">
 								<label for="nickname">이름 *</label> <input type="text"
 									class="form-control" id="M_Name" name="M_Name" placeholder="이름"
 									value="" onkeyup="validateName()"> <span id="NameMsg"></span>
@@ -71,7 +71,7 @@
 
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="M_Pwd">비밀번호 *</label> <input type="password"
 								class="form-control" id="M_Pwd" name="M_Pwd"
 								onkeyup="validatePassword()" maxlength="20" placeholder="비밀번호">
@@ -80,14 +80,14 @@
 								id="M_PwdMsg"></span>
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="M_Pwdchek">비밀번호확인 *</label> <input type="password"
 								class="form-control" id="M_Pwdchek" name="M_Pwdchek"
 								onkeyup="validatePassword()" maxlength="20" placeholder="비밀번호확인">
 							<span id="M_PwdchekMsg"></span>
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="email">생년월일 *</label> <input type="date"
 								class="form-control" id="M_Birth" name="M_Birth"
 								onkeyup="validateBirth()" placeholder="(예:20031015)"> <span
@@ -105,7 +105,7 @@
 							<span id="M_EAMILMsg"></span> <span id="M_EmailCheck"></span>
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="M_Phone">전화번호 *</label> <input type="text"
 								class="form-control" id="M_Phone" name="M_Phone"
 								onkeyup="validatePhone()" placeholder="'-'제외하고 숫자만 입력"
