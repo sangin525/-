@@ -103,7 +103,7 @@ public class RoomDAO {
 	}
 
 	public RoomDTO searchMLG(Connection con, int memberNo) {
-		String query = "SELECT M_NAME, M_PHONE, M_EMAIL, M_ADDR, M_MLG  FROM MEMBER m "
+		String query = "SELECT M_NAME, M_PHONE, M_EMAIL, M_ADDR, M_MLG, M_MEMBERSHIP, M_ACCAMOUNT  FROM MEMBER m "
 					+ 	"WHERE M_NO = ?";
 		
 		RoomDTO room = new RoomDTO();
@@ -120,6 +120,8 @@ public class RoomDAO {
 				room.setMEmail(rs.getString("M_EMAIL"));
 				room.setMAddr(rs.getString("M_ADDR"));
 				room.setMLG(rs.getInt("M_MLG"));
+				room.setMembership(rs.getString("M_MEMBERSHIP"));
+				room.setAccamount(rs.getInt("M_ACCAMOUNT"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -279,6 +281,67 @@ public class RoomDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void priceGrade(Connection con, RoomDTO room) {
+		String query = "UPDATE MEMBER SET M_ACCAMOUNT = M_ACCAMOUNT + ? "
+				+ "		WHERE M_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, room.getTotalPrice());
+			pstmt.setInt(2, room.getMNo());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		String priceBring = "SELECT M_ACCAMOUNT FROM MEMBER m "
+				+ "			WHERE M_NO = ?";
+		
+		String gradeUpdate = "UPDATE MEMBER SET M_MEMBERSHIP = ? "
+				+ "			WHERE M_NO = ?";
+		
+		
+		try {
+			pstmt = con.prepareStatement(priceBring);
+			
+			pstmt.setInt(1, room.getMNo());
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int amount = rs.getInt("M_ACCAMOUNT");
+				pstmt = con.prepareStatement(gradeUpdate);
+				pstmt.setInt(2, room.getMNo());
+				
+				if(amount >= 1000000 && amount < 5000000) {
+					pstmt.setString(1, "Silver");
+					pstmt.executeUpdate();
+				}else if(amount >= 5000000 && amount < 10000000) {
+					pstmt.setString(1, "Gold");
+					pstmt.executeUpdate();
+				}else if(amount >= 10000000 && amount < 50000000) {
+					pstmt.setString(1, "Platinum");
+					pstmt.executeUpdate();
+				}else if(amount >= 50000000) {
+					pstmt.setString(1, "Black");
+					pstmt.executeUpdate();
+				}else {
+					pstmt.setString(1, "bronze");
+					pstmt.executeUpdate();
+				}
+				
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 
 	

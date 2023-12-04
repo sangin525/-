@@ -4,7 +4,7 @@ IMP.init(config.IMP); // 예: imp00000000
 	let useMLGPrice;
 	let addMLG;
 	let minMLG;
-function addMLGChk(totalPrice, memberMLG){
+function addMLGChk(totalPrice, memberMLG, percentMLG, membership){
 	let MLGChk = document.getElementById("MLGChk");
 	let textTotalPrice = document.getElementById("totalPrice");
 	let textAddMLG = document.getElementById("addMLG");
@@ -20,29 +20,29 @@ function addMLGChk(totalPrice, memberMLG){
 			console.log(totalPrice)
 		}else{
 			useMLGPrice = totalPrice - memberMLG;
-			addMLG = useMLGPrice*0.05;
+			addMLG = useMLGPrice*percentMLG;
 			minMLG = memberMLG;
 		}
 		textTotalPrice.innerHTML = "결제금액 : "+ useMLGPrice + " 원";
-		textAddMLG.innerHTML = "적립 마일리지 : " +addMLG+" 원 (결제금액의 5%)"
+		textAddMLG.innerHTML = "적립 마일리지 : " +Math.floor(addMLG)+" 원 (고객님은 "+membership+" 등급으로 "+percentMLG+"% 입니다.)"
 		
 	}
 	else{
 		useMLGPrice = totalPrice;
-		addMLG = totalPrice*0.05;
+		addMLG = totalPrice*percentMLG;
 		textTotalPrice.innerHTML = "결제금액 : "+ useMLGPrice + " 원";
-		textAddMLG.innerHTML = "적립 마일리지 : " +addMLG+" 원 (결제금액의 5%)"
+		textAddMLG.innerHTML = "적립 마일리지 : " +Math.floor(addMLG)+" 원 (고객님은 "+membership+" 등급으로 "+percentMLG+"% 입니다.)"
 		minMLG = 0;
 	}
 	
 }
 
-function requestPay(memberName, roomName, totalPrice, memberPhone, memberEmail, memberAddr, RChkIn, RChkOut, RPersonCount, RCount) {
+function requestPay(memberName, roomName, totalPrice, memberPhone, memberEmail, memberAddr, RChkIn, RChkOut, RPersonCount, RCount, percentMLG) {
 	if(useMLGPrice == null){
 		useMLGPrice = totalPrice;
 	}
 	if(addMLG == null){
-		addMLG = totalPrice *0.05;
+		addMLG = totalPrice *percentMLG;
 	}
 	if(minMLG == null){
 		minMLG = 0;
