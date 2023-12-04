@@ -4,11 +4,17 @@
 	
 	<div class = "warpper">
 		<nav id = "sidebar">
+		
 		<h2 class="sidebar-title">호텔소개</h2>
 		<ul class="list-items">
 			<li class="item">
 				<a href="/hotel/HotelInfo.do">
 					<span>호텔 개요</span>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/hotel/HotelMemberShip.do">
+					<span>호텔 멤버십</span>
 				</a>
 			</li>
 				<li class="item">

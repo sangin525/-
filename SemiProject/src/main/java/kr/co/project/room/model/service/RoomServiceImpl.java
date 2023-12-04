@@ -2,6 +2,7 @@ package kr.co.project.room.model.service;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import kr.co.project.common.DatabaseConnection;
 import kr.co.project.room.model.dao.RoomDAO;
@@ -56,6 +57,17 @@ public class RoomServiceImpl implements RoomService {
 	public boolean checkInfo(String Rname, String startDate, String endDate) {
 		
 		return roomDAO.checkInfo(con, Rname, startDate, endDate);
+	}
+
+
+	public void disableRoom(String roomGrade, HashSet<String> chkInOut) {
+		
+		roomDAO.disableRoom(con, roomGrade, chkInOut);
+	}
+
+
+	public void priceGrade(RoomDTO room) {
+		roomDAO.priceGrade(con, room);
 	}
 
 

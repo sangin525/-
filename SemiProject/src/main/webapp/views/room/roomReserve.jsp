@@ -15,10 +15,6 @@
  <%@ include file="../common/head.jsp" %>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="/resources/css/room/roomReserve.css" rel="stylesheet" type="text/css">
-<style>
-
-</style>
-
 </head>
 <body>
 
@@ -31,6 +27,7 @@
 		<h2 class="reserveForm"> 객실예약 페이지</h2>
 		<div>
 		<p class="reserveForm" id="memberName">예약자 성함 :  ${member.MName}</p>
+		<p class="reserveForm" id="memberPhone">예약자 번호 :  ${member.MPhone}</p>
 		<p class="reserveForm" id="roomName">객실이름 :  ${room.roomName} 룸</p>
 		<c:if test="${startDayWeekNumber == 7}">
 			<p class="reserveForm">숙박체크인 : ${room.RChkIn} 토요일</p>
@@ -86,11 +83,12 @@
 			<c:if test="${startDayWeekNumber < 6}">
 				<c:set var="totalPrice" value="${totalWeekday * room.RCount}"></c:set>
 			</c:if>
-			
-		<p class="reserveForm"> <input type="checkbox" id="MLGChk" onchange="addMLGChk(${totalPrice},${member.MLG})"> 마일리지 사용여부 </p>
+		<p class="reserveForm"> <input type="checkbox" id="MLGChk" onchange="addMLGChk(${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')"> 마일리지 사용여부 </p>
 		<p class="reserveForm" id="totalPrice">결제금액 :  ${totalPrice} 원</p>
 		<p class="reserveForm" id="memberMLG">현재 마일리지 : ${member.MLG} 원</p>
-		<p class="reserveForm" id="addMLG">적립 마일리지 : ${totalPrice *0.05} 원 (결제금액의 5%)</p>
+		<p class="reserveForm" id="addMLG">적립 마일리지 : ${(totalPrice * percentMLG)-((totalPrice * percentMLG)%1)} 원 (고객님은 ${member.membership} 등급으로 결제금액의 ${percentMLG}% 입니다.)</p>
+		<p class="reserveForm" id="accamount">누적결제금액 : ${member.accamount}</p>
+		<p class="reserveForm">누적결제금액에 따른 적립금: 0 bronze 100 Silver 500 Gold 1000 Platinum 5000 Black (단위 : 만원 /이상/미만)</p>
 		</div>
 		<br>
 		<div class="reserve-btn">
@@ -98,7 +96,7 @@
 								 '${room.roomName}', ${totalPrice}, '${member.MPhone}',
 
 								  '${member.MEmail}', '${member.MAddr}', '${room.RChkIn}',
-								  '${room.RChkOut}', ${room.RPersonCount}, ${room.RCount})">결제하기</button>
+								  '${room.RChkOut}', ${room.RPersonCount}, ${room.RCount}, ${percentMLG})">결제하기</button>
 	<button type="button" class="payForm" id="left-btn" onclick="intoInfoPage()">방구경하러가기</button>
 		</div>
 

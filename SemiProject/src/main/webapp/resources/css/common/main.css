@@ -19,7 +19,7 @@
    margin: 20px auto;
    padding: 20px;
    background-color: #fff;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .Main_header {
@@ -32,7 +32,7 @@
 	display: flex;
 	justify-content: space-between;
 	background-color: bisque;
-	z-index: 1;
+	z-index: 2;
 
 }
 
@@ -76,7 +76,7 @@
 	display: flex;
 	justify-content: space-around;
 	padding-bottom: 0px;
-	z-index: 1;
+	z-index: 2;
 }
 
 
@@ -130,7 +130,7 @@
 	width: 100%;
 	position: absolute;
 	background-color: rgb(255,228,196,0.5);
-	z-index: 0;
+	z-index: 1;
 	height:auto;
 	text-align:center;
 	padding:2%;
@@ -154,15 +154,12 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  
   font-family: Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 2;
-  
   color: #444;
   background-color: #fff;
-  
   border: 1px solid #aaa;
   border-radius: .5em;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
@@ -300,7 +297,6 @@ select:disabled {
 
 /* 메인화면 슬라이드*/
 .img-div {
-	position:relative;
    text-align: center;
 }
 
@@ -326,14 +322,13 @@ select:disabled {
 }
 
 /* 이미지 안 text */
-
 .text-image1{
 	font-size:68px;
 	position: absolute;
     top: 33%;
     left: 50%;
     transform: translate( -50%, -50% );
-  	color: white;
+  	color: bisque;
   	animation: fadeInUp 3s ease-out forwards;
 }
 @keyframes fadeInUp {
@@ -352,7 +347,7 @@ select:disabled {
     top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: bisque;
     opacity: 0;
     animation: fadeInDown 3s ease-out forwards;
 }
@@ -369,43 +364,76 @@ select:disabled {
 }
 
 /* 주변 할것들 사진 및 css */
-.section-div{
-   display: flex;
-   justify-content: space-evenly;
+  .Main_sectio {
+    display: flex;
+    justify-content: space-evenly;
+    position:relative;
+  }
+  
+  .imgtitle{
+	display:flex;
+	justify-content:center;
+	color: rgb(210, 98, 98);
+	font-size: 48px;
+  } 
+  .imgsubtitle{
+  	display:flex;
+	justify-content:center;
+	color: rgb(210, 98, 98);
+	margin:0px;
+	font-size: 36px;
+  }
+
+.swiper-container {
+	height:600px;
+	margin-top:10px;
+	width:1600px;
+}
+.swiper-slide {
+	text-align:center;
+
+}
+.swiper-slide img {
+	max-width:100%; 
+	width:470px;
+	height:350px;
+	padding:0;
+	margin:0px;
+}
+.img-introduce{
+
+	justify-content:center;
+	text-align:center;
+	align-items:center;
+}
+.img-name{
+	color: rgb(210, 98, 98);
+	margin:0px;
+	font-size: 36px;
 }
 
-.Main_sectio h2{
-   margin-top:0;
-   margin-bottom:0;
-   font-size: 32px;
-   color: rgb(210, 98, 98);
-   text-align: center;
-}
-.traditional1 p{
-   font-size: 28px;
-   margin:0px auto;
-   text-align:center;
-   color: rgb(210, 98, 98);
-   text-decoration: none;
+.img-explain{
+	color: rgb(210, 98, 98);
+	margin:0px;
+	font-size: 20px;
 }
 
-.traditional {
-   display: flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-    width:1200px;
-    height:auto;
-    justify-content: center;
+
+.swiper-button-next{
+	padding-right:300px;
+	
 }
-  .traditional1 {
-    width:40%;
-    margin: 10px;
-    text-align:center;
-  }
-  .traditional1 img{
-    width: 350px;
-    height: 350px;
-  }
+
+.swiper-button-prev{
+	padding-left:300px;
+
+}
+
+.swiper-pagination{
+	margin-bottom:30px;
+}
+
+
 
 /* 스크롤바 안보이게 숨기기 */
 ::-webkit-scrollbar {
@@ -423,6 +451,63 @@ select:disabled {
    .goog-tooltip {display: none !important;}
    .goog-tooltip:hover {display: none !important;}
    .goog-text-highlight {background-color: transparent !important; border: none !important; box-shadow: none !important;}
+   
+   
+/* 메인화면 멤버십 */
+.main-membership{
+	display:flex;
+	justify-content: center;
+	margin-top: 60px;
+}
+
+.membership-img{
+	display: flex;
+	width: 700px;
+	height: 444px;
+	background: rgb(191, 159, 121);
+	color: white;
+	border-radius: 15px;
+	text-align:center;
+	flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.membership-img img{
+	width: 200px;
+	height: 200px;
+	margin-top: 37px;
+}
+
+.membership-img p{
+	font-size: 48px;
+}
+
+.membership-text{
+	margin-left: 100px;
+}
+
+.membership-text h2{
+	font-size: 48px;
+}
+
+.membership-text p{
+	font-size: 24px;
+}
+
+.membership-link{
+	width: 150px;
+	height: 40px;
+	border-radius: 40px;
+	border: 1px solid black;
+	text-align: center;
+	align-items:center;
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+	font-size: 18px;
+}
+   
 
 /* 메인화면 공지사항 */
 

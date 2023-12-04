@@ -41,8 +41,9 @@ public class RoomDTO {
 	private String MEmail;
 	private String MAddr;
 	private int MLG;
-
-	
+	private String membership;
+	private int accamount;
+	  
 	// 예약창에서 받아와서 DB 에 넣을 변수
 	private String memberName;
 	private int totalPrice;
@@ -237,6 +238,7 @@ public class RoomDTO {
 	public void setMLG(int mLG) {
 		MLG = mLG;
 	}
+	
 	public int getAddMLG() {
 		return addMLG;
 	}
@@ -248,6 +250,18 @@ public class RoomDTO {
 	}
 	public void setMinMLG(int minMLG) {
 		this.minMLG = minMLG;
+	}
+	public String getMembership() {
+		return membership;
+	}
+	public int getAccamount() {
+		return accamount;
+	}
+	public void setMembership(String membership) {
+		this.membership = membership;
+	}
+	public void setAccamount(int accamount) {
+		this.accamount = accamount;
 	}
 	
 	

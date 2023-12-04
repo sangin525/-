@@ -69,8 +69,19 @@ public class ReserveController extends HttpServlet {
 		
 		// 마일리지 조회
 		RoomDTO member = RoomService.searchMLG(memberNo);
-		
-		
+		String membership = member.getMembership();
+		double percentMLG;
+		if(membership.equals("Silver")) {
+			percentMLG = 0.03;
+		}else if(membership.equals("Gold")) {
+			percentMLG = 0.05;
+		}else if(membership.equals("Platinum")) {
+			percentMLG = 0.07;
+		}else if(membership.equals("Black")) {
+			percentMLG = 0.1;
+		}else {
+			percentMLG = 0;
+		}
 		int totalWeekday = Integer.parseInt(String.join("", roomPrice.getWeekdayPrice().split(",")));
 		int totalWeekend = Integer.parseInt(String.join("", roomPrice.getWeekendPrice().split(",")));
     
@@ -79,6 +90,7 @@ public class ReserveController extends HttpServlet {
 		room.setRChkOut(endDate);
 		room.setRCount(dateSum);
 		room.setRPersonCount(RPersonCount);
+		request.setAttribute("percentMLG", percentMLG);
 		request.setAttribute("member", member);
 		request.setAttribute("totalWeekday", totalWeekday);
 		request.setAttribute("totalWeekend", totalWeekend);

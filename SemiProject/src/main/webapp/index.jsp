@@ -28,8 +28,11 @@
 <h1 class="text-image1">Welcome to HotelHaru</h1>
 <h1 class="text-image2">호텔 하루를 찾아주셔서 감사합니다.</h1>
 
-</div>
 
+</div>
+</div>
+<div>
+<br>
 <%@ include file="./views/common/section.jsp" %>
 
   

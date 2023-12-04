@@ -1,38 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/resources/css/common/main.css">
+<script src="/resources/js/common/slideImg.js"></script>
+<script src="/resources/js/common/section.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 
 
-<section class="Main_sectio">
-<div class="section-div">
-<div class="traditional-form">
-	<h2>
-		<strong>호텔 주변 명소</strong>
-	</h2>
-	
-	<br>
+<div class="img-title"> 
+		<h1 class="imgtitle">호텔 주변 명소</h1>
+		<p class="imgsubtitle">호텔하루의 아름다운 전망과 함께</p>
+		<p class="imgsubtitle">아름다운 한국 명소들을 즐겨보세요</p>
+</div>
+<br>
+<div class="Main_sectio">
 
-	<div class="traditional">
-		<div class="traditional1">
-			<img src="/resources/uploads/한강사진.png">
-			<p>한강</p>
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide"><img src="/resources/uploads/광화문사진.webp"><br><br>
+		<div class="img-introduce">
+		 	<span class="img-name">광화문</span><br><br>
+		 	<p class="img-explain">광화문은 오늘날 서울를 넘어 대한민국을 상징하는</p>
+		<p class="img-explain">대표 건축물로 남아 있다.</p>
 		</div>
-		<div class="traditional1">
-			<img src="/resources/uploads/명동거리사진.jpg">
-			<p>명동거리</p>
 		</div>
-		<div class="traditional1">
-			<a href="https://www.seoultower.co.kr/">
-			<img src="/resources/uploads/남산타워.jpg"></a>
-			<p>남산타워</p>
+		<div class="swiper-slide"><img src="/resources/uploads/한강사진.png"><br><br>
+		<div class="img-introduce">
+		<span class="img-name">한 강</span><br><br>
+		 	<p class="img-explain">한강은 서울에서 가장 큰 강으로 공원에서 자전거를 즐기거나</p>
+		 	<p class="img-explain">크루즈등 다양한 휴양시설을 갖추었다.</p>
 		</div>
-		<div class="traditional1">
-			<img src="/resources/uploads/광화문사진.webp">
-			<p>광화문</p>
 		</div>
+		<div class="swiper-slide"><img src="/resources/uploads/명동거리사진.jpg"><br><br>
+		<div class="img-introduce">
+		<span class="img-name">명동거리</span><br><br>
+		 	<p class="img-explain">각종 브랜드매장, 백화점,보세가게 등이 밀집되어 있다.</p>
+		 	<p class="img-explain">의류,신발,액세서리 등의 다양한 제품을 구입할 수 있다.</p>
+		</div>
+		</div>
+		<div class="swiper-slide"><img src="/resources/uploads/남산타워.jpg"><br><br>
+		<div class="img-introduce">
+		<span class="img-name">남산타워</span><br><br>
+		 	<p class="img-explain">대한민국 수도 서울의 공간적 중심이자 상징적인</p>
+		 	<p class="img-explain">랜드마크이다. 서울의 경치를 한눈에 볼 수 있다.</p>
+		</div>
+		</div>
+
+
 	</div>
 
+
+	<!-- 네비게이션 -->
+
+	<!-- 페이징 -->
+	<div class="swiper-pagination"></div>
+
 </div>
+
+	<div class="swiper-button-next" style="top:30%"></div>
+	<div class="swiper-button-prev" style="top:30%"></div>
+
+</div>
+
+
+
+
+
+
+
 <div>
 	<div class="main-notice">
 		<div class="notice_title">
@@ -67,7 +102,43 @@
 		</ul>
 		
 	</div>
+	
+	<div>
+		<div class="main-membership">
+
+
+
+</div>
+
+
+	<div class="main-membership">
+		<div class="membership-img">
+
+		<img alt="" src="/resources/uploads/호텔로고1.png">
+		<div class="membership-img-msg">
+		<p>THE HARU</p>
+		<p>MEMBERSHIP</p>
+		</div>
+		</div>
+		<div class="membership-text">
+		<h2>CLUB HARU</h2>
+		
+		<p>품격 있는 서비스와 다채로운 라이프 스타일을 선사하는</p>
+		<p>호텔 하루의 멤버십 프로그램, 클럽하루(CLUB HARU)</p>
+		<p>지금 회원만을 위한 특별한 혜택과 경험을 확인해보세요.</p>
+		
+		<div class="membership-btn">
+		<button onclick="location.href='/hotel/HotelMemberShip.do'" class="membership-link">view more</button>
+		</div>
+		
+		</div>
+	</div>
+
+
+	
+
+
 </div>
 </div>
 
-</section>
+

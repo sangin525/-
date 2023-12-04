@@ -1,6 +1,7 @@
 package kr.co.project.room.model.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import kr.co.project.room.model.dto.RoomDTO;
 
@@ -27,5 +28,11 @@ public interface RoomService {
 	
 	// 예약되어있는값이랑 선택한 방,날짜와 같은값이 있는지 확인
 	public boolean checkInfo(String Rname, String startDate, String endDate);
+	
+	// datepicker disabled 주기
+	public void disableRoom(String roomGrade, HashSet<String> chkInOut);
+	
+	// 누적금액, 등급업그레이드
+	public void priceGrade(RoomDTO room);
 }
 
