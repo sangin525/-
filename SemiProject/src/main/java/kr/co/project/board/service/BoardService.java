@@ -9,7 +9,7 @@ import kr.co.project.common.MyBoardPageInfo;
 public interface BoardService {
 	
 	// 문의사항 생성
-	public int boardEnroll(String title, String content, int memberNo);
+	public int boardEnroll(String title, String content, int memberNo, String fileName, String uploadDirectory);
 	// 공지사항 생성 (Notice)
 	public int noticeEnroll(String title, String content, int memberNo);
 	// 문의사항 List up
