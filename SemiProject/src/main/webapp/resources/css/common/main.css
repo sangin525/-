@@ -421,13 +421,41 @@ select:disabled {
 
 .swiper-button-next{
 	padding-right:300px;
+	background-color:balck;
 	
+}
+.swiper-button-next img{
+	position: absolute;
+    top: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -40px;
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+    left:130px;
 }
 
 .swiper-button-prev{
 	padding-left:300px;
 
 }
+.swiper-button-prev img{
+	position: absolute;
+    top: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -40px;
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+    right:130px;
+}
+	
 
 .swiper-pagination{
 	margin-bottom:30px;
