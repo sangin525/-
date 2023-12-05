@@ -5,8 +5,9 @@
 }
 
 .form-control {
-	white-space: pre-line; /* 줄 바꿈과 여백 유지 */
-	font-family: 'Courier New', monospace; /* 등 너비 글꼴 사용 */
+	 white-space: pre-line;
+        font-family: 'Courier New', monospace;
+        width: 100%;
 }
 
 .checkbox-container {
