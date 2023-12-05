@@ -13,16 +13,19 @@ function duplicateId() {
         data: { id: mid },
         success: function (res) {
 			console.log(res);
-            if (res == true) {
-                alert("이미 사용중인 아이디입니다.");
-                return false;
-            } else {
-  			 	$("[name='checked_id']").val('y');
-                alert("사용 가능한 아이디입니다.");
-                return false;
-            }
+            if (res === "true") {
+    			alert("이미 사용중인 아이디입니다.");
+   				return false;
+			} else {
+    			$("[name='checked_id']").val('y');
+    			alert("사용 가능한 아이디입니다.");
+    			return false;
+		}
         },
-        error: function (response) {s}
+        error: function (response) {
+    console.error("Error:", response);
+}
+
     });
 }
 	
@@ -35,7 +38,7 @@ function duplicateEmail() {
 		url: "/duplicateEmail.do",
 		data: { email : email },
 		success : function(res) {
-			if(res == true) { 
+			if(res === "true") { 
 				alert("이미 등록된 이메일입니다.");
 			} else {
 				$("[name='checked_email']").val("y");
