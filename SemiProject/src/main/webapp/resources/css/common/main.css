@@ -294,6 +294,21 @@ select:disabled {
 .footer5 {
    float: right;
 }
+.sns{
+	float:right;
+	margin:0px;
+	margin-right:285px;
+}
+.sns-img{
+	margin-right:155px;
+	margin-top:-40px;
+}
+.sns-img img{
+	width:40px;
+	height:40px;
+	float:right;
+}
+
 
 /* 메인화면 슬라이드*/
 .img-div {
