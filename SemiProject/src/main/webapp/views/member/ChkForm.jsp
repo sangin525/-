@@ -53,9 +53,11 @@
                             호텔은 이용자의 안전을 최우선으로 하며, 이용자가 호텔 시설 및 장비를 불법적으로 사용함으로써 발생하는 사고에 대해서는 책임을 지지 않습니다.
                             이용자가 호텔 시설, 장비를 소모, 훼손하는 경우, 손해 배상이 청구될 수 있습니다.
                         </textarea>
-                    </div>                 
+                    </div>      
+                    <div class="custom-control custom-checkbox">           
                         <input type="checkbox" class="custom-control-input chkInp" id="privacyCheckbox" name="privacyCheckbox" value="y">
                         <label class="custom-control-label" for="privacyCheckbox">개인 정보 수집 및 이용에 동의합니다. (필수)</label>
+                    </div>
                     <div class="custom-control custom-checkbox">
 					    <!-- textarea 추가 -->
 					    <textarea class="form-control" rows="10" readonly>
@@ -79,8 +81,10 @@
 					        이용자는 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있습니다.
 					    </textarea>
 					</div>
-                    <input type="checkbox" class="custom-control-input chkInp" id="confirmCheckbox" name="confirmCheckbox" value="y">
-                    <label class="custom-control-label" for="confirmCheckbox">회원가입 안내사항을 확인했습니다. (필수)</label>
+                    <div class="custom-control custom-checkbox">
+                    	<input type="checkbox" class="custom-control-input chkInp" id="confirmCheckbox" name="confirmCheckbox" value="y">
+                    	<label class="custom-control-label" for="confirmCheckbox">회원가입 안내사항을 확인했습니다. (필수)</label>
+                    </div>
                     <div class="custom-control custom-checkbox">
                         <!-- textarea 추가 -->
                         <textarea class="form-control" rows="10" readonly>
@@ -102,9 +106,10 @@
                             부정한 방법으로 서비스를 이용할 경우, 서비스 이용이 제한될 수 있습니다.
                         </textarea>
                     </div>
-                    
-                    <input type="checkbox" class="custom-control-input chkInp" id="snsCheckbox" name="snsCheckbox" value="y">
-                    <label class="custom-control-label" for="snsCheckbox">SNS 관련 이용약관에 동의합니다. (선택)</label>
+                    <div class="custom-control custom-checkbox">
+	                    <input type="checkbox" class="custom-control-input chkInp" id="snsCheckbox" name="snsCheckbox" value="y">
+	                    <label class="custom-control-label" for="snsCheckbox">SNS 관련 이용약관에 동의합니다. (선택)</label>
+                    </div>
                     <div class="custom-control custom-checkbox">
                         <!-- textarea 추가 -->
                         <textarea class="form-control" rows="10" readonly>
