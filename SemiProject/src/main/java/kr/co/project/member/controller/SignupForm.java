@@ -1,6 +1,7 @@
 package kr.co.project.member.controller;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,10 +23,16 @@ public class SignupForm extends HttpServlet {
 		String termsCheckbox = request.getParameter("termsCheckbox");
 		String privacyCheckbox = request.getParameter("privacyCheckbox");
 		String confirmCheckbox = request.getParameter("confirmCheckbox");
+		String snsCheckbox = request.getParameter("snsCheckbox");
+
+		if (Objects.isNull(snsCheckbox)) {
+			snsCheckbox = "n";
+		}
 
 		if (termsCheckbox == null || privacyCheckbox == null || confirmCheckbox == null) {
 			response.sendRedirect("/");
 		} else {
+			request.setAttribute("snsCheckbox", snsCheckbox);
 			RequestDispatcher view = request.getRequestDispatcher("/views/member/SignupForm.jsp");
 			view.forward(request, response);
 		}

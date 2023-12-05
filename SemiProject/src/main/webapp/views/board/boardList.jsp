@@ -64,35 +64,43 @@
 			<!-- 페이지 처리 첫번째 << 표시  -->
 			<c:choose>
 				<c:when test="${pi.currentPage == 1}">
-					<li class="paginationLi">
-						<a href="#">&laquo;</a>
+					<li class="page-item">
+						<a href="#" class ="page-link">&laquo;</a>
 					</li>
 				</c:when>
 			
 				<c:otherwise>
-					<li class="paginationLi">
-						<a href="BoardList.do?cpage=${pi.currentPage-1}">&laquo;</a>
+					<li class="page-item">
+						<a class="page-link" href="BoardList.do?cpage=${pi.currentPage-1}">&laquo;</a>
 					</li>					
 				</c:otherwise>
 			</c:choose>
 			
 			<!-- 페이지 번호 -->
 			<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
-					<li class="paginationLi">
-						<a href="/BoardList.do?cpage=${page}">${page}</a>
+				<c:if test="${pi.currentPage == page}">
+					<li class="page-item-active">
+						<a class="page-link" href="/BoardList.do?cpage=${page}">${page}</a>
 					</li>
+				</c:if>
+				<c:if test="${pi.currentPage != page}">
+					<li class="page-item">
+						<a class="page-link" href="/BoardList.do?cpage=${page}">${page}</a>
+					</li>
+				</c:if>
+				
 			</c:forEach>
 			
 			<!-- 페이지 처리 첫번째 << 표시  -->
 			<c:choose>
 				<c:when test="${pi.currentPage == pi.maxPage}">
-					<li class="paginationLi">
-						<a href="#">&raquo;</a>
+					<li class="page-item">
+						<a class="page-link" href="#">&raquo;</a>
 					</li>			
 				</c:when>
 				<c:otherwise>
-					<li class="paginationLi">
-						<a href="/BoardList.do?cpage=${pi.currentPage+1}">&raquo;</a>
+					<li class="page-item">
+						<a class="page-link" href="/BoardList.do?cpage=${pi.currentPage+1}">&raquo;</a>
 					</li>			
 				</c:otherwise>
 			</c:choose>

@@ -18,7 +18,6 @@
 			<div class="boardRightDiv">
 				<input type="hidden" id="boardNo" name="boardNo" value="${board.boardNo}"> 
 					<input type="hidden" name="boardViews" value="${board.title}"> 
-					<input type="hidden" name="boardName" value="${board.content}"> 
 					<input type="hidden" name="boardMemberNo" value="${board.m_No}"> 
 					<span class="boardSpan">
 					<p class="boardText">게시물 번호 : ${board.boardNo}</p>
@@ -37,15 +36,13 @@
 				<div class="divCenter2">
 					<textarea name="boardTitle" id="boardTitle" cols="30" rows="10"
 						class="titleText" required disabled>${board.title}</textarea>
-					<textarea name="boardContent" id="boardContent" cols="30" rows="10"
-						class="contentText" required disabled>${board.content}</textarea>
+					<div name="boardContent" id="boardContent" class="contentText">${board.content}</div>
 				</div>
 
 				<c:if test="${sessionScope.no == board.m_No}">
 					<div class="divRight" style="margin-top: 5px">
 						<c:set var="btn" value="0"></c:set>
-						<button id="submitBtn" onclick="boardUpdate()" class="right-btn-board" style="margin-right: 20px; display: none;">완료</button>
-						<button id="modifyBtn" type="button" onclick="boardDisabled()" class="right-btn-board" style="margin-right: 20px">수정</button>
+						<button id="modifyBtn" type="button" onclick="boardUpdateFormSend()" class="right-btn-board" style="margin-right: 20px">수정</button>
 						<button onclick="boardDelete()" class="right-btn-board" style="margin-right: 110px;">삭제</button>
 					</div>
 				</c:if>
@@ -57,7 +54,7 @@
 
 		<!-- 댓글 -->
 
-			<div class="divCenter2">
+			<div class="divCenter2" style="height:170px;">
 				<input type="hidden" id="boardNo" name="boardNo" value="${board.boardNo}">
 				<!-- boardNo 받아오는 Hidden 값 -->
 				<div class="divCenter3">
@@ -80,7 +77,7 @@
 											style="width: 30px; text-align: center;">수정</a> 
 										</c:otherwise>
 									</c:choose>
-										<a onclick="test();" class="answerTextClick"
+										<a onclick="answerDelete();" class="answerTextClick"
 										style="width: 30px; text-align: center;">삭제</a>
 								</c:if>
 							</span>
