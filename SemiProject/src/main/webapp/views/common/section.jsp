@@ -56,7 +56,7 @@
 		<div class="img-introduce">
 		<span class="img-name">청계천</span><br><br>
 		 	<p class="img-explain">종로구와 중구 사이를 가르는 10.84km의 하천이다.</p>
-		 	<p class="img-explain">다양한 예술가들의 거리이며 길거리 공연을 볼 수 있다.</p>
+		 	<p class="img-explain">다양한 예술가들의 거리이며 길거리 공연을 즐길 수 있다.</p>
 		</div>
 		</div>
 		<div class="swiper-slide"><img src="/resources/uploads/aroundHotel/낙산성곽.jpg"><br><br>
@@ -73,9 +73,6 @@
 	</div>
 
 
-	<!-- 네비게이션 -->
-
-	<!-- 페이징 -->
 	<div class="swiper-pagination"></div>
 
 </div>
