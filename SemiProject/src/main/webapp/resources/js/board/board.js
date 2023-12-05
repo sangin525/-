@@ -67,8 +67,30 @@ function answerDelete() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('fileInsert').addEventListener('change', function() {
+	document.getElementById('file').addEventListener('change', function() {
 		var fileName = this.value;
 		document.querySelector('.upload-name').value = fileName;
 	});
 });
+
+function fileDownload(photo, route){
+	const form = document.getElementById("board-datail-form");
+	
+	const photoInput = document.createElement("input");
+	photoInput.type = "hidden";
+	photoInput.name = "photo";
+	photoInput.value = photo;
+	
+	const routeInput = document.createElement("input");
+	routeInput.type = "hidden";
+	routeInput.name = "route";
+	routeInput.value = route;
+	
+	
+	form.appendChild(photoInput);
+	form.appendChild(routeInput);
+	
+	form.action = "/BoardDownload.do";
+	form.method = "POST";
+	form.submit();
+}

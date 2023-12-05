@@ -1,17 +1,27 @@
 package kr.co.project.board.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import kr.co.project.board.service.BoardServiceImpl;
 
 @WebServlet("/boardEnroll.do")
+@MultipartConfig(
+		fileSizeThreshold = 1024 * 1024,
+		maxFileSize = 1024 * 1024 * 5,
+		maxRequestSize = 1024 * 1024 * 5 *5
+		
+)
 public class BoardEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,13 +38,33 @@ public class BoardEnrollController extends HttpServlet {
 		String content = request.getParameter("contents");
 		
 		HttpSession session = request.getSession();
-		
 		int memberNo = (Integer)session.getAttribute("no");
+		
+		
+//		파일 업로드 처리 추가
+		Collection<Part> parts = request.getParts();
+		String uploadDirectory = "C:\\Users\\rddck\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";	
+		
+		File filePath = new File(uploadDirectory);
+		if (!filePath.exists()) {
+			filePath.mkdirs();
+		}
+		String fileName = null;
+		
+		for(Part part : parts) {
+			fileName = getFileName(part);
+			System.out.println(fileName);
+			if(fileName != null) {
+				if(!fileName.equals("")) {
+					part.write(filePath + File.separator + fileName);
+				}
+			}
+		}
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		
-		int result = boardService.boardEnroll(title, content, memberNo);
-		System.out.println(result);
+		//실행
+		int result = boardService.boardEnroll(title, content, memberNo, fileName, uploadDirectory);
 		if(result > 0) {
 			response.sendRedirect("/BoardList.do?cpage=1");
 		}else {
@@ -42,5 +72,17 @@ public class BoardEnrollController extends HttpServlet {
 		}
 		
 	}
+	
+    private String getFileName(Part part) {
+        String contentDisposition = part.getHeader("content-disposition");
+        String[] tokens = contentDisposition.split(";");
+        for (String token : tokens) {
+            if (token.trim().startsWith("filename")) {
+                return token.substring(token.indexOf('=') + 2, token.length() - 1);
+            }
+        }
+        return null;
+    }
+	
 
 }

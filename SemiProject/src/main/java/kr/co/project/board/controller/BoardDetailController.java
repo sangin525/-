@@ -23,6 +23,7 @@ public class BoardDetailController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		int result = boardService.boardView(boardNo);
@@ -34,7 +35,6 @@ public class BoardDetailController extends HttpServlet {
 			
 			// 댓글 관련도 같이 가져옴
 			boardService.boardSelect(board);
-			
 			if(!Objects.isNull(board.getBoardNo())) {
 				request.setAttribute("board", board);
 				RequestDispatcher view = request.getRequestDispatcher("/views/board/boardDetail.jsp");
