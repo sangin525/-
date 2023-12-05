@@ -1,9 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-String snsCheckboxFl = (request.getParameter("snsCheckbox") == null) ? "n" : request.getParameter("snsCheckbox");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,10 +46,10 @@ String snsCheckboxFl = (request.getParameter("snsCheckbox") == null) ? "n" : req
 						<input type="hidden" id="checked_id" name="checked_id" value="n">
 						<input type="hidden" id="checked_email" name="checked_email"
 							value="n"> <input type="hidden" id="snsCheckbox"
-							name="snsCheckbox" value="<%=snsCheckboxFl%>">
+							name="snsCheckbox" value="${snsCheckbox}">
 
 						<div class="row">
-							<div class="mb-3">
+							<div class="col-sm-10">
 								<label for="nickname">이름 *</label> <input type="text"
 									class="form-control" id="M_Name" name="M_Name" placeholder="이름"
 									value="" onkeyup="validateName()"> <span id="NameMsg"></span>
@@ -74,7 +71,7 @@ String snsCheckboxFl = (request.getParameter("snsCheckbox") == null) ? "n" : req
 
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="M_Pwd">비밀번호 *</label> <input type="password"
 								class="form-control" id="M_Pwd" name="M_Pwd"
 								onkeyup="validatePassword()" maxlength="20" placeholder="비밀번호">
@@ -83,14 +80,14 @@ String snsCheckboxFl = (request.getParameter("snsCheckbox") == null) ? "n" : req
 								id="M_PwdMsg"></span>
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="M_Pwdchek">비밀번호확인 *</label> <input type="password"
 								class="form-control" id="M_Pwdchek" name="M_Pwdchek"
 								onkeyup="validatePassword()" maxlength="20" placeholder="비밀번호확인">
 							<span id="M_PwdchekMsg"></span>
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="email">생년월일 *</label> <input type="date"
 								class="form-control" id="M_Birth" name="M_Birth"
 								onkeyup="validateBirth()" placeholder="(예:20031015)"> <span
@@ -108,7 +105,7 @@ String snsCheckboxFl = (request.getParameter("snsCheckbox") == null) ? "n" : req
 							<span id="M_EAMILMsg"></span> <span id="M_EmailCheck"></span>
 						</div>
 
-						<div class="mb-3">
+						<div class="col-sm-10">
 							<label for="M_Phone">전화번호 *</label> <input type="text"
 								class="form-control" id="M_Phone" name="M_Phone"
 								onkeyup="validatePhone()" placeholder="'-'제외하고 숫자만 입력"
