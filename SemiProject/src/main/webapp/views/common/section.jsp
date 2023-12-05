@@ -6,6 +6,43 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 
+	<div class="main-membership">
+		<div class="membership-img">
+
+		<img alt="" src="/resources/uploads/호텔로고1.png">
+		<div class="membership-img-msg">
+		<p>THE HARU</p>
+		<p>MEMBERSHIP</p>
+		</div>
+		</div>
+		<div class="membership-text">
+		<h2>CLUB HARU</h2>
+		
+		<p>품격 있는 서비스와 다채로운 라이프 스타일을 선사하는</p>
+		<p>호텔 하루의 멤버십 프로그램, 클럽하루(CLUB HARU)</p>
+		<p>지금 회원만을 위한 특별한 혜택과 경험을 확인해보세요.</p>
+		
+		<div class="membership-btn">
+		<button onclick="location.href='/hotel/HotelMemberShip.do'" class="membership-link">view more</button>
+		</div>
+		
+		</div>
+	</div>
+
+<div class="main-dining">
+	<div class="dining-txt">
+		<h2>HARU DINING</h2>
+		
+		<p>좋은 사람과 도심속에서 즐기는 특별한 식사를 원하신다면,</p>
+		<p>호텔 하루의 다양한 레스토랑에서 미식의 즐거움을 만나보십시오.</p>
+		<br>
+		<button onclick="location.href='/hotel/HotelRestaurant.do'" class="membership-link">view more</button>
+	</div>
+	<div class="dining-img">
+		<img src="/resources/uploads/dining_greets.jpg">
+	</div>
+</div>
+
 
 <div class="img-title"> 
 		<h1 class="imgtitle">호텔 주변 명소</h1>
@@ -83,29 +120,6 @@
 </div>
 
 
-
-	<div class="main-membership">
-		<div class="membership-img">
-
-		<img alt="" src="/resources/uploads/호텔로고1.png">
-		<div class="membership-img-msg">
-		<p>THE HARU</p>
-		<p>MEMBERSHIP</p>
-		</div>
-		</div>
-		<div class="membership-text">
-		<h2>CLUB HARU</h2>
-		
-		<p>품격 있는 서비스와 다채로운 라이프 스타일을 선사하는</p>
-		<p>호텔 하루의 멤버십 프로그램, 클럽하루(CLUB HARU)</p>
-		<p>지금 회원만을 위한 특별한 혜택과 경험을 확인해보세요.</p>
-		
-		<div class="membership-btn">
-		<button onclick="location.href='/hotel/HotelMemberShip.do'" class="membership-link">view more</button>
-		</div>
-		
-		</div>
-	</div>
 
 
 
