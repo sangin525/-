@@ -390,6 +390,7 @@ select:disabled {
 	justify-content:center;
 	color: rgb(210, 98, 98);
 	font-size: 48px;
+	margin-top:130px;
   } 
   .imgsubtitle{
   	display:flex;
@@ -500,7 +501,7 @@ select:disabled {
 .main-membership{
 	display:flex;
 	justify-content: center;
-	margin-top: 60px;
+	margin-top: 130px;
 }
 
 .membership-img{
@@ -528,14 +529,15 @@ select:disabled {
 
 .membership-text{
 	margin-left: 100px;
+	padding-top: 35px;
 }
 
 .membership-text h2{
-	font-size: 48px;
+	font-size: 36px;
 }
 
 .membership-text p{
-	font-size: 24px;
+	font-size: 18px;
 }
 
 .membership-link{
@@ -552,56 +554,33 @@ select:disabled {
 }
    
 
-/* 메인화면 공지사항 */
-
-.main-notice{
-   width: 900px;
-   height: 300px;
-   margin-top: 75px;
-    margin-right: 75px;
+.main-dining{
+	display:flex;
+	justify-content: center;
+	margin-top: 150px;
 }
 
-.notice_title{
-   font-size: 24px;
-    border-bottom: 1px solid black;
-    display:flex;
-    justify-content: space-between;
+.dining-img{
+	display: flex;
+	text-align:center;
+	flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
 }
 
-.notice_list_go{
-   font-size: 20px;
-   text-decoration: none;
-   color: black;
+.dining-txt{
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+	text-align: center;
+	align-items:center;
+	padding-right: 120px;
 }
 
-.main-notice p{
-   padding-left: 30px;
-   padding-right: 30px;
-   font-size: 30px;
+.dining-txt h2{
+	font-size: 36px;
 }
 
-.main-notice ul{
-   list-style: none;
-}
-
-.notice-link{
-   color: rgb(210, 98, 98);
-}
-
-.notice-tit:hover{
-   text-decoration: underline;
-}
-
-.notice-tit{
-   width: 80%;
-   float: left;
-   font-size: 25px;
-    line-height: 40px;
-}
-
-.notice-date{
-   float: right;
-   font-size: 25px;
-   padding-right: 20px;
-   pointer-events : none;
+.dining-txt p{
+	font-size: 18px;
 }
