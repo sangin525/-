@@ -21,8 +21,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	// 문의사항 생성
-	public int boardEnroll(String title, String content, int memberNo) {
-		return boardDAO.boardEnroll(con,title, content, memberNo);
+	public int boardEnroll(String title, String content, int memberNo, String fileName, String uploadDirectory) {
+		return boardDAO.boardEnroll(con,title, content, memberNo, fileName, uploadDirectory);
 	}
 	
 	// 공지사항 생성
