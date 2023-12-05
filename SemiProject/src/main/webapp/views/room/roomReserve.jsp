@@ -28,6 +28,11 @@
 		<div>
 		<p class="reserveForm" id="memberName">예약자 성함 :  ${member.MName}</p>
 		<p class="reserveForm" id="memberPhone">예약자 번호 :  ${member.MPhone}</p>
+		<span class="chkPhoneSpan">
+			<input type="button" class="chkPhone" onclick="phoneCertification(${member.MPhone});" value="번호인증메세지발송하기">
+			<input type="text" class="chkPhone" id="chkPhoneNum" placeholder="인증번호를 입력해주세요" onkeyup="chkPhoneNum()" required>
+			<p type="button" class="chkPhone" id="chkPhoneText"></p>
+		</span>
 		<p class="reserveForm" id="roomName">객실이름 :  ${room.roomName} 룸</p>
 		<c:if test="${startDayWeekNumber == 7}">
 			<p class="reserveForm">숙박체크인 : ${room.RChkIn} 토요일</p>
@@ -96,8 +101,8 @@
 								 '${room.roomName}', ${totalPrice}, '${member.MPhone}',
 
 								  '${member.MEmail}', '${member.MAddr}', '${room.RChkIn}',
-								  '${room.RChkOut}', ${room.RPersonCount}, ${room.RCount}, ${percentMLG})">결제하기</button>
-	<button type="button" class="payForm" id="left-btn" onclick="intoInfoPage()">방구경하러가기</button>
+								  '${room.RChkOut}', ${room.RPersonCount}, ${room.RCount}, ${percentMLG})" disabled>(결제)인증번호 입력후 눌러주세요</button>
+	<button type="button" class="payForm" id="Write-btn" onclick="intoInfoPage()">방구경하러가기</button>
 		</div>
 
 

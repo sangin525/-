@@ -176,6 +176,48 @@ function disableDays() {
 	
 }
 
+let resultNum
+function phoneCertification(phone){
+	
+	let phoneNumber = '0'+phone;
+	console.log(phoneNumber);
+	
+	$.ajax({
+		url: '/ReserveMessage.do',
+		type: 'post',
+		data: {
+			phoneNumber: phoneNumber
+		},
+		success: function(data) {
+			resultNum = data;
+		},
+		error: function(err) {
+			alert("에러발생");
+		}
+	});
+}
+
+function chkPhoneNum(){
+	let chkPhoneNum = document.getElementById("chkPhoneNum").value;
+	let chkPhoneText = document.getElementById("chkPhoneText");
+	let reserveBtn = document.getElementById("left-btn");
+	
+	if(chkPhoneNum == resultNum){
+		chkPhoneText.innerHTML = "결과가 문자내용과 동일합니다.";
+		chkPhoneText.style.color = "green";
+		reserveBtn.disabled = false;
+		reserveBtn.innerHTML = "결제하기";
+	}else{
+		chkPhoneText.innerHTML = "결과가 문자내용과 동일하지않습니다.";
+		chkPhoneText.style.color = "red";
+		reserveBtn.disabled = true;
+		reserveBtn.innerHTML = "(결제)인증번호 입력후 눌러주세요.";
+	}
+	
+}
+
+
+
 
 
 

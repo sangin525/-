@@ -270,11 +270,14 @@ public class RoomDAO {
 				String[] chkIn = chkInSt.split("-");
 				String[] chkOut = chkOutSt.split("-");
 				
+				int chkInZero = Integer.parseInt(chkIn[0]);
+				int chkInFir = Integer.parseInt(chkIn[1]);
+				
 				int dateChkIn = Integer.parseInt(chkIn[2]);
 				int dateChkOut = Integer.parseInt(chkOut[2]);
 				
 				for(int i = dateChkIn; i<dateChkOut; i++) {
-					String disableDate = chkIn[0]+"-"+chkIn[1]+"-"+i;
+					String disableDate = chkInZero+"-"+chkInFir+"-"+i;
 					chkInOut.add(disableDate);
 				}
 			}

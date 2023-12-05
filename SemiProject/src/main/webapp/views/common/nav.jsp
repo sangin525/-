@@ -24,7 +24,7 @@
 	    <option value="" class="dropdown-item" selected>--선택--</option>
 	</select>
 	<input type="date" required  class="R_room" name="start_date" id="start_date" onclick="navdateSum()">
-	<input type="date" required class="R_room" name="end_date" id="end_date" onclick="navdateSum()" onchange="navCheckReserveInfo()">
+	<input type="date" required class="R_room" name="end_date" id="end_date" onchange="navdateSum(); navCheckReserveInfo()">
 	<input type="number" placeholder="숙박일" name="date_sum" class="R_room_small" id="date_sum"  disabled>
 	<input type="number" required placeholder="인원수" min="1" max="4" name="R_person_count" id="R_person_count" class="R_room_small">
 

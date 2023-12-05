@@ -38,12 +38,12 @@ public class DuplicateIdController extends HttpServlet {
 		out.print(isIdDuplicate);
 
 		// isIdDuplicate 변수가 true 중복, false 사용 가능
-//		if(isIdDuplicate == true) {
+//		if (isIdDuplicate == true) {
 //			out.print("중복된 아이디입니다.");
-////			out.print("{'msg' : 사용불가}");
+//			out.print("{'msg' : 사용불가}");
 //		} else {
 //			out.print("사용 가능한 아이디입니다.");
-////			out.print("{'msg' : 사용가능}");
+//			out.print("{'msg' : 사용가능}");
 //		}
 
 //      out.print("{'isDuplicate' : " + isIdDuplicate + "}");
