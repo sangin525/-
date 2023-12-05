@@ -16,73 +16,70 @@ import javax.servlet.http.Part;
 import kr.co.project.board.service.BoardServiceImpl;
 
 @WebServlet("/boardEnroll.do")
-@MultipartConfig(
-		fileSizeThreshold = 1024 * 1024,
-		maxFileSize = 1024 * 1024 * 5,
-		maxRequestSize = 1024 * 1024 * 5 *5
-		
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5
+
 )
 public class BoardEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public BoardEnrollController() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public BoardEnrollController() {
+		super();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		String content = request.getParameter("contents");
-		
+
 		HttpSession session = request.getSession();
-		int memberNo = (Integer)session.getAttribute("no");
-		
-		
+		int memberNo = (Integer) session.getAttribute("no");
+
 //		파일 업로드 처리 추가
 		Collection<Part> parts = request.getParts();
-		String uploadDirectory = "C:\\Users\\rddck\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";	
-		
+		String uploadDirectory = "C:\\Users\\jshai\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";
+
 		File filePath = new File(uploadDirectory);
 		if (!filePath.exists()) {
 			filePath.mkdirs();
 		}
 		String fileName = null;
-		
-		for(Part part : parts) {
+
+		for (Part part : parts) {
 			fileName = getFileName(part);
 			System.out.println(fileName);
-			if(fileName != null) {
-				if(!fileName.equals("")) {
+			if (fileName != null) {
+				if (!fileName.equals("")) {
 					part.write(filePath + File.separator + fileName);
 				}
 			}
 		}
-		
+
 		BoardServiceImpl boardService = new BoardServiceImpl();
-		
-		//실행
+
+		// 실행
 		int result = boardService.boardEnroll(title, content, memberNo, fileName, uploadDirectory);
-		if(result > 0) {
+		if (result > 0) {
 			response.sendRedirect("/BoardList.do?cpage=1");
-		}else {
+		} else {
 			response.sendRedirect("/views/common/error.jsp");
 		}
-		
+
 	}
-	
-    private String getFileName(Part part) {
-        String contentDisposition = part.getHeader("content-disposition");
-        String[] tokens = contentDisposition.split(";");
-        for (String token : tokens) {
-            if (token.trim().startsWith("filename")) {
-                return token.substring(token.indexOf('=') + 2, token.length() - 1);
-            }
-        }
-        return null;
-    }
-	
+
+	private String getFileName(Part part) {
+		String contentDisposition = part.getHeader("content-disposition");
+		String[] tokens = contentDisposition.split(";");
+		for (String token : tokens) {
+			if (token.trim().startsWith("filename")) {
+				return token.substring(token.indexOf('=') + 2, token.length() - 1);
+			}
+		}
+		return null;
+	}
 
 }
