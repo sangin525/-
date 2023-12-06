@@ -566,6 +566,19 @@ select:disabled {
 	flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    width: 600px;
+    height: 800px;
+    overflow: hidden;
+}
+
+.dining-img img{
+	width: 600px;
+	height: 800px;
+}
+
+.dining-img img:hover{
+	transform: scale(1.1, 1.1);
+	transition-duration: 0.5s;
 }
 
 .dining-txt{
