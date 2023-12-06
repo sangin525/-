@@ -223,14 +223,29 @@ public class RoomDAO {
 				+ "		ON rr.ROOM_NO = ri.ROOM_NO "
 				+ "		WHERE ri.ROOM_NAME = ?"
 				+ "		AND RR.R_CHECK_IN <= ?"
-				+ "		AND RR.R_CHECK_OUT > ?";
+				+ "		AND RR.R_CHECK_OUT > ?"
+				+ "		OR ri.ROOM_NAME = ?"
+				+ "		AND RR.R_CHECK_IN  < ?"
+				+ "		AND RR.R_CHECK_OUT > ?"
+				+ "		OR ri.ROOM_NAME = ?"
+				+ "		AND RR.R_CHECK_IN >= ?"
+				+ "		AND RR.R_CHECK_OUT <= ?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
+			System.out.println(Rname);
+			System.out.println(startDate);
+			System.out.println(endDate);
 			
 			pstmt.setString(1, Rname);
 			pstmt.setString(2, startDate);
 			pstmt.setString(3, startDate);
+			pstmt.setString(4, Rname);
+			pstmt.setString(5, endDate);
+			pstmt.setString(6, endDate);
+			pstmt.setString(7, Rname);
+			pstmt.setString(8, startDate);
+			pstmt.setString(9, endDate);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -247,9 +262,8 @@ public class RoomDAO {
 		String query = "SELECT rr.R_CHECK_IN , rr.R_CHECK_OUT  FROM ROOM_RESERVE rr "
 				+ "		JOIN ROOM_INFO ri "
 				+ "		ON ri.ROOM_NO = rr.ROOM_NO "
-				+ "		JOIN ROOM_GRADE_INFO rgi "
-				+ "		ON ri.ROOM_GRADE = rgi.ROOM_GRADE "
-				+ "		WHERE rgi.ROOM_GRADE = ?";
+				+ "		WHERE ri.ROOM_NAME  = ?"
+				+ "		ORDER BY rr.R_CHECK_IN ASC ";
 		
 		try {
 			pstmt = con.prepareStatement(query);

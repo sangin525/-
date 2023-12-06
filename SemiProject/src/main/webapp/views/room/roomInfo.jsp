@@ -40,14 +40,17 @@
  <script src="/resources/js/room/room.js"></script>
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
-   <select id="datepickerRoom" onchange="disableDays()">
+   <select id="datepickerRoom" onchange="datepickerGrade()">
 	   	<option value="" selected>---예약가능날짜확인---</option>
 	   	<option value="디럭스">디럭스</option>
 	   	<option value="프리미엄">프리미엄</option>
 	   	<option value="스위트">스위트</option>
 	   	<option value="로얄스위트">로얄스위트</option>
    </select>
-	   <span class="datepicker" id="datepicker"></span>
+	<select id="datepickerRoomMenu" onchange="disableDays()">
+		<option value="" class="dropdown-item" selected>--선택--</option>
+	</select>
+	<span class="datepicker" id="datepicker"></span>
   <section class="Main_section">
 <!--     <h1>객실정보</h1> -->
      <c:set var="DetailCount" value="0"></c:set>

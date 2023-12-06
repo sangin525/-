@@ -31,6 +31,14 @@
 .R_room_small{
 	width: 80px;
 }
+#datepickerRoomMenu{
+	position: fixed; 
+     display:inline;
+     width: 170px;
+     left: 20px;
+     top: 240px;
+}
+
 #datepickerRoom{
 	 position: fixed; 
      display:inline;
@@ -39,7 +47,7 @@
 }
 #datepicker { 
      position: fixed; 
-     top: 230px; 
+     top: 300px; 
      right: 300px; 
      left: 20px; 
      display:inline;

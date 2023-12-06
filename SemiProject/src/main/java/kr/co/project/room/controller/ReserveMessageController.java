@@ -54,7 +54,7 @@ public class ReserveMessageController extends HttpServlet {
         // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
 //        message.setFrom("01093406483");
 //        message.setTo(number);
-//        message.setText(resultNum);
+//        message.setText("인증번호 : "+resultNum);
 //
 //        SingleMessageSentResponse response1 = this.messageService.sendOne(new SingleMessageSendingRequest(message));
 //        System.out.println("결과값은 : "+response1);
