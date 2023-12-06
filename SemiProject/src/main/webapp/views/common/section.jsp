@@ -39,13 +39,13 @@
 		<button onclick="location.href='/hotel/HotelRestaurant.do'" class="membership-link">view more</button>
 	</div>
 	<div class="dining-img">
-		<img src="/resources/uploads/dining_greets.jpg">
+		<img src="/resources/uploads/mainPic/dining_greets.jpg">
 	</div>
 </div>
 
 <div class="main-dining">
 	<div class="dining-img">
-		<img src="/resources/uploads/메인수영장.jpg">
+		<img src="/resources/uploads/mainPic/메인수영장.jpg">
 	</div>
 	<div class="dining-text">
 		<h2>HARU Pool</h2>
@@ -54,6 +54,48 @@
 		<p>호텔 하루와 함께 도심속 파라다이스를 즐겨보세요.</p>
 		<br>
 		<button onclick="location.href='/hotel/HotelPool.do'" class="membership-link">view more</button>
+	</div>
+</div>
+
+<div class="main-dining">
+	<div class="dining-txt">
+		<h2>HARU Spa</h2>
+		
+		<p>사우나를 통해 심신의 여유로움과 피부미용등</p>
+		<p>하루의 피로함을 하루 호텔이 풀어드립니다. </p>
+		<br>
+		<button onclick="location.href='/hotel/HotelSpa.do'" class="membership-link">view more</button>
+	</div>
+	<div class="dining-img">
+		<img src="/resources/uploads/mainPic/메인사우나.jpg">
+	</div>
+</div>
+
+<div class="main-dining">
+	<div class="dining-img">
+		<img src="/resources/uploads/mainPic/메인오락실.jpg">
+	</div>
+	<div class="dining-text">
+		<h2>HARU Game</h2>
+		
+		<p>좋은 친구들과 함께 다양한 캐릭터들과 함께</p>
+		<p>많은 게임들을 호텔 하루에서 즐겨보세요.</p>
+		<br>
+		<button onclick="location.href='/hotel/HotelGame.do'" class="membership-link">view more</button>
+	</div>
+</div>
+
+<div class="main-dining">
+	<div class="dining-txt">
+		<h2>HARU Gym</h2>
+		
+		<p>60여대 최첨단 ARTIS 장비와 트레이너 선생님들과</p>
+		<p>함께 운동하며 하루 건강을 챙기세요.</p>
+		<br>
+		<button onclick="location.href='/hotel/HotelHealth.do'" class="membership-link">view more</button>
+	</div>
+	<div class="dining-img">
+		<img src="/resources/uploads/mainPic/메인헬스장.jpg">
 	</div>
 </div>
 
@@ -139,7 +181,7 @@
 	<div class="swiper-button-prev" style="top:30%"><img src="/resources/uploads/aroundHotel/prev.png"></div>
 
 </div>
-<br><br><br><br><br>
+<br><br><br>
 
 
 
