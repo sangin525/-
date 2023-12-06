@@ -4,11 +4,76 @@ IMP.init(config.IMP); // 예: imp00000000
 	let useMLGPrice;
 	let addMLG;
 	let minMLG;
+	let addMoneyMLG;
+
+function addMLGMoney(name, price, memberMLG, percentMLG, membership){
+	addMoneyMLG = document.getElementById("addMoneyMLG");
+	let oneAdd = document.getElementById("oneAdd").value;
+	let twoAdd = document.getElementById("twoAdd").value;
+	let threeAdd = document.getElementById("threeAdd").value;
+	let fourAdd = document.getElementById("fourAdd").value;
+	let resetAdd = document.getElementById("resetAdd");
+	let textTotalPrice = document.getElementById("totalPrice");
+	let textAddMLG = document.getElementById("addMLG");
+	let MLGChk = document.getElementById("MLGChk");
+	
+	if(name == 'one'){
+		addMoneyMLG.value = parseInt(addMoneyMLG.value) + parseInt(oneAdd);
+	}
+	else if(name == 'two'){
+		addMoneyMLG.value = parseInt(addMoneyMLG.value) + parseInt(twoAdd);
+	}
+	else if(name == 'three'){
+		addMoneyMLG.value = parseInt(addMoneyMLG.value) + parseInt(threeAdd);
+	}
+	else if(name == 'four'){
+		addMoneyMLG.value = parseInt(addMoneyMLG.value) + parseInt(fourAdd);
+	}
+	else if(name == 'reset'){
+		addMoneyMLG.value = 0;
+	}
+	useMLGPrice = price-addMoneyMLG.value;
+	
+	if(price <= addMoneyMLG.value || memberMLG <= addMoneyMLG.value){
+		MLGChk.checked = true;
+		addMLGChk(price, memberMLG, percentMLG, membership);
+	}else{
+	if(useMLGPrice <= 0){
+			useMLGPrice = 0;
+			addMLG = 0;
+			minMLG = price;
+			
+		}else{
+			useMLGPrice = useMLGPrice;
+			addMLG = useMLGPrice*percentMLG;
+			minMLG = memberMLG;
+		}
+		textTotalPrice.innerHTML = "결제금액 : "+ useMLGPrice + " 원";
+		textAddMLG.innerHTML = "적립 마일리지 : " +Math.floor(addMLG)+" 원 (고객님은 "+membership+" 등급으로 "+percentMLG+"% 입니다.)"
+	}
+}	
+
+function btnDisabled(name){
+	let oneAdd = document.getElementById("oneAdd");
+	let twoAdd = document.getElementById("twoAdd");
+	let threeAdd = document.getElementById("threeAdd");
+	let fourAdd = document.getElementById("fourAdd");
+	let resetAdd = document.getElementById("resetAdd");
+	
+	oneAdd.disabled = name;
+	twoAdd.disabled = name;
+	threeAdd.disabled = name;
+	fourAdd.disabled = name;
+	resetAdd.disabled = name;
+}
+	
+	
 function addMLGChk(totalPrice, memberMLG, percentMLG, membership){
 	let MLGChk = document.getElementById("MLGChk");
 	let textTotalPrice = document.getElementById("totalPrice");
 	let textAddMLG = document.getElementById("addMLG");
-	
+	addMoneyMLG = document.getElementById("addMoneyMLG");
+
 	if(MLGChk.checked){
 		if((totalPrice-memberMLG) <= 0){
 			useMLGPrice = 0;
@@ -18,6 +83,7 @@ function addMLGChk(totalPrice, memberMLG, percentMLG, membership){
 			console.log(memberMLG)
 			console.log(minMLG)
 			console.log(totalPrice)
+			
 		}else{
 			useMLGPrice = totalPrice - memberMLG;
 			addMLG = useMLGPrice*percentMLG;
@@ -25,7 +91,8 @@ function addMLGChk(totalPrice, memberMLG, percentMLG, membership){
 		}
 		textTotalPrice.innerHTML = "결제금액 : "+ useMLGPrice + " 원";
 		textAddMLG.innerHTML = "적립 마일리지 : " +Math.floor(addMLG)+" 원 (고객님은 "+membership+" 등급으로 "+percentMLG+"% 입니다.)"
-		
+		addMoneyMLG.value = 0;
+		btnDisabled(true);
 	}
 	else{
 		useMLGPrice = totalPrice;
@@ -33,6 +100,7 @@ function addMLGChk(totalPrice, memberMLG, percentMLG, membership){
 		textTotalPrice.innerHTML = "결제금액 : "+ useMLGPrice + " 원";
 		textAddMLG.innerHTML = "적립 마일리지 : " +Math.floor(addMLG)+" 원 (고객님은 "+membership+" 등급으로 "+percentMLG+"% 입니다.)"
 		minMLG = 0;
+		btnDisabled(false);
 	}
 	
 }
