@@ -156,7 +156,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
       
 	      <div class="modal-footer" >
 		    <input type="text" placeholder="객실이름" class="R_room_small" name="R_name" id="R_name${count}" disabled>
-			<input type="date" required  class="R_room" name="start_date" id="start_date${count}" onclick="dateSum(${count})" >
+			<input type="date" required  class="R_room" name="start_date" id="start_date${count}" onchange="dateSum(${count}); checkReserveInfo(${count})" >
 			 <input type="date" required class="R_room" name="end_date" id="end_date${count}"  onchange="dateSum(${count}); checkReserveInfo(${count})">
 			 <input type="number" placeholder="숙박일" name="date_sum" class="R_room_small" id="date_sum${count}"  disabled>
 			<input type="number" required placeholder="인원수" min="1" max="4" name="R_person_count" id="R_person_count${count}" class="R_room_small">
