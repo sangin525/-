@@ -25,6 +25,7 @@
           <h4><a href="/hotel/HotelPool.do">수영장</a></h4>
           <h4><a href="/hotel/HotelSpa.do">사우나</a></h4>
           <h4><a href="/hotel/HotelGame.do">오락실</a></h4>
+          <h4><a href="/hotel/HotelHealth.do">헬스장</a></h4>
         </div>
         <br>
         <div class="pic">
