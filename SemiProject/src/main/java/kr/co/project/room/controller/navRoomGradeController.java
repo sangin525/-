@@ -35,7 +35,6 @@ public class navRoomGradeController extends HttpServlet {
 //		for(RoomDTO item : roomName) {
 //			map.put(gradeMenu, roomName.get())
 //		}
-		System.out.println(roomName.get(0));
 		PrintWriter out = response.getWriter();
 		out.print(roomName);
 		out.close();

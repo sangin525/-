@@ -56,5 +56,5 @@
 
  } 
  @media screen and (max-width: 1400px) {
-    #datepicker, #datepickerRoom {display:none;}
+    #datepicker, #datepickerRoom, #datepickerRoomMenu {display:none;}
 }
