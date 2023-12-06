@@ -1,6 +1,4 @@
-
 // 버튼선택시 이름가져오기
-
 function getCheckboxValue(event, DetailCount, count)  {
   let result = '';
   if(event.target.checked)  {
@@ -240,7 +238,6 @@ function chkPhoneNum(){
 	}
 	
 }
-
 
 
 

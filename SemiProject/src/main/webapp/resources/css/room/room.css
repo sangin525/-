@@ -52,8 +52,9 @@
      left: 20px; 
      display:inline;
      z-index: 2;
-     width:300px;
+     width: 300px;
+
  } 
  @media screen and (max-width: 1400px) {
-    #datepicker, #datepickerRoom {display:none;}
+    #datepicker, #datepickerRoom, #datepickerRoomMenu {display:none;}
 }
