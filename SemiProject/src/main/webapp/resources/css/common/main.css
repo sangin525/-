@@ -501,7 +501,7 @@ select:disabled {
 .main-membership{
 	display:flex;
 	justify-content: center;
-	margin-top: 130px;
+	padding-top: 130px;
 }
 
 .membership-img{
@@ -557,7 +557,7 @@ select:disabled {
 .main-dining{
 	display:flex;
 	justify-content: center;
-	margin-top: 150px;
+	padding: 50px;
 }
 
 .dining-img{
@@ -603,7 +603,7 @@ select:disabled {
 }
 
 .dining-text{
-		display: flex;
+	display: flex;
 	flex-direction: column;
     justify-content: center;
 	text-align: center;
@@ -617,4 +617,3 @@ select:disabled {
 .dining-text p{
 	font-size: 18px;
 }
-
