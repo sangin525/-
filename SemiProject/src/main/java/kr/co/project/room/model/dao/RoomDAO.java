@@ -48,7 +48,7 @@ public class RoomDAO {
 	}
 
 	public ArrayList<RoomDTO> roomDetail(Connection con) {
-		String query = "SELECT r.ROOM_NO, ri.ROOM_GRADE , ri.ROOM_NAME, ri.ROOM_INFO, r.R_NOTICE_1 , r.R_NOTICE_2 ,"
+		String query = "SELECT r.ROOM_NO, ri.ROOM_GRADE , ri.ROOM_NAME, ri.ROOM_INFO, r.AMENITY , r.R_NOTICE_1 , r.R_NOTICE_2 ,"
 				+ "		r.R_NOTICE_3 , r.R_NOTICE_4 FROM ROOMGUIDE r"
 				+ "		JOIN ROOM_INFO ri "
 				+ "		ON r.ROOM_NO = ri.ROOM_NO ";
@@ -65,6 +65,7 @@ public class RoomDAO {
 				room.setRoomGrade(rs.getString("ROOM_GRADE"));
 				room.setRoomName(rs.getString("ROOM_NAME"));
 				room.setRoomInfo(rs.getString("ROOM_INFO"));
+				room.setAmenity(rs.getString("AMENITY"));
 				room.setRoomNotice(rs.getString("R_NOTICE_1"));
 				room.setRoomNotice1(rs.getString("R_NOTICE_2"));
 				room.setRoomNotice2(rs.getString("R_NOTICE_3"));

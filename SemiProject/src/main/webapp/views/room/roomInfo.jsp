@@ -103,16 +103,9 @@
             </div>
            </div>
 <!-- Button trigger modal -->
-      <c:choose>
-      	<c:when test="${sessionScope.no !=null}">
       		<button type="button" class="left-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop${count}" >
 			  세부정보/예약하기
 			</button>
-      	</c:when>
-      	<c:otherwise>
-      		<button type="button" class="left-btn" onclick="alert('로그인후 이용해주세요')">세부정보/예약하기</button>
-      	</c:otherwise>
-      </c:choose>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop${count}" data-bs-backdrop="static" data-bs-keyboard="false" 
@@ -131,8 +124,9 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 					    <div class="roomDetailBox">
 		      				<input type="hidden" name="roomDetailGrade" id="roomDetailGrade${count}" value="${roomDetail.get(DetailCount).roomGrade}">
 							<h4><strong>객실등급 :${roomDetail.get(DetailCount).roomGrade}</strong></h4> 
-							<strong>객실이름 :${roomDetail.get(DetailCount).roomName}</strong><br>
+							<strong>객실이름 :  ${roomDetail.get(DetailCount).roomName}</strong><br>
 							<p class="roomDetailP">${roomDetail.get(DetailCount).roomInfo}</p> <br>
+							<strong>객실 구비사항 :  ${roomDetail.get(DetailCount).amenity}</strong><br><br>
 							<ul class="roomDetailNotice">
 								<li>${roomDetail.get(DetailCount).roomNotice}</li>
 								<li>${roomDetail.get(DetailCount).roomNotice1}</li>
@@ -160,9 +154,17 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 			 <input type="date" required class="R_room" name="end_date" id="end_date${count}"  onchange="dateSum(${count}); checkReserveInfo(${count})">
 			 <input type="number" placeholder="숙박일" name="date_sum" class="R_room_small" id="date_sum${count}"  disabled>
 			<input type="number" required placeholder="인원수" min="1" max="4" name="R_person_count" id="R_person_count${count}" class="R_room_small">
-	
-	        <button type="button" class="left-btn" 
-	        onclick="reserveRoom(${count})">예약하기</button>
+
+			<c:choose>
+				<c:when test="${sessionScope.no !=null}">
+					<button type="button" class="left-btn" 
+	       				 onclick="reserveRoom(${count})">예약하기</button>
+				</c:when>
+				<c:otherwise>
+					<button type="button" class="left-btn"
+						onclick="alert('로그인후 이용해주세요')">예약하기</button>
+				</c:otherwise>
+			</c:choose>
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="unChkBtn()">Close</button>
 	      </div>
       
