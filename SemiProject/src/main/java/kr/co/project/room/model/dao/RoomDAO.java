@@ -233,9 +233,6 @@ public class RoomDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			System.out.println(Rname);
-			System.out.println(startDate);
-			System.out.println(endDate);
 			
 			pstmt.setString(1, Rname);
 			pstmt.setString(2, startDate);
