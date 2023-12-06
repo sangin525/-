@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
-.container{
+.container {
 	padding: 15%;
+}
+
+.form-control {
+	 white-space: pre-line;
+        font-family: 'Courier New', monospace;
+        width: 100%;
 }
 
 .checkbox-container {
@@ -10,12 +16,6 @@
 
 .custom-checkbox {
 	margin-top: 10px;
-}
-
-.modal-content {
-	max-width: 500px;
-	margin: 0 auto;
-	text-align: left;
 }
 
 .left-btn {

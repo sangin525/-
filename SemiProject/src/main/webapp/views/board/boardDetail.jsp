@@ -41,8 +41,15 @@
 
 				<c:if test="${sessionScope.no == board.m_No}">
 					<div class="divRight" style="margin-top: 5px">
+						<input name="route" id="route" type="hidden" value="${board.route}">
 						<c:set var="btn" value="0"></c:set>
-						<button id="modifyBtn" type="button" onclick="boardUpdateFormSend()" class="right-btn-board" style="margin-right: 20px">수정</button>
+						<c:if test="${not empty board.photo}">
+							<div style ="margin-right: 300px;">
+							    첨부 파일 : <a id="photo" name="photo" onclick="fileDownload('${board.photo}','${board.route}')" 
+							    href="/BoardDownload.do?filePath=${board.route}&fileName=${URLEncoder.encode(board.photo, 'UTF-8')}" target="_blank">${board.photo}</a>
+							</div>
+						</c:if>
+						<button id="modifyBtn" type="button" onclick="boardUpdateFormSend()" class="right-btn-board" style="margin-right: 20px;">수정</button>
 						<button onclick="boardDelete()" class="right-btn-board" style="margin-right: 110px;">삭제</button>
 					</div>
 				</c:if>

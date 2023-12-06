@@ -15,7 +15,7 @@ public class BoardDAO {
 	private PreparedStatement pstmt;
 
 	// 문의사항 작성
-	public int boardEnroll(Connection con, String title, String content, int memberNo) {
+	public int boardEnroll(Connection con, String title, String content, int memberNo, String fileName, String uploadDirectory) {
 		String query = "INSERT INTO BOARD" + " VALUES(board_seq.nextval," // BOARD_NO
 				+ " ?," // M_NO
 				+ " ?," // BOARD_TITLE
@@ -24,8 +24,8 @@ public class BoardDAO {
 				+ " NULL," // BOARD_IN_DATE
 				+ " NULL," // BOARD_DELETE
 				+ " 0," // BOARD_VIEWS
-				+ " NULL," // BOARD_PHOTO
-				+ " NULL," // BOARD_ROUTE
+				+ " ?," // BOARD_PHOTO
+				+ " ?," // BOARD_ROUTE
 				+ " 'N')"; // BOARD_ANSWER
 
 		try {
@@ -34,6 +34,8 @@ public class BoardDAO {
 			pstmt.setInt(1, memberNo);
 			pstmt.setString(2, title);
 			pstmt.setString(3, content);
+			pstmt.setString(4, fileName);
+			pstmt.setString(5, uploadDirectory);
 
 			int result = pstmt.executeUpdate();
 
@@ -199,6 +201,8 @@ public class BoardDAO {
 		        + "B.BOARD_CONTENT, "
 		        + "B.BOARD_IN_DATE, "
 		        + "B.BOARD_VIEWS, "
+		        + "B.BOARD_PHOTO,"
+		        + "B.BOARD_ROUTE,"
 		        + "B.BOARD_ANSWER, "
 		        + "M.M_NO, "
 		        + "M.M_NAME, "
@@ -223,6 +227,8 @@ public class BoardDAO {
 				String content = rs.getString("BOARD_CONTENT");
 				String inDate = rs.getString("BOARD_IN_DATE");
 				int views = rs.getInt("BOARD_VIEWS");
+				String photo = rs.getString("BOARD_PHOTO");
+				String route = rs.getString("BOARD_ROUTE");
 				String answer = rs.getString("BOARD_ANSWER");
 				String name = rs.getString("M_NAME");
 				int m_No = rs.getInt("M_NO");
@@ -237,6 +243,8 @@ public class BoardDAO {
 				board.setContent(content);
 				board.setInDate(inDate);
 				board.setViews(views);
+				board.setPhoto(photo);
+				board.setRoute(route);
 				board.setAnswer(answer);
 				board.setName(name);
 				board.setM_No(m_No);

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.nurigo.sdk.message.model.Message;
 
+
+
 @WebServlet("/ReserveMessage.do")
 public class ReserveMessageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

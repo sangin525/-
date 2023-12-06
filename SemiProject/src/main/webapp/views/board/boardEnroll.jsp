@@ -20,7 +20,7 @@
 		<div class="divCenter">
 			<h1>문의 사항</h1>
 		</div>
-		<form action ="/boardEnroll.do" method ="POST">
+		<form action ="/boardEnroll.do" method ="POST" enctype="multipart/form-data">
 			<div class="boardEnroll">
 				<div class="divCenter2">
 					<textarea name="title" id="title" cols="30" rows="10" class="titleText"
@@ -33,8 +33,8 @@
 			<div class="divCenter4">
 				<div class="divComments">
 					<!-- 파일 첨부 -->
-						<label for="fileInsert" class="input-file-button" style="width:70px; margin-right:10px;">파일 첨부</label>
-						<input type="file" id ="fileInsert" style="display:none;">
+						<label for="file" class="input-file-button" style="width:70px; margin-right:10px;">파일 첨부</label>
+						<input type="file" id ="file" name="file" style="display:none;" onchange="displayFileName(this)">
 					
 					<input class="upload-name" disabled>
 					
