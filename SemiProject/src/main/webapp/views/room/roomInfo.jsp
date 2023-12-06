@@ -40,14 +40,17 @@
  <script src="/resources/js/room/room.js"></script>
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
-   <select id="datepickerRoom" onchange="disableDays()">
+   <select id="datepickerRoom" onchange="datepickerGrade()">
 	   	<option value="" selected>---예약가능날짜확인---</option>
 	   	<option value="디럭스">디럭스</option>
 	   	<option value="프리미엄">프리미엄</option>
 	   	<option value="스위트">스위트</option>
 	   	<option value="로얄스위트">로얄스위트</option>
    </select>
-	   <span class="datepicker" id="datepicker"></span>
+	<select id="datepickerRoomMenu" onchange="disableDays()">
+		<option value="" class="dropdown-item" selected>--선택--</option>
+	</select>
+	<span class="datepicker" id="datepicker"></span>
   <section class="Main_section">
 <!--     <h1>객실정보</h1> -->
      <c:set var="DetailCount" value="0"></c:set>
@@ -100,16 +103,9 @@
             </div>
            </div>
 <!-- Button trigger modal -->
-      <c:choose>
-      	<c:when test="${sessionScope.no !=null}">
       		<button type="button" class="left-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop${count}" >
 			  세부정보/예약하기
 			</button>
-      	</c:when>
-      	<c:otherwise>
-      		<button type="button" class="left-btn" onclick="alert('로그인후 이용해주세요')">세부정보/예약하기</button>
-      	</c:otherwise>
-      </c:choose>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop${count}" data-bs-backdrop="static" data-bs-keyboard="false" 
@@ -128,8 +124,9 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 					    <div class="roomDetailBox">
 		      				<input type="hidden" name="roomDetailGrade" id="roomDetailGrade${count}" value="${roomDetail.get(DetailCount).roomGrade}">
 							<h4><strong>객실등급 :${roomDetail.get(DetailCount).roomGrade}</strong></h4> 
-							<strong>객실이름 :${roomDetail.get(DetailCount).roomName}</strong><br>
+							<strong>객실이름 :  ${roomDetail.get(DetailCount).roomName}</strong><br>
 							<p class="roomDetailP">${roomDetail.get(DetailCount).roomInfo}</p> <br>
+							<strong>객실 구비사항 :  ${roomDetail.get(DetailCount).amenity}</strong><br><br>
 							<ul class="roomDetailNotice">
 								<li>${roomDetail.get(DetailCount).roomNotice}</li>
 								<li>${roomDetail.get(DetailCount).roomNotice1}</li>
@@ -153,13 +150,21 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
       
 	      <div class="modal-footer" >
 		    <input type="text" placeholder="객실이름" class="R_room_small" name="R_name" id="R_name${count}" disabled>
-			<input type="date" required  class="R_room" name="start_date" id="start_date${count}" onclick="dateSum(${count})" >
+			<input type="date" required  class="R_room" name="start_date" id="start_date${count}" onchange="dateSum(${count}); checkReserveInfo(${count})" >
 			 <input type="date" required class="R_room" name="end_date" id="end_date${count}"  onchange="dateSum(${count}); checkReserveInfo(${count})">
 			 <input type="number" placeholder="숙박일" name="date_sum" class="R_room_small" id="date_sum${count}"  disabled>
 			<input type="number" required placeholder="인원수" min="1" max="4" name="R_person_count" id="R_person_count${count}" class="R_room_small">
-	
-	        <button type="button" class="left-btn" 
-	        onclick="reserveRoom(${count})">예약하기</button>
+
+			<c:choose>
+				<c:when test="${sessionScope.no !=null}">
+					<button type="button" class="left-btn" 
+	       				 onclick="reserveRoom(${count})">예약하기</button>
+				</c:when>
+				<c:otherwise>
+					<button type="button" class="left-btn"
+						onclick="alert('로그인후 이용해주세요')">예약하기</button>
+				</c:otherwise>
+			</c:choose>
 	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="unChkBtn()">Close</button>
 	      </div>
       

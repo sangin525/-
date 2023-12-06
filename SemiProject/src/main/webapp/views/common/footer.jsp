@@ -50,9 +50,9 @@
 		</dl>
 		<p>사업자등록번호: 111-11-11123 &nbsp;&nbsp; 대표이사: 여기어때&nbsp;&nbsp;
 			호스팅서비스제공자: 호텔하루
-	<p class="sns-img"><a href="https://www.youtube.com/"><img src="/resources/uploads/footer/유튜브로고.png">
-	<a href="https://www.instagram.com/"><img src="/resources/uploads/footer/인스타그램로고.png">
-	<a href="https://www.facebook.com/"><img src="/resources/uploads/footer/페이스북로고.png"></p>
+	<p class="sns-img"><a href="https://www.youtube.com/"><img src="/resources/uploads/footer/유튜브로고.png"></a>
+	<a href="https://www.instagram.com/"><img src="/resources/uploads/footer/인스타그램로고.png"></a>
+	<a href="https://www.facebook.com/"><img src="/resources/uploads/footer/페이스북로고.png"></a>
 			</p>
 	</div>
 </div>

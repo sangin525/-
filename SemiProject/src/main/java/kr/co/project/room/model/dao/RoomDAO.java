@@ -48,7 +48,7 @@ public class RoomDAO {
 	}
 
 	public ArrayList<RoomDTO> roomDetail(Connection con) {
-		String query = "SELECT r.ROOM_NO, ri.ROOM_GRADE , ri.ROOM_NAME, ri.ROOM_INFO, r.R_NOTICE_1 , r.R_NOTICE_2 ,"
+		String query = "SELECT r.ROOM_NO, ri.ROOM_GRADE , ri.ROOM_NAME, ri.ROOM_INFO, r.AMENITY , r.R_NOTICE_1 , r.R_NOTICE_2 ,"
 				+ "		r.R_NOTICE_3 , r.R_NOTICE_4 FROM ROOMGUIDE r"
 				+ "		JOIN ROOM_INFO ri "
 				+ "		ON r.ROOM_NO = ri.ROOM_NO ";
@@ -65,6 +65,7 @@ public class RoomDAO {
 				room.setRoomGrade(rs.getString("ROOM_GRADE"));
 				room.setRoomName(rs.getString("ROOM_NAME"));
 				room.setRoomInfo(rs.getString("ROOM_INFO"));
+				room.setAmenity(rs.getString("AMENITY"));
 				room.setRoomNotice(rs.getString("R_NOTICE_1"));
 				room.setRoomNotice1(rs.getString("R_NOTICE_2"));
 				room.setRoomNotice2(rs.getString("R_NOTICE_3"));
@@ -223,7 +224,13 @@ public class RoomDAO {
 				+ "		ON rr.ROOM_NO = ri.ROOM_NO "
 				+ "		WHERE ri.ROOM_NAME = ?"
 				+ "		AND RR.R_CHECK_IN <= ?"
-				+ "		AND RR.R_CHECK_OUT > ?";
+				+ "		AND RR.R_CHECK_OUT > ?"
+				+ "		OR ri.ROOM_NAME = ?"
+				+ "		AND RR.R_CHECK_IN  < ?"
+				+ "		AND RR.R_CHECK_OUT > ?"
+				+ "		OR ri.ROOM_NAME = ?"
+				+ "		AND RR.R_CHECK_IN >= ?"
+				+ "		AND RR.R_CHECK_OUT <= ?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -231,6 +238,12 @@ public class RoomDAO {
 			pstmt.setString(1, Rname);
 			pstmt.setString(2, startDate);
 			pstmt.setString(3, startDate);
+			pstmt.setString(4, Rname);
+			pstmt.setString(5, endDate);
+			pstmt.setString(6, endDate);
+			pstmt.setString(7, Rname);
+			pstmt.setString(8, startDate);
+			pstmt.setString(9, endDate);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -247,9 +260,8 @@ public class RoomDAO {
 		String query = "SELECT rr.R_CHECK_IN , rr.R_CHECK_OUT  FROM ROOM_RESERVE rr "
 				+ "		JOIN ROOM_INFO ri "
 				+ "		ON ri.ROOM_NO = rr.ROOM_NO "
-				+ "		JOIN ROOM_GRADE_INFO rgi "
-				+ "		ON ri.ROOM_GRADE = rgi.ROOM_GRADE "
-				+ "		WHERE rgi.ROOM_GRADE = ?";
+				+ "		WHERE ri.ROOM_NAME  = ?"
+				+ "		ORDER BY rr.R_CHECK_IN ASC ";
 		
 		try {
 			pstmt = con.prepareStatement(query);
