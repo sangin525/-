@@ -90,7 +90,7 @@
 		<h2>HARU Gym</h2>
 		
 		<p>60여대 최첨단 ARTIS 장비와 트레이너 선생님들과</p>
-		<p>함께 운동하며 하루건강을 챙기세요.</p>
+		<p>함께 운동하며 하루 건강을 챙기세요.</p>
 		<br>
 		<button onclick="location.href='/hotel/HotelHealth.do'" class="membership-link">view more</button>
 	</div>
