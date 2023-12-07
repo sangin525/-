@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .container {
-	padding: 15%;
+	padding: 5%;
 }
 
 .checkbox-container {
@@ -40,4 +40,11 @@
 .form-control:focus {
 	border-color: rgb(224, 162, 86);
 	box-shadow: 0 0 0 0.2rem rgba(224, 162, 86, 0.25);
+}
+
+.input-form {
+	background-color: #fff8e5;
+	padding: 30px;
+	border-radius: 20px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
