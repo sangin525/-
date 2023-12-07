@@ -4,11 +4,6 @@
 	padding: 15%;
 }
 
-.form-control {
-	 	white-space: pre-line;
-        font-family: 'Courier New', monospace;
-}
-
 .checkbox-container {
 	margin-bottom: 20px;
 }
@@ -18,18 +13,31 @@
 }
 
 .left-btn {
-	width: 100px;
+	width: 150px;
 	font-family: 'sejong';
-	font-size: 16px;
-	border-radius: 5px;
-	border: 1px solid rgb(224, 162, 86);
-	background-color: rgba(0, 0, 0, 0);
-	color: rgb(224, 162, 86);
-	padding: 5px;
+	font-size: 18px;
+	border-radius: 8px;
+	background-color: #e0a256;
+	color: white;
+	padding: 10px;
 	cursor: pointer;
+	transition: background-color 0.3s ease, border-color 0.3s ease, color
+		0.3s ease;
 }
 
 .left-btn:hover {
-	color: white;
-	background-color: rgb(224, 162, 86);
+	background-color: #d08c4d;
+}
+
+.form-control {
+	font-size: 16px;
+	border-radius: 8px;
+	border: 2px solid rgb(224, 162, 86);
+	white-space: pre-line;
+    font-family: 'Courier New', monospace;
+}
+
+.form-control:focus {
+	border-color: rgb(224, 162, 86);
+	box-shadow: 0 0 0 0.2rem rgba(224, 162, 86, 0.25);
 }
