@@ -9,21 +9,39 @@
 <script src="/resources/js/board/board.js"></script>
 <title>BoardList</title>
 </head>
-<body class="Main_body">
+<body class="Main_body" style = "background-color:white;">
 	<%@ include file="/views/common/header.jsp"%>
 	<%@ include file="/views/common/nav.jsp"%>
 
 	<section class="boardSection">
-		
-		<div class="divHead">
-			<div style="display:flex; align-items:center; justify-content:center; width:200px;">
+		<!-- 문의사항 글자 및 글쓰기 버튼 div -->
+		<div class="divSort">
+			<div>
 				<h1 class="boardH1">문의 사항</h1>
-				
-					<button style="width:60px; height:30px;" class="right-btn-board" onclick="boardEnrollBtn()">글쓰기</button>				
-					<input type="hidden" id="test" value="${sessionScope.no}">
+				<p style="margin-left:25px;">호텔 하루를 이용해주시는 고객님들의 문의사항을 확인해보실 수 있습니다.</p>
+			</div>
+			<div style="align-self: flex-start;">		
+				<button style="width:60px; height:30px;" class="right-btn-board" onclick="boardEnrollBtn()">글쓰기</button>				
+				<input type="hidden" id="test" value="${sessionScope.no}">
 			</div>
 		</div>
 		
+		<div class="divSort3">
+			<input placeholder ="검색어를 입력해주세요">
+			<button>검색</button>
+		</div>
+		
+		<!-- 버튼 모음 -->
+		<div class="divSort2">
+			<button class="SortBtn">전체</button>
+			<button class="SortBtn">객실 문의</button>
+			<button class="SortBtn">예약 문의</button>
+			<button class="SortBtn">시설 문의</button>
+			<button class="SortBtn">회원 가입 및 로그인 문의</button>
+			<button class="SortBtn">기타 문의</button>
+		</div>
+		
+		<!-- Table 본문 -->
 		<table class="boardTable">
 			<thead class="boardThead">
 				<th class="th1">게시물 번호</th>

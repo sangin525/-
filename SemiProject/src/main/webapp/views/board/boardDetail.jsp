@@ -34,8 +34,7 @@
 			<!-- Title, Content -->
 			<div class="boardEnroll">
 				<div class="divCenter2">
-					<textarea name="boardTitle" id="boardTitle" cols="30" rows="10"
-						class="titleText" required disabled>${board.title}</textarea>
+					<div name="boardTitle" id="boardTitle" class="titleText">${board.title}</div>
 					<div name="boardContent" id="boardContent" class="contentText">${board.content}</div>
 				</div>
 
