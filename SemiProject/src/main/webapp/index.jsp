@@ -31,14 +31,14 @@
 
 </div>
 </div>
-<div>
+
 <br>
 <%@ include file="./views/common/section.jsp" %>
 
   
 <br>
 
-</div>
+
    <%@ include file="./views/common/footer.jsp" %>
 </body>
 </html>
