@@ -156,6 +156,20 @@ window.onload = function () {
                 });
             });
         }
+$(window).scroll(function(){
+	if ($(this).scrollTop() > 300){
+		$('.btn_gotop').show();
+	} else{
+		$('.btn_gotop').hide();
+	}
+});
+
+$(document).ready(function() {
+	$('.btn_gotop').click(function(){
+		$('html').animate({scrollTop:0},1000);
+		return false;
+	});
+})
 
 
 
