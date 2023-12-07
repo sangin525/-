@@ -38,7 +38,14 @@
   
 <br>
 
-
    <%@ include file="./views/common/footer.jsp" %>
+   
+<div>
+<a href="#" class="btn_gotop" style="display:none;">
+  <img src="/resources/uploads/mainPic/위로버튼.png" style="width:100px; height:100px">
+</a>
+</div>
+
+
 </body>
 </html>
