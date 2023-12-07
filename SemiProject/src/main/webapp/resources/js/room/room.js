@@ -1,6 +1,4 @@
-
 // 버튼선택시 이름가져오기
-
 function getCheckboxValue(event, DetailCount, count)  {
   let result = '';
   if(event.target.checked)  {
@@ -130,9 +128,34 @@ function checkReserveInfo(count){
 	});
 }
 
+function datepickerGrade(){
+	let gradeMenu = document.getElementById("datepickerRoom").value;
+	roomMenu = document.getElementById("datepickerRoomMenu");
+	roomMenu.textContent = null;
+		$.ajax({
+				url: '/navRoomGrade.do',
+				type: 'get',
+				data: { gradeMenu: gradeMenu},
+				success: function(data) {
+					var data = data.replace('[','');
+					data = data.replace(']','');
+					data = data.replaceAll(' ','');
+					data = data.split(',');
+					for(let i =0; i<data.length; i++){
+					let option=document.createElement("option");
+					option.text=data[i];
+					option.value=data[i];
+					roomMenu.appendChild(option);
+					}
+				},
+				error: function(err) {
+				}
+			});
+}
+
 
 function disableDays() {
-	let roomGrade = document.getElementById("datepickerRoom").value;
+	let roomGrade = roomMenu.value;
 	$("#datepicker").datepicker("destroy");
 	$.ajax({
 		url: '/DisableRoom.do',
@@ -215,7 +238,6 @@ function chkPhoneNum(){
 	}
 	
 }
-
 
 
 

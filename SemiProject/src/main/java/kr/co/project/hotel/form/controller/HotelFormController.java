@@ -38,6 +38,8 @@ public class HotelFormController extends HttpServlet {
 			nextPage = "/views/HotelInfo/hotelGame.jsp";
 		} else if(action.equals("/HotelMemberShip.do")) {
 			nextPage = "/views/HotelInfo/hotelMemberShip.jsp";
+		} else if(action.equals("/HotelHealth.do")) {
+			nextPage = "/views/HotelInfo/hotelHealth.jsp";
 		}
 		
 		

@@ -88,7 +88,20 @@
 			<c:if test="${startDayWeekNumber < 6}">
 				<c:set var="totalPrice" value="${totalWeekday * room.RCount}"></c:set>
 			</c:if>
-		<p class="reserveForm"> <input type="checkbox" id="MLGChk" onchange="addMLGChk(${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')"> 마일리지 사용여부 </p>
+		<p class="reserveForm"> <input type="checkbox" id="MLGChk" onchange="addMLGChk(${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')"> 마일리지 전액사용 </p>
+		<div class="reserveForm" id="addMoneyDiv">사용할 마일리지 금액
+			<input type="number" id="addMoneyMLG" value="0" disabled><br>
+			<c:set var="one" value="one"></c:set>
+			<c:set var="two" value="two"></c:set>
+			<c:set var="three" value="three"></c:set>
+			<c:set var="four" value="four"></c:set>
+			<c:set var="reset" value="reset"></c:set>
+			<button class="addMoneyBtn" value="1000" id="oneAdd" onclick="addMLGMoney('${one}',${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')">천원추가</button>
+			<button class="addMoneyBtn" value="10000" id="twoAdd" onclick="addMLGMoney('${two}',${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')">만원추가</button>
+			<button class="addMoneyBtn" value="50000" id="threeAdd" onclick="addMLGMoney('${three}',${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')">오만원추가</button>
+			<button class="addMoneyBtn" value="100000" id="fourAdd" onclick="addMLGMoney('${four}',${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')">십만원추가</button>
+			<button class="addMoneyBtn" id="resetAdd" onclick="addMLGMoney('${reset}',${totalPrice},${member.MLG}, ${percentMLG}, '${member.membership}')">초기화</button>
+		</div>
 		<p class="reserveForm" id="totalPrice">결제금액 :  ${totalPrice} 원</p>
 		<p class="reserveForm" id="memberMLG">현재 마일리지 : ${member.MLG} 원</p>
 		<p class="reserveForm" id="addMLG">적립 마일리지 : ${(totalPrice * percentMLG)-((totalPrice * percentMLG)%1)} 원 (고객님은 ${member.membership} 등급으로 결제금액의 ${percentMLG}% 입니다.)</p>

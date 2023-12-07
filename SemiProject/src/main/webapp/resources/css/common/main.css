@@ -15,7 +15,7 @@
 }
 
 .Main_section {
-   max-width: 800px;
+   max-width: 1000px;
    margin: 20px auto;
    padding: 20px;
    background-color: #fff;
@@ -501,7 +501,7 @@ select:disabled {
 .main-membership{
 	display:flex;
 	justify-content: center;
-	margin-top: 130px;
+	padding-top: 130px;
 }
 
 .membership-img{
@@ -553,11 +553,11 @@ select:disabled {
 	font-size: 18px;
 }
    
-
+/* 메인화면 다이닝 및 서비스 */
 .main-dining{
 	display:flex;
 	justify-content: center;
-	margin-top: 150px;
+	padding: 50px;
 }
 
 .dining-img{
@@ -566,6 +566,23 @@ select:disabled {
 	flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    width: 600px;
+    height: 800px;
+    overflow: hidden;
+}
+
+.dining-img img{
+	width: 600px;
+	height: 800px;
+}
+
+.dining-img img:hover{
+	transform: scale(1.1, 1.1);
+	transition-duration: 0.5s;
+}
+.dining-img img{
+	width:600px;
+	height:800px;
 }
 
 .dining-txt{
@@ -582,5 +599,21 @@ select:disabled {
 }
 
 .dining-txt p{
+	font-size: 18px;
+}
+
+.dining-text{
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+	text-align: center;
+	align-items:center;
+	padding-left: 120px;
+}
+.dining-text h2{
+	font-size: 36px;
+}
+
+.dining-text p{
 	font-size: 18px;
 }
