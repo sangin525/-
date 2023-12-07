@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 
-	
+
 <div class="main-dining">
 	<div class="dining-txt">
 		<h2>HARU DINING</h2>
@@ -76,6 +76,7 @@
 		<img src="/resources/uploads/mainPic/메인헬스장.jpg">
 	</div>
 </div>
+
 
 <div class="main-membership">
 		<div class="membership-img">
