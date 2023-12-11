@@ -268,7 +268,18 @@ select:disabled {
    height: 180px;
    width: 100%;
 }
-
+.Main_footer hr{
+	opacity:1;
+	    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
 .Main_footer img {
    width: 150px;
    height: 150px;
@@ -628,3 +639,12 @@ z-index: 999;
 outline: none; 
 cursor: pointer; 
 } 
+.btn_kakao{
+	display: block; 
+position: fixed; 
+bottom: 120px;  
+right: 45px;  
+z-index: -1; 
+outline: none; 
+cursor: pointer; 
+}
