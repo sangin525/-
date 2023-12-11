@@ -21,24 +21,24 @@
 				<p style="margin-left:25px;">호텔 하루를 이용해주시는 고객님들의 문의사항을 확인해보실 수 있습니다.</p>
 			</div>
 			<div style="align-self: flex-start;">		
-				<button style="width:60px; height:30px;" class="right-btn-board" onclick="boardEnrollBtn()">글쓰기</button>				
+				<button class="right-btn-board-Enroll" onclick="boardEnrollBtn()"> <img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg"> 글 쓰기</button>				
 				<input type="hidden" id="test" value="${sessionScope.no}">
 			</div>
 		</div>
 		
 		<div class="divSort3">
-			<input placeholder ="검색어를 입력해주세요">
+			<input class="divSort3Input" placeholder ="검색어를 입력해주세요">
 			<button>검색</button>
 		</div>
 		
 		<!-- 버튼 모음 -->
 		<div class="divSort2">
-			<button class="SortBtn">전체</button>
-			<button class="SortBtn">객실 문의</button>
-			<button class="SortBtn">예약 문의</button>
-			<button class="SortBtn">시설 문의</button>
-			<button class="SortBtn">회원 가입 및 로그인 문의</button>
-			<button class="SortBtn">기타 문의</button>
+			<button class="SortBtn" name="category" value="1" onclick="clickCategory(this);">전체</button>
+			<button class="SortBtn" name="category" value="2" onclick="clickCategory(this);">객실 문의</button>
+			<button class="SortBtn" name="category" value="3" onclick="clickCategory(this);">예약 문의</button>
+			<button class="SortBtn" name="category" value="4" onclick="clickCategory(this);">시설 문의</button>
+			<button class="SortBtn" name="category" value="5" onclick="clickCategory(this);">회원 가입 및 로그인 문의</button>
+			<button class="SortBtn" name="category" value="6" onclick="clickCategory(this);">기타 문의</button>
 		</div>
 		
 		<!-- Table 본문 -->
@@ -125,8 +125,6 @@
 		</ul>
 
 	</section>
-	<form action="/sessionTest.do" method="POST">
-	</form>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
