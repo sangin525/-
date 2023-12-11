@@ -126,6 +126,8 @@ tbody.boardTbody tr{
 	height:60px;
 	display:flex;
 	align-items:center;
+	justify-content:center;
+	/* List 종류 모두 사용 */
 }
 
 /* -------------------------------- div 모음 -------------------------------- */

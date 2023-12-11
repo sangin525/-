@@ -1,4 +1,4 @@
-package kr.co.project.board.controller;
+package kr.co.project.notice.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,11 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.page.BoardPageInfo;
 import kr.co.project.board.page.BoardPagination;
-import kr.co.project.board.service.BoardServiceImpl;
+import kr.co.project.notice.dto.NoticeDTO;
+import kr.co.project.notice.service.NoticeServiceImpl;
 
-/**
- * Servlet implementation class NoticeListController
- */
 @WebServlet("/NoticeList.do")
 public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,19 +25,30 @@ public class NoticeListController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardServiceImpl boardService = new BoardServiceImpl();
+		NoticeServiceImpl noticeService = new NoticeServiceImpl();
 		
-		ArrayList<BoardDTO> list = boardService.noticeList();
-		BoardDTO boardDTO = new BoardDTO();
+		NoticeDTO noticeDTO = new NoticeDTO();
+
+		int cpage = Integer.parseInt(request.getParameter("cpage"));
+
+		// 전체 게시글 수
+		int listCount = noticeService.noticeListCount();
+		// 한 페이지에 보여줄 페이지의 수
+		int pageLimit = 5;
+		// 한 페이지에 들어갈 게시글 수
+		int boardLimit = 5;
+		// 페이징 처리
+		BoardPagination page = new BoardPagination();
+		BoardPageInfo pi = page.getPageInfo(cpage, listCount, pageLimit, boardLimit);
 		
-//		테스트 용도 세션, 이후 merge 이후 삭제 필요
-//		HttpSession session = request.getSession();
-//		String name = (String)session.getAttribute("M_NAME");
-//		boardDTO.setName(name);
+		ArrayList<NoticeDTO> list = noticeService.noticeList(pi);
 		
-		
+		int row = listCount - (cpage -1) * boardLimit;
+		request.setAttribute("row", row);
+		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
-		RequestDispatcher view = request.getRequestDispatcher("views/board/noticeList.jsp");
+		
+		RequestDispatcher view = request.getRequestDispatcher("views/notice/noticeList.jsp");
 		view.forward(request, response);
 		
 	}
