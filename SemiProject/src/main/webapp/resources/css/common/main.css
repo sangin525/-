@@ -610,6 +610,7 @@ select:disabled {
 	align-items:center;
 	padding-left: 120px;
 }
+
 .dining-text h2{
 	font-size: 36px;
 }
@@ -617,3 +618,14 @@ select:disabled {
 .dining-text p{
 	font-size: 18px;
 }
+
+/* 위로 올리기 버튼 */
+.btn_gotop { 
+display: block; 
+position: fixed; 
+bottom: 35px;  
+right: 30px;  
+z-index: 999; 
+outline: none; 
+cursor: pointer; 
+} 

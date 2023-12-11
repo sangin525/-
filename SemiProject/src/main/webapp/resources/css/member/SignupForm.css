@@ -1,17 +1,3 @@
-@charset "UTF-8";
-
-.container {
-	padding: 5%;
-}
-
-.checkbox-container {
-	margin-bottom: 20px;
-}
-
-.custom-checkbox {
-	margin-top: 10px;
-}
-
 .left-btn {
 	width: 150px;
 	font-family: 'sejong';
@@ -33,8 +19,6 @@
 	font-size: 16px;
 	border-radius: 8px;
 	border: 2px solid rgb(224, 162, 86);
-	white-space: pre-line;
-    font-family: 'Courier New', monospace;
 }
 
 .form-control:focus {
@@ -44,7 +28,57 @@
 
 .input-form {
 	background-color: #fff8e5;
-	padding: 30px;
+	padding: 50px;
 	border-radius: 20px;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+	color: #e0a256;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #fdfdfd;
+	font-family: 'Nanum Gothic', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.Main_section {
+	flex: 1;
+}
+
+label {
+	margin-bottom: 5px;
+	color: #e0a256;
+	font-size: 16px;
+}
+
+.row {
+	margin-bottom: 20px;
+}
+
+.form-label {
+	font-weight: bold;
+	color: #e0a256;
+	font-size: 16px;
+}
+
+.mb-4 {
+	margin-bottom: 1.5rem !important;
+}
+
+.mb-2 {
+	margin-bottom: 1rem !important;
+}
+
+.text-center {
+	text-align: center !important;
+}
+
+.mb-5 {
+	margin-bottom: 3rem !important;
 }

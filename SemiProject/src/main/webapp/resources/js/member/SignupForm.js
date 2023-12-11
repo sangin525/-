@@ -31,7 +31,12 @@ function duplicateId() {
 	
 // 이메일 중복확인
 function duplicateEmail() {
-	const email = $("[name='M_EMAIL']").val();
+	var email = $("[name='M_EMAIL']").val();    
+    if (email === '') {
+        alert('이메일를 입력하세요.');
+        $("[name='M_EMAIL']").focus();
+        return false;
+    }
 
 	$.ajax({
 		type: "POST",
