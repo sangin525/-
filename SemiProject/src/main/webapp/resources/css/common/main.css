@@ -267,6 +267,8 @@ select:disabled {
    text-decoration: none;
    height: 180px;
    width: 100%;
+   position: relative;
+   z-index:1;
 }
 .Main_footer hr{
 	opacity:1;
@@ -651,12 +653,12 @@ z-index: 999;
 outline: none; 
 cursor: pointer; 
 } 
+/* 카카오봇 버튼 */
 .btn_kakao{
 	display: block; 
 position: fixed; 
 bottom: 120px;  
-right: 45px;  
-z-index: -1; 
+right: 45px;   
 outline: none; 
 cursor: pointer; 
 }
