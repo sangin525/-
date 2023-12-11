@@ -31,7 +31,7 @@
 				<script>
 					var mapContainer = document.getElementById('map'), // 지도의 중심좌표
 					mapOption = {
-						center : new kakao.maps.LatLng(37.398765975569994, 126.9207914112465), // 지도의 중심좌표
+						center : new kakao.maps.LatLng(37.5675214, 126.9866084), // 지도의 중심좌표
 						level : 3
 					// 지도의 확대 레벨
 					};
@@ -41,7 +41,7 @@
 					// 지도에 마커를 표시합니다 
 					var marker = new kakao.maps.Marker({
 						map : map,
-						position : new kakao.maps.LatLng(37.398765975569994, 126.9207914112465)
+						position : new kakao.maps.LatLng(37.5675214, 126.9866084)
 					});
 
 					// 커스텀 오버레이에 표시할 컨텐츠 입니다
@@ -58,9 +58,10 @@
 							+ '                <img src="/resources/uploads/호텔로고1.png" width="73" height="70">'
 							+ '           </div>'
 							+ '            <div class="desc">'
-							+ '                <div class="ellipsis">경기도 안양시 무슨구 무슨동 111-1</div>'
-							+ '                <div class="jibun ellipsis">(우) 11111 (지번) 안양시 만안구</div>'
-							+ '            </div>' + '        </div>'
+							+ '                <div class="ellipsis">서울 중구 청계천로 86 호텔하루</div>'
+							+ '                <div class="jibun ellipsis">(우) 11111 (지번) 서울 중구 </div>'
+							+ '					<div class="jibun ellipsis">호텔 번호 : 02-111-1111</div>'
+							+ '            </div>' + '     </div>'
 							+ '    </div>' + '</div>';
 
 					// 마커 위에 커스텀오버레이를 표시합니다
@@ -83,12 +84,12 @@
 				</script>
 				<br>
 				<div class="content-box">
-          			<h3>호텔 주소: 경기도 안양시 무슨구 무슨동 111-1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 호텔 번호: 031-111-1111</h3>
+          			<h3>호텔 주소: 서울 중구 청계천로 86 호텔하루 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 호텔 번호: 02-111-1111</h3>
           			<br>
           			<h4><strong>교통편</strong></h4>
-          			<p>1호선 안양역 => 1번출구에서 1번가쪽으로</p>
-          			<p>버스이용 => 8번, 10번, 88번, 3번 등등</p>
+          			<p>2호선 을지로입구역=> 4번출구에서 직진 후 좌회전</p>
+          			<p>버스이용 => 100번, 152번,261번, 472번 등등 이용</p>
           			<p>호텔버스이용 => 1시, 3시, 5시 서울역 1번출구에서 출발</p>
           			
           			
