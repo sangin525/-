@@ -10,17 +10,32 @@
 
 <title>BoardEnroll</title>
 </head>
-<body class="Main_body" onload="editorLoading('', '');">
+<body class="Main_body" onload="editorLoading('', '');" style = "background-color:white;">
 	<%@ include file="/views/common/header.jsp"%>
 	<%@ include file="/views/common/nav.jsp"%>
 
 
 	<section class="boardSection">
-
+		
+		<div style="border-bottom:3px solid #ffd2d2; margin-bottom:10px;">
+			<div class="divSort">
+				<h1 style="margin-bottom:0;">문의 사항</h1>
+				<li class="BoardEnrollLi">비밀글<input type="checkbox"></li>
+			</div>
+				<ul class="BoardEnrollUl">
+					<li>객실 문의<input type="checkbox"></li>
+					<li>예약 문의<input type="checkbox"></li>
+					<li>시설 문의<input type="checkbox"></li>
+					<li>회원가입 및 로그인 문의<input type="checkbox"></li>
+					<li>기타 문의<input type="checkbox"></li>
+				</ul>
+		</div>
+		
 		<div class="divCenter">
 			<h1>문의 사항</h1>
 		</div>
-		<form action ="/boardUpdate.do" method ="POST">
+		
+		<form action ="/boardUpdate.do" method ="POST" enctype="multipart/form-data">
 			<div class="boardEnroll">
 				<div class="divCenter2">
 					<input type="hidden" id="boardNo" name="boardNo" value="${sessionScope.boardNo}">
@@ -32,16 +47,16 @@
 				</div>
 			</div>
 			<div class="divCenter4">
-				<div class="divComments">
 					<!-- 파일 첨부 -->
-						<label for="fileInsert" class="input-file-button" style="width:70px; margin-right:10px;">파일 첨부</label>
-						<input type="file" id ="fileInsert" style="display:none;">
+					<div>
+						<label for="file" class="input-file-button" style="width:70px; margin-right:10px;">파일 첨부</label>
+						<input type="file" id ="file" name="file" style="display:none;" onchange="displayFileName(this)">
 					
-					<input class="upload-name" disabled>
+						<input class="upload-name" disabled>
+					</div>
 					
 					<button type="submit" class="right-btn-board" onclick="save()">제출</button>
 				</div>
-			</div>
 		</form>
 	</section>
 

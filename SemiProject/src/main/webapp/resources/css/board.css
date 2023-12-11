@@ -10,12 +10,10 @@
 
 .boardSection {
 	/* common 내용 */
-	max-width: 800px;
-	min-height:500px;
+	max-width: 1200px;
+	min-height:700px;
 	margin: 20px auto;
 	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	/* 추가 내용 */
 	height: 60%;
 	/* 정렬 */
@@ -32,22 +30,20 @@
 	align-items: center;
 	flex-direction: column;
 	/* 크기 */
-	width: 80%;
-	height: 300px;
-	/* box 꾸미기 */
-	border: 1px solid black;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-	border-radius: 15px;
-	
+	min-width:1100px;
+	min-height: 400px;
 	
 	border-collapse: separate;
     border-spacing: 0 10px; /* 여기서 10px는 간격을 나타냅니다. */
+    
+    /* boardList 사용 */
 	
 }
 
 .boardThead {
-	border-bottom: 3px solid black;
-	height: 50px;
+	min-width:1100px;
+	border-bottom: 3px solid red;
+	height: 70px;
 	text-align: center;
 	display: flex;
 	align-items: center;
@@ -55,70 +51,165 @@
 }
 
 .boardTbody {
-
+	min-width:1100px;
 	margin-bottom: 10px;
-	height: 50px;
-
+	height: 300px;
+	
+	display:flex;
+	align-items:center;
+	flex-direction:column;
 }
 
 .BoardTr:hover{
-	background-color: #ffc045;
+	background-color: #f5f5f5;
 	cursor: pointer;
 }
 
 .tdEmpty {
-	width: 500px;
+	min-width: 1000px;
 	height: 50px;
-	font-size: 12px;
+	font-size: 16px;
 	text-align: center;
 }
 
 .th1, .td1 {
 	/* 게시물 번호 */
-	width: 40px;
-	font-size: 12px;
+	width: 10%;
+	font-size: 16px;
 	text-align: center;
 }
 
 .th2, .td2 {
 	/* 제목 */
-	width: 250px;
-	font-size: 12px;
+	width: 40%;
+	font-size: 16px;
+	text-align: center;
 }
 
 .th3, .td3 {
 	/* 작성자 */
-	font-size: 12px;
-	width: 40px;
+	font-size: 16px;
 	text-align: center;
+	width: 10%;
 }
 
 .th4, .td4 {
 	/* 작성 날짜 */
-	font-size: 12px;
-	width: 100px;
+	font-size: 16px;
 	text-align: center;
+	width: 20%;
 }
 
 .th5, .td5 {
-	/* 작성 날짜 */
-	font-size: 12px;
-	width: 50px;
+	/* 조회수 */
+	font-size: 16px;
 	text-align: center;
+	width: 10%;
 }
 
 .th6, .td6 {
 	/* 작성 날짜 */
-	font-size: 12px;
-	width: 50px;
+	font-size: 16px;
 	text-align: center;
+	width: 10%;
+}
+
+thead.boardThead tr{
+	min-width:1000px;
+	display:flex;
+	justify-content:center;
+}
+
+tbody.boardTbody tr{
+	width:1000px;
+	
+	height:60px;
+	display:flex;
+	align-items:center;
 }
 
 /* -------------------------------- div 모음 -------------------------------- */
-.divHead {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+/* section 위쪽 내용 */
+.divSort {
+	display:flex;
+	justify-content:space-between;
+	min-width: 1000px;
+	align-items:flex-end;
+	/* boardList 사용 */
+}
+.divSort2{
+	display:flex;
+	justify-content:center;
+	min-width:1100px;
+	
+	/* boardList 사용 */
+}
+
+.divSort3{
+	background-color:#f5f5f5;
+	width:1050px;
+	height:100px;
+	margin-bottom:30px;
+	
+	display:flex;
+	flex-direction:row;
+	justify-content:space-evenly;
+	align-items:center;
+	/* boardList */
+	
+}
+
+.divSortAnswer{
+	background-color:#f5f5f5;
+	width:1050px;
+	height:140px;
+	margin-bottom:30px;
+	
+	display:flex;
+	flex-direction:row;
+	justify-content:space-evenly;
+	align-items:center;
+	/* boardDetail.answer */
+}
+
+.divFile{
+	display:flex;
+	flex-direction:row;
+	align-items:center;	
+}
+
+
+.divSort3Input{
+	padding:10px;
+	width:70%;
+	height:30%;
+	border:1px solid #ddd;
+	font-family:'sejong';
+	/* boardList */
+	
+}
+
+.divSort3 button{
+	width:100px;
+	height:53px;
+	
+	color:white;
+	font-family:'sejong';
+	font-weight: 900;
+	background-color:#da291c;
+	border:1px solid #ddd;
+	cursor:pointer;
+	/* boardList */
+}
+
+.detailSortInput{
+	padding:10px;
+	width:70%;
+	height:60px;
+	border:1px solid #ddd;
+	font-family:'sejong';
+	font-size:16px;
+	/* boardDetail */
 }
 
 .divHead2{
@@ -130,7 +221,11 @@
 .boardH1 {
 	margin: 10px;
 	padding: 0;
+	/* boardList 사용 */
 }
+
+
+
 
 .boardDiv {
 	/* boardDetail */
@@ -143,29 +238,39 @@
 
 .boardSpan {
 	/* boardDetail */
-	font-size: 10px;
+	font-size: 16px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+}
+.boardSpan2 {
+	/* boardDetail */
+	min-width:1000px;
+	font-size: 16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.boardInDate{
+	display:flex;
+	flex-direction:row;
+	/* boardDetail */
 }
 
 .boardRightDiv {
 	/* 우측 정렬 */
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: center;
 	flex-wrap: nowrap;
-	flex-direction: row;
-}
-
-.boardEnroll {
-	display: flex;
 	flex-direction: column;
-	width: 800px;
-	height: 415px;
+	align-items:flex-start;
+	margin-top:15px;
+	padding-bottom:20px;
+	border-bottom:1px solid black;
+	/* BoardDetail */
 }
 
-/* div 정렬 */
 .divCenter {
 	display: flex;
 	justify-content: center;
@@ -174,16 +279,32 @@
 
 .divRight {
 	display: flex;
-	justify-content: flex-end;
+	flex-direction:column;
+	/* divDetail */
+}
+
+.divbuttonSort{
+	display:flex;
+	justify-content:space-between;
+	/* boardDetail */
 }
 
 .divCenter2 {
+	min-width:1000px;
 	display: flex;
-	align-items: center;
 	flex-direction: column;
 	justify-content:flex-start;
-	width: 100%;
-	height: 380px;
+	height: 400px;
+	
+	/* boardEnroll, boardDetail */
+}
+
+.divAnswerBox{
+	min-width:1000px;
+	display: flex;
+	flex-direction: column;
+	justify-content:flex-start;
+	height:300px;
 }
 
 .divComments {
@@ -194,9 +315,11 @@
 	align-items: center;
 	
 	margin-bottom: 5px;
+	/* boardEnroll에서 삭제함 다른 곳 확인 후 삭제 예정 */
 }
 .answerInput{
 	display:none;
+	min-width:1000px;
 }
 
 .divCenter3 {
@@ -206,12 +329,17 @@
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+	/* boardDetail에서 삭제 */
 }
 
 .divCenter4 {
+	min-width:1000px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-between;
+	align-items:center;
+	
+	
+	/* boardEnroll */
 }
 
 .font14 {
@@ -279,8 +407,13 @@
     cursor: pointer;
 }
 
+.btnStyle{
+	margin-left:5px;
+	margin-right:15px;
+}
+
 .right-btn-board{
-    width: 50px;
+    width: 100px;
     font-family: 'sejong';
     font-size: 16px;
     border-radius: 5px;
@@ -289,38 +422,211 @@
     color: rgb(224, 162, 86);
     padding: 5px;
     cursor: pointer;
+    margin-right:10px;
+    
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    
+    /*  boardDetail 사용 */
 }
 
-.right-btn-board:hover  {
+.right-btn-board:hover {
     color: white;
     background-color: rgb(224, 162, 86);
+    /*  boardDetail 사용 */
+    
 }
 
+.detailBtnSpan{
+	display:flex;
+	flex-direction:row;
+	/* boardDetail */
+}
+
+.right-btn-board-Enroll{
+    width: 100px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgb(224, 162, 86);
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    margin-right:10px;
+    
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    
+    /* boardList, boardDetail 사용 */
+}
+
+.right-btn-board-Enroll:hover  {
+    border: 1px solid rgb(224, 162, 86);
+    color: black;
+    background-color: white;
+    
+    /* boardList, boardDetail 사용 */
+}
+
+
+.SortBtn{
+	position:relative;
+	background-color:white;
+	border: 1px solid #ddd;
+	color:gray;
+	width: 16%;
+	height:60px;
+	font-family:'sejong';
+	cursor:pointer;
+	
+	/* boardList 사용 */
+}
+
+.SortBtn:hover{
+	background-color: rgb(224, 162, 86);
+	color: white;
+}
+
+.SortBtn:after{
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 3px;
+   bottom: 3px;
+   left: 0;
+   background-color: white;
+   visibility: hidden;
+   transform: scaleX(0);
+   transition: all 0.3s ease-in-out;
+	
+}
+
+.SortBtn:hover:after {
+   visibility: visible;
+   transform: scaleX(1);
+}
+
+.answerSubmitBtn{
+	width: 15%; 
+	height: 80px; 
+	text-align:center;
+	
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgb(224, 162, 86);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    /* boardDetail */
+}
+
+
+.img{
+	margin-right:10px;
+}
+
+.BoardEnrollUl{
+	display:flex;
+	list-style:none;
+	padding:0;
+	padding-left:10px;
+	justify-content:space-between;
+	/* BoardEnroll */
+}
+
+.BoardEnrollLi{
+	list-style:none;
+		/* BoardEnroll */
+	
+}
+
+.BoardEnrollUl li{
+	margin-left:15px;
+	display:flex;
+	align-items:center;
+	/* BoardEnroll */
+}
+.BoardEnrollUl li input{
+	margin-left:10px;
+	width:20px;
+	height:20px;
+	/* BoardEnroll */
+	
+}
 
 /* ---------------------input 모음 ---------------------------- */
 .titleText {
-	width: 580px;
-	height: 10%;
+	width: 990px;
+	height: 40px;
 	resize: none;
 	padding: 10px;
+	padding-left: 20px;
 	margin-top: 10px;
-	border-radius: 15px;
+	margin-bottom:10px;
+	
 	border: 2px solid #A1A1A1;
 	font-family: 'sejong';
+	line-height:3;
+	
+	/* boardEnroll */
+}
+
+.titleText::placeholder{
+	line-height:3;
+	/* boardEnroll */
+}
+
+.detailtitleText{
+	width: 990px;
+	height: 40px;
+	resize: none;
+	padding: 10px;
+	padding-bottom:0;
+	margin-top: 10px;
+	margin-bottom:25px;
+	border:none;
+	
+	font-size:35px;
+	color:gray;
+	/* boardDetail */
 }
 
 .contentText {
-	width: 580px;
-	margin-top: 20px;
-	height: 70%;
-	padding: 10px;
-	resize: none;
-	border-radius: 15px;
-	border: 2px solid #A1A1A1;
-	font-family: 'sejong';
+	display:none;
+	/* boardEnroll */
 }
 
+.detailContent{
+	width:1000px;
+	padding:15px;
+	font-size:25px;
+}
+
+
 /* 댓글 모음 */
+.answerSortDiv{
+	min-width:1030px;
+	display:flex;
+	justify-content:flex-start;
+	/* boardDetail */
+}
+.answerSortDiv p{
+	font-size:32px;
+	display:flex;
+}
+.answerSortDiv img{
+	width:30px;
+}
+
+.answerContent{
+	padding-left: 5px; 
+	height: 80px;
+	font-size:20px;
+}
+
 .answerDiv{
 	width: 100%;
 	height: 150px;
@@ -328,16 +634,18 @@
 	justify-content: center;
 	flex-direction:column;
 	align-items:center;
+	/* boardDetail에서 삭제 */
 }
 .answerSpan{
 	width : 100%;
 	height: 20px;
 	flex-wrap: wrap;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
 	border-bottom: 1px solid black;
 	padding-bottom:5px;
+	/* boardDetail */
 	
 }
 .contentText2 {
@@ -347,16 +655,15 @@
 	padding: 10px;
 	resize: none;
 	font-size: 12px;
-	border-radius: 15px;
-	border: 2px solid #A1A1A1;
 	font-family: 'sejong';
 	overflow:auto;
+	
 }
 
-.contentText3 {
-	/* 댓글 작성 란 */
+/* .contentText3 {
+	댓글 작성 란
 	margin-top: 5px;
-	width: 100%;
+	width: 90%;
 	height: 20px;
 	padding: 10px;
 	resize: none;
@@ -364,23 +671,45 @@
 	border-radius: 15px;
 	border: 2px solid #A1A1A1;	
 	font-family: 'sejong';
-}
+} */
 
 
 /* Section 우측 상단 정보란 */
 .boardText {
+	width:150px;
 	padding-left: 5px;
 	padding-right: 5px;
+	margin:0;
+	/* boardDetail */
 }
+.boardDateText{
+	width:250px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin:0;
+}
+
 /* 댓글 위 상세 정보 모음 */
 .answerText{
-	width:70px;
+	width:150px;
 	padding-left: 5px;
 	padding-right: 15px;
 	margin-left: 10px;
 	margin: 0;
-	font-size:10px;
+	font-size:16px;
+	/* boardDetail */
 }
+.answerTextDate{
+	width:240px;
+	padding-left: 5px;
+	padding-right: 15px;
+	margin-left: 10px;
+	margin: 0;
+	font-size:16px;
+	/* boardDetail */
+}
+
+
 /* 답변 수정, 삭제 버튼 */
 .answerTextClick{
 	width:70px;
@@ -388,25 +717,30 @@
 	padding-right: 5px;
 	margin-left: 10px;
 	margin: 0;
-	font-size:10px;
+	font-size:16px;
 	cursor: pointer;
 	color: red;
 }
 
 /* ---------------------------------------- 게시판 및 공지사항 버튼 CSS ------------------------------- */
 .page-item-active a{
-	padding: 4px;
+	padding: 15px;
+	padding-top:10px;
+	padding-bottom:10px;
 	margin-right:3px;
 	border-radius: 5px;
 	color: white;
 	text-decoration: none;
 	border:1px solid rgb(224, 162, 86);
 	background-color:rgb(224, 162, 86);
-	  list-style-type: none;
+	list-style-type: none;
+	/* boardList 사용중 */
 }
 
 .page-item a{
-	padding: 4px;
+	padding: 15px;
+	padding-top:10px;
+	padding-bottom:10px;
 	margin-right:3px;
 	width: 15px;
 	border:1px solid #eee;
@@ -433,6 +767,13 @@
     height: 40px;
 }
 
+.detailP{
+	text-align:center;
+	font-size:45px;
+	margin:0;
+	/* boardDetail */
+}
+
 /* ------------------- 파일 첨부 ---------------------- */
 .input-file-button{
 	background-color: rgb(224, 162, 86);
@@ -448,13 +789,20 @@
 .upload-name{
 	resize: none;
 	font-size: 12px;
-	width: 220px;
+	width: 500px;
 	height: 25px;
-	margin-right: 170px;
-	
+	/* boardEnroll */
 }
 
 .smarteditor{
-	width:600px;
 	margin-top:10px;
+}
+
+.aBtn{
+	text-decoration: none;
+	color:rgb(224, 162, 86);
+	width:100%;
+}
+.aBtn:hover{
+	color:white;
 }

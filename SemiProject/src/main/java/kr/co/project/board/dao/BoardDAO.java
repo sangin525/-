@@ -15,40 +15,43 @@ public class BoardDAO {
 	private PreparedStatement pstmt;
 
 	// 문의사항 작성
-	public int boardEnroll(Connection con, String title, String content, int memberNo, String fileName, String uploadDirectory) {
-		String query = "INSERT INTO BOARD" + " VALUES(board_seq.nextval," // BOARD_NO
-				+ " ?," // M_NO
-				+ " ?," // BOARD_TITLE
-				+ " ?," // BOARD_CONTENT
-				+ " SYSDATE," // BOARD_ON_DATE
-				+ " NULL," // BOARD_IN_DATE
-				+ " NULL," // BOARD_DELETE
-				+ " 0," // BOARD_VIEWS
-				+ " ?," // BOARD_PHOTO
-				+ " ?," // BOARD_ROUTE
-				+ " 'N')"; // BOARD_ANSWER
+	public int boardEnroll(Connection con, String title, String content, int memberNo, String fileName, String uploadDirectory, String categoryHidden) {
+	    String query = "INSERT INTO BOARD" +
+	            " VALUES(board_seq.nextval," + // BOARD_NO
+	            " ?," + // M_NO
+	            " ?," + // BOARD_TITLE
+	            " ?," + // BOARD_CONTENT
+	            " SYSDATE," + // BOARD_ON_DATE
+	            " NULL," + // BOARD_IN_DATE
+	            " NULL," + // BOARD_DELETE
+	            " 0," + // BOARD_VIEWS
+	            " ?," + // BOARD_PHOTO
+	            " ?," + // BOARD_ROUTE
+	            " 'N'," + // BOARD_ANSWER
+	            " ?)"; // BOARD_CATEGORY
 
-		try {
-			pstmt = con.prepareStatement(query);
+	    try {
+	        pstmt = con.prepareStatement(query);
 
-			pstmt.setInt(1, memberNo);
-			pstmt.setString(2, title);
-			pstmt.setString(3, content);
-			pstmt.setString(4, fileName);
-			pstmt.setString(5, uploadDirectory);
+	        pstmt.setInt(1, memberNo);
+	        pstmt.setString(2, title);
+	        pstmt.setString(3, content);
+	        pstmt.setString(4, fileName);
+	        pstmt.setString(5, uploadDirectory);
+	        pstmt.setString(6, categoryHidden);
 
-			int result = pstmt.executeUpdate();
+	        int result = pstmt.executeUpdate();
 
-			pstmt.close();
-			con.close();
+	        pstmt.close();
+	        con.close();
 
-			return result;
+	        return result;
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 
-		return 0;
+	    return 0;
 	}
 
 	// 공지사항 작성
@@ -94,6 +97,7 @@ public class BoardDAO {
 		        + "B.BOARD_ON_DATE, "
 		        + "B.BOARD_VIEWS, "
 		        + "B.BOARD_ANSWER, "
+		        + "B.BOARD_CATEGORY, "
 		        + "M.M_NAME "
 		        + "FROM BOARD B "
 		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
@@ -115,6 +119,7 @@ public class BoardDAO {
 				String onDate = rs.getString("BOARD_ON_DATE");
 				int views = rs.getInt("BOARD_VIEWS");
 				String answer = rs.getString("BOARD_ANSWER");
+				String category = rs.getString("BOARD_CATEGORY");
 				String name = rs.getString("M_NAME");
 
 				BoardDTO board = new BoardDTO();
@@ -124,6 +129,7 @@ public class BoardDAO {
 				board.setOnDate(onDate);
 				board.setViews(views);
 				board.setAnswer(answer);
+				board.setCategoty(category);
 				board.setName(name);
 
 				list.add(board);

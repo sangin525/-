@@ -47,6 +47,8 @@ function test() {
 function answerInput() {
 	let input = document.getElementById("answerInput");
 	input.style.display = 'block';
+	
+	window.scrollTo(0,document.body.scrollHeight);
 
 }
 
@@ -93,4 +95,40 @@ function fileDownload(photo, route){
 	form.action = "/BoardDownload.do";
 	form.method = "POST";
 	form.submit();
+}
+
+function checkboxOnlyOne(category){
+	const checkbox = document.getElementsByName("category");
+	const hiddenCheckbox = document.getElementById("checkHidden");
+	checkbox.forEach((cb) => {
+		cb.checked = false;
+	})
+	category.checked = true;
+	hiddenCheckbox.value = category.checked ? category.value : "";
+}
+
+function checkboxCheck(){
+	const hiddenCheckbox = document.getElementById("checkHidden").value;
+	
+	if(hiddenCheckbox === ""){
+		alert("체크박스를 선택해주세요");
+		return false;
+	}
+	
+	return true;
+}
+
+
+function clickCategory(button) {
+    const categories = document.getElementsByName("category");
+
+    categories.forEach((category) => {
+        if (category === button) {
+            category.style.backgroundColor = "rgb(224, 162, 86)";
+            category.style.color = "white";
+        } else {
+            category.style.backgroundColor = "white";
+            category.style.color = "gray";
+        }
+    });
 }

@@ -33,6 +33,7 @@ public class BoardDTO {
 	private String photo; // 사진이름
 	private String route; // 사진경로
 	
+
 	// 리뷰 DTO
 	private String reviewTitle;
 	private String reviewContent;
@@ -47,6 +48,10 @@ public class BoardDTO {
 	private String reviewDeleteDate;
 	private List<String> reviewPhotos;
 	private String reviewRoute1;
+
+
+	private String Checkbox; // 문의사항 체크박스
+	private String categoty; // 카테고리 분류
 
 
 
@@ -327,6 +332,22 @@ public class BoardDTO {
 
 	public void setAnswerContent(String answerContent) {
 		this.answerContent = answerContent;
+	}
+
+	public String getCheckbox() {
+		return Checkbox;
+	}
+
+	public String getCategoty() {
+		return categoty;
+	}
+
+	public void setCategoty(String categoty) {
+		this.categoty = categoty;
+	}
+
+	public void setCheckbox(String checkbox) {
+		Checkbox = checkbox;
 	}
 
 	public BoardDTO() {
