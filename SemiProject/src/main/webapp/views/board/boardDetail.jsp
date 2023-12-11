@@ -8,113 +8,134 @@
 <script src="/resources/js/board/board.js"></script>
 <title>BoardList</title>
 </head>
-<body class="Main_body">
+<body class="Main_body" style="background-color:white;">
 	<%@ include file="/views/common/header.jsp"%>
 	<%@ include file="/views/common/nav.jsp"%>
 
-
 	<section class="boardSection">
 		<form id="board-datail-form">
+			<p class="detailP">문의게시판</p>
+			<!-- boardTitle -->
+			<div name="boardTitle" id="boardTitle" class="detailtitleText">${board.title}</div>
+			
+			<!-- 세부정보 -->
 			<div class="boardRightDiv">
+			
+				<!-- hidden input 모음 -->
 				<input type="hidden" id="boardNo" name="boardNo" value="${board.boardNo}"> 
-					<input type="hidden" name="boardViews" value="${board.title}"> 
-					<input type="hidden" name="boardMemberNo" value="${board.m_No}"> 
+				<input type="hidden" name="boardViews" value="${board.title}"> 
+				<input type="hidden" name="boardMemberNo" value="${board.m_No}"> 
+				
+				<!-- 주요 세부정보 모음 -->
+				<span class="boardSpan">
+					<img src="/resources/boardIcon/file-earmark.svg"/><p class="boardText">게시물 번호 : ${board.boardNo}</p>
+					<img src="/resources/boardIcon/eye.svg"/><p class="boardText" id="boardViews" name="boardViews">조회수 : ${board.views}</p>
+				</span> 
+				<span class="boardSpan2">
 					<span class="boardSpan">
-					<p class="boardText">게시물 번호 : ${board.boardNo}</p>
-					<p class="boardText" id="boardViews" name="boardViews">조회수 :
-						${board.views}</p>
-					<p class="boardText" id="boardName" name="boardName">작성자 :
-						${board.name}</p>
-				</span> <span class="boardSpan">
-					<p class="boardText" id="boardInDate" name="boardInDate">수정날짜 :
-						${board.inDate}</p>
+						<img src="/resources/boardIcon/person-fill.svg"/><p class="boardText" id="boardName" name="boardName">작성자 : ${board.name}</p>
+					</span>
+					<span class="boardInDate">
+						<img src="/resources/boardIcon/calendar-fill.svg"/><p class="boardDateText" id="boardInDate" name="boardInDate">수정날짜 : ${board.inDate}</p>
+					</span>
 				</span>
 			</div>
 
-			<!-- Title, Content -->
-			<div class="boardEnroll">
+			<!-- Content -->
 				<div class="divCenter2">
-					<textarea name="boardTitle" id="boardTitle" cols="30" rows="10"
-						class="titleText" required disabled>${board.title}</textarea>
-					<div name="boardContent" id="boardContent" class="contentText">${board.content}</div>
+					<!-- **Content Div -->
+					<div name="boardContent" id="boardContent" class="detailContent">${board.content}</div>
 				</div>
-
+				
+			<!-- 첨부파일 및 수정, 삭제 등 버튼 모음 -->
+			
 				<c:if test="${sessionScope.no == board.m_No}">
 					<div class="divRight" style="margin-top: 5px">
 						<input name="route" id="route" type="hidden" value="${board.route}">
 						<c:set var="btn" value="0"></c:set>
 						<c:if test="${not empty board.photo}">
-							<div style ="margin-right: 300px;">
-							    첨부 파일 : <a id="photo" name="photo" onclick="fileDownload('${board.photo}','${board.route}')" 
+						<!-- 첨부파일 -->
+							<div class="divFile">
+							    <p>첨부 파일 : </p><a id="photo" name="photo" onclick="fileDownload('${board.photo}','${board.route}')" 
 							    href="/BoardDownload.do?filePath=${board.route}&fileName=${URLEncoder.encode(board.photo, 'UTF-8')}" target="_blank">${board.photo}</a>
 							</div>
 						</c:if>
-						<button id="modifyBtn" type="button" onclick="boardUpdateFormSend()" class="right-btn-board" style="margin-right: 20px;">수정</button>
-						<button onclick="boardDelete()" class="right-btn-board" style="margin-right: 110px;">삭제</button>
+						<div class="divbuttonSort">
+							<span class="detailBtnSpan">
+								<button id="modifyBtn" type="button" onclick="boardUpdateFormSend()" class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/pen.svg">수정</button>
+								<button onclick="boardDelete()" class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/trash3.svg">삭제</button>
+							</span>
+							<span class="divbuttonSort">
+								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/list-task.svg"><a class="aBtn" href="/BoardList.do?cpage=1">목록</a></div>
+								<button class=right-btn-board-Enroll><img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg">글 작성</button>
+							</span>
+						</div>
 					</div>
-				</c:if>
-			</div>
+				 </c:if>
 		</form>
 
 
-
-
 		<!-- 댓글 -->
-
-			<div class="divCenter2" style="height:170px;">
-				<input type="hidden" id="boardNo" name="boardNo" value="${board.boardNo}">
+			<div class="answerSortDiv">
+			 	<p><img class="img" src="/resources/boardIcon/chat-dots.svg">댓글 목록</p>
+			</div>
+			
+			<div class="divAnswerBox">
 				<!-- boardNo 받아오는 Hidden 값 -->
-				<div class="divCenter3">
-					<!-- List -->
-					<div class="answerDiv">
-						<div class="contentText2" style="height: 120px;">
+				<input type="hidden" id="boardNo" name="boardNo" value="${board.boardNo}">
+				
+						<div class="contentText2">
 							<span class="answerSpan">
 								<p class="answerText">작성자 : ${board.answerWriter}</p>
-								<p class="answerText" style="width: 150px;">작성 날짜 : ${board.answerOnDate}</p>
-								<p class="answerText" style="width: 150px; padding-right:35px;">수정 날짜 : ${board.answerInDate}</p>
+								<p class="answerTextDate">작성 날짜 : ${board.answerOnDate}</p>
+								<p class="answerTextDate">수정 날짜 : ${board.answerInDate}</p>
 								<input type="hidden" value="${board.answerNo}" name="answerNo">
-								<c:if test="${sessionScope.admin eq 'Y'}">
-									<c:choose>
-										<c:when test="${board.answerContent eq null}">
-											<a onclick="answerInput();" class="answerTextClick"
-											style="width: 30px; text-align: center;">작성</a> 
-										</c:when>
-										<c:otherwise>
-											<a onclick="answerInput();" class="answerTextClick"
-											style="width: 30px; text-align: center;">수정</a> 
-										</c:otherwise>
-									</c:choose>
-										<a onclick="answerDelete();" class="answerTextClick"
-										style="width: 30px; text-align: center;">삭제</a>
-								</c:if>
+								
+								<div>
+									<c:if test="${sessionScope.admin eq 'Y'}">
+										<c:choose>
+											<c:when test="${board.answerContent eq null}">
+												<a onclick="answerInput();" class="answerTextClick"
+												style="width: 30px; text-align: center;">작성</a> 
+											</c:when>
+											<c:otherwise>
+												<a onclick="answerInput();" class="answerTextClick"
+												style="width: 30px; text-align: center;">수정</a> 
+											</c:otherwise>
+										</c:choose>
+											<a onclick="answerDelete();" class="answerTextClick"
+											style="width: 30px; text-align: center;">삭제</a>
+									</c:if>
+								</div>
 							</span>
 								
-							<p style="padding-left: 5px; height: 80px;">${board.answerContent}</p>
+							<p class="answerContent">${board.answerContent}</p>
 						</div>
 					</div>
-				</div>
-			</div>
 
-				<!-- action="answerEnroll.do" method="POST" -->
+
 				<form action="answerEnroll.do" method="POST" id="answer-form">
-							<!-- 답변 입력칸 -->
+					<!-- 답변 입력칸 -->
 					<input type="hidden" id="answerNo" name="answerNo" value="${board.answerNo}"> 
 					<input type="hidden" id="boardNo" name="boardNo" value="${board.boardNo}"> 
+						
+						<!-- Default값 display:none -->					
 					<div id="answerInput" class="answerInput">
-						<div class="divComments">
-							<textarea name="comment" id="comment" cols="30" rows="10"
-								class="contentText3" placeholder="답변을 입력해주세요"></textarea>
+					
+					
+						<div class="divSortAnswer">
+							<input name="comment" id="comment" 
+								class="detailSortInput" placeholder="답변을 입력해주세요">
 									
 									<c:choose>
 										<c:when test="${board.answerContent eq null}">
 											<!-- Enroll submit 버튼 -->
 											<button name="answerEnroll" id="answerEnroll" type="submit"
-											class="right-btn-board"
-											style="width: 15%; height: 41px; margin-top: 5px; margin-left: 5px;">입력</button>
+											class="answerSubmitBtn">입력</button>
 										</c:when>
 										<c:otherwise>
 											<!-- Update submit 버튼 -->
-											<button type="button" class="right-btn-board" onclick="answerUpdate();" style="width: 15%; height: 41px; margin-top: 5px; margin-left: 5px;">수정</button>
+											<button type="button" class="answerSubmitBtn" onclick="answerUpdate();">수정</button>
 										</c:otherwise>
 									</c:choose>
 								</div>
