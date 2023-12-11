@@ -73,11 +73,28 @@ public class reviewEnrollController extends HttpServlet {
 		    reviewPhoto1 = reviewPhotos.get(0);
 		}
 		for(Part part : parts) {
-		    List<String> fileName = getReviewPhotos(part);
+		    List<String> fileNames = getReviewPhotos(part);
 
-		    if(fileName != null && !fileName.isEmpty()) {
-		        part.write(reviewRoute + File.separator + fileName);
-		        reviewPhotos.addAll(fileName);
+		    if(fileNames != null && !fileNames.isEmpty()) {
+		        for(String fileName : fileNames) {
+		        	File file = new File(reviewRoute + File.separator + fileName.trim());
+		            if(file.exists()) { // 파일이 이미 존재하는 경우
+		                // 새로운 파일 이름 생성
+		                String nameWithoutExtension = fileName.substring(0, fileName.lastIndexOf("."));
+		                String extension = fileName.substring(fileName.lastIndexOf("."));
+		                int count = 0;
+		                while(file.exists()) {
+		                    count++;
+		                    String newFileName = nameWithoutExtension.trim() + "[" + count + "]" + extension;
+		                    file = new File(reviewRoute + File.separator + newFileName);
+		                }
+		                fileName = file.getName();
+		            }
+
+		            // 이 부분에 실제로 파일을 쓰는 코드를 추가하시면 됩니다.
+		            part.write(file.toString());
+		            reviewPhotos.add(fileName);
+		        }
 		    }
 		}
 
@@ -108,7 +125,7 @@ public class reviewEnrollController extends HttpServlet {
 		
 		// 4. 성공 유무에 따라 처리
 		if(result > 0) {
-			response.sendRedirect("/views/board/reviewEnroll.jsp");
+			response.sendRedirect("/reviewList.do");
 		} else {
 			RequestDispatcher view = request.getRequestDispatcher("/test");
 			view.forward(request, response);

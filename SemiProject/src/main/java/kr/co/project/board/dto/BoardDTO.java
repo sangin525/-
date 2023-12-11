@@ -33,8 +33,18 @@ public class BoardDTO {
 	private String photo; // 사진이름
 	private String route; // 사진경로
 	
+	
 
 	// 리뷰 DTO
+	private String id;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	private String reviewTitle;
 	private String reviewContent;
 	private String reviewNo;
@@ -375,6 +385,26 @@ public class BoardDTO {
 		this.title = title;
 		this.content = content;
 		this.boardNo = boardNo;
+	}
+
+	public BoardDTO(String id, String reviewTitle, String reviewContent, String reviewNo, String room, String year,
+			String month, String type, String star, String reviewInDate, String reviewUpdateDate,
+			String reviewDeleteDate, List<String> reviewPhotos, String reviewRoute1) {
+		super();
+		this.id = id;
+		this.reviewTitle = reviewTitle;
+		this.reviewContent = reviewContent;
+		this.reviewNo = reviewNo;
+		this.room = room;
+		this.year = year;
+		this.month = month;
+		this.type = type;
+		this.star = star;
+		this.reviewInDate = reviewInDate;
+		this.reviewUpdateDate = reviewUpdateDate;
+		this.reviewDeleteDate = reviewDeleteDate;
+		this.reviewPhotos = reviewPhotos;
+		this.reviewRoute1 = reviewRoute1;
 	}
 	
 	

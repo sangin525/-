@@ -10,6 +10,7 @@ public class ReviewPageInfo {
 	private int startPage;
 	private int endPage;
 	private int offset;
+	
 	public int getReviewListCount() {
 		return ReviewListCount;
 	}
