@@ -17,7 +17,7 @@
    <div class="Signin-signup">
   <c:choose>
         <c:when test="${sessionScope.id != null}"> 
-           <a href="/MyPageForm.do" class="Main_a">마이페이지</a>                       `
+           <a href="/MyPageForm.do" class="Main_a">마이페이지</a>                       
            <a href="/SignOut.do" class="Main_a">로그아웃</a>
         </c:when>
         <c:otherwise>

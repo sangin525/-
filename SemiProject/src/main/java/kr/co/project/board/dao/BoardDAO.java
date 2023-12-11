@@ -547,4 +547,53 @@ public class BoardDAO {
 		
 	}
 
+		// 리뷰 작성
+		public int reviewEnroll(Connection con, BoardDTO board, int no) {
+			// 1. 쿼리작성
+			String query = "INSERT INTO review"
+					+ "		VALUES(REVIEW_SEQ.nextval," // 리뷰번호
+					+ "				?," // 제목
+					+ "				?," // 내용
+					+ "				?," // 룸이름
+					+ "				?," // 숙박연도
+					+ "				?," // 숙박월
+					+ "				?," // 누구랑
+					+ "				?," // 별점
+					+ "				?," // 사진이름
+					+ "				?," // 사진경로
+					+ "				sysdate," // 리뷰작성일
+					+ "				null,"	// 리뷰수정일
+					+ "				null," // 리뷰삭제일
+					+ "				?)"; // 멤버번호
+			String reviewPhotos = String.join(",", board.getReviewPhotos());
+			// 2. 쿼리실행준비
+			try {
+				pstmt = con.prepareStatement(query);
+				// 3. 물음표 있으면 채우고
+				pstmt.setString(1, board.getReviewTitle());
+				pstmt.setString(2, board.getReviewContent());
+				pstmt.setString(3, board.getRoom());
+				pstmt.setString(4, board.getYear());
+				pstmt.setString(5, board.getMonth());
+				pstmt.setString(6, board.getType());
+				pstmt.setString(7, board.getStar());
+				pstmt.setString(8, reviewPhotos);
+				pstmt.setString(9, board.getReviewRoute1());
+				pstmt.setInt(10, no);
+				
+				// 4. 실행
+				int result = pstmt.executeUpdate();
+				// 5. DB 연결종료
+				pstmt.close();
+				con.close();
+				
+				return result;
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return 0;
+		}
+
 }

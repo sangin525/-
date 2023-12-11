@@ -44,5 +44,9 @@ public interface BoardService {
 	// 내 게시글 목록 조회
 	public ArrayList<BoardDTO> myBoardList(MyBoardPageInfo pi, int no);
 	
-	
+	// 리뷰 작성
+	public int reviewEnroll(BoardDTO board, int no);
+	// 리뷰 List up
+	public ArrayList<BoardDTO> boardList(BoardPageInfo pi);
+
 }

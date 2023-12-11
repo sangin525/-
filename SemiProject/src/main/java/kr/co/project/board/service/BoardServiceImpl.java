@@ -93,4 +93,9 @@ public class BoardServiceImpl implements BoardService{
 	public ArrayList<BoardDTO> myBoardList(MyBoardPageInfo pi, int no){
 		return boardDAO.myBoardList(con, pi, no);
 	}
+	
+	// 리뷰 작성
+	public int reviewEnroll(BoardDTO board, int no) {
+		return boardDAO.reviewEnroll(con, board, no);
+	}
 }

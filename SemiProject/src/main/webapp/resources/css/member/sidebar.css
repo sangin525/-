@@ -10,6 +10,7 @@
     position: relative;
     font-family: 'sejong';
     z-index:0;
+    margin-top:70px;
 }
 
 .wrapper #sidebar{
@@ -18,7 +19,7 @@
     width: 240px;
     background: bisque;
     overflow: hidden;
-
+	
 }
 
 #sidebar .sidebar-title{
