@@ -28,11 +28,11 @@
 
 .input-form {
     background-color: #fff8e5;
-    padding: 50px;
+    padding: 120px;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 800px;
+    width: 100%;
+    max-width: max-content;
     margin: 0 auto;
 }
 
