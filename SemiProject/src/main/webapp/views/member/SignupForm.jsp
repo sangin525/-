@@ -24,7 +24,7 @@
 			<div class="row justify-content-center">
 				<div>
 					<div class="input-form">
-						<h4 class="mb-4 text-center">회원가입</h4>
+						<h2 class="mb-4 text-center">회원가입</h2>
 						<form name="frm" action="Signup.do" method="POST"
 							onsubmit="return sendChk()">
 							<input type="hidden" id="checked_id" name="checked_id" value="n">
