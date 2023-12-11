@@ -267,8 +267,6 @@ select:disabled {
    text-decoration: none;
    height: 180px;
    width: 100%;
-   position: relative;
-   z-index:1;
 }
 .Main_footer hr{
 	opacity:1;
@@ -350,13 +348,13 @@ select:disabled {
 
 /* 이미지 안 text */
 .text-image1{
-	font-size:68px;
-	position: absolute;
+   font-size:68px;
+   position: absolute;
     top: 33%;
     left: 50%;
     transform: translate( -50%, -50% );
-  	color: bisque;
-  	animation: fadeInUp 3s ease-out forwards;
+     color: bisque;
+     animation: fadeInUp 3s ease-out forwards;
 }
 @keyframes fadeInUp {
     from {
@@ -389,7 +387,6 @@ select:disabled {
         transform: translate(-50%, 0px);
     }
 }
-
 /* 주변 할것들 사진 및 css */
   .Main_sectio {
     display: flex;
@@ -641,12 +638,12 @@ z-index: 999;
 outline: none; 
 cursor: pointer; 
 } 
-/* 카카오봇 버튼 */
 .btn_kakao{
 	display: block; 
 position: fixed; 
 bottom: 120px;  
-right: 45px;   
+right: 45px;  
+z-index: -1; 
 outline: none; 
 cursor: pointer; 
 }
