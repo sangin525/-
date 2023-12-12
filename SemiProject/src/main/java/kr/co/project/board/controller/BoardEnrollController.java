@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.service.BoardServiceImpl;
 
 @WebServlet("/boardEnroll.do")
@@ -35,13 +36,19 @@ public class BoardEnrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		String content = request.getParameter("contents");
+		
+		BoardDTO board = new BoardDTO();
+		String categoryHidden = request.getParameter("checkHidden");
+		
 
+		
 		HttpSession session = request.getSession();
 		int memberNo = (Integer) session.getAttribute("no");
 
 //		파일 업로드 처리 추가
 		Collection<Part> parts = request.getParts();
-		String uploadDirectory = "C:\\Users\\jshai\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";
+
+		String uploadDirectory = "C:\\Users\\kaw19\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";	
 
 		File filePath = new File(uploadDirectory);
 		if (!filePath.exists()) {
@@ -51,7 +58,6 @@ public class BoardEnrollController extends HttpServlet {
 
 		for (Part part : parts) {
 			fileName = getFileName(part);
-			System.out.println(fileName);
 			if (fileName != null) {
 				if (!fileName.equals("")) {
 					part.write(filePath + File.separator + fileName);
@@ -62,7 +68,8 @@ public class BoardEnrollController extends HttpServlet {
 		BoardServiceImpl boardService = new BoardServiceImpl();
 
 		// 실행
-		int result = boardService.boardEnroll(title, content, memberNo, fileName, uploadDirectory);
+		
+		int result = boardService.boardEnroll(title, content, memberNo, fileName, uploadDirectory, categoryHidden);
 		if (result > 0) {
 			response.sendRedirect("/BoardList.do?cpage=1");
 		} else {

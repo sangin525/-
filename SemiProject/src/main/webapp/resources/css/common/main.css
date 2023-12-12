@@ -268,8 +268,21 @@ select:disabled {
    text-decoration: none;
    height: 180px;
    width: 100%;
+   position: relative;
+   z-index:1;
 }
-
+.Main_footer hr{
+	opacity:1;
+	    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
 .Main_footer img {
    width: 150px;
    height: 150px;
@@ -501,7 +514,7 @@ select:disabled {
 .main-membership{
 	display:flex;
 	justify-content: center;
-	margin-top: 130px;
+	padding-top: 130px;
 }
 
 .membership-img{
@@ -557,7 +570,7 @@ select:disabled {
 .main-dining{
 	display:flex;
 	justify-content: center;
-	margin-top: 150px;
+	padding: 50px;
 }
 
 .dining-img{
@@ -566,6 +579,19 @@ select:disabled {
 	flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    width: 600px;
+    height: 800px;
+    overflow: hidden;
+}
+
+.dining-img img{
+	width: 600px;
+	height: 800px;
+}
+
+.dining-img img:hover{
+	transform: scale(1.1, 1.1);
+	transition-duration: 0.5s;
 }
 .dining-img img{
 	width:600px;
@@ -590,13 +616,14 @@ select:disabled {
 }
 
 .dining-text{
-		display: flex;
+	display: flex;
 	flex-direction: column;
     justify-content: center;
 	text-align: center;
 	align-items:center;
 	padding-left: 120px;
 }
+
 .dining-text h2{
 	font-size: 36px;
 }
@@ -605,3 +632,22 @@ select:disabled {
 	font-size: 18px;
 }
 
+/* 위로 올리기 버튼 */
+.btn_gotop { 
+display: block; 
+position: fixed; 
+bottom: 35px;  
+right: 30px;  
+z-index: 999; 
+outline: none; 
+cursor: pointer; 
+} 
+/* 카카오봇 버튼 */
+.btn_kakao{
+	display: block; 
+position: fixed; 
+bottom: 120px;  
+right: 45px;   
+outline: none; 
+cursor: pointer; 
+}
