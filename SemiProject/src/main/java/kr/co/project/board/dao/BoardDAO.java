@@ -287,7 +287,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
-	// 게시글 수정
+	// 문의사항 수정
 	public int boardUpdate(Connection con, BoardDTO board) {
 		String query = "UPDATE BOARD"
 				+ "	SET	BOARD_TITLE = ?,"

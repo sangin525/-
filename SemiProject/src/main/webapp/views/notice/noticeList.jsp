@@ -21,7 +21,9 @@
 			</div>
 			<div style="align-self: flex-start;">	
 				<!-- 이 부분에 admin만 추가 가능한 조건 삽입하기-->	
-				<button class="right-btn-board-Enroll" onclick="noticeEnrollBtn()"> <img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg"> 글 쓰기</button>				
+				<c:if test="${sessionScope.admin eq 'Y'}">
+					<button class="right-btn-board-Enroll" onclick="noticeEnrollBtn()"> <img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg"> 글 쓰기</button>				
+				</c:if>
 				<input type="hidden" id="test" value="${sessionScope.no}">
 			</div>
 		</div>

@@ -17,5 +17,14 @@ public interface NoticeService {
 	public int noticeView(int boardNo);
 	// 공지사항 상세보기
 	public void noticeSelect(NoticeDTO notice);
-	
+	// 공지사항 수정
+	public int noticeUpdate(NoticeDTO notice);
+	//공지사항 삭제
+	public int noticeDelete(int BoardNo);
+	// 답변 추가
+	public int commentEnroll(String comment,String name, int boardNo);
+	// 답변 수정
+	public int commentDetailUpdate(String content, int commentNo);
+	// 답변 삭제
+	public int commentDelete(int commentNo);
 }
