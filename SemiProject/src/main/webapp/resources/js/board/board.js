@@ -3,6 +3,11 @@ function detailPage(boardNo) {
 	window.location.href = pageUrl;
 }
 
+function NoticedetailPage(boardNo) {
+	const pageUrl = '/NoticeDetail.do?boardNo=' + boardNo;
+	window.location.href = pageUrl;
+}
+
 function boardUpdate() {
 	const form = document.getElementById("board-datail-form");
 
@@ -28,6 +33,7 @@ function boardUpdateFormSend() {
 	form.submit();
 }
 
+/* 게시글 추가 버튼 */
 function boardEnrollBtn() {
 	const test = document.getElementById("test").value;
 	if (test === '') {
@@ -38,11 +44,19 @@ function boardEnrollBtn() {
 		location.href = 'views/board/boardEnroll.jsp';
 	}
 }
+/* 게시글 추가 버튼 */
+function noticeEnrollBtn() {
+	const test = document.getElementById("test").value;
+	if (test === '') {
+		alert("로그인을 해주시길 바랍니다.");
+		location.href = 'views/member/Signin.jsp';
 
-function test() {
-	alert("Hello");
-
+	} else {
+		location.href = 'views/notice/noticeEnroll.jsp';
+	}
 }
+
+
 
 function answerInput() {
 	let input = document.getElementById("answerInput");
