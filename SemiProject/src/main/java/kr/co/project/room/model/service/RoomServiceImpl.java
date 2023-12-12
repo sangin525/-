@@ -116,4 +116,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public ArrayList<RoomDTO> itemView(String optionValue) {
+		return roomDAO.itemView(con, optionValue);
+	}
+
+
 }

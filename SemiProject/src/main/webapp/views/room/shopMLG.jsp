@@ -20,36 +20,66 @@
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
 <section class="Main_section" id="section_main">
-<h3>상품내용</h3>
+<!-- <select id="optionSelect" onchange="optionValue()"> -->
+	<button value="전체" onclick="optionValue(event)">--전체보기--</button>
+	<button value="식사" onclick="optionValue(event)">식사권</button>
+	<button value="침구류" onclick="optionValue(event)">침구류</button>
+	<button value="굿즈" onclick="optionValue(event)">굿즈</button>
+	<button value="시즌상품" onclick="optionValue(event)">시즌상품</button>
+<!-- </select><br> -->
 <button id="basketMoveBtn" value="장바구니" onclick="movePagePay(event)">장바구니로 이동</button>
 <button id="payBasketMoveBtn" value="상품결제내역" onclick="movePagePay(event)">상품결제내역으로 이동</button>
-<select >
-	<option>--전체상품 보기--</option>
-	<option value="아침식사">아침식사</option>
-	<option value="점심식사">점심식사</option>
-	<option value="저녁식사">저녁식사</option>
-</select><br>
-<c:forEach var="item" items="${food}">
-
-	<c:set var="count" value="${count+1}"></c:set>
-<div id="foodInfoDiv">
-	<ul id="foodInfoUl">
-		<li> 
-			<div id="pageChange" onclick="foodDetail('${item.foodName}')">
-				<img alt="" src="${item.foodPhoto1}" id="foodInfoImg">
-				<p><em>[하루호텔]</em></p>
-				<p>상품이름 : ${item.foodName}</p>
-				<p>상품정보 : ${item.foodInfo}</p>
-			</div>
-			<hr>
-			<div>
-				<p>상품가격 : <em>KRW</em> : ${item.foodPrice} </p>
-			</div>
-		</li>
-	</ul>
-</div>
-
-</c:forEach>
+<h3>상품내용</h3>
+<c:choose>
+	<c:when test="${!empty itemList}">
+		<c:forEach var="item" items="${itemList}">
+		
+			<c:set var="count" value="${count+1}"></c:set>
+		<div id="foodInfoDiv">
+			<ul id="foodInfoUl">
+				<li> 
+					<div id="pageChange" onclick="foodDetail('${item.foodName}')">
+						<img alt="" src="${item.foodPhoto1}" id="foodInfoImg">
+						<p><em>[하루호텔]</em></p>
+						<p>상품이름 : ${item.foodName}</p>
+						<p>상품정보 : ${item.foodInfo}</p>
+					</div>
+					<hr>
+					<div>
+						<p>상품가격 : <em>KRW</em> : ${item.foodPrice} </p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		</c:forEach>
+	</c:when>
+	
+	<c:otherwise>
+		<c:forEach var="item" items="${food}">
+		
+			<c:set var="count" value="${count+1}"></c:set>
+		<div id="foodInfoDiv">
+			<ul id="foodInfoUl">
+				<li> 
+					<div id="pageChange" onclick="foodDetail('${item.foodName}')">
+						<img alt="" src="${item.foodPhoto1}" id="foodInfoImg">
+						<p><em>[하루호텔]</em></p>
+						<p>상품이름 : ${item.foodName}</p>
+						<p>상품정보 : ${item.foodInfo}</p>
+					</div>
+					<hr>
+					<div>
+						<p>상품가격 : <em>KRW</em> : ${item.foodPrice} </p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		</c:forEach>
+	
+	</c:otherwise>
+</c:choose>
  
 
 
