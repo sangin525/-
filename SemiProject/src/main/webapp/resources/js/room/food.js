@@ -121,7 +121,15 @@ function movePagePay(event){
 }
 
 
-
+function optionValue(event){
+	if(event.target.value == "전체"){
+		window.location.href = "/foodInfo.do";
+	}else{
+		window.location.href = "/ItemView.do?optionValue="+event.target.value;
+	}
+	
+	
+}
 
 
 
