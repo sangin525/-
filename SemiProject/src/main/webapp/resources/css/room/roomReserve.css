@@ -17,7 +17,8 @@
 }
 
 #left-btn{
-    width: 150px;
+    width: 200px;
+    height: 80px;
     font-family: 'sejong';
     font-size: 16px;
     border-radius: 5px;
@@ -32,8 +33,9 @@
     color: white;
     background-color: rgb(224, 162, 86);
 }
-#Write-btn{
-    width: 150px;
+#Write-btn {
+    width: 200px;
+    height: 80px;
     font-family: 'sejong';
     font-size: 16px;
     border-radius: 5px;
@@ -43,9 +45,102 @@
     padding: 5px;
     cursor: pointer;
 }
-
+#Chkbutton{
+	width: 150px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+#Chkbutton:hover {
+    color: white;
+    background-color: rgb(224, 162, 86);
+}
 #Write-btn:hover {
     color: white;
     background-color: rgb(224, 162, 86);
 }
+.addMoneyBtn{
+	width: 100px;
+    font-family: 'sejong';
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    padding: 5px;
+    cursor: pointer;
+}
+.addMoneyBtn:hover{
+	color: white;
+    background-color: rgb(224, 162, 86);
+}
+
+
+.mypage-table{
+    width: 100%;
+    text-align: center;
+    border-top: rgb(205, 202, 191) solid 2px;
+    border-bottom: rgb(205, 202, 191) solid 2px;
+}
+
+.table-title {
+    font-size: 24px;
+    border-bottom: 3px solid black;
+}
+
+.mypage-thead td{
+    display: table-cell;
+    font-weight: bold;
+    color: #666;
+    background: #eae5cb;
+    border-right: #eceae1 solid 1px;
+    border-bottom: #eceae1 solid 1px;
+}
+
+
+.mypage-tbody td{
+    display: table-cell;
+    font-weight: bold;
+    color: #666;
+    border-right: #eceae1 solid 1px;
+    border-bottom: #eceae1 solid 1px;
+}
+
+.tr_info th, .tr_info td{
+    border: none;
+    padding: 6px 13px;
+    line-height: 22px;
+    border-bottom: #eceae1 solid 1px;
+}
+
+.tr_info th {
+    width: 20%;
+	display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    background: #eae5cb;
+}
+
+.tr_info td{
+    text-align: left;
+
+}
+
+body{
+	margin: 0px;
+}
+
+
+
+
+
+
+
+
 

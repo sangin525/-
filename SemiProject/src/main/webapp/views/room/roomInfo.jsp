@@ -51,7 +51,7 @@
 		<option value="" class="dropdown-item" selected>--선택--</option>
 	</select>
 	<span class="datepicker" id="datepicker"></span>
-  <section class="Main_section">
+  <section class="Main_section" id="section_main">
 <!--     <h1>객실정보</h1> -->
      <c:set var="DetailCount" value="0"></c:set>
   <c:forEach var="item" items="${room}">
