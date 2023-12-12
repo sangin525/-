@@ -50,6 +50,25 @@ public class RoomDTO {
 	private String memberPhone;
 	private int addMLG;
 	private int minMLG;
+	
+	// e-SHOP 예약관련
+	private int foodBasketNo;
+	private String foodInfo;
+	private String standardMenu;
+	private String foodPhoto1;
+	private String foodPhoto2;
+	private String foodPhoto3;
+	
+	// 예약관련인데 앞에 food대신 item이랑 동일
+	private String foodName;
+	private int foodCount;
+	private int foodPrice;
+	// Time = option 과 동일
+	private String foodTime;
+	
+	// 결제내역페이지 사용
+	private int itemPaymentsNo;
+	private String itemPayWay;
 
 	
 	public int getRoomNo() {
@@ -262,6 +281,78 @@ public class RoomDTO {
 	}
 	public void setAccamount(int accamount) {
 		this.accamount = accamount;
+	}
+	public int getFoodBasketNo() {
+		return foodBasketNo;
+	}
+	public void setFoodBasketNo(int foodBasketNo) {
+		this.foodBasketNo = foodBasketNo;
+	}
+	public String getFoodName() {
+		return foodName;
+	}
+	public String getFoodInfo() {
+		return foodInfo;
+	}
+	public int getFoodPrice() {
+		return foodPrice;
+	}
+	public String getStandardMenu() {
+		return standardMenu;
+	}
+	public String getFoodPhoto1() {
+		return foodPhoto1;
+	}
+	public String getFoodPhoto2() {
+		return foodPhoto2;
+	}
+	public String getFoodPhoto3() {
+		return foodPhoto3;
+	}
+	public String getFoodTime() {
+		return foodTime;
+	}
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
+	}
+	public void setFoodInfo(String foodInfo) {
+		this.foodInfo = foodInfo;
+	}
+	public int getFoodCount() {
+		return foodCount;
+	}
+	public void setFoodCount(int foodCount) {
+		this.foodCount = foodCount;
+	}
+	public void setFoodPrice(int foodPrice) {
+		this.foodPrice = foodPrice;
+	}
+	public void setStandardMenu(String standardMenu) {
+		this.standardMenu = standardMenu;
+	}
+	public void setFoodPhoto1(String foodPhoto1) {
+		this.foodPhoto1 = foodPhoto1;
+	}
+	public void setFoodPhoto2(String foodPhoto2) {
+		this.foodPhoto2 = foodPhoto2;
+	}
+	public void setFoodPhoto3(String foodPhoto3) {
+		this.foodPhoto3 = foodPhoto3;
+	}
+	public void setFoodTime(String foodTime) {
+		this.foodTime = foodTime;
+	}
+	public int getItemPaymentsNo() {
+		return itemPaymentsNo;
+	}
+	public String getItemPayWay() {
+		return itemPayWay;
+	}
+	public void setItemPaymentsNo(int itemPaymentsNo) {
+		this.itemPaymentsNo = itemPaymentsNo;
+	}
+	public void setItemPayWay(String itemPayWay) {
+		this.itemPayWay = itemPayWay;
 	}
 	
 	

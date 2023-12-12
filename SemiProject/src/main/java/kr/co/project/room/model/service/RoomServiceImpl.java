@@ -71,4 +71,49 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public RoomDTO MLGChkform(int memberMLG, int memberNo) {
+		return roomDAO.MLGChkform(con, memberMLG, memberNo);
+	}
+
+
+	public ArrayList<RoomDTO> foodInfo() {
+		return roomDAO.foodInfo(con);
+	}
+
+
+	public RoomDTO foodDetail(String foodName) {
+		return roomDAO.foodDetail(con, foodName);
+	}
+
+
+	public int basketEnroll(int memberNo, String foodName, int foodPrice, String foodTime, int foodCount) {
+		return roomDAO.basketEnroll(con, memberNo, foodName, foodPrice, foodTime, foodCount);
+	}
+
+
+	public ArrayList<RoomDTO> basketListView(int memberNo) {
+		return roomDAO.basketListView(con, memberNo);
+	}
+
+
+	public int basketDelete(int foodBasketNo, int memberNo) {
+		return roomDAO.basketDelete(con, foodBasketNo, memberNo);
+	}
+
+
+	public int changeReservePay(String payItemNo, int memberNo) {
+		return roomDAO.changeReservePay(con, payItemNo, memberNo);
+	}
+
+
+	public ArrayList<RoomDTO> itemPayList(int memberNo) {
+		return roomDAO.itemPayList(con, memberNo);
+	}
+
+
+	public int oneItemPay(int memberNo, String foodName, int totalPrice, String foodTime, int foodDetailCount) {
+		return roomDAO.oneItemPay(con, memberNo, foodName, totalPrice, foodTime, foodDetailCount);
+	}
+
+
 }
