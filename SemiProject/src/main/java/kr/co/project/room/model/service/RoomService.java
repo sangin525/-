@@ -34,5 +34,39 @@ public interface RoomService {
 	
 	// 누적금액, 등급업그레이드
 	public void priceGrade(RoomDTO room);
+	
+	// 결제시 마일리지가 동일한지 검증
+	public RoomDTO MLGChkform(int memberMLG, int memberNo);
+	
+	// **************************상품 시작
+	
+	// 최초 식사권 정보
+	public ArrayList<RoomDTO> foodInfo();
+	
+	// 상품 클릭시 디테일 사항 가져오기
+	public RoomDTO foodDetail(String foodName);
+	
+	// 장바구니에 담기 
+	public int basketEnroll(int memberNo, String foodName, int foodPrice, String foodTime, int foodCount);
+	
+	// 장바구니에 출력
+	public ArrayList<RoomDTO> basketListView(int memberNo);
+	
+	// 장바구니에서 삭제
+	public int basketDelete(int foodBasketNo, int memberNo);
+	
+	// 결제시 장바구니에서 결제내역 으로 옮기고 삭제
+	public int changeReservePay(String payItemNo, int memberNo);
+	
+	// 결제내용 장바구니
+	public ArrayList<RoomDTO> itemPayList(int memberNo);
+	
+	// 단일결제시 결제장바구니로 등록
+	public int oneItemPay(int memberNo, String foodName, int totalPrice, String foodTime, int foodDetailCount);
+	
+	// value값에따른 item List 가져오기
+	public ArrayList<RoomDTO> itemView(String optionValue);
+	
+	
 }
 
