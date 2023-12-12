@@ -2,6 +2,7 @@ package kr.co.project.board.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,8 +24,8 @@ import kr.co.project.board.service.BoardServiceImpl;
 @WebServlet("/reviewEnroll.do")
 @MultipartConfig(
 		fileSizeThreshold = 1024 * 1024, // 1MB
-		maxFileSize = 1024 * 1024 * 3, // 5MB
-		maxRequestSize = 1024 * 1024 * 3 * 3 // 25MB
+		maxFileSize = 1024 * 1024 * 5, // 5MB
+		maxRequestSize = 1024 * 1024 * 5 * 5 // 25MB
 		)
 public class reviewEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -77,23 +78,28 @@ public class reviewEnrollController extends HttpServlet {
 
 		    if(fileNames != null && !fileNames.isEmpty()) {
 		        for(String fileName : fileNames) {
-		        	File file = new File(reviewRoute + File.separator + fileName.trim());
-		            if(file.exists()) { // 파일이 이미 존재하는 경우
-		                // 새로운 파일 이름 생성
-		                String nameWithoutExtension = fileName.substring(0, fileName.lastIndexOf("."));
-		                String extension = fileName.substring(fileName.lastIndexOf("."));
-		                int count = 0;
-		                while(file.exists()) {
-		                    count++;
-		                    String newFileName = nameWithoutExtension.trim() + "[" + count + "]" + extension;
-		                    file = new File(reviewRoute + File.separator + newFileName);
+		            if (fileName != null && fileName.contains(".")) {
+		                File file = new File(reviewRoute + File.separator + fileName.trim());
+		                if(file.exists()) { // 파일이 이미 존재하는 경우
+		                    // 새로운 파일 이름 생성
+		                    String nameWithoutExtension = fileName.substring(0, fileName.lastIndexOf("."));
+		                    String extension = fileName.substring(fileName.lastIndexOf("."));
+		                    int count = 0;
+		                    while(file.exists()) {
+		                        count++;
+		                        String newFileName = nameWithoutExtension.trim() + "(" + count + ")" + extension;
+		                        file = new File(reviewRoute + File.separator + newFileName);
+		                    }
+		                    fileName = file.getName();
 		                }
-		                fileName = file.getName();
-		            }
 
-		            // 이 부분에 실제로 파일을 쓰는 코드를 추가하시면 됩니다.
-		            part.write(file.toString());
-		            reviewPhotos.add(fileName);
+		                // 이 부분에 실제로 파일을 쓰는 코드를 추가하시면 됩니다.
+		                part.write(file.toString());
+		                reviewPhotos.add(fileName);
+		            } else {
+		                // 파일 이름이 유효하지 않은 경우의 처리
+		                // 예를 들어, 오류 메시지를 출력하거나 로깅하는 코드를 여기에 추가할 수 있습니다.
+		            }
 		        }
 		    }
 		}
@@ -125,10 +131,9 @@ public class reviewEnrollController extends HttpServlet {
 		
 		// 4. 성공 유무에 따라 처리
 		if(result > 0) {
-			response.sendRedirect("/reviewList.do");
+			response.sendRedirect("/reviewList.do?cpage=1");
 		} else {
-			RequestDispatcher view = request.getRequestDispatcher("/test");
-			view.forward(request, response);
+			ReviewAlert(response, "필수항목을 모두 입력해 주세요.");
 		}
 	}
 	
@@ -150,4 +155,13 @@ public class reviewEnrollController extends HttpServlet {
 	    return reviewPhotos;
 	}
 
+
+
+private void ReviewAlert(HttpServletResponse response, String msg) throws IOException {
+	PrintWriter out = response.getWriter();
+	out.println("<script>" + "		location.href='/';" + "		alert('" + msg + "');"
+			+ "	</script>");
+	out.flush();
+	out.close();
+}
 }

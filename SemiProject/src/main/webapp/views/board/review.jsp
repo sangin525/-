@@ -6,39 +6,67 @@
 <html>
 <head>
 <%@ include file="/views/common/head.jsp"%>
+<script src="/resources/js/board/review.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/review.css">
+<link rel="stylesheet" href="/resources/css/member/MyPage.css">
 </head>
 <body class="Main_body">
 	<%@ include file="/views/common/header.jsp"%>
 	<%@ include file="/views/common/nav.jsp"%>
 	<input type="hidden" name="cpage" value="1">
-	<ul class="review-box">
-		<c:choose>
-			<c:when test="${empty list}">
-				<p>등록된 리뷰가 없습니다.</p>
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="item" items="${list}">
-					<li class="review">
-						<div class="review-item">
-							<p class="rv-id">${item.id}<span>${item.inDate}</span>
-							</p>
-							<p class="rv-title">${item.reviewTitle}</p>
-							<p class="rv-content">${item.reviewContent}</p>
-						</div>
-						<div class="review-star">${item.star}</div>
-						<div class="review-imgbox">
-							<c:forEach var="photo"
-								items="${fn:split(item.reviewPhotos, ',')}">
-								<img src="/resources/uploads/review/${fn:trim(photo)}"
-									style="width: 100px; height: 100px;">
-							</c:forEach>
-						</div>
-					</li>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
+	<div class="header-container">
+	<div class="review-header">
+		<h2>REVIEW</h2>
+		<p>
+			호텔 하루 이용에 대한 소중한 경험을 나눠주세요.<br> 리뷰를 남겨 주시면 추첨을 통해 소정의 상품을
+			드립니다.
+		</p>
+	</div>
+</div>
+	<div class="review-container">
+		<div class="review-btn">
+			<button class="left-btn"
+				onclick="location.href='/board/review.do'">리뷰
+				작성</button>
+		</div>
+		<ul class="review-box">
+			<c:choose>
+				<c:when test="${empty list}">
+					<p>등록된 리뷰가 없습니다.</p>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="item" items="${list}">
+						<li class="review">
+							<div class="review-star" id="star-rating">
+								<div class="stars-outer">
+									<div class="stars-inner"
+										style="width:${(item.star * 100) / 5}%"></div>
+								</div>
+								<div class="star-number">${item.star}</div>
+							</div>
+							<div class="review-item">
+								<p class="rv-id">${item.id}<span class="rv-date">${item.reviewInDate}</span>
+								</p>
+								<p class="rv-title">${item.reviewTitle}</p>
+								<p class="rv-content">${item.reviewContent}</p>
+							</div>
+							<div class="review-imgbox">
+								<c:forEach var="photo"
+									items="${fn:split(item.reviewPhotos, ',')}">
+									<img
+										src="/resources/uploads/review/${fn:trim(fn:replace(fn:replace(photo, '[', ''), ']', ''))}"
+										style="width: 100px; height: 100px;">
+								</c:forEach>
+							</div>
+						</li>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 
-	</ul>
+		</ul>
+	</div>
 	<nav class="pageNav">
 		<ul class="pagination">
 
@@ -90,10 +118,7 @@
 			</c:choose>
 		</ul>
 	</nav>
-
-	<button class="left-btn"
-		onclick="location.href='/views/board/reviewEnroll.jsp' ">정보
-		수정</button>
+<br><br><br><br><br><br><br><br>
 
 
 	<%@ include file="/views/common/footer.jsp"%>

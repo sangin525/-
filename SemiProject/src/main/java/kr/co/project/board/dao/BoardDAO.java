@@ -608,7 +608,7 @@ public class BoardDAO {
 		// 리뷰 리스트
 		public ArrayList<BoardDTO> reviewList(Connection con, ReviewPageInfo pi) {
 			// 1. 쿼리작성
-			String query = "SELECT m.m_id, r.review_in_date, r.review_title, r.review_content,"
+			String query = "SELECT m.m_id, to_char(r.review_in_date, 'yyyy-mm-dd') as review_in_date, r.review_title, r.review_content,"
 					+ "   			r.photo1_name, r.photo1_route, r.review_star"
 					+ "		FROM review r"
 					+ "		JOIN MEMBER m"
