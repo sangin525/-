@@ -150,7 +150,7 @@
    cursor: pointer;
 }
 
-select {
+.grade-menu {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -167,11 +167,11 @@ select {
   margin-left:10px;
 }
 
-select:hover {
+.grade-menu:hoover {
   border-color: #888;
 }
 
-select:focus {
+.grade-menu:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
@@ -179,7 +179,39 @@ select:focus {
   outline: none;
 }
 
-select:disabled {
+.grade-menu:disabled {
+  opacity: 0.5;
+}
+.room-menu {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  color: #444;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  padding:5px;
+  margin-left:10px;
+}
+
+.room-menu:hoover {
+  border-color: #888;
+}
+
+.room-menu:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+.room-menu:disabled {
   opacity: 0.5;
 }
 
