@@ -1,0 +1,21 @@
+/* findid.css */
+
+/* 중앙 정렬을 위한 스타일 */
+.container-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 아이디 찾기 폼 스타일 */
+#findIdForm {
+    margin-top: 20px;
+}
+
+/* 비밀번호 찾기 링크에 호버 효과 추가 */
+.card-footer a:hover {
+    text-decoration: underline;
+}
+
+/* 여기에 추가적인 스타일을 정의할 수 있습니다. */
