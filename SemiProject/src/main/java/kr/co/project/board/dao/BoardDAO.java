@@ -145,27 +145,45 @@ public class BoardDAO {
 	}
 
 	// notice List up
-	public ArrayList<BoardDTO> noticeList(Connection con) {
+	public ArrayList<BoardDTO> noticeList(Connection con, BoardPageInfo pi) {
 		ArrayList<BoardDTO> list = new ArrayList<>();
 
-		String query = "SELECT BOARD_N_NO," 
-				+ "			BOARD_N_TITLE," 
-				+ "			BOARD_N_ON_DATE"
-				+ "			FROM NOTICE ORDER BY BOARD_N_ON_DATE DESC";
+		String query = "SELECT N.BOARD_N_NO, "
+		        + "N.BOARD_N_TITLE, "
+		        + "N.BOARD_N_ON_DATE, "
+		        + "N.BOARD_N_VIEWS, "
+		        + "N.BOARD_N_CATEGORY, "
+		        + "M.M_NAME "
+		        + "FROM NOTICE N "
+		        + "INNER JOIN MEMBER M ON N.M_NO = M.M_NO "
+		        + "WHERE N.BOARD_N_DELETE IS NULL "
+		        + "ORDER BY N.BOARD_N_ON_DATE DESC "
+		        + "OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 		try {
 			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, pi.getOffset());
+			pstmt.setInt(2, pi.getBoardLimit()); // 5
+			
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int noticeNo = rs.getInt("BOARD_N_NO");
+				int boardNo = rs.getInt("Board_N_NO");
 				String title = rs.getString("BOARD_N_TITLE");
 				String onDate = rs.getString("BOARD_N_ON_DATE");
+				int views = rs.getInt("BOARD_N_VIEWS");
+				String category = rs.getString("BOARD_N_CATEGORY");
+				String name = rs.getString("M_NAME");
 
 				BoardDTO board = new BoardDTO();
-				board.setNoticeNo(noticeNo);
+
+				board.setBoardNo(boardNo);
 				board.setTitle(title);
 				board.setOnDate(onDate);
+				board.setViews(views);
+				board.setCategoty(category);
+				board.setName(name);
 
 				list.add(board);
 			}
