@@ -12,6 +12,7 @@
 
    <link rel="stylesheet" href="/resources/css/member/MyPage.css">
   <script src="/resources/js/common/slideImg.js"></script>
+  <script src="/resources/js/common/popup.js"></script>
 
 
 </head>
