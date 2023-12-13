@@ -237,43 +237,52 @@ function itemAllChkList(event){
 		}
 }
 
-
 function itemRequestPay(){
 	let totalPrice = document.getElementById("basketTotalPrice").value;
+	let basketMLG = document.getElementById("basketMLG");
+	console.log(basketMLG.value);
 	
-	IMP.request_pay({
-		pg: 'kakaopay',
-		merchant_uid: "IMP" + new Date().getTime(), // 상점에서 관리하는 주문 번호
-		name: "e-shop 상품구매",
-		amount: 100               //연습이후 고치기  totalPrice 로
-	}, function(rsp) { // callback 로직
-		//* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
-		if (rsp.success) {
-			// 결제 성공 시 로직
-			$.ajax({
-				url: '/itemReserveEnroll.do',
-				type: 'post',
-				data: {
-					payItemNo: payItemNo.join()
-				},
-				success: function(data) {
-						if(data > 0){
-							alert("결제가 완료되었습니다 결제페이지로 이동합니다.");
-							window.location.href = "/itemPayComplite.do";
-						}else{
-							alert("실패");
-						}
-
-				},
-				error: function(err) {
-					alert("결제실패.");
-				}
-			});
-		} else {
-			// 결제 실패 시 로직
-			alert("결제실패");
-		}
-	});
+	if(totalPrice > 0){
+		IMP.request_pay({
+			pg: 'kakaopay',
+			merchant_uid: "IMP" + new Date().getTime(), // 상점에서 관리하는 주문 번호
+			name: "e-shop 상품구매",
+			amount: 100               //연습이후 고치기  totalPrice 로
+		}, function(rsp) { // callback 로직
+			//* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
+			if (rsp.success) {
+				// 결제 성공 시 로직
+				$.ajax({
+					url: '/itemReserveEnroll.do',
+					type: 'post',
+					data: {
+						payItemNo: payItemNo.join(),
+						totalPrice: totalPrice
+						
+					},
+					success: function(data) {
+							if(data > 0){
+								alert("결제가 완료되었습니다 결제페이지로 이동합니다.");
+								window.location.href = "/itemPayComplite.do";
+							}else{
+								alert("실패");
+							}
+	
+					},
+					error: function(err) {
+						alert("결제실패.");
+					}
+				});
+			} else {
+				// 결제 실패 시 로직
+				alert("결제실패");
+			}
+		});
+		
+	}else{
+		alert("결제할 금액이 없습니다.");
+	}
+	
 
 }		
 

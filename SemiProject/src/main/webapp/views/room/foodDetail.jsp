@@ -94,10 +94,10 @@
 		</div><br>
 		<div id="imgChooseDiv">
 			<c:choose>
-				<c:when test="${food.foodTime == '굿즈'}"><img alt="" src="/resources/uploads/내용.jpg"></c:when>
-				<c:when test="${food.foodTime == '시즌상품'}"><img alt="" src="/resources/uploads/내용3.jpg"></c:when>
-				<c:when test="${food.foodTime == '침구류'}"><img alt="" src="/resources/uploads/내용2.jpg"></c:when>
-				<c:when test="${food.foodTime == '식사'}"><img alt="" src="/resources/uploads/내용4.jpg"></c:when>
+				<c:when test="${food.foodTime == '굿즈'}"><img alt="" src="/resources/uploads/room/내용.jpg"></c:when>
+				<c:when test="${food.foodTime == '시즌상품'}"><img alt="" src="/resources/uploads/room/내용3.jpg"></c:when>
+				<c:when test="${food.foodTime == '침구류'}"><img alt="" src="/resources/uploads/room/내용2.jpg"></c:when>
+				<c:when test="${food.foodTime == '식사'}"><img alt="" src="/resources/uploads/room/내용4.jpg"></c:when>
 			</c:choose>
 		</div>
 		<div>

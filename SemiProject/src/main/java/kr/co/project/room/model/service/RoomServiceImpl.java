@@ -121,4 +121,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public RoomDTO memberMLGGradePercent(int memberNo) {
+		return roomDAO.memberMLGGradePercent(con, memberNo);
+	}
+
+
 }
