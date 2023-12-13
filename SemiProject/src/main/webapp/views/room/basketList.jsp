@@ -11,6 +11,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <%@ include file="../common/head.jsp" %>
 
+<link href="/resources/css/room/reserveBasket.css" rel="stylesheet" type="text/css">
 <script src="/resources/js/room/apikey.js"></script>
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 </head>
@@ -21,6 +22,7 @@
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
 <table class="table table-hover">
+<h3 class="basketH3Tag"> 장바구니 입니다.</h3>
   <thead>
     <tr>
       <th scope="col">번호</th>
@@ -49,21 +51,23 @@
 	      <input type="hidden" class="hiddenBasketNo" id="hiddenBasketNo${count}" value= "${item.foodBasketNo}">
 	    <tr>
 	      <th scope="row">${count}</th>
-	      <td value="${item.foodName}" id="foodName${count}">${item.foodName}</td>
+	      <td value="${item.foodName}" id="foodName${count}" onclick="foodNameClick(${count})" style="cursor:pointer">${item.foodName}</td>
 	      <td value="${item.foodCount}">${item.foodCount}</td>
 	      <td class="foodPrice" id="foodPrice${count}" >${item.foodPrice}</td>
 	      <td value="${item.foodTime}">${item.foodTime}</td>
 	      <td><input type="checkbox" class="basketListChk" id="basketListChk${count}" onchange="getTotalPrice(event, ${count}); itemChkList(event, ${count})">결제할상품체크</td>
-	      <td><input type="button" value="상품삭제" onclick="deleteItem(${item.foodBasketNo})"></td>
+	      <td><input type="button" class="btn btn-outline-primary" value="상품삭제" onclick="deleteItem(${item.foodBasketNo})"></td>
 	    </tr>
 	  </c:forEach>
   	</c:otherwise>
   </c:choose>
   </tbody>
 </table>
+<div id="basketBtnDiv">
 <input type="text" id="basketTotalPrice" value="0" disabled>
-<button onclick="itemRequestPay()">결제하기</button>
+<button class="btn btn-outline-danger" onclick="itemRequestPay()">결제하기</button>
 <input type="checkbox" id="allChkBtn" onchange=" itemAllChkList(event); allChkBtn(event, ${count})">전체선택/전체해제
+</div>
 
 
 <%@ include file="../common/footer.jsp" %>

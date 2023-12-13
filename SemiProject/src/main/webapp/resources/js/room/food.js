@@ -131,7 +131,10 @@ function optionValue(event){
 	
 }
 
-
+function foodNameClick(count){
+	let foodName = document.getElementById("foodName"+count).innerText;
+	window.location.href = "/foodDetail.do?foodName="+foodName;
+}
 
 
 
