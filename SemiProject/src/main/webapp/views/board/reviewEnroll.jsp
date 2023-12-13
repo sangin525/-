@@ -94,28 +94,28 @@
 					<label for="type" class="form-label">5. 누구와 함께 이용하셨나요?<span
 						class="textis-requied">*</span></label>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_0" value="가족" required>
-						<label for="withWho_0"><span>가족</span></label>
+						<input type="radio" name="withWho" id="withWho_0_unique" value="가족" required>
+						<label for="withWho_0_unique"><span>가족</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_1" value="친구">
-						<label for="withWho_1"><span>친구</span></label>
+						<input type="radio" name="withWho" id="withWho_1_unique" value="친구">
+						<label for="withWho_1_unique"><span>친구</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_2" value="커플">
-						<label for="withWho_2"><span>커플</span></label>
+						<input type="radio" name="withWho" id="withWho_2_unique" value="커플">
+						<label for="withWho_2_unique"><span>커플</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_3" value="비즈니스">
-						<label for="withWho_3"><span>비즈니스</span></label>
+						<input type="radio" name="withWho" id="withWho_3_unique" value="비즈니스">
+						<label for="withWho_3_unique"><span>비즈니스</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_4" value="혼자">
-						<label for="withWho_4"><span>혼자</span></label>
+						<input type="radio" name="withWho" id="withWho_4_unique" value="혼자">
+						<label for="withWho_4_unique"><span>혼자</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_5" value="그 외">
-						<label for="withWho_5"><span>그 외</span></label>
+						<input type="radio" name="withWho" id="withWho_5_unique" value="그 외">
+						<label for="withWho_5_unique"><span>그 외</span></label>
 					</div>
 				</div>
 			</div>

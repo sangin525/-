@@ -62,24 +62,15 @@ public class reviewEnrollController extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 		String uploadDirectory = "C:\\Users\\kaw19\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";
 
-		// 파일 업로드하려는 디렉토리 없으면 생성
-		File reviewRoute = new File(uploadDirectory);
-		if(!reviewRoute.exists()) {
-		    reviewRoute.mkdirs();
-		}
-
 		List<String> reviewPhotos = new ArrayList<String>();
-		
-		if(!reviewPhotos.isEmpty()) {
-		    reviewPhoto1 = reviewPhotos.get(0);
-		}
+
 		for(Part part : parts) {
 		    List<String> fileNames = getReviewPhotos(part);
 
 		    if(fileNames != null && !fileNames.isEmpty()) {
 		        for(String fileName : fileNames) {
 		            if (fileName != null && fileName.contains(".")) {
-		                File file = new File(reviewRoute + File.separator + fileName.trim());
+		                File file = new File(uploadDirectory + File.separator + fileName.trim());
 		                if(file.exists()) { // 파일이 이미 존재하는 경우
 		                    // 새로운 파일 이름 생성
 		                    String nameWithoutExtension = fileName.substring(0, fileName.lastIndexOf("."));
@@ -88,9 +79,15 @@ public class reviewEnrollController extends HttpServlet {
 		                    while(file.exists()) {
 		                        count++;
 		                        String newFileName = nameWithoutExtension.trim() + "(" + count + ")" + extension;
-		                        file = new File(reviewRoute + File.separator + newFileName);
+		                        file = new File(uploadDirectory + File.separator + newFileName);
 		                    }
 		                    fileName = file.getName();
+		                }
+
+		                // 파일 업로드하려는 디렉토리 없으면 생성
+		                File reviewRoute = new File(uploadDirectory);
+		                if(!reviewRoute.exists()) {
+		                    reviewRoute.mkdirs();
 		                }
 
 		                // 이 부분에 실제로 파일을 쓰는 코드를 추가하시면 됩니다.
@@ -106,7 +103,9 @@ public class reviewEnrollController extends HttpServlet {
 
 		if(!reviewPhotos.isEmpty()) {
 		    reviewPhoto1 = reviewPhotos.get(0);
+		    
 		}
+		
 		BoardServiceImpl boardService = new BoardServiceImpl();
 		BoardDTO board = new BoardDTO();
 		board.setReviewTitle(reviewTitle);
@@ -116,8 +115,10 @@ public class reviewEnrollController extends HttpServlet {
 		board.setMonth(month);
 		board.setType(type);
 		board.setStar(star);
-		board.setReviewRoute1(uploadDirectory);
-		board.setReviewPhotos(reviewPhotos);
+		if(!reviewPhotos.isEmpty()) {
+		    board.setReviewRoute1(uploadDirectory);
+		    board.setReviewPhotos(reviewPhotos); 
+		}
 
 		
 		int result = 0;
@@ -159,7 +160,7 @@ public class reviewEnrollController extends HttpServlet {
 
 private void ReviewAlert(HttpServletResponse response, String msg) throws IOException {
 	PrintWriter out = response.getWriter();
-	out.println("<script>" + "		location.href='/';" + "		alert('" + msg + "');"
+	out.println("<script>" + "		location.href='/board/review.do';" + "		alert('" + msg + "');"
 			+ "	</script>");
 	out.flush();
 	out.close();

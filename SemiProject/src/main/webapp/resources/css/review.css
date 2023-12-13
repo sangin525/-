@@ -373,3 +373,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 .review-btn{
 	text-align:center;
 }
+
+.review-imgbox img{
+	padding-left: 10px;
+}

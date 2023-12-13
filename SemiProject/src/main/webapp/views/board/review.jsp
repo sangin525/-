@@ -17,18 +17,16 @@
 	<%@ include file="/views/common/nav.jsp"%>
 	<input type="hidden" name="cpage" value="1">
 	<div class="header-container">
-	<div class="review-header">
-		<h2>REVIEW</h2>
-		<p>
-			호텔 하루 이용에 대한 소중한 경험을 나눠주세요.<br> 리뷰를 남겨 주시면 추첨을 통해 소정의 상품을
-			드립니다.
-		</p>
+		<div class="review-header">
+			<h2>REVIEW</h2>
+			<p>
+				호텔 하루 이용에 대한 소중한 경험을 나눠주세요.<br> 리뷰를 남겨 주시면 추첨을 통해 소정의 상품을 드립니다.
+			</p>
+		</div>
 	</div>
-</div>
 	<div class="review-container">
 		<div class="review-btn">
-			<button class="left-btn"
-				onclick="location.href='/board/review.do'">리뷰
+			<button class="left-btn" onclick="location.href='/board/review.do'">리뷰
 				작성</button>
 		</div>
 		<ul class="review-box">
@@ -53,10 +51,8 @@
 								<p class="rv-content">${item.reviewContent}</p>
 							</div>
 							<div class="review-imgbox">
-								<c:forEach var="photo"
-									items="${fn:split(item.reviewPhotos, ',')}">
-									<img
-										src="/resources/uploads/review/${fn:trim(fn:replace(fn:replace(photo, '[', ''), ']', ''))}"
+								<c:forEach var="photo" items="${item.reviewPhotos}">
+									<img src="../../resources/uploads/review/${photo}"
 										style="width: 100px; height: 100px;">
 								</c:forEach>
 							</div>
@@ -118,7 +114,14 @@
 			</c:choose>
 		</ul>
 	</nav>
-<br><br><br><br><br><br><br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 
 	<%@ include file="/views/common/footer.jsp"%>

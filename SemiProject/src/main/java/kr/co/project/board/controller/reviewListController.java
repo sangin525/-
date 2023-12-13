@@ -2,6 +2,7 @@ package kr.co.project.board.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -56,11 +57,24 @@ public class reviewListController extends HttpServlet {
 		
 		// 목록 불러오기
 		ArrayList<BoardDTO> list = boardService.reviewList(pi);
-
+		for (BoardDTO item : list) {
+		    List<String> reviewPhotos = item.getReviewPhotos();
+		    List<String> newReviewPhotos = new ArrayList<>();
+		    
+		    for (String photo : reviewPhotos) {
+		        photo = photo.replace("[", "").replace("]", ""); // 대괄호 제거
+		        newReviewPhotos.add(photo);
+		    }
+		    item.setReviewPhotos(newReviewPhotos);
+		    System.out.println("Review photos:");
+		    for (String photo : newReviewPhotos) {
+		        System.out.println(photo);
+		    }
+		}
 		int row = reviewListCount - (cpage - 1) * boardLimit;
 		request.setAttribute("row", row);
 		request.setAttribute("pi", pi);
-		request.setAttribute("list", list);
+		request.setAttribute("list", list); // 수정된 리스트를 JSP에 전달
 		RequestDispatcher view = request.getRequestDispatcher("/views/board/review.jsp");
 		view.forward(request, response);
 		
