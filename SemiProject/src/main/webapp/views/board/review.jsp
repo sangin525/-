@@ -51,7 +51,7 @@
 								<p class="rv-content">${item.reviewContent}</p>
 							</div>
 							<div class="review-imgbox">
-								<c:forEach var="photo" items="${item.reviewPhotos}">
+								<c:forEach var="photo" items="${item.photoList}">
 									<img src="../../resources/uploads/review/${photo}"
 										style="width: 100px; height: 100px;">
 								</c:forEach>

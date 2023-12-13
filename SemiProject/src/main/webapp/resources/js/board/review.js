@@ -60,52 +60,50 @@ function printRatingResult(result, num = 0) {
 
 //이미지 업로드 js
 window.addEventListener('DOMContentLoaded', () => {
-	const fileInput = document.getElementById("fileUpload");
-	const selectedFiles = []; // 선택한 파일들을 저장할 배열
+    const fileInput = document.getElementById("fileUpload");
+    const selectedFiles = []; // 선택한 파일들을 저장할 배열
 
-	if (fileInput !== null) {
-		const handleFiles = (e) => {
-			const newFiles = [...fileInput.files]; // 새로 추가된 파일들
-			const allFiles = selectedFiles.concat(newFiles); // 기존 파일들과 새로 추가된 파일들을 합침
-			const previewContainer = document.getElementById("previewContainer");
-			previewContainer.innerHTML = ""; // 기존의 미리보기를 초기화
+    if (fileInput !== null) {
+        const handleFiles = (e) => {
+    const newFiles = [...fileInput.files]; // 새로 추가된 파일들
+    selectedFiles.push(...newFiles); // 새로 추가된 파일들을 선택한 파일들 배열에 추가
+    const previewContainer = document.getElementById("previewContainer");
 
-			allFiles.forEach((file, index) => {
-				const fileReader = new FileReader();
+    newFiles.forEach((file, index) => {
+        const fileReader = new FileReader();
 
-				fileReader.readAsDataURL(file);
+        fileReader.readAsDataURL(file);
 
-				fileReader.onload = function() {
-					const previewDiv = document.createElement("div");
-					previewDiv.className = "image-container";
+        fileReader.onload = function() {
+            const previewDiv = document.createElement("div");
+            previewDiv.className = "image-container";
 
-					const previewImg = document.createElement("img");
-					previewImg.src = fileReader.result;
-					previewImg.width = 100;
-					previewImg.height = 100;
+            const previewImg = document.createElement("img");
+            previewImg.src = fileReader.result;
+            previewImg.width = 100;
+            previewImg.height = 100;
 
-					const removeButton = document.createElement("button");
-					removeButton.textContent = "x";
-					removeButton.className = "remove-button";
-					removeButton.onclick = function() {
-						previewContainer.removeChild(previewDiv);
-						const fileIndex = selectedFiles.indexOf(file);
-						if (fileIndex > -1) {
-							selectedFiles.splice(fileIndex, 1);
-						}
-					};
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "x";
+            removeButton.className = "remove-button";
+            removeButton.onclick = function() {
+                previewContainer.removeChild(previewDiv);
+                const fileIndex = selectedFiles.indexOf(file);
+                if (fileIndex > -1) {
+                    selectedFiles.splice(fileIndex, 1);
+                }
+            };
 
-					previewDiv.appendChild(previewImg);
-					previewDiv.appendChild(removeButton);
-					previewContainer.appendChild(previewDiv);
-				};
-			});
+            previewDiv.appendChild(previewImg);
+            previewDiv.appendChild(removeButton);
+            previewContainer.appendChild(previewDiv);
+        };
+    });
+};
 
-			selectedFiles.push(...newFiles); // 새로 추가된 파일들을 선택한 파일들 배열에 추가
-		};
+        fileInput.addEventListener("change", handleFiles);
+    }
 
-		fileInput.addEventListener("change", handleFiles);
-	}
 });
 
 document.addEventListener('DOMContentLoaded', function() {

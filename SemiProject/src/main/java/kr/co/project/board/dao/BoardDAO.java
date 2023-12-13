@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -585,22 +586,12 @@ public class BoardDAO {
 		            + "                ?,"
 		            + "                ?,"
 		            + "                ?,"
-		            + "                ?,"
-		            + "                ?,"
 		            + "                sysdate,"
 		            + "                null,"
 		            + "                null,"
 		            + "                ?)";
-		    String reviewPhotos = "";
-		    if(board.getReviewPhotos() != null) {
-		        reviewPhotos = String.join(",", board.getReviewPhotos());
-		    }
-
-		    // Remove the [ and ] characters only
-		    reviewPhotos = reviewPhotos.replaceAll("\\[", "").replaceAll("\\]", "");
-
 		    try {
-		        pstmt = con.prepareStatement(query);
+		        pstmt = con.prepareStatement(query, new String[] {"REVIEW_NO"});
 		        pstmt.setString(1, board.getReviewTitle());
 		        pstmt.setString(2, board.getReviewContent());
 		        pstmt.setString(3, board.getRoom());
@@ -608,19 +599,47 @@ public class BoardDAO {
 		        pstmt.setString(5, board.getMonth());
 		        pstmt.setString(6, board.getType());
 		        pstmt.setString(7, board.getStar());
-		        pstmt.setString(8, reviewPhotos);
-		        pstmt.setString(9, board.getReviewRoute1());
-		        pstmt.setInt(10, no);
+		        pstmt.setInt(8, no);
+		        pstmt.executeUpdate();
 
+		        ResultSet rs = pstmt.getGeneratedKeys();
+		        if (rs.next()) {
+		            int reviewNo = rs.getInt(1);  // 기본 키 값을 정수로 변환합니다.
+		            board.setReviewNo(reviewNo);  // board 객체의 reviewNo 필드에 저장합니다.
+		        }
+
+		        rs.close();
+		        pstmt.close();
+
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    
+		    String photo = "INSERT INTO review_photo"
+		            + "        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		    try {
+		        pstmt = con.prepareStatement(photo);
+		        pstmt.setInt(1, board.getReviewNo());
+		        pstmt.setString(2, board.getPhoto1Name());
+		        pstmt.setString(3, board.getPhoto1Route());
+		        pstmt.setString(4, board.getPhoto2Name());
+		        pstmt.setString(5, board.getPhoto2Route());
+		        pstmt.setString(6, board.getPhoto3Name());
+		        pstmt.setString(7, board.getPhoto3Route());
+		        pstmt.setString(8, board.getPhoto4Name());
+		        pstmt.setString(9, board.getPhoto4Route());
+		        pstmt.setString(10, board.getPhoto5Name());
+		        pstmt.setString(11, board.getPhoto5Route());
+		        
 		        int result = pstmt.executeUpdate();
 		        pstmt.close();
 		        con.close();
 
 		        return result;
-
 		    } catch (SQLException e) {
 		        e.printStackTrace();
 		    }
+
 		    return 0;
 		}
 
@@ -628,59 +647,56 @@ public class BoardDAO {
 		public ArrayList<BoardDTO> reviewList(Connection con, ReviewPageInfo pi) {
 			// 1. 쿼리작성
 			String query = "SELECT m.m_id, to_char(r.review_in_date, 'yyyy-mm-dd') as review_in_date, r.review_title, r.review_content,"
-					+ "   			r.photo1_name, r.photo1_route, r.review_star"
+					+ "   			rp.photo1_name, rp.photo1_route, rp.photo2_name, rp.photo2_route, rp.photo3_name, rp.photo3_route, "
+					+ "				rp.photo4_name, rp.photo4_route, rp.photo5_name, rp.photo5_route, r.review_star"
 					+ "		FROM review r"
 					+ "		JOIN MEMBER m"
 					+ "		ON m.m_no = r.m_no"
+					+ "		JOIN review_photo rp"
+					+ "		ON r.review_no = rp.review_no"
 			+ " ORDER BY r.review_in_DATE DESC "
 	        + " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 			
 			ArrayList<BoardDTO> list = new ArrayList<>();
-			// 2. 실행준비
+
 			try {
-				pstmt = con.prepareStatement(query);
-				pstmt.setInt(1, pi.getOffset());
-				pstmt.setInt(2, pi.getBoardLimit()); // 5
-				// 4. 실행
-					ResultSet rs = pstmt.executeQuery();
-				
-					while(rs.next()) {
-						String m_id = rs.getString("M_ID");
-						String inDate = rs.getString("REVIEW_IN_DATE");
-						String title = rs.getString("REVIEW_TITLE");
-						String content = rs.getString("REVIEW_CONTENT");
-						String photo1Name = rs.getString("PHOTO1_NAME");
-						List<String> photoName;
-						if (photo1Name != null) {
-						    photoName = Arrays.asList(photo1Name.split(","));
-						} else {
-						    photoName = new ArrayList<>();  // rs.getString("PHOTO1_NAME")이 null인 경우 빈 리스트를 할당
-						}
-						String photoRoute = rs.getString("PHOTO1_ROUTE");
-						String star = rs.getString("REVIEW_STAR");
-						
-						BoardDTO board = new BoardDTO();
-						board.setId(m_id);
-						board.setReviewInDate(inDate);
-						board.setReviewTitle(title);
-						board.setReviewContent(content);
-						board.setReviewPhotos(photoName);
-						board.setReviewRoute1(photoRoute);
-						board.setStar(star);
-						
-						
-						list.add(board);
-						
-					}
+			    pstmt = con.prepareStatement(query);
+			    pstmt.setInt(1, pi.getOffset());
+			    pstmt.setInt(2, pi.getBoardLimit()); // 5
+
+			    ResultSet rs = pstmt.executeQuery();
+
+			    while (rs.next()) {
+			        String m_id = rs.getString("M_ID");
+			        String inDate = rs.getString("REVIEW_IN_DATE");
+			        String title = rs.getString("REVIEW_TITLE");
+			        String content = rs.getString("REVIEW_CONTENT");
+			        String star = rs.getString("REVIEW_STAR");
+
+			        List<String> photoList = new ArrayList<>();  // 사진 경로를 저장할 리스트를 생성합니다.
+			        for (int i = 1; i <= 5; i++) {  // 각 사진의 경로를 리스트에 추가합니다.
+			            String route = rs.getString("PHOTO" + i + "_ROUTE");
+			            if (route != null && !route.isEmpty()) {
+			                photoList.add(route);
+			            }
+			        }
+
+			        BoardDTO board = new BoardDTO();
+			        board.setId(m_id);
+			        board.setReviewInDate(inDate);
+			        board.setReviewTitle(title);
+			        board.setReviewContent(content);
+			        board.setPhotoList(photoList);  // BoardDTO 객체에 사진 경로 리스트를 설정합니다.
+			        board.setStar(star);
+
+			        list.add(board);
+			    }
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			    e.printStackTrace();
 			}
-	
-			
+
 			return list;
 		}
-
 		// 전체 리뷰 수 조회
 		public int reviewListCount(Connection con) {
 			String query = "SELECT count(*) as cnt"
@@ -706,6 +722,38 @@ public class BoardDAO {
 						
 						
 						return 0;
+		}
+
+		public List<String> getReviewPhotos(Connection con, int reviewNo) {
+		    String query = "SELECT photo1_route, photo2_route, photo3_route,"
+		            + "       photo4_route, photo5_route"
+		            + " FROM review_photo"
+		            + " WHERE review_no = ?";  // reviewNo를 사용하여 해당 리뷰의 사진만 선택하도록 합니다.
+
+		    List<String> photoList = new ArrayList<>();  // 결과를 저장할 리스트를 생성합니다.
+
+		    try {
+		        pstmt = con.prepareStatement(query);
+		        pstmt.setInt(1, reviewNo);  // 쿼리의 파라미터에 reviewNo를 설정합니다.
+		        
+		        ResultSet rs = pstmt.executeQuery();
+
+		        while (rs.next()) {
+		            for (int i = 1; i <= 5; i++) {  // 각 사진의 경로를 리스트에 추가합니다.
+		                String route = rs.getString(i);
+		                if (route != null && !route.isEmpty()) {
+		                    photoList.add(route);
+		                }
+		            }
+		        }
+
+		        rs.close();
+		        pstmt.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+
+		    return photoList;  // 사진 경로 리스트를 반환합니다.
 		}
 
 }

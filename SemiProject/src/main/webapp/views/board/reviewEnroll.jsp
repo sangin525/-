@@ -147,12 +147,13 @@
 							src="/resources/uploads/review/더하기.png" alt="Upload" style="padding-bottom: 5px;">
 						</label> <input type="file" id="fileUpload" name="reviewPhoto1"
 							multiple='multiple' accept='image/*' />
+							
 					</div>
 				</div>
 			</div>
 			<br><br><br>
 			<div class="review-btn">
-			<button type="submit" class="left-btn">리뷰작성</button>
+			<button type="submit" class="left-btn" id="submitBtn">리뷰작성</button>
 			</div>
 		</form>
 	</div>

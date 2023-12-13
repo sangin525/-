@@ -1,6 +1,7 @@
 package kr.co.project.board.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.page.BoardPageInfo;
@@ -47,5 +48,7 @@ public interface BoardService {
 	public ArrayList<BoardDTO> reviewList(ReviewPageInfo pi);
 	// 전체 리뷰 수 조회
 	public int reviewListCount();
+	// 리뷰 사진리스트 조회
+	public List<String> getReviewPhotos(int reviewNo);
 
 }
