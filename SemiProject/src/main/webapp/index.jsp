@@ -34,6 +34,7 @@
 
 <br>
 <%@ include file="./views/common/section.jsp" %>
+<%@ include file="./views/common/popup.jsp" %>
 
   
 <br>
