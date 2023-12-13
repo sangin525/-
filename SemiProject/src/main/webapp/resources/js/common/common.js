@@ -124,6 +124,14 @@ function navCheckReserveInfo(){
 	});
 }
 window.onload = function () {
+	var cookiedata = document.cookie;   
+	if ( cookiedata.indexOf("maindiv=done") < 0 ){     
+	    document.getElementById('layer_popup').style.visibility = "visible";
+	} else {
+	    document.getElementById('layer_popup').style.visibility = "hidden";
+	}
+	
+	
             $(".main-dining").each(function () {
                 // 개별적으로 Wheel 이벤트 적용
                 $(this).on("mousewheel DOMMouseScroll", function (e) {
@@ -156,6 +164,7 @@ window.onload = function () {
                 });
             });
         }
+/* 사이드 버튼 */
 $(window).scroll(function(){
 	if ($(this).scrollTop() > 300){
 		$('.btn_gotop').show();
@@ -178,10 +187,6 @@ $(window).scroll(function(){
 		$('.btn_kakao').hide();
 	}
 });
-
-
-
-
 
 
 

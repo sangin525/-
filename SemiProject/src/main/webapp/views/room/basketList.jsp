@@ -55,7 +55,7 @@
 	      <td value="${item.foodCount}">${item.foodCount}</td>
 	      <td class="foodPrice" id="foodPrice${count}" >${item.foodPrice}</td>
 	      <td value="${item.foodTime}">${item.foodTime}</td>
-	      <td><input type="checkbox" class="basketListChk" id="basketListChk${count}" onchange="getTotalPrice(event, ${count}); itemChkList(event, ${count})">결제할상품체크</td>
+	      <td><input type="checkbox" class="basketListChk" id="basketListChk${count}" onchange="getTotalPrice(event, ${count}, ${percentMLG}); itemChkList(event, ${count})">결제할상품체크</td>
 	      <td><input type="button" class="btn btn-outline-primary" value="상품삭제" onclick="deleteItem(${item.foodBasketNo})"></td>
 	    </tr>
 	  </c:forEach>
@@ -65,8 +65,9 @@
 </table>
 <div id="basketBtnDiv">
 <input type="text" id="basketTotalPrice" value="0" disabled>
+<p>회원님의 등급은 : ${basketGrade.membership} 으로 적립금은 <input type="number" id="basketMLG" style="width:85px; height:20px" value="0" disabled > 원 입니다</p>
 <button class="btn btn-outline-danger" onclick="itemRequestPay()">결제하기</button>
-<input type="checkbox" id="allChkBtn" onchange=" itemAllChkList(event); allChkBtn(event, ${count})">전체선택/전체해제
+<input type="checkbox" id="allChkBtn" onchange=" itemAllChkList(event); allChkBtn(event, ${count}, ${percentMLG})">전체선택/전체해제
 </div>
 
 

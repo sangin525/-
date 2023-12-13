@@ -67,6 +67,9 @@ public interface RoomService {
 	// value값에따른 item List 가져오기
 	public ArrayList<RoomDTO> itemView(String optionValue);
 	
+	// 장바구니에서 클라이언트 마일리지 등급,퍼센트 가져오기
+	public RoomDTO memberMLGGradePercent(int memberNo);
+	
 	
 }
 
