@@ -1,8 +1,8 @@
 package kr.co.project.board.page;
 
-public class BoardPageInfo {
+public class ReviewPageInfo {
 	//페이지 게시글 수
-	private int listCount;
+	private int ReviewListCount;
 	private int currentPage;
 	private int pageLimit;
 	private int boardLimit;
@@ -11,12 +11,11 @@ public class BoardPageInfo {
 	private int endPage;
 	private int offset;
 	
-	
-	public int getListCount() {
-		return listCount;
+	public int getReviewListCount() {
+		return ReviewListCount;
 	}
-	public void setListCount(int listCount) {
-		this.listCount = listCount;
+	public void setReviewListCount(int reviewListCount) {
+		ReviewListCount = reviewListCount;
 	}
 	public int getCurrentPage() {
 		return currentPage;
@@ -60,10 +59,10 @@ public class BoardPageInfo {
 	public void setOffset(int offset) {
 		this.offset = offset;
 	}
-	
-	public BoardPageInfo(int listCount, int currentPage, int pageLimit, int boardLimit,int maxPage,int  startPage,int endPage, int offset) {
+	public ReviewPageInfo(int reviewListCount, int currentPage, int pageLimit, int boardLimit, int maxPage,
+			int startPage, int endPage, int offset) {
 		super();
-		this.listCount = listCount;
+		ReviewListCount = reviewListCount;
 		this.currentPage = currentPage;
 		this.pageLimit = pageLimit;
 		this.boardLimit = boardLimit;
@@ -72,5 +71,6 @@ public class BoardPageInfo {
 		this.endPage = endPage;
 		this.offset = offset;
 	}
+	
 	
 }

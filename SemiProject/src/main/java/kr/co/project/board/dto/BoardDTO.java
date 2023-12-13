@@ -1,5 +1,7 @@
 package kr.co.project.board.dto;
 
+import java.util.List;
+
 public class BoardDTO {
 
 	private String title;
@@ -31,14 +33,146 @@ public class BoardDTO {
 	private String photo; // 사진이름
 	private String route; // 사진경로
 	
+	
+
+	// 리뷰 DTO
+	private String id;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	private String reviewTitle;
+	private String reviewContent;
+	private String reviewNo;
+	private String room;
+	private String year;
+	private String month;
+	private String type;
+	private String star;
+	private String reviewInDate;
+	private String reviewUpdateDate;
+	private String reviewDeleteDate;
+	private List<String> reviewPhotos;
+	private String reviewRoute1;
+
+
 	private String Checkbox; // 문의사항 체크박스
 	private String categoty; // 카테고리 분류
+
 
 
 //	get,set 사용
 	
 	
 	
+	public String getReviewTitle() {
+		return reviewTitle;
+	}
+
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
+	}
+
+	public String getReviewContent() {
+		return reviewContent;
+	}
+
+	public void setReviewContent(String reviewContent) {
+		this.reviewContent = reviewContent;
+	}
+
+	public String getReviewNo() {
+		return reviewNo;
+	}
+
+	public void setReviewNo(String reviewNo) {
+		this.reviewNo = reviewNo;
+	}
+
+	public String getRoom() {
+		return room;
+	}
+
+	public void setRoom(String room) {
+		this.room = room;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getStar() {
+		return star;
+	}
+
+	public void setStar(String star) {
+		this.star = star;
+	}
+
+	public String getReviewInDate() {
+		return reviewInDate;
+	}
+
+	public void setReviewInDate(String reviewInDate) {
+		this.reviewInDate = reviewInDate;
+	}
+
+	public String getReviewUpdateDate() {
+		return reviewUpdateDate;
+	}
+
+	public void setReviewUpdateDate(String reviewUpdateDate) {
+		this.reviewUpdateDate = reviewUpdateDate;
+	}
+
+	public String getReviewDeleteDate() {
+		return reviewDeleteDate;
+	}
+
+	public void setReviewDeleteDate(String reviewDeleteDate) {
+		this.reviewDeleteDate = reviewDeleteDate;
+	}
+
+	public List<String> getReviewPhotos() {
+		return reviewPhotos;
+	}
+
+	public void setReviewPhotos(List<String> reviewPhotos) {
+		this.reviewPhotos = reviewPhotos;
+	}
+
+	public String getReviewRoute1() {
+		return reviewRoute1;
+	}
+
+	public void setReviewRoute1(String reviewRoute1) {
+		this.reviewRoute1 = reviewRoute1;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -251,6 +385,26 @@ public class BoardDTO {
 		this.title = title;
 		this.content = content;
 		this.boardNo = boardNo;
+	}
+
+	public BoardDTO(String id, String reviewTitle, String reviewContent, String reviewNo, String room, String year,
+			String month, String type, String star, String reviewInDate, String reviewUpdateDate,
+			String reviewDeleteDate, List<String> reviewPhotos, String reviewRoute1) {
+		super();
+		this.id = id;
+		this.reviewTitle = reviewTitle;
+		this.reviewContent = reviewContent;
+		this.reviewNo = reviewNo;
+		this.room = room;
+		this.year = year;
+		this.month = month;
+		this.type = type;
+		this.star = star;
+		this.reviewInDate = reviewInDate;
+		this.reviewUpdateDate = reviewUpdateDate;
+		this.reviewDeleteDate = reviewDeleteDate;
+		this.reviewPhotos = reviewPhotos;
+		this.reviewRoute1 = reviewRoute1;
 	}
 	
 	

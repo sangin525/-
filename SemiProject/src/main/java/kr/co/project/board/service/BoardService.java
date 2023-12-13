@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.page.BoardPageInfo;
+import kr.co.project.board.page.ReviewPageInfo;
 import kr.co.project.common.MyBoardPageInfo;
 
 public interface BoardService {
@@ -40,5 +41,11 @@ public interface BoardService {
 	// 내 게시글 목록 조회
 	public ArrayList<BoardDTO> myBoardList(MyBoardPageInfo pi, int no);
 	
-	
+	// 리뷰 작성
+	public int reviewEnroll(BoardDTO board, int no);
+	// 리뷰 List up
+	public ArrayList<BoardDTO> reviewList(ReviewPageInfo pi);
+	// 전체 리뷰 수 조회
+	public int reviewListCount();
+
 }
