@@ -46,16 +46,18 @@ function basketListEnroll(foodName, foodPrice, foodTime){
 	});
 }
 
-function getTotalPrice(event, count){
+function getTotalPrice(event, count, percentMLG){
 	let foodPrice = document.getElementById("foodPrice"+count).innerText;
 	let basketListChk = document.getElementById("basketListChk"+count);
 	let basketTotalPrice = document.getElementById("basketTotalPrice");
+	let basketMLG = document.getElementById("basketMLG");
+	
 	if(event.target.checked){
 		basketTotalPrice.value = parseInt(basketTotalPrice.value) + parseInt(foodPrice);   
-//		basketTotalPrice.innerHTML = parseInt(basketTotalPrice.value) + parseInt(foodPrice);   
+		basketMLG.value = parseInt(basketTotalPrice.value * percentMLG);
 	}else{
 		basketTotalPrice.value = parseInt(basketTotalPrice.value) - parseInt(foodPrice);
-//		basketTotalPrice.innerHTML = parseInt(basketTotalPrice.value) - parseInt(foodPrice);
+		basketMLG.value = parseInt(basketTotalPrice.value * percentMLG);
 	}
 	
 	
@@ -63,11 +65,12 @@ function getTotalPrice(event, count){
 }
 
 
-function allChkBtn(event, count){
+function allChkBtn(event, count, percentMLG){
 	let allChkBtn = document.getElementById("allChkBtn");
 	let basketListChk = document.getElementsByClassName("basketListChk");
 	let basketTotalPrice = document.getElementById("basketTotalPrice");
 	let foodPrice = document.getElementsByClassName("foodPrice"); 
+	let basketMLG = document.getElementById("basketMLG");
 	
 	if(event.target.checked){
 		console.log("올체크");
@@ -75,6 +78,7 @@ function allChkBtn(event, count){
 			if(basketListChk[i].checked == false){
 				basketListChk[i].checked = true;
 				basketTotalPrice.value = parseInt(basketTotalPrice.value) + parseInt(foodPrice[i].innerText);
+				basketMLG.value = parseInt(basketTotalPrice.value * percentMLG);
 			}
 
 		}
@@ -83,6 +87,7 @@ function allChkBtn(event, count){
 		for(let i = 0; i<basketListChk.length; i++){
 			basketListChk[i].checked = false;
 			basketTotalPrice.value = "0";
+			basketMLG.value = "0";
 		}
 	}
 }
