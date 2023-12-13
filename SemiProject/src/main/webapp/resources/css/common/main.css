@@ -150,7 +150,7 @@
    cursor: pointer;
 }
 
-select {
+.grade-menu {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -167,11 +167,11 @@ select {
   margin-left:10px;
 }
 
-select:hover {
+.grade-menu:hoover {
   border-color: #888;
 }
 
-select:focus {
+.grade-menu:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
@@ -179,7 +179,39 @@ select:focus {
   outline: none;
 }
 
-select:disabled {
+.grade-menu:disabled {
+  opacity: 0.5;
+}
+.room-menu {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  color: #444;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  padding:5px;
+  margin-left:10px;
+}
+
+.room-menu:hoover {
+  border-color: #888;
+}
+
+.room-menu:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+.room-menu:disabled {
   opacity: 0.5;
 }
 
@@ -662,3 +694,92 @@ right: 45px;
 outline: none; 
 cursor: pointer; 
 }
+
+/* 메인페이지 팝업창 */
+
+.layerPopup img {
+	margin-bottom: 0px;
+}
+
+.layerPopup:before {
+	display: block;
+	content: "";
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5);
+	z-index: 9000
+}
+
+.layerPopup .layerBox {
+	z-index: 10000;
+	position: fixed;
+	left: 50%;
+	top: 48%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	background: #fff;
+	border-radius: 5px;
+}
+
+.layerPopup .layerBox .title {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	font-weight: 600;
+	border-bottom: 1px solid #d9d9d9;
+	font-size:20px;
+	color: rgb(210, 98, 98);
+}
+
+.layerPopup .layerBox .btnTodayHide {
+	font-size: 14px;
+	font-weight: 600;
+	color: black;
+	float: left;
+	text-decoration: none;
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	border: black solid 1px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.layerPopup div {
+	display: inline;
+}
+
+.layerPopup form {
+	margin-top: 5px;
+	font-size: 16px;
+	font-weight: 600;
+/* 	weight: 100%; */
+	height: 30px;
+	line-height: 30px
+}
+
+.layerPopup #close {
+	font-size: 16px;
+	font-weight: 600;
+	width: 40px;
+	height: 30px;
+	color: black;
+	float: right;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.layerPopup a {
+	text-decoration: none;
+	color: black;
+	width: 50px;
+	height: 40px;
+}
+
+
+
+
