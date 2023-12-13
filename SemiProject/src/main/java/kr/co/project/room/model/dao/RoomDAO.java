@@ -686,6 +686,27 @@ public class RoomDAO {
 		return array;
 	}
 
+	public RoomDTO memberMLGGradePercent(Connection con, int memberNo) {
+		String query = "SELECT M_MEMBERSHIP  FROM MEMBER m "
+				+ "		WHERE M_NO = ?";
+		
+		RoomDTO room = new RoomDTO();
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, memberNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				room.setMembership(rs.getString("M_MEMBERSHIP"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return room;
+	}
+
 	
 
 	
