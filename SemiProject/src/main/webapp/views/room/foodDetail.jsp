@@ -78,12 +78,12 @@
        					<dd class="foodDetailDl"><input type="number" id="foodDeailCount" onchange="sumFoodPrice(${food.foodPrice})"  value="1"></dd><br>
        				<dt class="foodDetailDl">총 상품금액</dt>
        					<dd class="foodDetailDl">KRW  <span id="foodDetailPrice">${food.foodPrice}</span></dd>
-         		<button class="foodDeailBtn" onclick="basketListEnroll('${food.foodName}', ${food.foodPrice}, '${food.foodTime}')">장바구니담기</button>
-         		<button class="foodDeailBtn" onclick="oneItemPay('${food.foodName}', ${food.foodPrice}, '${food.foodTime}')">결제하기</button>
+         		<button class="btn btn-outline-primary" onclick="basketListEnroll('${food.foodName}', ${food.foodPrice}, '${food.foodTime}')">장바구니담기</button>
+         		<button class="btn btn-outline-primary" onclick="oneItemPay('${food.foodName}', ${food.foodPrice}, '${food.foodTime}')">결제하기</button>
          		</dl>
 	         </div>
          </div>
-         <div>'asdasdasd</div>
+         <div>asdasdasd</div>
 		<hr style="border: solid 1px black;">
 		
 		<div>
@@ -91,6 +91,22 @@
 				<dt class="foodDetailInfo" >상품설명</dt>
 				<dd>${food.standardMenu}</dd>
 			</dl>
+		</div><br>
+		<div id="imgChooseDiv">
+			<c:choose>
+				<c:when test="${food.foodTime == '굿즈'}"><img alt="" src="/resources/uploads/내용.jpg"></c:when>
+				<c:when test="${food.foodTime == '시즌상품'}"><img alt="" src="/resources/uploads/내용3.jpg"></c:when>
+				<c:when test="${food.foodTime == '침구류'}"><img alt="" src="/resources/uploads/내용2.jpg"></c:when>
+				<c:when test="${food.foodTime == '식사'}"><img alt="" src="/resources/uploads/내용4.jpg"></c:when>
+			</c:choose>
+		</div>
+		<div>
+			<a href="http://pf.kakao.com/_PNxjXG" class="btn_kakao" style="display:none;">
+			  <img src="/resources/uploads/mainPic/카카오로고.png" style="width:65px; height:70px">
+			  </a>
+			<a href="#" class="btn_gotop" style="display:none;">
+			  <img src="/resources/uploads/mainPic/위로버튼.png" style="width:100px; height:100px">
+			</a>
 		</div>
 
 

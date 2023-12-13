@@ -121,9 +121,20 @@ function movePagePay(event){
 }
 
 
+function optionValue(event){
+	if(event.target.value == "전체"){
+		window.location.href = "/foodInfo.do";
+	}else{
+		window.location.href = "/ItemView.do?optionValue="+event.target.value;
+	}
+	
+	
+}
 
-
-
+function foodNameClick(count){
+	let foodName = document.getElementById("foodName"+count).innerText;
+	window.location.href = "/foodDetail.do?foodName="+foodName;
+}
 
 
 

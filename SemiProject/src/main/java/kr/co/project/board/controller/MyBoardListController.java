@@ -30,17 +30,17 @@ public class MyBoardListController extends HttpServlet {
 		//세션에서 내 회원번호 조회
 		HttpSession session = request.getSession();
 		int no = (int) session.getAttribute("no");
-		System.out.println(no);
+
 		// cpage = 현재 페이지
 		int cpage = Integer.parseInt(request.getParameter("cpage"));
-		System.out.println(cpage);
+
 
 		// 서비스 객체 생성
 		BoardServiceImpl boardService = new BoardServiceImpl();
 
 		// 내 게시글 수
 		int myListCount = boardService.myListCount(no);
-		System.out.println(myListCount);
+
 
 		// 보여질 페이지 수
 		int pageLimit = 5;

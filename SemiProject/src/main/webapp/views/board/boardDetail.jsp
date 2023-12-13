@@ -67,7 +67,7 @@
 							</span>
 							<span class="divbuttonSort">
 								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/list-task.svg"><a class="aBtn" href="/BoardList.do?cpage=1">목록</a></div>
-								<button class=right-btn-board-Enroll><img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg">글 작성</button>
+								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg"><a class="aBtn" href="/views/board/boardEnroll.jsp">글 작성</a></div>
 							</span>
 						</div>
 					</div>

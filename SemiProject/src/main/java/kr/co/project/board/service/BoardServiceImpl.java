@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import kr.co.project.board.dao.BoardDAO;
 import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.page.BoardPageInfo;
+import kr.co.project.board.page.ReviewPageInfo;
 import kr.co.project.common.DatabaseConnection;
 import kr.co.project.common.MyBoardPageInfo;
 
@@ -84,4 +85,21 @@ public class BoardServiceImpl implements BoardService{
 	public ArrayList<BoardDTO> myBoardList(MyBoardPageInfo pi, int no){
 		return boardDAO.myBoardList(con, pi, no);
 	}
+	
+	// 리뷰 작성
+	public int reviewEnroll(BoardDTO board, int no) {
+		return boardDAO.reviewEnroll(con, board, no);
+	}
+	
+	// 리뷰 List up
+	public ArrayList<BoardDTO> reviewList(ReviewPageInfo pi) {
+		return boardDAO.reviewList(con, pi);
+	}
+	
+	// 전체 리뷰 수 조회
+	public int reviewListCount() {
+		return boardDAO.reviewListCount(con);
+	}
+
+	
 }

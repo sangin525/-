@@ -652,6 +652,40 @@ public class RoomDAO {
 		return result;
 	}
 
+	public ArrayList<RoomDTO> itemView(Connection con, String optionValue) {
+		String query = "SELECT * FROM FOODGUIDE i "
+				+ "		WHERE FOOD_TIME  = ?";
+		
+		ArrayList<RoomDTO> array = new ArrayList<>();
+		
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, optionValue);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				RoomDTO room = new RoomDTO();
+				
+				room.setFoodName(rs.getString("FOOD_NAME"));
+				room.setFoodInfo(rs.getString("FOOD_INFO"));
+				room.setFoodPrice(rs.getInt("FOOD_PRICE"));
+				room.setStandardMenu(rs.getString("STANDARDMENU"));
+				room.setFoodPhoto1(rs.getString("FOOD_PHOTO_1"));
+				room.setFoodPhoto2(rs.getString("FOOD_PHOTO_2"));
+				room.setFoodPhoto3(rs.getString("FOOD_PHOTO_3"));
+				room.setFoodTime(rs.getString("FOOD_TIME"));
+				
+				array.add(room);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return array;
+	}
+
 	
 
 	

@@ -11,6 +11,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <%@ include file="../common/head.jsp" %>
 <script src="/resources/js/room/apikey.js"></script>
+<link href="/resources/css/room/reserveBasket.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <script src="/resources/js/room/food.js"></script>
@@ -19,6 +20,7 @@
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
 <table class="table table-hover">
+<h3 class="basketH3Tag"> 결제내역 입니다.</h3>
   <thead>
     <tr>
       <th scope="col">결제번호</th>
@@ -50,7 +52,7 @@
 	    <tr>
 	      <th scope="row">${count}</th>
 	      <td>${item.MName}</td>
-	      <td>${item.foodName}</td>
+	      <td id="foodName${count}" onclick="foodNameClick(${count})" style="cursor:pointer">${item.foodName}</td>
 	      <td>${item.foodCount}</td>
 	      <td>${item.foodPrice}</td>
 	      <td>${item.foodTime}</td>
