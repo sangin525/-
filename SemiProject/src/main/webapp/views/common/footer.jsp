@@ -15,7 +15,7 @@
 				<div id="google_translate_element"
 					style="visibility: hidden; position: absolute; top: 0px;"></div>
 				<div class="translation-icons"
-					style="visibility: hidden; position: relative; text-align: center; margin: 0px; padding: 0px; zoom: 1">
+					style="visibility: hidden; position: relative; text-align: center; margin: 0px; padding: 0px; width: 295.833px; height:21.333px; zoom: 1">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<colgroup>
 							<col width="20%">
@@ -44,9 +44,10 @@
 
 		<hr>
 			<div>
+
 		<dl>㈜호텔하루 서울 중구 청계천로 86 호텔하루 &nbsp;&nbsp; (우)11111
 			&nbsp;&nbsp; Tel: 02-111-1111 &nbsp;&nbsp;Fax: 02-1111-1111
-	<dl class="sns">SNS</dl>
+				<dl class="sns">SNS</dl>
 		</dl>
 		<p>사업자등록번호: 111-11-11123 &nbsp;&nbsp; 대표이사: 초특가 여기어때&nbsp;&nbsp;
 			호스팅서비스제공자: 호텔하루

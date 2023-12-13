@@ -260,7 +260,6 @@ select:disabled {
 /* 푸터 */
 .Main_footer {
    background-color: bisque;
-   color: #fff;
    padding-top: 20px;
    text-align: left;
    bottom: 0;
@@ -304,6 +303,18 @@ select:disabled {
    display: inline-block;
 }
 
+.footerBox hr {
+	opacity: 1;
+	display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
 .footer5 {
    float: right;
 }

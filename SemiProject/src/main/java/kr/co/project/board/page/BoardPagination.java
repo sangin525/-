@@ -17,4 +17,5 @@ public class BoardPagination {
 		return pi;
 		
 	}
+
 }
