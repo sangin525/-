@@ -35,7 +35,7 @@
 			<h1>문의 사항</h1>
 		</div>
 		
-		<form action ="/boardUpdate.do" method ="POST" enctype="multipart/form-data">
+		<form action ="/boardUpdate.do" method ="POST">
 			<div class="boardEnroll">
 				<div class="divCenter2">
 					<input type="hidden" id="boardNo" name="boardNo" value="${sessionScope.boardNo}">
@@ -55,7 +55,7 @@
 						<input class="upload-name" disabled>
 					</div>
 					
-					<button type="submit" class="right-btn-board" onclick="save()">제출</button>
+					<button style="justify-content:center;" type="submit" class="right-btn-board" onclick="save()">제출</button>
 				</div>
 		</form>
 	</section>

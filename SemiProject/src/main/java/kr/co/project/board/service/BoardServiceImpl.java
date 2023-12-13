@@ -26,24 +26,15 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.boardEnroll(con,title, content, memberNo, fileName, uploadDirectory, categoryHidden);
 	}
 	
-	// 공지사항 생성
-	public int noticeEnroll(String title, String content, int memberNo) {
-		return boardDAO.noticeEnroll(con, title, content, memberNo);
-	}
-	
 	//게시글 목록 조회
 	public ArrayList<BoardDTO> boardList(BoardPageInfo pi){
 		return boardDAO.boardList(con, pi);
 	}
-	// 공지사항 목록 조회
-	public ArrayList<BoardDTO> noticeList(){
-		return boardDAO.noticeList(con);
-	}
-	// 문의사항 상세보기
+	//뮨의사항 조회수 증가
 	public int boardView(int boardNo){
 		return boardDAO.boardView(con, boardNo);
 	}
-	
+	// 문의사항 상세보기
 	@Override
 	public void boardSelect(BoardDTO board) {
 		boardDAO.boardSelect(con, board);

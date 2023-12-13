@@ -11,12 +11,8 @@ public interface BoardService {
 	
 	// 문의사항 생성
 	public int boardEnroll(String title, String content, int memberNo, String fileName, String uploadDirectory, String categoryHidden);
-	// 공지사항 생성 (Notice)
-	public int noticeEnroll(String title, String content, int memberNo);
 	// 문의사항 List up
 	public ArrayList<BoardDTO> boardList(BoardPageInfo pi);
-	// 공지사항 List up
-	public ArrayList<BoardDTO> noticeList();
 	//조회수 증가
 	public int boardView(int boardNo);
 	// 문의사항 상세보기

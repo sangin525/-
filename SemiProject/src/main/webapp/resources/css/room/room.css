@@ -37,6 +37,7 @@
      width: 170px;
      left: 20px;
      top: 240px;
+     background-color: beige;
 }
 
 #datepickerRoom{
@@ -44,10 +45,11 @@
      display:inline;
      width: 170px;
      left: 20px;
+     background-color: beige;
 }
 #datepicker { 
      position: fixed; 
-     top: 300px; 
+     top: 285px; 
      right: 300px; 
      left: 20px; 
      display:inline;
@@ -58,3 +60,16 @@
  @media screen and (max-width: 1400px) {
     #datepicker, #datepickerRoom, #datepickerRoomMenu {display:none;}
 }
+
+#section_main{
+	background-color: beige;
+}
+
+
+
+
+
+
+
+
+

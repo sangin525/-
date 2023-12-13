@@ -3,6 +3,12 @@ function detailPage(boardNo) {
 	window.location.href = pageUrl;
 }
 
+function NoticedetailPage(boardNo) {
+	const pageUrl = '/NoticeDetail.do?boardNo=' + boardNo;
+	window.location.href = pageUrl;
+}
+
+// Board Detail Update 내용
 function boardUpdate() {
 	const form = document.getElementById("board-datail-form");
 
@@ -12,6 +18,16 @@ function boardUpdate() {
 
 }
 
+// Notice Detail Update 내용 // 함수 사용 안하는거 같은데 확인 필요함
+function NoticeUpdate() {
+	const form = document.getElementById("board-datail-form");
+
+	form.action = "/noticeUpdate.do";
+	form.method = "POST";
+	form.submit();
+}
+
+// Board Detail 삭제
 function boardDelete() {
 	const form = document.getElementById("board-datail-form");
 
@@ -20,6 +36,17 @@ function boardDelete() {
 	form.submit();
 }
 
+function noticeDelete() {
+	const form = document.getElementById("notice-datail-form");
+
+	form.action = "/noticeDelete.do";
+	form.method = "POST";
+	form.submit();
+}
+
+// Board Update 페이지로 이동하기 위한 함수
+// 이렇게 사용하는 이유는 스마트에디터 사용하고 나서 기존 수정 내용이 오류를 발생하여 새로 만든
+// 업데이트 내용
 function boardUpdateFormSend() {
 	const form = document.getElementById("board-datail-form");
 
@@ -27,7 +54,16 @@ function boardUpdateFormSend() {
 	form.method = "POST";
 	form.submit();
 }
+function noticeUpdateFormSend() {
+	const form = document.getElementById("notice-datail-form");
 
+	form.action = "/noticeSessionUpdate.do";
+	form.method = "POST";
+	form.submit();
+}
+
+
+/* 게시글 추가 버튼 */
 function boardEnrollBtn() {
 	const test = document.getElementById("test").value;
 	if (test === '') {
@@ -38,11 +74,19 @@ function boardEnrollBtn() {
 		location.href = 'views/board/boardEnroll.jsp';
 	}
 }
+/* 게시글 추가 버튼 */
+function noticeEnrollBtn() {
+	const test = document.getElementById("test").value;
+	if (test === '') {
+		alert("로그인을 해주시길 바랍니다.");
+		location.href = 'views/member/Signin.jsp';
 
-function test() {
-	alert("Hello");
-
+	} else {
+		location.href = 'views/notice/noticeEnroll.jsp';
+	}
 }
+
+
 
 function answerInput() {
 	let input = document.getElementById("answerInput");
@@ -68,6 +112,32 @@ function answerDelete() {
 	form.submit();
 }
 
+/*공지 사항*/
+function commentInput() {
+	let input = document.getElementById("commentInput");
+	input.style.display = 'block';
+	
+	window.scrollTo(0,document.body.scrollHeight);
+// 스크롤 아래로 내리며 display:none을 
+}
+
+function commentUpdate() {
+	const form = document.getElementById("comment-form");
+
+	form.action = "/commentDetailUpdate.do";
+	form.method = "POST";
+	form.submit();
+}
+
+function commentDelete() {
+	const form = document.getElementById("comment-form");
+
+	form.action = "/commentDelete.do";
+	form.method = "POST";
+	form.submit();
+}
+
+/*파일 첨부*/
 document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('file').addEventListener('change', function() {
 		var fileName = this.value;
