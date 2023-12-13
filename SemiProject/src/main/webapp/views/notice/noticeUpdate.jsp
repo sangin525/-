@@ -8,7 +8,7 @@
 <script src="/resources/js/board/board.js"></script>
 <link rel="stylesheet" href="/resources/css/board.css">
 
-<title>BoardEnroll</title>
+<title>NoticeEnroll</title>
 </head>
 <body class="Main_body" onload="editorLoading('', '');" style = "background-color:white;">
 	<%@ include file="/views/common/header.jsp"%>
@@ -16,26 +16,11 @@
 
 
 	<section class="boardSection">
-		
-		<div style="border-bottom:3px solid #ffd2d2; margin-bottom:10px;">
-			<div class="divSort">
-				<h1 style="margin-bottom:0;">문의 사항</h1>
-				<li class="BoardEnrollLi">비밀글<input type="checkbox"></li>
-			</div>
-				<ul class="BoardEnrollUl">
-					<li>객실 문의<input type="checkbox"></li>
-					<li>예약 문의<input type="checkbox"></li>
-					<li>시설 문의<input type="checkbox"></li>
-					<li>회원가입 및 로그인 문의<input type="checkbox"></li>
-					<li>기타 문의<input type="checkbox"></li>
-				</ul>
-		</div>
-		
 		<div class="divCenter">
-			<h1>문의 사항</h1>
+			<h1>공지 사항</h1>
 		</div>
 		
-		<form action ="/boardUpdate.do" method ="POST">
+		<form action ="/noticeUpdate.do" method ="POST">
 			<div class="boardEnroll">
 				<div class="divCenter2">
 					<input type="hidden" id="boardNo" name="boardNo" value="${sessionScope.boardNo}">
