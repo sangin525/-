@@ -77,7 +77,7 @@
        				<dt class="foodDetailDl">상품구매수량</dt>
        					<dd class="foodDetailDl"><input type="number" id="foodDeailCount" onchange="sumFoodPrice(${food.foodPrice})"  value="1"></dd><br>
        				<dt class="foodDetailDl">총 상품금액</dt>
-       					<dd class="foodDetailDl">KRW  <span id="foodDetailPrice">${food.foodPrice}</span></dd>
+       					<dd class="foodDetailDl">KRW  <span id="foodDetailPrice">${food.foodPrice}</span></dd><br>
          		<button class="btn btn-outline-primary" onclick="basketListEnroll('${food.foodName}', ${food.foodPrice}, '${food.foodTime}')">장바구니담기</button>
          		<button class="btn btn-outline-primary" onclick="oneItemPay('${food.foodName}', ${food.foodPrice}, '${food.foodTime}')">결제하기</button>
          		</dl>
@@ -98,6 +98,8 @@
 				<c:when test="${food.foodTime == '시즌상품'}"><img alt="" src="/resources/uploads/room/내용3.jpg"></c:when>
 				<c:when test="${food.foodTime == '침구류'}"><img alt="" src="/resources/uploads/room/내용2.jpg"></c:when>
 				<c:when test="${food.foodTime == '식사'}"><img alt="" src="/resources/uploads/room/내용4.jpg"></c:when>
+				<c:when test="${food.foodTime == '커피'}"><img alt="" src="/resources/uploads/room/내용5.jpg"></c:when>
+				<c:when test="${food.foodTime == '투고'}"><img alt="" src="/resources/uploads/room/내용7.jpg"></c:when>
 			</c:choose>
 		</div>
 		<div>
@@ -110,9 +112,6 @@
 		</div>
 
 
- <br><br><br><br><br><br><br><br>
- <br><br><br><br><br><br><br><br>
- <br><br><br><br><br><br><br><br>
  <br><br><br><br><br><br>
 </section>
 
