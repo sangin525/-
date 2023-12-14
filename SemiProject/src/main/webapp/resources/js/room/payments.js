@@ -239,8 +239,7 @@ function itemAllChkList(event){
 
 function itemRequestPay(){
 	let totalPrice = document.getElementById("basketTotalPrice").value;
-	let basketMLG = document.getElementById("basketMLG");
-	console.log(basketMLG.value);
+	let basketMLG = document.getElementById("basketMLG").value;
 	
 	if(totalPrice > 0){
 		IMP.request_pay({
@@ -257,8 +256,8 @@ function itemRequestPay(){
 					type: 'post',
 					data: {
 						payItemNo: payItemNo.join(),
-						totalPrice: totalPrice
-						
+						totalPrice: totalPrice,
+						basketMLG: basketMLG
 					},
 					success: function(data) {
 							if(data > 0){

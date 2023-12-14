@@ -26,9 +26,16 @@ public class ItemReserveEnrollController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String payItemNo = request.getParameter("payItemNo");
+		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
+		int basketMLG = Integer.parseInt(request.getParameter("basketMLG"));
+	
 		HttpSession session = request.getSession();
 		int memberNo = (int)session.getAttribute("no");
 		RoomServiceImpl roomService = new RoomServiceImpl();
+		
+		
+		roomService.basketPayEnrollMLG(memberNo, totalPrice, basketMLG);
+		
 		int result = roomService.changeReservePay(payItemNo,memberNo);
 		System.out.println(result);
 		
