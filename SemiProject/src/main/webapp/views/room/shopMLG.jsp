@@ -19,17 +19,23 @@
 <script src="/resources/js/room/food.js"></script>
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
-<section class="Main_section" id="section_main">
+<section>
 <!-- <select id="optionSelect" onchange="optionValue()"> -->
-	<button class="btn btn-outline-success" value="전체" onclick="optionValue(event)">--전체보기--</button>
-	<button class="btn btn-outline-success" value="식사" onclick="optionValue(event)">식사권</button>
-	<button class="btn btn-outline-success" value="침구류" onclick="optionValue(event)">침구류</button>
-	<button class="btn btn-outline-success" value="굿즈" onclick="optionValue(event)">굿즈</button>
-	<button class="btn btn-outline-success" value="시즌상품" onclick="optionValue(event)">시즌상품</button>
+<div id="shopMLGBtnTop">
+	<button class="btn btn-outline-success" style="margin-left: 80px; margin-top: 10px" value="전체" onclick="optionValue(event)">--전체보기--</button>
+	<button class="btn btn-outline-success" style="margin-top: 10px" value="식사" onclick="optionValue(event)">식사권</button>
+	<button class="btn btn-outline-success" style="margin-top: 10px" value="침구류" onclick="optionValue(event)">침구류</button>
+	<button class="btn btn-outline-success" style="margin-top: 10px" value="투고" onclick="optionValue(event)">투고</button>
+	<button class="btn btn-outline-success" style="margin-top: 10px" value="굿즈" onclick="optionValue(event)">굿즈</button>
+	<button class="btn btn-outline-success" style="margin-top: 10px" value="시즌상품" onclick="optionValue(event)">시즌상품</button>
+	<button class="btn btn-outline-success" style="margin-top: 10px" value="커피" onclick="optionValue(event)">커피</button>
 <!-- </select><br> -->
-<button class="btn btn-outline-danger" id="basketMoveBtn" value="장바구니" onclick="movePagePay(event)">장바구니로 이동</button>
+<br><br>
+<button class="btn btn-outline-danger" style="margin-left: 80px;" id="basketMoveBtn" value="장바구니" onclick="movePagePay(event)">장바구니로 이동</button>
 <button class="btn btn-outline-danger" id="payBasketMoveBtn" value="상품결제내역" onclick="movePagePay(event)">상품결제내역으로 이동</button>
-<h3>상품내용</h3>
+</div>
+<br><br>
+<h3 style="margin-left: 30px">상품내용</h3>
 <c:choose>
 	<c:when test="${!empty itemList}">
 		<c:forEach var="item" items="${itemList}">
@@ -92,9 +98,6 @@
 
 
 
- <br><br><br><br><br><br><br><br>
- <br><br><br><br><br><br><br><br>
- <br><br><br><br><br><br><br><br>
  <br><br><br><br><br><br>
 </section>  
 

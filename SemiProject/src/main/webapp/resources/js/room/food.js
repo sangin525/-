@@ -141,9 +141,13 @@ function foodNameClick(count){
 	window.location.href = "/foodDetail.do?foodName="+foodName;
 }
 
+function pageChangeBack(){
+	window.location.href = "/foodInfo.do";
+}
 
-
-
+function pageChangeBasket(){
+	window.location.href = "/foodListChk.do";
+}
 
 
 

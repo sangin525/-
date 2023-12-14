@@ -70,6 +70,9 @@ public interface RoomService {
 	// 장바구니에서 클라이언트 마일리지 등급,퍼센트 가져오기
 	public RoomDTO memberMLGGradePercent(int memberNo);
 	
+	// 장바구니에서 결제시 마일리지, 총 결제금액 증가
+	public void basketPayEnrollMLG(int memberNo, int totalPrice, int basketMLG);
+	
 	
 }
 

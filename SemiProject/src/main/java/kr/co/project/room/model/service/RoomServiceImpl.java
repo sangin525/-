@@ -126,4 +126,9 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public void basketPayEnrollMLG(int memberNo, int totalPrice, int basketMLG) {
+		roomDAO.basketPayEnrollMLG(con, memberNo, totalPrice, basketMLG);
+	}
+
+
 }
