@@ -2,6 +2,7 @@ package kr.co.project.board.service;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.List;
 
 import kr.co.project.board.dao.BoardDAO;
 import kr.co.project.board.dto.BoardDTO;
@@ -100,6 +101,11 @@ public class BoardServiceImpl implements BoardService{
 	public int reviewListCount() {
 		return boardDAO.reviewListCount(con);
 	}
+	
+	// 리뷰 사진리스트 조회
+		public List<String> getReviewPhotos(int reviewNo){
+			return boardDAO.getReviewPhotos(con, reviewNo);
+		}
 
 	
 }

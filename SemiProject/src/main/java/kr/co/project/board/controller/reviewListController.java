@@ -58,18 +58,10 @@ public class reviewListController extends HttpServlet {
 		// 목록 불러오기
 		ArrayList<BoardDTO> list = boardService.reviewList(pi);
 		for (BoardDTO item : list) {
-		    List<String> reviewPhotos = item.getReviewPhotos();
-		    List<String> newReviewPhotos = new ArrayList<>();
+		    int reviewNo = item.getReviewNo();
+		    List<String> fileNames = boardService.getReviewPhotos(reviewNo);
+		    item.setFileNames(fileNames);  // BoardDTO 객체에 사진 리스트를 저장
 		    
-		    for (String photo : reviewPhotos) {
-		        photo = photo.replace("[", "").replace("]", ""); // 대괄호 제거
-		        newReviewPhotos.add(photo);
-		    }
-		    item.setReviewPhotos(newReviewPhotos);
-		    System.out.println("Review photos:");
-		    for (String photo : newReviewPhotos) {
-		        System.out.println(photo);
-		    }
 		}
 		int row = reviewListCount - (cpage - 1) * boardLimit;
 		request.setAttribute("row", row);

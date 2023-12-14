@@ -15,15 +15,15 @@
 	<%@ include file="../common/header.jsp"%>
 	<%@ include file="../common/nav.jsp"%>
 	<div class="review-container">
-		<form action="/reviewEnroll.do" method="post"
-			enctype='multipart/form-data'>
+		<form action="/reviewEnroll.do" method="post" enctype="multipart/form-data">
 			<div class="review-content">
 				<div class="content-column">
 					<div class="column-text">
 						<label for="title" class="form-label">1. 호텔 하루 이용 중 가장 기억에
 							남는 점을 알려주세요.<span class="textis-requied">*</span>
 						</label> <input type="text" class="review-text" id="title" name="title"
-							placeholder="제목입력(30자 이내)" required> <span class="text-muted">(0/30)</span>
+							placeholder="제목입력(30자 이내)" required> <span
+							class="text-muted">(0/30)</span>
 					</div>
 				</div>
 			</div>
@@ -34,7 +34,8 @@
 							<label for="content" class="form-label">2. 이용 중 경험을 작성해
 								주세요.<span class="textis-requied">*</span>
 							</label>
-							<textarea class="review-area" id="content" name="content" required></textarea>
+							<textarea class="review-area" id="content" name="content"
+								required></textarea>
 							<span class="text-muted">(0/500)</span>
 						</div>
 					</div>
@@ -94,28 +95,29 @@
 					<label for="type" class="form-label">5. 누구와 함께 이용하셨나요?<span
 						class="textis-requied">*</span></label>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_0_unique" value="가족" required>
-						<label for="withWho_0_unique"><span>가족</span></label>
+						<input type="radio" name="withWho" id="withWho_0_unique"
+							value="가족" required> <label for="withWho_0_unique"><span>가족</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_1_unique" value="친구">
-						<label for="withWho_1_unique"><span>친구</span></label>
+						<input type="radio" name="withWho" id="withWho_1_unique"
+							value="친구"> <label for="withWho_1_unique"><span>친구</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_2_unique" value="커플">
-						<label for="withWho_2_unique"><span>커플</span></label>
+						<input type="radio" name="withWho" id="withWho_2_unique"
+							value="커플"> <label for="withWho_2_unique"><span>커플</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_3_unique" value="비즈니스">
-						<label for="withWho_3_unique"><span>비즈니스</span></label>
+						<input type="radio" name="withWho" id="withWho_3_unique"
+							value="비즈니스"> <label for="withWho_3_unique"><span>비즈니스</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_4_unique" value="혼자">
-						<label for="withWho_4_unique"><span>혼자</span></label>
+						<input type="radio" name="withWho" id="withWho_4_unique"
+							value="혼자"> <label for="withWho_4_unique"><span>혼자</span></label>
 					</div>
 					<div class="check-box">
-						<input type="radio" name="withWho" id="withWho_5_unique" value="그 외">
-						<label for="withWho_5_unique"><span>그 외</span></label>
+						<input type="radio" name="withWho" id="withWho_5_unique"
+							value="그 외"> <label for="withWho_5_unique"><span>그
+								외</span></label>
 					</div>
 				</div>
 			</div>
@@ -142,17 +144,40 @@
 					<label for="photo" class="form-label">7. ADD SOME
 						PHOTO(선택사항)</label>
 					<div class="file-input-container">
-						<div id="previewContainer"></div>
-						<label for="fileUpload" class="custom-file-upload"> <img
-							src="/resources/uploads/review/더하기.png" alt="Upload" style="padding-bottom: 5px;">
-						</label> <input type="file" id="fileUpload" name="reviewPhoto1"
-							multiple='multiple' accept='image/*' />
-					</div>
+    <div id="previewContainer"></div>
+    <div class="file-input-container">
+        <div id="previewContainer"></div>
+        <label for="fileUpload1" class="custom-file-upload"> 
+            <img src="/resources/uploads/review/더하기.png" alt="Upload" style="padding-bottom: 5px;">
+        </label> 
+        <input type="file" id="fileUpload1" name="reviewPhoto1" accept='image/*' class="file-upload-input" />
+
+        <label for="fileUpload2" class="custom-file-upload"> 
+            <img src="/resources/uploads/review/더하기.png" alt="Upload" style="padding-bottom: 5px;">
+        </label> 
+        <input type="file" id="fileUpload2" name="reviewPhoto2" accept='image/*' class="file-upload-input" />
+
+        <label for="fileUpload3" class="custom-file-upload"> 
+            <img src="/resources/uploads/review/더하기.png" alt="Upload" style="padding-bottom: 5px;">
+        </label> 
+        <input type="file" id="fileUpload3" name="reviewPhoto3" accept='image/*' class="file-upload-input" />
+
+        <label for="fileUpload4" class="custom-file-upload"> 
+            <img src="/resources/uploads/review/더하기.png" alt="Upload" style="padding-bottom: 5px;">
+        </label> 
+        <input type="file" id="fileUpload4" name="reviewPhoto4" accept='image/*' class="file-upload-input" />
+
+        <label for="fileUpload5" class="custom-file-upload"> 
+            <img src="/resources/uploads/review/더하기.png" alt="Upload" style="padding-bottom: 5px;">
+        </label> 
+        <input type="file" id="fileUpload5" name="reviewPhoto5" accept='image/*' class="file-upload-input" />
+    </div>
+</div>
 				</div>
 			</div>
-			<br><br><br>
+			<br> <br> <br>
 			<div class="review-btn">
-			<button type="submit" class="left-btn">리뷰작성</button>
+				<button type="submit" class="left-btn" id="submitBtn">리뷰작성</button>
 			</div>
 		</form>
 	</div>

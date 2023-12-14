@@ -47,7 +47,7 @@ public class BoardDTO {
 
 	private String reviewTitle;
 	private String reviewContent;
-	private String reviewNo;
+	private int reviewNo;
 	private String room;
 	private String year;
 	private String month;
@@ -56,9 +56,17 @@ public class BoardDTO {
 	private String reviewInDate;
 	private String reviewUpdateDate;
 	private String reviewDeleteDate;
-	private List<String> reviewPhotos;
-	private String reviewRoute1;
-
+	private String photo1Name;
+	private String photo1Route;
+	private String photo2Name;
+	private String photo2Route;
+	private String photo3Name;
+	private String photo3Route;
+	private String photo4Name;
+	private String photo4Route;
+	private String photo5Name;
+	private String photo5Route;
+	private List<String> fileNames;
 
 	private String Checkbox; // 문의사항 체크박스
 	private String categoty; // 카테고리 분류
@@ -73,6 +81,94 @@ public class BoardDTO {
 		return reviewTitle;
 	}
 
+	public List<String> getFileNames() {
+		return fileNames;
+	}
+
+	public void setFileNames(List<String> fileNames) {
+		this.fileNames = fileNames;
+	}
+
+	public String getPhoto1Name() {
+		return photo1Name;
+	}
+
+	public void setPhoto1Name(String photo1Name) {
+		this.photo1Name = photo1Name;
+	}
+
+	public String getPhoto1Route() {
+		return photo1Route;
+	}
+
+	public void setPhoto1Route(String photo1Route) {
+		this.photo1Route = photo1Route;
+	}
+
+	public String getPhoto2Name() {
+		return photo2Name;
+	}
+
+	public void setPhoto2Name(String photo2Name) {
+		this.photo2Name = photo2Name;
+	}
+
+	public String getPhoto2Route() {
+		return photo2Route;
+	}
+
+	public void setPhoto2Route(String photo2Route) {
+		this.photo2Route = photo2Route;
+	}
+
+	public String getPhoto3Name() {
+		return photo3Name;
+	}
+
+	public void setPhoto3Name(String photo3Name) {
+		this.photo3Name = photo3Name;
+	}
+
+	public String getPhoto3Route() {
+		return photo3Route;
+	}
+
+	public void setPhoto3Route(String photo3Route) {
+		this.photo3Route = photo3Route;
+	}
+
+	public String getPhoto4Name() {
+		return photo4Name;
+	}
+
+	public void setPhoto4Name(String photo4Name) {
+		this.photo4Name = photo4Name;
+	}
+
+	public String getPhoto4Route() {
+		return photo4Route;
+	}
+
+	public void setPhoto4Route(String photo4Route) {
+		this.photo4Route = photo4Route;
+	}
+
+	public String getPhoto5Name() {
+		return photo5Name;
+	}
+
+	public void setPhoto5Name(String photo5Name) {
+		this.photo5Name = photo5Name;
+	}
+
+	public String getPhoto5Route() {
+		return photo5Route;
+	}
+
+	public void setPhoto5Route(String photo5Route) {
+		this.photo5Route = photo5Route;
+	}
+
 	public void setReviewTitle(String reviewTitle) {
 		this.reviewTitle = reviewTitle;
 	}
@@ -85,11 +181,11 @@ public class BoardDTO {
 		this.reviewContent = reviewContent;
 	}
 
-	public String getReviewNo() {
+	public int getReviewNo() {
 		return reviewNo;
 	}
 
-	public void setReviewNo(String reviewNo) {
+	public void setReviewNo(int reviewNo) {
 		this.reviewNo = reviewNo;
 	}
 
@@ -155,22 +251,6 @@ public class BoardDTO {
 
 	public void setReviewDeleteDate(String reviewDeleteDate) {
 		this.reviewDeleteDate = reviewDeleteDate;
-	}
-
-	public List<String> getReviewPhotos() {
-		return reviewPhotos;
-	}
-
-	public void setReviewPhotos(List<String> reviewPhotos) {
-		this.reviewPhotos = reviewPhotos;
-	}
-
-	public String getReviewRoute1() {
-		return reviewRoute1;
-	}
-
-	public void setReviewRoute1(String reviewRoute1) {
-		this.reviewRoute1 = reviewRoute1;
 	}
 
 	public String getTitle() {
@@ -387,11 +467,12 @@ public class BoardDTO {
 		this.boardNo = boardNo;
 	}
 
-	public BoardDTO(String id, String reviewTitle, String reviewContent, String reviewNo, String room, String year,
-			String month, String type, String star, String reviewInDate, String reviewUpdateDate,
-			String reviewDeleteDate, List<String> reviewPhotos, String reviewRoute1) {
+	public BoardDTO(String reviewTitle, String reviewContent, int reviewNo, String room, String year, String month,
+			String type, String star, String reviewInDate, String reviewUpdateDate, String reviewDeleteDate,
+			String photo1Name, String photo1Route, String photo2Name, String photo2Route, String photo3Name,
+			String photo3Route, String photo4Name, String photo4Route, String photo5Name, String photo5Route,
+			List<String> fileNames) {
 		super();
-		this.id = id;
 		this.reviewTitle = reviewTitle;
 		this.reviewContent = reviewContent;
 		this.reviewNo = reviewNo;
@@ -403,9 +484,19 @@ public class BoardDTO {
 		this.reviewInDate = reviewInDate;
 		this.reviewUpdateDate = reviewUpdateDate;
 		this.reviewDeleteDate = reviewDeleteDate;
-		this.reviewPhotos = reviewPhotos;
-		this.reviewRoute1 = reviewRoute1;
+		this.photo1Name = photo1Name;
+		this.photo1Route = photo1Route;
+		this.photo2Name = photo2Name;
+		this.photo2Route = photo2Route;
+		this.photo3Name = photo3Name;
+		this.photo3Route = photo3Route;
+		this.photo4Name = photo4Name;
+		this.photo4Route = photo4Route;
+		this.photo5Name = photo5Name;
+		this.photo5Route = photo5Route;
+		this.fileNames = fileNames;
 	}
+
 	
 	
 }

@@ -9,14 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-    const imgElements = document.querySelectorAll('img');
-    imgElements.forEach(img => {
-        if (!img.src || img.src === "/resources/uploads/review/") {
-            img.style.display = 'none';
-        }
-    });
-});
 
 function executeRating(stars, result) {
 	const starClassActive = "rating__star fas fa-star";
@@ -60,52 +52,70 @@ function printRatingResult(result, num = 0) {
 
 //이미지 업로드 js
 window.addEventListener('DOMContentLoaded', () => {
-	const fileInput = document.getElementById("fileUpload");
-	const selectedFiles = []; // 선택한 파일들을 저장할 배열
+    const selectedFiles = {}; // 선택한 파일들을 저장할 객체
+    const previewContainer = document.getElementById("previewContainer");
 
-	if (fileInput !== null) {
-		const handleFiles = (e) => {
-			const newFiles = [...fileInput.files]; // 새로 추가된 파일들
-			const allFiles = selectedFiles.concat(newFiles); // 기존 파일들과 새로 추가된 파일들을 합침
-			const previewContainer = document.getElementById("previewContainer");
-			previewContainer.innerHTML = ""; // 기존의 미리보기를 초기화
+    const handleFiles = (fileInput) => {
+        const newFiles = [...fileInput.files]; // 새로 추가된 파일들
+        selectedFiles[fileInput.id] = newFiles; // 새로 추가된 파일들을 선택한 파일들 객체에 추가
 
-			allFiles.forEach((file, index) => {
-				const fileReader = new FileReader();
+        newFiles.forEach((file, index) => {
+            const fileReader = new FileReader();
 
-				fileReader.readAsDataURL(file);
+            fileReader.readAsDataURL(file);
 
-				fileReader.onload = function() {
-					const previewDiv = document.createElement("div");
-					previewDiv.className = "image-container";
+            fileReader.onload = function() {
+                const previewDiv = document.createElement("div");
+                previewDiv.className = "image-container";
+                previewDiv.dataset.inputId = fileInput.id; // 미리보기 이미지가 어떤 input에 연결되어 있는지 표시
+                previewDiv.dataset.fileIndex = index; // 미리보기 이미지가 어떤 파일에 연결되어 있는지 표시
 
-					const previewImg = document.createElement("img");
-					previewImg.src = fileReader.result;
-					previewImg.width = 100;
-					previewImg.height = 100;
+                const previewImg = document.createElement("img");
+                previewImg.src = fileReader.result;
+                previewImg.width = 100;
+                previewImg.height = 100;
 
-					const removeButton = document.createElement("button");
-					removeButton.textContent = "x";
-					removeButton.className = "remove-button";
-					removeButton.onclick = function() {
-						previewContainer.removeChild(previewDiv);
-						const fileIndex = selectedFiles.indexOf(file);
-						if (fileIndex > -1) {
-							selectedFiles.splice(fileIndex, 1);
-						}
-					};
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "x";
+                removeButton.className = "remove-button";
+                removeButton.onclick = function() {
+                    previewContainer.removeChild(previewDiv);
+                    const fileIndex = selectedFiles[fileInput.id].indexOf(file);
+                    if (fileIndex > -1) {
+                        selectedFiles[fileInput.id].splice(fileIndex, 1);
+                    }
+                };
 
-					previewDiv.appendChild(previewImg);
-					previewDiv.appendChild(removeButton);
-					previewContainer.appendChild(previewDiv);
-				};
-			});
+                previewDiv.appendChild(previewImg);
+                previewDiv.appendChild(removeButton);
+                previewContainer.appendChild(previewDiv);
+            };
+        });
+    };
+    
+    const fileInputs = Array.from(document.querySelectorAll(".file-upload-input")); // 모든 input 요소를 배열로 가져옴
+    let activeIndex = 0; // 현재 활성화된 input 요소의 인덱스
 
-			selectedFiles.push(...newFiles); // 새로 추가된 파일들을 선택한 파일들 배열에 추가
-		};
+    const labels = document.querySelectorAll(".custom-file-upload"); // 모든 라벨 요소를 선택함
+labels.forEach(label => { // 각 라벨 요소에 대해
+    label.addEventListener("click", (event) => {
+        // 라벨을 클릭하면 현재 활성화된 input 요소를 클릭하도록 이벤트를 발생시킴
+        event.preventDefault();
+        if (activeIndex < fileInputs.length) {
+            fileInputs[activeIndex].click();
+        }
+    });
+});
 
-		fileInput.addEventListener("change", handleFiles);
-	}
+    fileInputs.forEach((fileInput, index) => {
+        fileInput.addEventListener("change", () => {
+            handleFiles(fileInput);
+            // 파일을 성공적으로 업로드하면 인덱스를 증가시켜 다음 input 요소가 활성화되도록 함
+            if (fileInput.files.length > 0 && activeIndex < fileInputs.length) {
+                activeIndex++;
+            }
+        });
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
