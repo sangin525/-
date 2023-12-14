@@ -59,8 +59,9 @@ public class reviewListController extends HttpServlet {
 		ArrayList<BoardDTO> list = boardService.reviewList(pi);
 		for (BoardDTO item : list) {
 		    int reviewNo = item.getReviewNo();
-		    List<String> photoList = boardService.getReviewPhotos(reviewNo);
-		    item.setPhotoList(photoList);  // BoardDTO 객체에 사진 리스트를 저장
+		    List<String> fileNames = boardService.getReviewPhotos(reviewNo);
+		    item.setFileNames(fileNames);  // BoardDTO 객체에 사진 리스트를 저장
+		    
 		}
 		int row = reviewListCount - (cpage - 1) * boardLimit;
 		request.setAttribute("row", row);

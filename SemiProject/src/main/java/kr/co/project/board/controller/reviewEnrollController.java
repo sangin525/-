@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -22,11 +21,9 @@ import kr.co.project.board.service.BoardServiceImpl;
 
 
 @WebServlet("/reviewEnroll.do")
-@MultipartConfig(
-		fileSizeThreshold = 1024 * 1024, // 1MB
-		maxFileSize = 1024 * 1024 * 5, // 5MB
-		maxRequestSize = 1024 * 1024 * 5 * 5 // 25MB
-		)
+@MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
+				maxFileSize=1024*1024*10,      // 10MB
+				maxRequestSize=1024*1024*50)   // 50MB
 public class reviewEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,6 +38,7 @@ public class reviewEnrollController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doPost");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -56,28 +54,27 @@ public class reviewEnrollController extends HttpServlet {
 		String month = request.getParameter("month");
 		String type = request.getParameter("withWho");
 		String star = request.getParameter("rating");
-
 		// 2. 파일 업로드
 		Collection<Part> parts = request.getParts();
-		String uploadDirectory = "C:\\Users\\kaw19\\eclipse-workspace\\ServletProject\\src\\main\\webapp\\resources\\uploads";
 
-		// 파일 업로드하려는 디렉토리 없으면 생성
+		String uploadDirectory = "C:\\Users\\kaw19\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";	
+
 		File filePath = new File(uploadDirectory);
-		if(!filePath.exists()) {
-		    filePath.mkdirs();
+		if (!filePath.exists()) {
+			filePath.mkdirs();
 		}
+		String fileName = null;
 
-		List<String> reviewPhotos = new ArrayList<String>();
+		List<String> fileNames = new ArrayList<>();  // 파일명들을 저장할 리스트를 생성합니다.
 
-		for(Part part : parts) {
-		    if (part.getName().startsWith("reviewPhoto")) {
-		        String fileName = getFileName(part);
-
-		        if(fileName != null) {
-		            part.write(filePath + File.separator + fileName);
-		            reviewPhotos.add(fileName);
-		        }
-		    }
+		for (Part part : parts) {
+			fileName = getFileName(part);
+			if (fileName != null) {
+				if (!fileName.equals("")) {
+					part.write(filePath + File.separator + fileName);
+					fileNames.add(fileName);  // 파일명을 리스트에 추가합니다.
+				}
+			}
 		}
 
 		BoardServiceImpl boardService = new BoardServiceImpl();
@@ -89,29 +86,9 @@ public class reviewEnrollController extends HttpServlet {
 		board.setMonth(month);
 		board.setType(type);
 		board.setStar(star);
+		board.setFileNames(fileNames);  // BoardDTO 객체에 파일명 리스트를 저장합니다.
 
-		if(!reviewPhotos.isEmpty()) {
-		    board.setPhoto1Route(uploadDirectory);
-		    board.setPhoto1Name(reviewPhotos.get(0));
-
-		    if(reviewPhotos.size() > 1) {
-		        board.setPhoto2Route(uploadDirectory);
-		        board.setPhoto2Name(reviewPhotos.get(1));
-		    }
-		    if(reviewPhotos.size() > 2) {
-		        board.setPhoto3Route(uploadDirectory);
-		        board.setPhoto3Name(reviewPhotos.get(2));
-		    }
-		    if(reviewPhotos.size() > 3) {
-		        board.setPhoto4Route(uploadDirectory);
-		        board.setPhoto4Name(reviewPhotos.get(3));
-		    }
-		    if(reviewPhotos.size() > 4) {
-		        board.setPhoto5Route(uploadDirectory);
-		        board.setPhoto5Name(reviewPhotos.get(4));
-		    }
-		}
-
+		
 		
 		int result = 0;
 		// 데이터 길이 검증
@@ -123,37 +100,31 @@ public class reviewEnrollController extends HttpServlet {
 		}
 		
 		// 4. 성공 유무에 따라 처리
-		if(result > 0) {
-			response.sendRedirect("/reviewList.do?cpage=1");
-		} else {
-			ReviewAlert(response, "필수항목을 모두 입력해 주세요.");
+		    if(result > 0) {
+		        response.sendRedirect("/reviewList.do?cpage=1");
+		        return;
+		    } else {
+		        ReviewAlert(response, "필수항목을 모두 입력해 주세요.");
+		    }
 		}
-	}
+		
 	
 	
 	
 	
 
 	// 파일 이름 가지고 오는 메소드
-		private String getFileName(Part part) {
-			String contentDisposition = part.getHeader("content-disposition");
-			
-			// 세미콜론을 기준으로 토큰을 나눠 배열로 저장
-			String[] tokens = contentDisposition.split(";");
-			
-			// 토큰을 하나씩 꺼내면서 토큰의 이름이 filename으로
-			// 시작하는걸 찾을 때 까지 반복
-			for(String token : tokens) {
-				// 토큰의 이름이 filename으로 시작하는지 확인
-				if(token.trim().startsWith("filename")) {
-					// 파일의 이름이 "filename=" 다음에 나오기 때문에
-					// "filename=" 의 다음 문자부터 끝까지 추출
-					return token.substring(token.indexOf('=')+2, token.length()-1);
-				}
-			}
-			return null;
+	 private String getFileName(Part part) {
+	        String contentDisposition = part.getHeader("content-disposition");
+	        String[] tokens = contentDisposition.split(";");
 
-		}
+	        for (String token : tokens) {
+	            if (token.trim().startsWith("filename")) {
+	                return token.substring(token.indexOf('=') + 2, token.length() - 1);
+	            }
+	        }
+	        return null;
+	    }
 
 
 private void ReviewAlert(HttpServletResponse response, String msg) throws IOException {

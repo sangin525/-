@@ -377,3 +377,10 @@ textarea::-webkit-scrollbar-thumb:hover {
 .review-imgbox img{
 	padding-left: 10px;
 }
+
+.file-upload-input {
+    display: none;
+}
+.custom-file-upload:not(:first-of-type) {
+    display: none;
+}

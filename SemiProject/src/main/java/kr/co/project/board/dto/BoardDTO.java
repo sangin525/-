@@ -66,7 +66,7 @@ public class BoardDTO {
 	private String photo4Route;
 	private String photo5Name;
 	private String photo5Route;
-	private List<String> photoList;
+	private List<String> fileNames;
 
 	private String Checkbox; // 문의사항 체크박스
 	private String categoty; // 카테고리 분류
@@ -81,12 +81,12 @@ public class BoardDTO {
 		return reviewTitle;
 	}
 
-	public List<String> getPhotoList() {
-		return photoList;
+	public List<String> getFileNames() {
+		return fileNames;
 	}
 
-	public void setPhotoList(List<String> photoList) {
-		this.photoList = photoList;
+	public void setFileNames(List<String> fileNames) {
+		this.fileNames = fileNames;
 	}
 
 	public String getPhoto1Name() {
@@ -465,6 +465,36 @@ public class BoardDTO {
 		this.title = title;
 		this.content = content;
 		this.boardNo = boardNo;
+	}
+
+	public BoardDTO(String reviewTitle, String reviewContent, int reviewNo, String room, String year, String month,
+			String type, String star, String reviewInDate, String reviewUpdateDate, String reviewDeleteDate,
+			String photo1Name, String photo1Route, String photo2Name, String photo2Route, String photo3Name,
+			String photo3Route, String photo4Name, String photo4Route, String photo5Name, String photo5Route,
+			List<String> fileNames) {
+		super();
+		this.reviewTitle = reviewTitle;
+		this.reviewContent = reviewContent;
+		this.reviewNo = reviewNo;
+		this.room = room;
+		this.year = year;
+		this.month = month;
+		this.type = type;
+		this.star = star;
+		this.reviewInDate = reviewInDate;
+		this.reviewUpdateDate = reviewUpdateDate;
+		this.reviewDeleteDate = reviewDeleteDate;
+		this.photo1Name = photo1Name;
+		this.photo1Route = photo1Route;
+		this.photo2Name = photo2Name;
+		this.photo2Route = photo2Route;
+		this.photo3Name = photo3Name;
+		this.photo3Route = photo3Route;
+		this.photo4Name = photo4Name;
+		this.photo4Route = photo4Route;
+		this.photo5Name = photo5Name;
+		this.photo5Route = photo5Route;
+		this.fileNames = fileNames;
 	}
 
 	
