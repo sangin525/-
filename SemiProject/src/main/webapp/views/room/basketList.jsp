@@ -21,7 +21,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
-<table class="table table-hover">
+<table class="table table-hover" style="margin-left: 35px">
+<br><br>
 <h3 class="basketH3Tag"> 장바구니 입니다.</h3>
   <thead>
     <tr>
@@ -64,13 +65,15 @@
   </tbody>
 </table>
 <div id="basketBtnDiv">
+<input type="checkbox" id="allChkBtn" onchange=" itemAllChkList(event); allChkBtn(event, ${count}, ${percentMLG})">전체선택/전체해제  <br><br>
+ <span>결제금액 :</span>
 <input type="text" id="basketTotalPrice" value="0" disabled>
-<p>회원님의 등급은 : ${basketGrade.membership} 으로 적립금은 <input type="number" id="basketMLG" style="width:85px; height:20px" value="0" disabled > 원 입니다</p>
+<p>회원님의 등급은 : ${basketGrade.membership} 으로 적립마일리지는 <input type="number" id="basketMLG" style="width:85px; height:20px" value="0" disabled > 원 입니다</p>
 <button class="btn btn-outline-danger" onclick="itemRequestPay()">결제하기</button>
-<input type="checkbox" id="allChkBtn" onchange=" itemAllChkList(event); allChkBtn(event, ${count}, ${percentMLG})">전체선택/전체해제
+<button class="btn btn-outline-danger" onclick="pageChangeBack()">상품페이지이동</button>
 </div>
 
-
+<br><br>
 <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
