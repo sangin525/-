@@ -19,33 +19,32 @@ import javax.servlet.http.Part;
 import kr.co.project.board.dto.BoardDTO;
 import kr.co.project.board.service.BoardServiceImpl;
 
-
-@WebServlet("/reviewEnroll.do")
+@WebServlet("/reviewUpdate.do")
 @MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
-				maxFileSize=1024*1024*10,      // 10MB
-				maxRequestSize=1024*1024*50)   // 50MB
-public class reviewEnrollController extends HttpServlet {
+maxFileSize=1024*1024*10,      // 10MB
+maxRequestSize=1024*1024*50)   // 50MB
+public class reviewUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public reviewEnrollController() {
+    public reviewUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		HttpSession session = request.getSession();
-		int no = (Integer) session.getAttribute("no");
-		
 		// 1. 입력내용 받기
+		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
 		String reviewTitle = request.getParameter("title");
 		String reviewContent = request.getParameter("content");
 		String room = request.getParameter("room");
@@ -95,7 +94,7 @@ public class reviewEnrollController extends HttpServlet {
 			result = 0;
 		} else {
 		
-			result = boardService.reviewEnroll(board, no);
+			result = boardService.reviewUpdate(board, reviewNo);
 		}
 		
 		// 4. 성공 유무에 따라 처리
@@ -133,4 +132,6 @@ private void ReviewAlert(HttpServletResponse response, String msg) throws IOExce
 	out.flush();
 	out.close();
 }
-}
+	}
+
+

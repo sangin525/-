@@ -107,5 +107,13 @@ public class BoardServiceImpl implements BoardService{
 			return boardDAO.getReviewPhotos(con, reviewNo);
 		}
 
-	
+		// 리뷰 삭제
+		public int reviewDelete(int reviewNo) {
+			return boardDAO.reviewDelete(con, reviewNo);
+		}
+		
+		// 리뷰 업데이트
+		public int reviewUpdate(BoardDTO board, int reviewNo) {
+			return boardDAO.reviewUpdate(con, board, reviewNo);
+		}
 }
