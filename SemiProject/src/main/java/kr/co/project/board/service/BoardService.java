@@ -50,5 +50,9 @@ public interface BoardService {
 	public int reviewListCount();
 	// 리뷰 사진리스트 조회
 	public List<String> getReviewPhotos(int reviewNo);
+	// 리뷰 삭제
+	public int reviewDelete(int reviewNo);
+	// 리뷰 업데이트
+	public int reviewUpdate(BoardDTO board, int reviewNo);
 
 }

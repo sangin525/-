@@ -26,8 +26,17 @@
 	</div>
 	<div class="review-container">
 		<div class="review-btn">
-			<button class="left-btn" onclick="location.href='/board/review.do'">리뷰
-				작성</button>
+		<c:choose>
+				<c:when test="${sessionScope.no !=null}">
+					<button type="button" class="left-btn" 
+	       				 onclick="location.href='/board/review.do'">리뷰작성</button>
+				</c:when>
+				<c:otherwise>
+					<button type="button" class="left-btn"
+						onclick="alert('로그인후 이용해주세요')">예약하기</button>
+				</c:otherwise>
+			</c:choose>
+
 		</div>
 		<ul class="review-box">
 			<c:choose>
@@ -37,6 +46,15 @@
 				<c:otherwise>
 					<c:forEach var="item" items="${list}">
 						<li class="review">
+					<form id="review-form">
+						<input type="hidden" id="reviewNo" name="reviewNo" value="${item.reviewNo}">
+							<div class="review-star-update-delete">
+							<c:if test="${item.id==sessionScope.id}">
+							<div class="review-update-delete">
+								<button onclick="reviewUpdate(this)">수정</button>
+								<button onclick="reviewDelete(this)">삭제</button>
+							</div>
+							</c:if>
 							<div class="review-star" id="star-rating">
 								<div class="stars-outer">
 									<div class="stars-inner"
@@ -44,8 +62,9 @@
 								</div>
 								<div class="star-number">${item.star}</div>
 							</div>
+							</div>
 							<div class="review-item">
-								<p class="rv-id">${item.id}<span class="rv-date">${item.reviewInDate}</span>
+								<p class="rv-id" name="rv-id">${item.id}<span class="rv-date">${item.reviewInDate}</span>
 								</p>
 								<p class="rv-title">${item.reviewTitle}</p>
 								<p class="rv-content">${item.reviewContent}</p>
@@ -56,6 +75,7 @@
 										style="width: 100px; height: 100px;">
 								</c:forEach>
 							</div>
+					</form>
 						</li>
 					</c:forEach>
 				</c:otherwise>

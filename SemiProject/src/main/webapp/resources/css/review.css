@@ -48,7 +48,7 @@
 
 .file-input-container {
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 #fileUpload {
@@ -374,13 +374,31 @@ textarea::-webkit-scrollbar-thumb:hover {
 	text-align:center;
 }
 
-.review-imgbox img{
-	padding-left: 10px;
-}
-
 .file-upload-input {
     display: none;
 }
 .custom-file-upload:not(:first-of-type) {
     display: none;
 }
+
+.img-p{
+	font-size: 12px;
+}
+.review-star-update-delete{
+	display:flex;
+	float:right;
+	flex-direction: column;
+}
+
+.review-update-delete button{
+    font-family: 'sejong';
+    font-size: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    cursor: pointer;
+    width: 40px;
+    height: 20px;
+}
+

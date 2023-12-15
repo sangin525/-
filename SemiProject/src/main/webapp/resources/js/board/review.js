@@ -233,3 +233,20 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 });
 
+function reviewDelete(button) {
+    // 현재 클릭된 버튼의 가장 가까운 'form' 요소를 찾습니다.
+    const form = button.closest("form");
+
+    form.action = "/reviewDelete.do";
+    form.method = "POST";
+    form.submit();
+}
+
+function reviewUpdate(button) {
+    // 현재 클릭된 버튼의 가장 가까운 'form' 요소를 찾습니다.
+    const form = button.closest("form");
+
+    form.action = "/board/reviewUpdateForm.do";
+    form.method = "GET";
+    form.submit();
+}
