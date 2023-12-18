@@ -143,7 +143,8 @@
 	<br>
 	<br>
 
-
+<footer>
 	<%@ include file="/views/common/footer.jsp"%>
+</footer>
 </body>
 </html>
