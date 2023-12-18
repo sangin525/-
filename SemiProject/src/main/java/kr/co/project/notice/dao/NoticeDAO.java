@@ -334,5 +334,89 @@ public class NoticeDAO {
 		
 		return 0;
 	}
+	//검색 전체 페이징 처리 수
+	public int noticeSearchCount(Connection con, String SearchName) {
+		String query = "SELECT count(*) AS cnt"
+				+ "		FROM NOTICE"
+				+ "		WHERE BOARD_N_DELETE IS NULL"
+				+ "		AND UPPER(BOARD_N_TITLE) LIKE ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, "%" + SearchName + "%");
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int result = rs.getInt("CNT");
+				return result;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	
+	// 공지사항 검색내용 List up
+	public ArrayList<NoticeDTO> noticeSearchList(Connection con, BoardPageInfo pi, String SearchName) {
+		ArrayList<NoticeDTO> list = new ArrayList<>();
+
+		String query = "SELECT N.BOARD_N_NO, "
+		        + "N.BOARD_N_TITLE, "
+		        + "N.BOARD_N_ON_DATE, "
+		        + "N.BOARD_N_VIEWS, "
+		        + "M.M_NO, "
+		        + "M.M_NAME "
+		        + "FROM NOTICE N "
+		        + "INNER JOIN MEMBER M ON N.M_NO = M.M_NO "
+		        + "WHERE N.BOARD_N_DELETE IS NULL "
+		        + "AND UPPER(N.BOARD_N_TITLE) LIKE ? "
+		        + "ORDER BY N.BOARD_N_ON_DATE DESC "
+		        + "OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, "%" + SearchName + "%");
+			pstmt.setInt(2, pi.getOffset());
+			pstmt.setInt(3, pi.getBoardLimit()); // 5
+			
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int boardNo = rs.getInt("Board_N_NO");
+				String title = rs.getString("BOARD_N_TITLE");
+				String onDate = rs.getString("BOARD_N_ON_DATE");
+				int views = rs.getInt("BOARD_N_VIEWS");
+				int m_No = rs.getInt("M_NO");
+				String name = rs.getString("M_NAME");
+
+				NoticeDTO board = new NoticeDTO();
+
+				board.setBoardNo(boardNo);
+				board.setTitle(title);
+				board.setOnDate(onDate);
+				board.setViews(views);
+				board.setM_No(m_No);
+				board.setName(name);
+
+				list.add(board);
+
+			}
+			pstmt.close();
+			con.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
 	
 }
