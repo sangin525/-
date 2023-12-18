@@ -29,7 +29,11 @@ public class BoardFormController extends HttpServlet {
 		
 		if(action.equals("/review.do")) {
 			nextPage="/views/board/reviewEnroll.jsp";
-		} 
+		} else if(action.equals("/reviewUpdateForm.do")) {
+			int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+			request.setAttribute("reviewNo", reviewNo);
+			nextPage = "/views/board/reviewUpdate.jsp";
+		}
 		
 		
 		if(nextPage !=null && !nextPage.isEmpty()) {

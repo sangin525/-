@@ -15,14 +15,15 @@
 	<%@ include file="../common/header.jsp"%>
 	<%@ include file="../common/nav.jsp"%>
 	<div class="review-container">
-		<form action="/reviewEnroll.do" method="post" enctype="multipart/form-data">
+		<form action="/reviewUpdate.do" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="reviewNo" value="${reviewNo}">
 			<div class="review-content">
 				<div class="content-column">
 					<div class="column-text">
 						<label for="title" class="form-label">1. 호텔 하루 이용 중 가장 기억에
 							남는 점을 알려주세요.<span class="textis-requied">*</span>
 						</label> <input type="text" class="review-text" id="title" name="title"
-							placeholder="제목입력(30자 이내)" required> <span
+							value="" required> <span
 							class="text-muted">(0/30)</span>
 					</div>
 				</div>
@@ -35,7 +36,7 @@
 								주세요.<span class="textis-requied">*</span>
 							</label>
 							<textarea class="review-area" id="content" name="content"
-								required></textarea>
+								value="" required></textarea>
 							<span class="text-muted">(0/500)</span>
 						</div>
 					</div>
@@ -46,7 +47,7 @@
 					<div class="column-text">
 						<label for="room" class="form-label">3. 이용하신 객실은 무엇인가요?</label> <input
 							type="text" class="review-text" id="room" name="room"
-							placeholder="객실 이름"> <span class="rv-commt">• 기억이
+							value=""> <span class="rv-commt">• 기억이
 							나지 않으실 경우, 빈칸으로 남겨두세요.</span>
 					</div>
 				</div>
@@ -179,7 +180,7 @@
 			</div>
 			<br> <br> <br>
 			<div class="review-btn">
-				<button type="submit" class="left-btn" id="submitBtn">리뷰작성</button>
+				<button type="submit" class="left-btn" id="submitBtn">수정</button>
 			</div>
 		</form>
 	</div>

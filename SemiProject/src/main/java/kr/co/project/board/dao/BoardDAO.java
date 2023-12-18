@@ -644,6 +644,7 @@ public class BoardDAO {
 		    return 0;
 		}
 
+
 		// 리뷰 리스트
 		public ArrayList<BoardDTO> reviewList(Connection con, ReviewPageInfo pi) {
 			// 1. 쿼리작성
@@ -651,6 +652,7 @@ public class BoardDAO {
 			        + " FROM review r"
 			        + " JOIN MEMBER m"
 			        + " ON m.m_no = r.m_no"
+			        + " WHERE r.review_delete_date is null"
 			        + " ORDER BY r.review_in_date DESC "
 			        + " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 			
@@ -749,4 +751,96 @@ public class BoardDAO {
 		    return photoList;  // 사진 경로 리스트를 반환합니다.
 		}
 
+		//리뷰 삭제
+		public int reviewDelete(Connection con, int reviewNo) {
+		    String query = "UPDATE review set review_delete_date = sysdate where review_no = ?";
+		    
+		    try {
+		    	
+		        pstmt = con.prepareStatement(query);
+		        
+		        pstmt.setInt(1, reviewNo);
+		        
+		        int result = pstmt.executeUpdate();
+
+		        return result;
+		        
+		    } catch (SQLException e) {
+		        // TODO Auto-generated catch block
+		        e.printStackTrace();
+		    }
+		    
+		    return 0;
+		}
+	
+		// 리뷰 업데이트
+		public int reviewUpdate(Connection con, BoardDTO board, int reviewNo) {
+			String uploadDirectory = "C:\\Users\\kaw19\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";
+		    String query = "Update review set review_title = ?,"
+		    		+ "						review_content = ?,"
+		    		+ "						review_room = ?,"
+		    		+ "						review_year = ?,"
+		    		+ "						review_month = ?,"
+		    		+ "						review_type = ?,"
+		    		+ "						review_star = ?,"
+		    		+ "						review_update_date = sysdate"
+		    		+ "					where review_no = ?";
+		           
+		    try {
+		        pstmt = con.prepareStatement(query, new String[] {"REVIEW_NO"});
+		        pstmt.setString(1, board.getReviewTitle());
+		        pstmt.setString(2, board.getReviewContent());
+		        pstmt.setString(3, board.getRoom());
+		        pstmt.setString(4, board.getYear());
+		        pstmt.setString(5, board.getMonth());
+		        pstmt.setString(6, board.getType());
+		        pstmt.setString(7, board.getStar());
+		        pstmt.setInt(8, reviewNo);
+		        pstmt.executeUpdate();
+
+		        
+
+		       
+
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+
+		    List<String> fileNames = board.getFileNames();  // board 객체에서 파일명 리스트를 가져옵니다.
+
+		    String photo = "UPDATE review_photo set "
+		            + "       photo1_name = ?,"
+		            + "			photo1_route = ?,"
+		            + "			photo2_name = ?,"
+		            + "			photo2_route = ?,"
+		            + "			photo3_name = ?,"
+		            + "			photo3_route = ?,"
+		            + "			photo4_name = ?,"
+		            + "			photo4_route = ?,"
+		            + "			photo5_name = ?,"
+		            + "			photo5_route = ?"
+		            + "		where review_no =?";
+		    try {
+		        pstmt = con.prepareStatement(photo);
+		        for(int i=0; i<fileNames.size(); i++) {  // 파일명 리스트의 크기만큼 반복합니다.
+		            pstmt.setString(1 + 2*i, fileNames.get(i));  // 파일명을 저장합니다.
+		            pstmt.setString(2 + 2*i, uploadDirectory + File.separator + fileNames.get(i));  // 파일 경로를 저장합니다.
+		        }
+		        
+		        for(int i=fileNames.size(); i<5; i++) {  // 나머지 필드는 null로 설정합니다.
+		            pstmt.setString(1 + 2*i, null);
+		            pstmt.setString(2 + 2*i, null);
+		        }
+		        pstmt.setInt(11, reviewNo);
+		        int result = pstmt.executeUpdate();
+		        pstmt.close();
+
+		        return result;
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+
+		    return 0;
+		}
+			
 }
