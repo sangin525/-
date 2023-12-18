@@ -44,4 +44,25 @@ public class NoticeServiceImpl implements NoticeService{
 		noticeDAO.noticeSelect(con, notice);
 	}
 	
+	// 공지사항 수정
+	public int noticeUpdate(NoticeDTO notice) {
+		return noticeDAO.noticeUpdate(con,notice);
+	}
+	//공지사항 삭제
+	public int noticeDelete(int BoardNo) {
+		return noticeDAO.noticeDelete(con, BoardNo);
+	}
+	// 답변 추가
+	public int commentEnroll(String comment,String name, int boardNo) {
+		return noticeDAO.commentEnroll(con, comment, name, boardNo);
+	}
+	// 답변 수정
+	public int commentDetailUpdate(String content, int commentNo) {
+		return noticeDAO.commentDetailUpdate(con, content, commentNo);
+	}
+	// 답변 삭제
+	public int commentDelete(int commentNo) {
+		return noticeDAO.commentDelete(con, commentNo);
+	}
+	
 }

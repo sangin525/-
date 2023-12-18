@@ -522,7 +522,6 @@ public class RoomDAO {
 			pstmt = con.prepareStatement(memberQuery);
 			
 			pstmt.setInt(1, memberNo);
-			
 			ResultSet memberRs = pstmt.executeQuery();
 			
 			while(memberRs.next()) {
@@ -684,6 +683,45 @@ public class RoomDAO {
 			e.printStackTrace();
 		}
 		return array;
+	}
+
+	public RoomDTO memberMLGGradePercent(Connection con, int memberNo) {
+		String query = "SELECT M_MEMBERSHIP  FROM MEMBER m "
+				+ "		WHERE M_NO = ?";
+		
+		RoomDTO room = new RoomDTO();
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, memberNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				room.setMembership(rs.getString("M_MEMBERSHIP"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return room;
+	}
+
+	public void basketPayEnrollMLG(Connection con, int memberNo, int totalPrice, int basketMLG) {
+		String query = "UPDATE MEMBER SET M_MLG = M_MLG + ?,"
+				+ "				M_ACCAMOUNT = M_ACCAMOUNT + ?"
+				+ "		WHERE M_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, basketMLG);
+			pstmt.setInt(2, totalPrice);
+			pstmt.setInt(3, memberNo);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	

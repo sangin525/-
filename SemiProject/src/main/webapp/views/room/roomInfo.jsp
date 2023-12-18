@@ -173,7 +173,14 @@ tabindex="-1" aria-labelledby="staticBackdropLabel${count}" aria-hidden="true" >
 </div>
      <hr>
   </c:forEach>
-  
+  <div>
+	<a href="http://pf.kakao.com/_PNxjXG" class="btn_kakao" style="display:none;">
+	  <img src="/resources/uploads/mainPic/카카오로고.png" style="width:65px; height:70px">
+	  </a>
+	<a href="#" class="btn_gotop" style="display:none;">
+	  <img src="/resources/uploads/mainPic/위로버튼.png" style="width:100px; height:100px">
+	</a>
+</div>
         
   
     <p> 안녕하세요! 객실안내홈페이지입니다</p>

@@ -11,6 +11,7 @@ public class BoardPageInfo {
 	private int endPage;
 	private int offset;
 	
+	
 	public int getListCount() {
 		return listCount;
 	}

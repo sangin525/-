@@ -14,7 +14,7 @@
 	<%@ include file="/views/common/nav.jsp"%>
 
 	<section class="boardSection">
-		<form id="board-datail-form">
+		<form id="notice-datail-form">
 			<p class="detailP">공지사항</p>
 			<!-- boardTitle -->
 			<div name="boardTitle" id="boardTitle" class="detailtitleText">${board.title}</div>
@@ -62,13 +62,19 @@
 							</div>
 						</c:if>
 						<div class="divbuttonSort">
+						
 							<span class="detailBtnSpan">
-								<button id="modifyBtn" type="button" onclick="boardUpdateFormSend()" class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/pen.svg">수정</button>
-								<button onclick="boardDelete()" class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/trash3.svg">삭제</button>
+								<button id="modifyBtn" type="button" onclick="noticeUpdateFormSend()" class="right-btn-board">
+									<img class="btnStyle" src="/resources/boardIcon/pen.svg">수정
+								</button>
+								<button onclick="noticeDelete()" class="right-btn-board">
+									<img class="btnStyle" src="/resources/boardIcon/trash3.svg">삭제
+								</button>
 							</span>
+							
 							<span class="divbuttonSort">
-								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/list-task.svg"><a class="aBtn" href="/BoardList.do?cpage=1">목록</a></div>
-								<button class=right-btn-board-Enroll><img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg">글 작성</button>
+								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/list-task.svg"><a class="aBtn" href="/NoticeList.do?cpage=1">목록</a></div>
+								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg"><a class="aBtn" href="/views/notice/noticeEnroll.jsp">글 작성</a></div>
 							</span>
 						</div>
 					</div>
@@ -93,7 +99,7 @@
 								<input type="hidden" value="${board.commentNo}" name="answerNo">
 								
 								<div>
-									<c:if test="${sessionScope.admin eq 'Y'}">
+									<c:if test="${sessionScope.no == board.m_No}">
 										<c:choose>
 											<c:when test="${board.commentContent eq null}">
 												<a onclick="commentInput();" class="answerTextClick"
@@ -115,13 +121,13 @@
 					</div>
 
 
-				<form action="answerEnroll.do" method="POST" id="answer-form">
+				<form action="commentEnroll.do" method="POST" id="comment-form">
 					<!-- 답변 입력칸 -->
-					<input type="hidden" id="answerNo" name="answerNo" value="${board.commentNo}"> 
+					<input type="hidden" id="commentNo" name="commentNo" value="${board.commentNo}"> 
 					<input type="hidden" id="boardNo" name="boardNo" value="${board.boardNo}"> 
 						
 						<!-- Default값 display:none -->					
-					<div id="answerInput" class="answerInput">
+					<div id="commentInput" class="answerInput">
 					
 					
 						<div class="divSortAnswer">
@@ -131,12 +137,12 @@
 									<c:choose>
 										<c:when test="${board.commentContent eq null}">
 											<!-- Enroll submit 버튼 -->
-											<button name="answerEnroll" id="answerEnroll" type="submit"
+											<button name="commentEnroll" id="commentEnroll" type="submit"
 											class="answerSubmitBtn">입력</button>
 										</c:when>
 										<c:otherwise>
 											<!-- Update submit 버튼 -->
-											<button type="button" class="answerSubmitBtn" onclick="answerUpdate();">수정</button>
+											<button type="button" class="answerSubmitBtn" onclick="commentUpdate();">수정</button>
 										</c:otherwise>
 									</c:choose>
 								</div>

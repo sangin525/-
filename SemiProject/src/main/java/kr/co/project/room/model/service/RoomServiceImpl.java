@@ -121,4 +121,14 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 
+	public RoomDTO memberMLGGradePercent(int memberNo) {
+		return roomDAO.memberMLGGradePercent(con, memberNo);
+	}
+
+
+	public void basketPayEnrollMLG(int memberNo, int totalPrice, int basketMLG) {
+		roomDAO.basketPayEnrollMLG(con, memberNo, totalPrice, basketMLG);
+	}
+
+
 }

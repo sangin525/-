@@ -26,6 +26,7 @@ public class BoardDetailUpdateController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		System.out.println(boardNo);
 		String title = request.getParameter("title");
 		String content = request.getParameter("contents");
 		

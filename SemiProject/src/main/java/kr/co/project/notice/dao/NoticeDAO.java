@@ -213,4 +213,126 @@ public class NoticeDAO {
 		}
 	}
 	
+	// 공지사항 수정
+	public int noticeUpdate(Connection con, NoticeDTO notice) {
+		String query = "UPDATE NOTICE"
+				+ "	SET	BOARD_N_TITLE = ?,"
+				+ "		BOARD_N_CONTENT =?,"
+				+ "		BOARD_N_IN_DATE =SYSDATE"
+				+ "		WHERE BOARD_N_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, notice.getTitle());
+			pstmt.setString(2, notice.getContent());
+			pstmt.setInt(3, notice.getBoardNo());
+			
+			int result = pstmt.executeUpdate();
+			pstmt.close();
+			con.close();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	// 공지사항 삭제
+	public int noticeDelete(Connection con, int boardNo) {
+		String query = "UPDATE NOTICE"
+				+ "		SET BOARD_N_DELETE = SYSDATE"
+				+ "		WHERE BOARD_N_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, boardNo);
+			int result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	//공지사항 답변 추가
+	public int commentEnroll(Connection con, String comment,String name, int boardNo) {
+	    String query = "INSERT INTO NOTICE_COMMENT VALUES" 
+	            + " (notice_comment_seq.nextval, " 
+	            + " ?, " 
+	            + " ?, " 
+	            + " SYSDATE, " 
+	            + " NULL, " 
+	            + " NULL, " 
+	            + " ?)"; 
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1,boardNo);
+			pstmt.setString(2, comment);
+			pstmt.setString(3, name);
+			
+			int result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	// 답변 수정
+	public int commentDetailUpdate(Connection con, String content, int commentNo) {
+		String query = "UPDATE NOTICE_COMMENT SET COMMENT_CONTENT = ?, COMMENT_IN_DATE = SYSDATE WHERE COMMENT_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, content);
+			pstmt.setInt(2, commentNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	//답변 삭제
+	public int commentDelete(Connection con, int commentNo) {
+		String query = "UPDATE NOTICE_COMMENT SET COMMENT_DELETE = SYSDATE WHERE COMMENT_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, commentNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return 0;
+	}
+	
 }
