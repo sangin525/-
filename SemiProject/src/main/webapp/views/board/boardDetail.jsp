@@ -77,7 +77,7 @@
 
 		<!-- 댓글 -->
 			<div class="answerSortDiv">
-			 	<p><img class="img" src="/resources/boardIcon/chat-dots.svg">댓글 목록</p>
+			 	<p><img class="img" src="/resources/boardIcon/chat-dots.svg">답변</p>
 			</div>
 			
 			<div class="divAnswerBox">
