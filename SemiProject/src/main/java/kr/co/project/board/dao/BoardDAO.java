@@ -578,7 +578,7 @@ public class BoardDAO {
 
 		// 리뷰 작성
 		public int reviewEnroll(Connection con, BoardDTO board, int no) {
-			String uploadDirectory = "C:\\Users\\kaw19\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";
+			String uploadDirectory = "C:\\Users\\USER\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";
 		    String query = "INSERT INTO review"
 		            + "        VALUES(REVIEW_SEQ.nextval,"
 		            + "                ?,"
