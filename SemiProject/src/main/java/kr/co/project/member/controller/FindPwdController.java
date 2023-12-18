@@ -32,36 +32,42 @@ public class FindPwdController extends HttpServlet {
 			String name = request.getParameter("name");
 			String id = request.getParameter("id");
 
-			System.out.println("Name: " + name + ", ID: " + id);
+			System.out.println("Name: " + name + ", id: " + id);
 
 			if (isNullOrEmpty(name) || isNullOrEmpty(id)) {
-				request.setAttribute("message", "유효하지 않은 이름 또는 아이디입니다.");
+				request.setAttribute("message", "유효하지 않은 이름 또는 이메일입니다.");
 			} else {
 				MemberService memberService = new MemberServiceImpl();
-				MemberDTO member = new MemberDTO(name, id);
 
+				MemberDTO member = new MemberDTO();
+
+				member.setName(name);
+				member.setId(id);
+				System.out.println(member.getName());
+				System.out.println(member.getId());
 				if (memberService.findPwd(member)) {
 					String newPassword = generateRandomPassword();
 					String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
 
+					System.out.println("hash : " + hashedPassword);
 					memberService.updatePassword(id, hashedPassword);
 
 					try {
-						EmailSender.sendNewPassword(id, newPassword);
-						request.setAttribute("message", "새로운 비밀번호가 이메일로 전송되었습니다.");
+						EmailSender.sendNewPassword(member.getEmail(), newPassword);
+						request.setAttribute("message", "새로운 임시 비밀번호가 이메일로 전송되었습니다.");
 					} catch (MessagingException e) {
 						handleEmailException(request, e);
 					}
 
 				} else {
-					request.setAttribute("message", "유효하지 않은 이름 또는 아이디입니다.");
+					request.setAttribute("message", "유효하지 않은 이름 또는 이메일입니다.");
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("views/member/forgotPassword.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/member/forgotPassword.jsp");
 		dispatcher.forward(request, response);
 	}
 

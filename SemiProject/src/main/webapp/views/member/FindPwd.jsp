@@ -8,7 +8,7 @@
 
 
 <%@ include file="../common/head.jsp"%>
-<link rel="stylesheet" href="/resources/css/member/ChangePwd.css">
+<link rel="stylesheet" href="/resources/css/member/FindPwd.css">
 <script src="/resources/js/member/member.js"></script>
 
 

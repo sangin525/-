@@ -302,15 +302,21 @@ public class MemberDAO {
 
 	// 비밀번호 찾기
 	public boolean findPwd(Connection con, MemberDTO member) {
-		String query = "SELECT M_ID FROM member WHERE M_NAME = ? AND M_EMAIL = ?";
+		String query = "SELECT M_EMAIL FROM member WHERE M_NAME = ? AND M_ID = ?";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, member.getName());
-			pstmt.setString(2, member.getEmail());
+			pstmt.setString(2, member.getId());
 			ResultSet rs = pstmt.executeQuery();
 
-			return rs.next(); // 결과가 있으면 true, 없으면 false 반환
+			if (rs.next()) {
+				String foundEmail = rs.getString("M_EMAIL");
+				member.setEmail(foundEmail);
+				return true;
+			} else {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
