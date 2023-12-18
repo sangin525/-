@@ -1,3 +1,8 @@
+function detailPage(boardNo) {
+	const pageUrl = '/BoardDetail.do?boardNo=' + boardNo;
+	window.location.href = pageUrl;
+}
+
 function back() {
 	location.href = "/MyPageForm.do";
 }

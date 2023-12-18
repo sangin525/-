@@ -1,0 +1,404 @@
+@charset "UTF-8";
+
+.rating {
+   position: relative;
+   width: 180px;
+   background: transparent;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: .3em;
+   padding: 5px;
+   overflow: hidden;
+   border-radius: 20px;
+   box-shadow: 0 0 2px #b3acac;
+}
+
+.rating__result {
+   top: 0;
+   left: 0;
+   margin-left: 15px;
+   font-size: 1.3em;
+   color: black;
+   pointer-events: none;
+}
+
+.rating__star {
+   font-size: 1.3em;
+   cursor: pointer;
+   color: #dabd18b2;
+   transition: filter linear .3s;
+}
+
+.rating__star:hover {
+   filter: drop-shadow(1px 1px 4px gold);
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.remove-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.file-input-container {
+    display: flex;
+    align-items: center;
+}
+
+#fileUpload {
+    margin-right: 10px;  /* 파일 입력 필드와 미리보기 사이에 간격 추가 */
+}
+
+
+/* 리뷰 페이지 css*/
+.header-container{
+	display: flex;
+	justify-content: center;
+}
+
+.review-header h2{
+	text-align: center;
+	font-size: 60px;
+	font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 7.84px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.review-header p{
+	padding-top: 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -.85px;
+    color: #666;
+}
+
+.review-container{
+	width: 990px;
+    padding: 60px 0;
+    margin: auto;
+}
+
+.review-box {
+	list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-box li {
+    position: relative;
+    padding: 50px 0;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.review-box li:last-child {
+    border-bottom: none;
+}
+
+.review-item {
+	width: 750px;
+}
+
+.review-btn{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-item .rv-id {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+    display: block;
+    margin-block-start: 0px;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.rv-content{
+	line-height: 1.5;
+    color: #666;
+}
+
+.review-item .rv-date::before {
+    display: inline-block;
+    content: '|';
+    margin: 0 15px;
+}
+
+.review-item .rv-title {
+    font-weight: 500;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.review-star {
+    display: flex;
+    float: right;
+}
+
+.stars-outer {
+    position: relative;
+}
+
+.stars-inner {
+    position: relative;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: FontAwesome;
+    color: #f8ce0b;
+}
+
+.star-number {
+    margin-left: 5px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* 리뷰작성 페이지 css */
+.review-content{
+	margin-top: 40px;
+	position: relative;
+    display: flex;
+}
+
+.content-column{
+	display: block;
+    margin-left: 30px;
+    position: relative;
+    flex: 1;
+}
+
+.form-label{
+	position: relative;
+    display: block;
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.textis-requied{
+	 color: red;
+}
+
+.review-text{
+	display: block;
+    width: 100%;
+    height: 40px;
+    background-clip: padding-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #d0d0d0;
+    border-width: 0 0 1px;
+    border-radius: 0;
+    font-size:1rem;
+    font-family: 'sejong';
+}
+
+.review-text:focus{
+	display: block;
+    width: 100%;
+    height: 40px;
+    background-clip: padding-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px black;
+    border-width: 0 0 1px;
+    border-radius: 0;
+    outline: none;
+    font-size:1rem;
+}
+
+.text-muted {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-55%);
+    font-size:1rem;
+    line-height: 24px;
+    letter-spacing: -.26px;
+    padding-top: 50px;
+    bottom: 10px;
+    top: inherit;
+    transform: inherit;
+    color:#999;
+}
+.column-text{
+	position: relative;
+}
+
+.review-area {
+    border: 1px solid #d0d0d0;
+    border-width: 1px;
+    min-height: 100px;
+    display: block;
+    width: 914px;
+    background-clip: padding-box;
+    background-color: transparent;
+    overflow: scroll; /* 스크롤 항상 보이게 */
+    resize: vertical;
+    font-size:1rem;
+    color: black;
+    font-family: 'sejong';
+    padding-right: 50px;
+    line-height:1.75;
+}
+textarea::-webkit-scrollbar {
+    display: block;
+    width: 12px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+.rv-commt {
+    font-size: 13px;
+    margin-top: 10px;
+    display: block;
+    color:#999;
+}
+
+.form-row{
+	display:flex;
+	
+}
+.selectdate {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    border: none;
+    border-bottom: solid 1px #d0d0d0;
+    background-color: transparent;
+}
+
+.selectdate span.icon-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    width: 20px;
+    height: 20px;
+    background: url(/resources/uploads/review/세모-투명.png);
+    background-size: contain;
+    cursor: pointer;
+}
+
+.selected-option {
+    display: block;
+    width: 100%;
+    margin-right: -20px;
+    border: none;
+    padding: 8px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid #d0d0d0;
+    background-color: #f4f4f4;
+    z-index:4;
+}
+
+.dropdown-options li {
+    padding: 8px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.dropdown-options li:hover {
+    background-color: #f0f0f0;
+}
+
+.check-box {
+    display: inline-block;
+    margin-right: 10px; /* 필요에 따라 마진을 조정할 수 있습니다. */
+}
+
+.star-div{
+	display: flex;
+}
+
+.remove-button{
+	background: none;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+
+#fileUpload {
+    display: none; /* 파일 업로드 버튼을 숨깁니다. */
+}
+
+.custom-file-upload {
+	display:flex;
+	justify-content: center;
+    align-content: center;
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+    cursor: pointer; /* 이미지 버튼 위로 마우스가 올라갈 때마다 커서를 포인터로 변경합니다. */
+}
+
+.review-btn{
+	text-align:center;
+}
+
+.file-upload-input {
+    display: none;
+}
+.custom-file-upload:not(:first-of-type) {
+    display: none;
+}
+
+.img-p{
+	font-size: 12px;
+}
+.review-star-update-delete{
+	display:flex;
+	float:right;
+	flex-direction: column;
+}
+
+.review-update-delete button{
+    font-family: 'sejong';
+    font-size: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 162, 86);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(224, 162, 86);
+    cursor: pointer;
+    width: 40px;
+    height: 20px;
+}
+

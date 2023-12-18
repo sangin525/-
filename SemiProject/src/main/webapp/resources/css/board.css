@@ -302,7 +302,7 @@ tbody.boardTbody tr{
 .divCenter {
 	display: flex;
 	justify-content: center;
-	width: 150px;
+	min-width: 1200px;
 }
 
 .divRight {
@@ -587,7 +587,7 @@ tbody.boardTbody tr{
 
 /* ---------------------input 모음 ---------------------------- */
 .titleText {
-	width: 990px;
+	width: 1200px;
 	height: 40px;
 	resize: none;
 	padding: 10px;

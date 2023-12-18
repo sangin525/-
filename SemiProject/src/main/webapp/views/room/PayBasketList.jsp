@@ -10,15 +10,16 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <%@ include file="../common/head.jsp" %>
-<script src="/resources/js/room/apikey.js"></script>
+<link href="/resources/css/room/reserveBasket.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <script src="/resources/js/room/food.js"></script>
-<script src="/resources/js/room/payments.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
    <%@ include file="../common/header.jsp" %>
    <%@ include file="../common/nav.jsp" %>
-<table class="table table-hover">
+<table class="table table-hover" style="margin-left: 35px">
+<br><br>
+<h3 class="basketH3Tag"> 결제내역 입니다.</h3>
   <thead>
     <tr>
       <th scope="col">결제번호</th>
@@ -50,7 +51,7 @@
 	    <tr>
 	      <th scope="row">${count}</th>
 	      <td>${item.MName}</td>
-	      <td>${item.foodName}</td>
+	      <td id="foodName${count}" onclick="foodNameClick(${count})" style="cursor:pointer">${item.foodName}</td>
 	      <td>${item.foodCount}</td>
 	      <td>${item.foodPrice}</td>
 	      <td>${item.foodTime}</td>
@@ -61,8 +62,12 @@
   </c:choose>
   </tbody>
 </table>
-
-
+<br><br>
+<div id="basketBtnDiv">
+<button class="btn btn-outline-danger" onclick="pageChangeBack()">상품페이지이동</button>
+<button class="btn btn-outline-danger" onclick="pageChangeBasket()">장바구니로이동</button>
+</div>
+<br><br>
 <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
