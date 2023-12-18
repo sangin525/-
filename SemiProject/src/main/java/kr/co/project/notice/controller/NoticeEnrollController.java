@@ -33,7 +33,6 @@ public class NoticeEnrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		String content = request.getParameter("contents");
-		System.out.println(content);
 		
 		NoticeDTO notice = new NoticeDTO();
 		

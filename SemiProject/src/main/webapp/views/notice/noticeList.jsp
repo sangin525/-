@@ -8,11 +8,11 @@
 <script src="/resources/js/board/board.js"></script>
 <title>Notice List</title>
 </head>
-<body class="Main_body" style = "background-color:white;">
+<body class="boardBody">
 	<%@ include file="/views/common/header.jsp"%>
 	<%@ include file="/views/common/nav.jsp"%>
 
-	<section class="boardSection">
+	<section class="boardNoticeSection">
 		<!-- 문의사항 글자 및 글쓰기 버튼 div -->
 		<div class="divSort">
 			<div>
@@ -28,19 +28,9 @@
 			</div>
 		</div>
 		
-		<div class="divSort3">
-			<input class="divSort3Input" placeholder ="검색어를 입력해주세요">
-			<button>검색</button>
-		</div>
-		
-		<!-- 버튼 모음 -->
-		<div class="divSort2">
-			<button class="SortBtn" name="category" value="1" onclick="clickCategory(this);">전체</button>
-			<button class="SortBtn" name="category" value="2" onclick="clickCategory(this);">객실 문의</button>
-			<button class="SortBtn" name="category" value="3" onclick="clickCategory(this);">예약 문의</button>
-			<button class="SortBtn" name="category" value="4" onclick="clickCategory(this);">시설 문의</button>
-			<button class="SortBtn" name="category" value="5" onclick="clickCategory(this);">회원 가입 및 로그인 문의</button>
-			<button class="SortBtn" name="category" value="6" onclick="clickCategory(this);">기타 문의</button>
+		<div class="divSort3" style="margin-bottom:0;">
+			<input class="divSort3Input" placeholder ="검색어를 입력해주세요" id="searchNoticeBtn" onkeypress="if(window.event.keyCode==13){searchNotice()}">
+			<button onclick ="searchNotice()">검색</button>
 		</div>
 		
 		<!-- Table 본문 -->
@@ -83,13 +73,26 @@
 			<c:choose>
 				<c:when test="${pi.currentPage == 1}">
 					<li class="page-item">
-						<a href="#" class ="page-link">&laquo;</a>
+						<c:choose>
+							<c:when test="${empty searchName}">
+								<a href="#" class ="page-link">&laquo;</a>
+							</c:when>
+							<c:otherwise>
+								<a href="NoticeSearchList.do?cpage=1&search=${searchName}" class ="page-link">&laquo;</a>
+							</c:otherwise>
+						</c:choose>
 					</li>
 				</c:when>
-			
 				<c:otherwise>
 					<li class="page-item">
-						<a class="page-link" href="NoticeList.do?cpage=${pi.currentPage-1}">&laquo;</a>
+						<c:choose>
+							<c:when test="${empty searchName}">
+								<a class="page-link" href="NoticeList.do?cpage=${pi.currentPage-1}">&laquo;</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="NoticeSearchList.do?cpage=${pi.currentPage-1}&search=${searchName}">&laquo;</a>
+							</c:otherwise>
+						</c:choose>
 					</li>					
 				</c:otherwise>
 			</c:choose>
@@ -98,27 +101,55 @@
 			<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
 				<c:if test="${pi.currentPage == page}">
 					<li class="page-item-active">
-						<a class="page-link" href="/NoticeList.do?cpage=${page}">${page}</a>
+						<c:choose>
+							<c:when test="${empty searchName}">
+								<a class="page-link" href="/NoticeList.do?cpage=${page}">${page}</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="/NoticeSearchList.do?cpage=${page}&search=${searchName}">${page}</a>
+							</c:otherwise>
+						</c:choose>
 					</li>
 				</c:if>
 				<c:if test="${pi.currentPage != page}">
 					<li class="page-item">
-						<a class="page-link" href="/NoticeList.do?cpage=${page}">${page}</a>
+						<c:choose>
+							<c:when test="${empty searchName}">
+								<a class="page-link" href="/NoticeList.do?cpage=${page}">${page}</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="/NoticeSearchList.do?cpage=${page}&search=${searchName}">${page}</a>
+							</c:otherwise>
+						</c:choose>
 					</li>
 				</c:if>
 				
 			</c:forEach>
 			
-			<!-- 페이지 처리 첫번째 << 표시  -->
+			<!-- 페이지 처리 첫번째 >> 표시  -->
 			<c:choose>
 				<c:when test="${pi.currentPage == pi.maxPage}">
 					<li class="page-item">
-						<a class="page-link" href="#">&raquo;</a>
+						<c:choose>
+							<c:when test="${empty searchName}">
+								<a class="page-link" href="#">&raquo;</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="/NoticeSearchList.do?cpage=1&search=${searchName}">&raquo;</a>
+							</c:otherwise>
+						</c:choose>
 					</li>			
 				</c:when>
 				<c:otherwise>
 					<li class="page-item">
-						<a class="page-link" href="/NoticeList.do?cpage=${pi.currentPage+1}">&raquo;</a>
+						<c:choose>
+							<c:when test="${empty searchName}">
+								<a class="page-link" href="/NoticeList.do?cpage=${pi.currentPage+1}">&raquo;</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="/NoticeSearchList.do?cpage=${pi.currentPage+1}&search=${searchName}">&raquo;</a>
+							</c:otherwise>
+						</c:choose>
 					</li>			
 				</c:otherwise>
 			</c:choose>

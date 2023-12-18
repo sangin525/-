@@ -10,6 +10,9 @@ public class BoardPagination {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
+		if(currentPage > maxPage) {
+			maxPage = currentPage;
+		}
 		
 		int offset = (currentPage - 1) * boardLimit;
 		

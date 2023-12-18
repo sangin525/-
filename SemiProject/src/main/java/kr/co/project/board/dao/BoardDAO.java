@@ -20,7 +20,7 @@ public class BoardDAO {
 	private PreparedStatement pstmt;
 
 	// 문의사항 작성
-	public int boardEnroll(Connection con, String title, String content, int memberNo, String fileName, String uploadDirectory, String categoryHidden) {
+	public int boardEnroll(Connection con, String title, String content, int memberNo, String fileName, String uploadDirectory, String categoryHidden, String secretBox) {
 	    String query = "INSERT INTO BOARD" +
 	            " VALUES(board_seq.nextval," + // BOARD_NO
 	            " ?," + // M_NO
@@ -33,7 +33,8 @@ public class BoardDAO {
 	            " ?," + // BOARD_PHOTO
 	            " ?," + // BOARD_ROUTE
 	            " 'N'," + // BOARD_ANSWER
-	            " ?)"; // BOARD_CATEGORY
+	            " ?," + // BOARD_CATEGORY
+	            " ?)"; //BOARD_SECRET
 
 	    try {
 	        pstmt = con.prepareStatement(query);
@@ -44,6 +45,7 @@ public class BoardDAO {
 	        pstmt.setString(4, fileName);
 	        pstmt.setString(5, uploadDirectory);
 	        pstmt.setString(6, categoryHidden);
+	        pstmt.setString(7, secretBox);
 
 	        int result = pstmt.executeUpdate();
 
@@ -59,39 +61,6 @@ public class BoardDAO {
 	    return 0;
 	}
 
-	// 공지사항 작성
-	public int noticeEnroll(Connection con, String title, String content, int memberNo) {
-		String query = "INSERT INTO NOTICE" + " VALUES(notice_seq.nextval," // BOARD_N_NO
-				+ " ?," // M_NO
-				+ " ?," // BOARD_N_TITLE
-				+ " ?," // BOARD_N_CONTENT
-				+ " SYSDATE," // BOARD_N_ON_DATE
-				+ " NULL," // BOARD_N_IN_DATE
-				+ " NULL," // BOARD_N_DELETE
-				+ " 0," // BOARD_N_VIEWS
-				+ " NULL," // BOARD_N_PHOTO
-				+ " NULL)"; // BOARD_N_ROUTE
-
-		try {
-			pstmt = con.prepareStatement(query);
-
-			pstmt.setInt(1, memberNo);
-			pstmt.setString(2, title);
-			pstmt.setString(3, content);
-
-			int result = pstmt.executeUpdate();
-
-			pstmt.close();
-			con.close();
-
-			return result;
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return 0;
-	}
 
 	// boardList 가져오기
 	public ArrayList<BoardDTO> boardList(Connection con, BoardPageInfo pi) {
@@ -103,6 +72,8 @@ public class BoardDAO {
 		        + "B.BOARD_VIEWS, "
 		        + "B.BOARD_ANSWER, "
 		        + "B.BOARD_CATEGORY, "
+		        + "B.BOARD_SECRET, "
+		        + "M.M_NO, "
 		        + "M.M_NAME "
 		        + "FROM BOARD B "
 		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
@@ -125,6 +96,8 @@ public class BoardDAO {
 				int views = rs.getInt("BOARD_VIEWS");
 				String answer = rs.getString("BOARD_ANSWER");
 				String category = rs.getString("BOARD_CATEGORY");
+				String secret = rs.getString("BOARD_SECRET");
+				int m_No = rs.getInt("M_NO");
 				String name = rs.getString("M_NAME");
 
 				BoardDTO board = new BoardDTO();
@@ -135,6 +108,8 @@ public class BoardDAO {
 				board.setViews(views);
 				board.setAnswer(answer);
 				board.setCategoty(category);
+				board.setSecret(secret);
+				board.setM_No(m_No);
 				board.setName(name);
 
 				list.add(board);
@@ -146,60 +121,6 @@ public class BoardDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
-	}
-
-	// notice List up
-	public ArrayList<BoardDTO> noticeList(Connection con, BoardPageInfo pi) {
-		ArrayList<BoardDTO> list = new ArrayList<>();
-
-		String query = "SELECT N.BOARD_N_NO, "
-		        + "N.BOARD_N_TITLE, "
-		        + "N.BOARD_N_ON_DATE, "
-		        + "N.BOARD_N_VIEWS, "
-		        + "N.BOARD_N_CATEGORY, "
-		        + "M.M_NAME "
-		        + "FROM NOTICE N "
-		        + "INNER JOIN MEMBER M ON N.M_NO = M.M_NO "
-		        + "WHERE N.BOARD_N_DELETE IS NULL "
-		        + "ORDER BY N.BOARD_N_ON_DATE DESC "
-		        + "OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
-
-		try {
-			pstmt = con.prepareStatement(query);
-			
-			pstmt.setInt(1, pi.getOffset());
-			pstmt.setInt(2, pi.getBoardLimit()); // 5
-			
-			ResultSet rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				int boardNo = rs.getInt("Board_N_NO");
-				String title = rs.getString("BOARD_N_TITLE");
-				String onDate = rs.getString("BOARD_N_ON_DATE");
-				int views = rs.getInt("BOARD_N_VIEWS");
-				String category = rs.getString("BOARD_N_CATEGORY");
-				String name = rs.getString("M_NAME");
-
-				BoardDTO board = new BoardDTO();
-
-				board.setBoardNo(boardNo);
-				board.setTitle(title);
-				board.setOnDate(onDate);
-				board.setViews(views);
-				board.setCategoty(category);
-				board.setName(name);
-
-				list.add(board);
-			}
-
-			pstmt.close();
-			con.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
 		return list;
 	}
 	
@@ -297,7 +218,8 @@ public class BoardDAO {
 		String query = "UPDATE BOARD"
 				+ "	SET	BOARD_TITLE = ?,"
 				+ "		BOARD_CONTENT =?,"
-				+ "		BOARD_IN_DATE =SYSDATE"
+				+ "		BOARD_IN_DATE =SYSDATE, "
+				+ "		BOARD_SECRET = ? "
 				+ "		WHERE BOARD_NO = ?";
 		
 		try {
@@ -305,7 +227,8 @@ public class BoardDAO {
 			
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getContent());
-			pstmt.setInt(3, board.getBoardNo());
+			pstmt.setString(3, board.getSecret());
+			pstmt.setInt(4, board.getBoardNo());
 			
 			int result = pstmt.executeUpdate();
 			pstmt.close();
@@ -343,6 +266,7 @@ public class BoardDAO {
 		return 0;
 	}
 	
+	//전체 게시글 수
 	public int boardListCount(Connection con) {
 		String query = "SELECT count(*) AS cnt"
 				+ "		FROM BOARD"
@@ -484,6 +408,192 @@ public class BoardDAO {
 		
 		return 0;
 	}
+	
+	// board에 카테고리 분류
+	public ArrayList<BoardDTO> boardCategoryList(Connection con, BoardPageInfo pi, String category) {
+		ArrayList<BoardDTO> categoryItem = new ArrayList<>();
+
+		String query = "SELECT B.BOARD_NO, "
+		        + "B.BOARD_TITLE, "
+		        + "B.BOARD_ON_DATE, "
+		        + "B.BOARD_VIEWS, "
+		        + "B.BOARD_ANSWER, "
+		        + "B.BOARD_CATEGORY, "
+		        + "B.BOARD_SECRET, "
+		        + "M.M_NO, "
+		        + "M.M_NAME "
+		        + "FROM BOARD B "
+		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
+		        + "WHERE B.BOARD_DELETE IS NULL "
+		        + "AND B.BOARD_CATEGORY = ?"
+		        + "ORDER BY B.BOARD_ON_DATE DESC "
+		        + "OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, category);
+			pstmt.setInt(2, pi.getOffset());
+			pstmt.setInt(3, pi.getBoardLimit()); // 5
+			
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int boardNo = rs.getInt("Board_NO");
+				String title = rs.getString("BOARD_TITLE");
+				String onDate = rs.getString("BOARD_ON_DATE");
+				int views = rs.getInt("BOARD_VIEWS");
+				String answer = rs.getString("BOARD_ANSWER");
+				String selectCategory = rs.getString("BOARD_CATEGORY");
+				String secret = rs.getString("BOARD_SECRET");
+				
+				int m_No = rs.getInt("M_NO");
+				String name = rs.getString("M_NAME");
+
+				BoardDTO board = new BoardDTO();
+
+				board.setBoardNo(boardNo);
+				board.setTitle(title);
+				board.setOnDate(onDate);
+				board.setViews(views);
+				board.setAnswer(answer);
+				board.setM_No(m_No);
+				board.setName(name);
+				board.setCategoty(selectCategory);
+				board.setSecret(secret);
+
+				categoryItem.add(board);
+
+			}
+			pstmt.close();
+			con.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return categoryItem;
+	}
+	
+	//카테고리 게시글 수
+	public int boardCategoryListCount(Connection con, String category) {
+		String query = "SELECT count(*) AS cnt"
+				+ "		FROM BOARD"
+				+ "		WHERE BOARD_DELETE IS NULL"
+				+ "		AND BOARD_CATEGORY = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, category);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int result = rs.getInt("CNT");
+				return result;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	
+	// 문의사항 검색내용 List up
+	public ArrayList<BoardDTO> boardSearchList(Connection con, BoardPageInfo pi, String SearchName) {
+		ArrayList<BoardDTO> list = new ArrayList<>();
+
+		String query = "SELECT B.BOARD_NO, "
+		        + "B.BOARD_TITLE, "
+		        + "B.BOARD_ON_DATE, "
+		        + "B.BOARD_VIEWS, "
+		        + "B.BOARD_ANSWER, "
+		        + "B.BOARD_CATEGORY, "
+		        + "B.BOARD_SECRET, "
+		        + "M.M_NO, "
+		        + "M.M_NAME "
+		        + "FROM BOARD B "
+		        + "INNER JOIN MEMBER M ON B.M_NO = M.M_NO "
+		        + "WHERE B.BOARD_DELETE IS NULL "
+		        + "AND UPPER(B.BOARD_TITLE) LIKE ? "
+		        + "ORDER BY B.BOARD_ON_DATE DESC "
+		        + "OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, "%" + SearchName + "%");
+			pstmt.setInt(2, pi.getOffset());
+			pstmt.setInt(3, pi.getBoardLimit()); // 5
+			
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int boardNo = rs.getInt("Board_NO");
+				String title = rs.getString("BOARD_TITLE");
+				String onDate = rs.getString("BOARD_ON_DATE");
+				int views = rs.getInt("BOARD_VIEWS");
+				String answer = rs.getString("BOARD_ANSWER");
+				String category = rs.getString("BOARD_CATEGORY");
+				String secret = rs.getString("BOARD_SECRET");
+				int m_No = rs.getInt("M_NO");
+				String name = rs.getString("M_NAME");
+
+				BoardDTO board = new BoardDTO();
+
+				board.setBoardNo(boardNo);
+				board.setTitle(title);
+				board.setOnDate(onDate);
+				board.setViews(views);
+				board.setAnswer(answer);
+				board.setCategoty(category);
+				board.setSecret(secret);
+				board.setM_No(m_No);
+				board.setName(name);
+
+				list.add(board);
+
+			}
+			pstmt.close();
+			con.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	//검색 전체 페이징 처리 수
+	public int boardSearchCount(Connection con, String SearchName) {
+		String query = "SELECT count(*) AS cnt"
+				+ "		FROM BOARD"
+				+ "		WHERE BOARD_DELETE IS NULL"
+				+ "		AND UPPER(BOARD_TITLE) LIKE ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, "%" + SearchName + "%");
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int result = rs.getInt("CNT");
+				return result;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	
 	
 	// 마이페이지
 	
