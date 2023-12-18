@@ -69,5 +69,22 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO selectMlg(int no) {
 		return memberDAO.selectMlg(con, no);
 	}
-	
+
+	// 아이디 찾기
+	@Override
+	public void findId(MemberDTO member) {
+		memberDAO.findId(con, member);
+	}
+
+	// 비밀번호 찾기
+	@Override
+	public boolean findPwd(MemberDTO member) {
+		return memberDAO.findPwd(con, member);
+	}
+
+	@Override
+	public void updatePassword(String email, String hashedPassword) {
+		memberDAO.updatePassword(con, email, hashedPassword);
+
+	}
 }
