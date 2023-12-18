@@ -32,7 +32,7 @@
 				<label for="password">비밀번호</label>
 			</div>
 			<div class="member-btn-box">
-			<a href="/ChkForm.do" class="Main_a" >회원가입</a>
+			<a href="/ChkForm.do" class="Main_a" >회원가입</a><a href="/FindIdForm.do" class="Main_a">아이디 찾기</a><a href="/FindPwdForm.do"  class="Main_a">비밀번호 찾기</a>
 			<input type="submit" value="로그인">
 			</div>
 			

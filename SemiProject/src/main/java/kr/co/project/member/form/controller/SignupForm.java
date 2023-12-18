@@ -1,4 +1,4 @@
-package kr.co.project.member.controller;
+package kr.co.project.member.form.controller;
 
 import java.io.IOException;
 import java.util.Objects;

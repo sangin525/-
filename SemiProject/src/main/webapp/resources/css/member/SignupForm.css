@@ -1,84 +1,93 @@
+/* Common styles */
 .left-btn {
-	width: 150px;
-	font-family: 'sejong';
-	font-size: 18px;
-	border-radius: 8px;
-	background-color: #e0a256;
-	color: white;
-	padding: 10px;
-	cursor: pointer;
-	transition: background-color 0.3s ease, border-color 0.3s ease, color
-		0.3s ease;
+    width: 150px;
+    font-family: 'sejong';
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: #e0a256;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .left-btn:hover {
-	background-color: #d08c4d;
+    background-color: #d08c4d;
 }
 
 .form-control {
-	font-size: 16px;
-	border-radius: 8px;
-	border: 2px solid rgb(224, 162, 86);
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid rgb(224, 162, 86);
 }
 
 .form-control:focus {
-	border-color: rgb(224, 162, 86);
-	box-shadow: 0 0 0 0.2rem rgba(224, 162, 86, 0.25);
+    border-color: rgb(224, 162, 86);
+    box-shadow: 0 0 0 0.2rem rgba(224, 162, 86, 0.25);
 }
 
 .input-form {
-	background-color: #fff8e5;
-	padding: 50px;
-	border-radius: 20px;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #fff8e5;
+    padding: 120px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: max-content;
+    margin: 0 auto;
 }
 
+/* Headings */
 h4 {
-	color: #e0a256;
+    color: #e0a256;
+    margin-top: 0;
 }
 
+/* Body */
 body {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	background-color: #fdfdfd;
-	font-family: 'Nanum Gothic', sans-serif;
-	margin: 0;
-	padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fdfdfd;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+/* Main Section */
 .Main_section {
-	flex: 1;
+    flex: 1;
 }
 
+/* Labels and Form Elements */
 label {
-	margin-bottom: 5px;
-	color: #e0a256;
-	font-size: 16px;
+    margin-bottom: 5px;
+    color: #e0a256;
+    font-size: 16px;
 }
 
 .row {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .form-label {
-	font-weight: bold;
-	color: #e0a256;
-	font-size: 16px;
+    font-weight: bold;
+    color: #e0a256;
+    font-size: 16px;
 }
 
+/* Margins */
 .mb-4 {
-	margin-bottom: 1.5rem !important;
+    margin-bottom: 1.5rem;
 }
 
 .mb-2 {
-	margin-bottom: 1rem !important;
-}
-
-.text-center {
-	text-align: center !important;
+    margin-bottom: 1rem;
 }
 
 .mb-5 {
-	margin-bottom: 3rem !important;
+    margin-bottom: 3rem;
+}
+
+/* Centering Text */
+.text-center {
+    text-align: center;
 }
