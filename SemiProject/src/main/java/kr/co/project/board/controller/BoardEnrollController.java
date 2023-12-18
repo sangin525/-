@@ -2,6 +2,7 @@ package kr.co.project.board.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
@@ -36,11 +37,12 @@ public class BoardEnrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		String content = request.getParameter("contents");
+		String secretBox = request.getParameter("secretBox");
 		
 		BoardDTO board = new BoardDTO();
 		String categoryHidden = request.getParameter("checkHidden");
 		
-
+		
 		
 		HttpSession session = request.getSession();
 		int memberNo = (Integer) session.getAttribute("no");
@@ -69,9 +71,10 @@ public class BoardEnrollController extends HttpServlet {
 
 		// 실행
 		
-		int result = boardService.boardEnroll(title, content, memberNo, fileName, uploadDirectory, categoryHidden);
+		int result = boardService.boardEnroll(title, content, memberNo, fileName, uploadDirectory, categoryHidden, secretBox);
 		if (result > 0) {
-			response.sendRedirect("/BoardList.do?cpage=1");
+			String category = URLEncoder.encode("전체","utf-8");
+			response.sendRedirect("/BoardList.do?cpage=1&category="+category);
 		} else {
 			response.sendRedirect("/views/common/error.jsp");
 		}

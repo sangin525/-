@@ -1,6 +1,21 @@
-function detailPage(boardNo) {
-	const pageUrl = '/BoardDetail.do?boardNo=' + boardNo;
-	window.location.href = pageUrl;
+function detailPage(boardNo, secret) {	
+	const m_No = document.getElementById("m_No").value;
+	const session_No = document.getElementById("session_No").value;	
+	const session_admin = document.getElementById("session_admin").value;
+	
+	if(secret == 'on'){
+		if(m_No == session_No || session_admin == 'Y'){
+			const pageUrl = '/BoardDetail.do?boardNo=' + boardNo;
+			window.location.href = pageUrl;
+		}else{
+			alert("비밀글입니다.");
+		}
+	}else{
+		const pageUrl = '/BoardDetail.do?boardNo=' + boardNo;
+		window.location.href = pageUrl;
+	}
+
+	
 }
 
 function NoticedetailPage(boardNo) {
@@ -189,16 +204,36 @@ function checkboxCheck(){
 }
 
 
-function clickCategory(button) {
-    const categories = document.getElementsByName("category");
+function clickCategory(event) {
+	const categories = document.getElementsByName("category");
 
+    if(event.target.value == "전체"){
+		window.location.href = "/BoardList.do?cpage=1&category=전체";
+	}else{
+		window.location.href = "/BoardCategoryList.do?cpage=1&category="+event.target.value;
+	}
+	
+	// 이전에 클릭한 버튼에 대한 스타일 초기화
     categories.forEach((category) => {
-        if (category === button) {
-            category.style.backgroundColor = "rgb(224, 162, 86)";
-            category.style.color = "white";
-        } else {
             category.style.backgroundColor = "white";
             category.style.color = "gray";
-        }
     });
+	
+	event.target.style.backgroundColor = "rgb(224, 162, 86)";
+	event.target.style.color = "white";
+	
+	    // 중간 정도로 스크롤 이동
+
+	
+}
+
+function search(){
+	const searchBtn = document.getElementById("searchBtn").value;
+	
+	window.location.href = "BoardSearchList.do?cpage=1&search=" + searchBtn
+}
+
+function searchNotice(){
+	const searchBtn = document.getElementById("searchNoticeBtn").value;
+	window.location.href = "NoticeSearchList.do?cpage=1&search=" + searchBtn
 }

@@ -21,7 +21,7 @@
 		<div style="border-bottom:3px solid #ffd2d2; margin-bottom:10px;">
 			<div class="divSort">
 				<h1 style="margin-bottom:0;">문의 사항</h1>
-				<li class="BoardEnrollLi">비밀글<input type="checkbox"></li>
+				<li class="BoardEnrollLi">비밀글<input type="checkbox" id="secretBox" name="secretBox"></li>
 			</div>
 				<ul class="BoardEnrollUl">
 					<li>객실 문의<input type="checkbox" name="category" value="객실 문의" onclick='checkboxOnlyOne(this)'></li>

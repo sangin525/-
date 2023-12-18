@@ -64,5 +64,13 @@ public class NoticeServiceImpl implements NoticeService{
 	public int commentDelete(int commentNo) {
 		return noticeDAO.commentDelete(con, commentNo);
 	}
+	// 공지사항 검색 전체 게시글 수
+	public int noticeSearchCount(String SearchName) {
+		return noticeDAO.noticeSearchCount(con, SearchName);
+	}
+	// 공지사항 검색
+	public ArrayList<NoticeDTO> noticeSearchList(BoardPageInfo pi, String SearchName){
+		return noticeDAO.noticeSearchList(con, pi, SearchName);
+	}
 	
 }

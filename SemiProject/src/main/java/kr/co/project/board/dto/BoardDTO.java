@@ -70,6 +70,9 @@ public class BoardDTO {
 
 	private String Checkbox; // 문의사항 체크박스
 	private String categoty; // 카테고리 분류
+	
+	private String secret;
+	
 
 
 
@@ -439,6 +442,14 @@ public class BoardDTO {
 	public void setCheckbox(String checkbox) {
 		Checkbox = checkbox;
 	}
+	
+	public String getSecret() {
+		return secret;
+	}
+
+	public void setSecret(String secret) {
+		this.secret = secret;
+	}
 
 	public BoardDTO() {
 		super();
@@ -460,11 +471,12 @@ public class BoardDTO {
 		this.answer = answer;
 	}
 	
-	public BoardDTO(String title, String content, int boardNo) {
+	public BoardDTO(String title, String content, int boardNo, String secretBox) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.boardNo = boardNo;
+		this.secret = secretBox;
 	}
 
 	public BoardDTO(String reviewTitle, String reviewContent, int reviewNo, String room, String year, String month,

@@ -1,6 +1,7 @@
 package kr.co.project.board.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,18 +27,19 @@ public class BoardDetailUpdateController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
-		System.out.println(boardNo);
 		String title = request.getParameter("title");
 		String content = request.getParameter("contents");
+		String secretBox = request.getParameter("secretBox");
 		
-		System.out.println(boardNo);
+		System.out.println(secretBox);
 		
 		BoardServiceImpl boardService = new BoardServiceImpl();
-		BoardDTO board = new BoardDTO(title, content, boardNo);
+		BoardDTO board = new BoardDTO(title, content, boardNo, secretBox);
 		
 		int result = boardService.boardUpdate(board);
 		if(result > 0) {
-			response.sendRedirect("BoardList.do?cpage=1");
+			String category = URLEncoder.encode("전체","utf-8");
+			response.sendRedirect("/BoardList.do?cpage=1&category="+category);
 		}else {
 			response.sendRedirect("views/common.error.jsp");
 		}
