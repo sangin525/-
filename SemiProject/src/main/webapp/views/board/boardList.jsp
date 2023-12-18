@@ -9,7 +9,7 @@
 <script src="/resources/js/board/board.js"></script>
 <title>BoardList</title>
 </head>
-<body class="Main_body" style = "background-color:white;">
+<body class="boardBody">
 	<%@ include file="/views/common/header.jsp"%>
 	<%@ include file="/views/common/nav.jsp"%>
 
@@ -27,20 +27,32 @@
 		</div>
 		
 		<div class="divSort3">
-			<input class="divSort3Input" placeholder ="검색어를 입력해주세요">
-			<button>검색</button>
+			<input class="divSort3Input" placeholder ="검색어를 입력해주세요" id="searchBtn" onkeypress ="if(window.event.keyCode==13){search()}">
+			<button onclick ="search()">검색</button>
 		</div>
 		
 		<!-- 버튼 모음 -->
+		<c:set var="selectedCategory" value="${param.category}" />
 		<div class="divSort2">
-			<button class="SortBtn" name="category" value="1" onclick="clickCategory(this);">전체</button>
-			<button class="SortBtn" name="category" value="2" onclick="clickCategory(this);">객실 문의</button>
-			<button class="SortBtn" name="category" value="3" onclick="clickCategory(this);">예약 문의</button>
-			<button class="SortBtn" name="category" value="4" onclick="clickCategory(this);">시설 문의</button>
-			<button class="SortBtn" name="category" value="5" onclick="clickCategory(this);">회원 가입 및 로그인 문의</button>
-			<button class="SortBtn" name="category" value="6" onclick="clickCategory(this);">기타 문의</button>
+			<button class="SortBtn" name="category" value="전체" onclick="clickCategory(event);"
+			style="background-color: ${'전체' eq selectedCategory ? 'rgb(224, 162, 86)' : 'white'};
+	        color: ${'전체' eq selectedCategory ? 'white' : 'gray'};">전체</button>
+			<button class="SortBtn" name="category" value="객실 문의" onclick="clickCategory(event);"
+			style="background-color: ${'객실 문의' eq selectedCategory ? 'rgb(224, 162, 86)' : 'white'};
+	        color: ${'객실 문의' eq selectedCategory ? 'white' : 'gray'};">객실 문의</button>
+			<button class="SortBtn" name="category" value="예약 문의" onclick="clickCategory(event);"
+			style="background-color: ${'예약 문의' eq selectedCategory ? 'rgb(224, 162, 86)' : 'white'};
+	        color: ${'예약 문의' eq selectedCategory ? 'white' : 'gray'};">예약 문의</button>
+			<button class="SortBtn" name="category" value="시설 문의" onclick="clickCategory(event);"
+			style="background-color: ${'시설 문의' eq selectedCategory ? 'rgb(224, 162, 86)' : 'white'};
+	        color: ${'시설 문의' eq selectedCategory ? 'white' : 'gray'};">시설 문의</button>
+			<button class="SortBtn" name="category" value="회원가입 및 로그인 문의" onclick="clickCategory(event);"
+			style="background-color: ${'회원가입 및 로그인 문의' eq selectedCategory ? 'rgb(224, 162, 86)' : 'white'};
+	        color: ${'회원가입 및 로그인 문의' eq selectedCategory ? 'white' : 'gray'};">회원 가입 및 로그인 문의</button>
+			<button class="SortBtn" name="category" value="기타 문의" onclick="clickCategory(event);"
+			style="background-color: ${'기타 문의' eq selectedCategory ? 'rgb(224, 162, 86)' : 'white'};
+	        color: ${'기타 문의' eq selectedCategory ? 'white' : 'gray'};">기타 문의</button>
 		</div>
-		
 		<!-- Table 본문 -->
 		<table class="boardTable">
 			<thead class="boardThead">
@@ -50,6 +62,7 @@
 				<th class="th4">작성날짜</th>
 				<th class="th5">조회수</th>
 				<th class="th6">답변여부</th>
+				<th class="th6">비밀글</th>
 			</thead>
 			<tbody class="boardTbody">
 				<c:choose>
@@ -61,14 +74,29 @@
 
 					<c:otherwise>
 						<c:forEach var="item" items="${list}">
-							<tr class="BoardTr" onclick = "detailPage(${item.boardNo})">
+						
+							<tr class="BoardTr" onclick = "detailPage(${item.boardNo}, '${item.secret}')">
+								<input type="hidden" value="${item.m_No}" id="m_No">
+								<input type="hidden" value="${sessionScope.no}" id="session_No">
+								<input type="hidden" value="${sessionScope.admin}" id="session_admin">
+								
 								<td class="td1">${item.boardNo}</td>
 								<td class="td2">${item.title}</td>
 								<td class="td3">${item.name}</td>
 								<td class="td4">${item.onDate}</td>
 								<td class="td5">${item.views}</td>
 								<td class="td6">${item.answer}</td>
+								<!-- 비밀글 여부 -->
+								<c:choose>
+									<c:when test="${item.secret != null}">
+										<td class="td6"><img src="/resources/boardIcon/lock-fill.svg"></td>
+									</c:when>
+									<c:otherwise>
+										<td class="td6">-</td>
+									</c:otherwise>
+								</c:choose>
 							</tr>
+							
 						</c:forEach>
 					</c:otherwise>
 
@@ -76,7 +104,6 @@
 
 			</tbody>
 		</table>
-
 		<!-- 페이지 버튼 -->
 		<ul class="pagination">
 			<!-- 페이지 처리 첫번째 << 표시  -->
@@ -86,10 +113,19 @@
 						<a href="#" class ="page-link">&laquo;</a>
 					</li>
 				</c:when>
-			
 				<c:otherwise>
 					<li class="page-item">
-						<a class="page-link" href="BoardList.do?cpage=${pi.currentPage-1}">&laquo;</a>
+						<c:choose>
+							<c:when test="${empty searchName && category != '전체'}">
+								<a class="page-link" href="BoardCategoryList.do?cpage=${pi.currentPage-1}&category=${category}">&laquo;</a>
+							</c:when>
+							<c:when test="${empty searchName && category == '전체'}">
+								<a class="page-link" href="BoardList.do?cpage=${pi.currentPage-1}&category=전체">&laquo;</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="BoardSearchList.do?cpage=${pi.currentPage-1}&search=${searchName}">&laquo;</a>
+							</c:otherwise>
+						</c:choose>
 					</li>					
 				</c:otherwise>
 			</c:choose>
@@ -98,18 +134,38 @@
 			<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
 				<c:if test="${pi.currentPage == page}">
 					<li class="page-item-active">
-						<a class="page-link" href="/BoardList.do?cpage=${page}">${page}</a>
+					
+						<c:choose>
+							<c:when test ="${empty searchName && category != '전체'}">
+								<a class="page-link" href="/BoardCategoryList.do?cpage=${page}&category=${category}">${page}</a>
+							</c:when>
+							<c:when test="${empty searchName && category == '전체'}">
+								<a class="page-link" href="BoardList.do?cpage=${page}&category=전체">${page}</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="/BoardSearchList.do?cpage=${page}&search=${searchName}">${page}</a>
+							</c:otherwise>
+						</c:choose>
 					</li>
 				</c:if>
 				<c:if test="${pi.currentPage != page}">
 					<li class="page-item">
-						<a class="page-link" href="/BoardList.do?cpage=${page}">${page}</a>
+						<c:choose>
+							<c:when test="${empty searchName && category != '전체'}">
+								<a class="page-link" href="/BoardCategoryList.do?cpage=${page}&category=${category}">${page}</a>
+							</c:when>
+							<c:when test="${empty searchName && category == '전체'}">
+								<a class="page-link" href="BoardList.do?cpage=${page}&category=전체">${page}</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="/BoardSearchList.do?cpage=${page}&search=${searchName}">${page}</a>							
+							</c:otherwise>
+						</c:choose>
 					</li>
 				</c:if>
-				
 			</c:forEach>
 			
-			<!-- 페이지 처리 첫번째 << 표시  -->
+			<!-- 페이지 처리 첫번째 >> 표시  -->
 			<c:choose>
 				<c:when test="${pi.currentPage == pi.maxPage}">
 					<li class="page-item">
@@ -118,7 +174,17 @@
 				</c:when>
 				<c:otherwise>
 					<li class="page-item">
-						<a class="page-link" href="/BoardList.do?cpage=${pi.currentPage+1}">&raquo;</a>
+						<c:choose>
+							<c:when test="${empty searchName && category != '전체'}">
+								<a class="page-link" href="/BoardCategoryList.do?cpage=${pi.currentPage+1}&category=${category}">&raquo;</a>
+							</c:when>
+							<c:when test="${empty searchName && category == '전체'}">
+								<a class="page-link" href="BoardList.do?cpage=${pi.currentPage+1}&category=전체">&raquo;</a>
+							</c:when>
+							<c:otherwise>
+								<a class="page-link" href="/BoardSearchList.do?cpage=${pi.currentPage+1}&search=${searchName}">&raquo;</a>
+							</c:otherwise>
+						</c:choose>
 					</li>			
 				</c:otherwise>
 			</c:choose>

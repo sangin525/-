@@ -9,7 +9,7 @@ import kr.co.project.common.MyBoardPageInfo;
 public interface BoardService {
 	
 	// 문의사항 생성
-	public int boardEnroll(String title, String content, int memberNo, String fileName, String uploadDirectory, String categoryHidden);
+	public int boardEnroll(String title, String content, int memberNo, String fileName, String uploadDirectory, String categoryHidden, String secretBox);
 	// 문의사항 List up
 	public ArrayList<BoardDTO> boardList(BoardPageInfo pi);
 	//조회수 증가
@@ -32,7 +32,14 @@ public interface BoardService {
 	public int answerDelete(int answerNo);
 	// 문의사항 답변 삭제 시 답변 여부 변경
 	public int answerDeleteUpdate(int boardNo);
-	
+	// 문의사항 카테고리 분류
+	public ArrayList<BoardDTO> boardCategoryList(BoardPageInfo pi, String category);
+	// 문의사항 카테고리 페이징 전체 게시글 수
+	public int boardCategoryListCount(String category);
+	// 문의사항 검색
+	public ArrayList<BoardDTO> boardSearchList(BoardPageInfo pi, String SearchName);
+	// 문의사항 검색 페이징 전체 게시글 수
+	public int boardSearchCount(String SearchName);
 	
 	// 마이페이지
 	// 내 게시글 수 조회
