@@ -18,21 +18,20 @@
    max-width: 1000px;
    margin: 20px auto;
    padding: 20px;
-   background-color: #fff;
 
 }
 
 .Main_header {
-	position: relative;
-	width: 100%; 
-	background-color : bisque;
-	color: #fff;
-	padding-bottom: 0px;
-	text-align: center;
-	display: flex;
-	justify-content: space-between;
-	background-color: bisque;
-	z-index: 2;
+   position: relative;
+   width: 100%; 
+   background-color : bisque;
+   color: #fff;
+   padding-bottom: 0px;
+   text-align: center;
+   display: flex;
+   justify-content: space-between;
+   background-color: bisque;
+   z-index: 2;
 
 }
 
@@ -69,14 +68,14 @@
 }
 
 .Main_nav {
-	width: 100%;
-	background-color: bisque;
-	position: relative;
-	padding-bottom : 0px;
-	display: flex;
-	justify-content: space-around;
-	padding-bottom: 0px;
-	z-index: 2;
+   width: 100%;
+   background-color: bisque;
+   position: relative;
+   padding-bottom : 0px;
+   display: flex;
+   justify-content: space-around;
+   padding-bottom: 0px;
+   z-index: 2;
 }
 
 
@@ -127,14 +126,14 @@
 
 /* 예약 css*/
 .reserveRoom {
-	width: 100%;
-	position: absolute;
-	background-color: rgb(255,228,196,0.5);
-	z-index: 1;
-	height:auto;
-	text-align:center;
-	padding:2%;
-	animation: slideDown 2s ease-out;
+   width: 100%;
+   position: absolute;
+   background-color: rgb(255,228,196,0.5);
+   z-index: 1;
+   height:auto;
+   text-align:center;
+   padding:2%;
+   animation: slideDown 2s ease-out;
 }
 
 @keyframes slideDown {
@@ -220,16 +219,16 @@
 /*    margin-right: 30px; */
 /* } */
 .R_room {
-	width: 120px;
-	-moz-appearance: none;
-  	-webkit-appearance: none;
-  	appearance: none;
-  	font-family: Arial, sans-serif;
-  	font-size: 1rem;
-  	font-weight: 400;
-  	line-height: 2;
-  	color: #444;
-  	background-color: #fff;
+   width: 120px;
+   -moz-appearance: none;
+     -webkit-appearance: none;
+     appearance: none;
+     font-family: Arial, sans-serif;
+     font-size: 1rem;
+     font-weight: 400;
+     line-height: 2;
+     color: #444;
+     background-color: #fff;
   border: 1px solid #aaa;
   border-radius: .5em;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
@@ -303,8 +302,8 @@
    z-index:1;
 }
 .Main_footer hr{
-	opacity:1;
-	    display: block;
+   opacity:1;
+       display: block;
     unicode-bidi: isolate;
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
@@ -336,8 +335,13 @@
 }
 
 .footerBox hr {
+<<<<<<< HEAD
+   opacity: 1;
+   display: block;
+=======
 	opacity: 1;
 	display: block;
+>>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git
     unicode-bidi: isolate;
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
@@ -351,18 +355,18 @@
    float: right;
 }
 .sns{
-	float:right;
-	margin:0px;
-	margin-right:285px;
+   float:right;
+   margin:0px;
+   margin-right:285px;
 }
 .sns-img{
-	margin-right:155px;
-	margin-top:-40px;
+   margin-right:155px;
+   margin-top:-40px;
 }
 .sns-img img{
-	width:40px;
-	height:40px;
-	float:right;
+   width:40px;
+   height:40px;
+   float:right;
 }
 
 
@@ -394,13 +398,13 @@
 
 /* 이미지 안 text */
 .text-image1{
-	font-size:68px;
-	position: absolute;
+   font-size:68px;
+   position: absolute;
     top: 33%;
     left: 50%;
     transform: translate( -50%, -50% );
-  	color: bisque;
-  	animation: fadeInUp 3s ease-out forwards;
+     color: bisque;
+     animation: fadeInUp 3s ease-out forwards;
 }
 @keyframes fadeInUp {
     from {
@@ -442,62 +446,62 @@
   }
   
   .imgtitle{
-	display:flex;
-	justify-content:center;
-	color: rgb(210, 98, 98);
-	font-size: 48px;
-	margin-top:130px;
+   display:flex;
+   justify-content:center;
+   color: rgb(210, 98, 98);
+   font-size: 48px;
+   margin-top:130px;
   } 
   .imgsubtitle{
-  	display:flex;
-	justify-content:center;
-	color: rgb(210, 98, 98);
-	margin:0px;
-	font-size: 36px;
+     display:flex;
+   justify-content:center;
+   color: rgb(210, 98, 98);
+   margin:0px;
+   font-size: 36px;
   }
 
 .swiper-container {
-	height:600px;
-	margin-top:10px;
-	width:1600px;
+   height:600px;
+   margin-top:10px;
+   width:1600px;
 }
 .swiper-slide {
-	text-align:center;
+   text-align:center;
 
 }
 .swiper-slide img {
-	max-width:100%; 
-	width:470px;
-	height:350px;
-	padding:0;
-	margin:0px;
+   max-width:100%; 
+   width:470px;
+   height:350px;
+   padding:0;
+   margin:0px;
 }
 .img-introduce{
 
-	justify-content:center;
-	text-align:center;
-	align-items:center;
+   justify-content:center;
+   text-align:center;
+   align-items:center;
 }
 .img-name{
-	color: rgb(210, 98, 98);
-	margin:0px;
-	font-size: 36px;
+   color: rgb(210, 98, 98);
+   margin:0px;
+   font-size: 36px;
 }
 
 .img-explain{
-	color: rgb(210, 98, 98);
-	margin:0px;
-	font-size: 20px;
+   color: rgb(210, 98, 98);
+   margin:0px;
+   font-size: 20px;
 }
 
 
 .swiper-button-next{
-	padding-right:300px;
-	background-color:balck;
-	
+   padding-right:300px;
+   background-color:balck;
+   
 }
 .swiper-button-next img{
-	position: absolute;
+   position: absolute;
     top: 50%;
     width: 70px;
     height: 70px;
@@ -511,11 +515,11 @@
 }
 
 .swiper-button-prev{
-	padding-left:300px;
+   padding-left:300px;
 
 }
 .swiper-button-prev img{
-	position: absolute;
+   position: absolute;
     top: 50%;
     width: 70px;
     height: 70px;
@@ -527,10 +531,10 @@
     background-repeat: no-repeat;
     right:130px;
 }
-	
+   
 
 .swiper-pagination{
-	margin-bottom:30px;
+   margin-bottom:30px;
 }
 
 
@@ -555,71 +559,71 @@
    
 /* 메인화면 멤버십 */
 .main-membership{
-	display:flex;
-	justify-content: center;
-	padding-top: 130px;
+   display:flex;
+   justify-content: center;
+   padding-top: 130px;
 }
 
 .membership-img{
-	display: flex;
-	width: 700px;
-	height: 444px;
-	background: rgb(191, 159, 121);
-	color: white;
-	border-radius: 15px;
-	text-align:center;
-	flex-wrap: wrap;
+   display: flex;
+   width: 700px;
+   height: 444px;
+   background: rgb(191, 159, 121);
+   color: white;
+   border-radius: 15px;
+   text-align:center;
+   flex-wrap: wrap;
     justify-content: center;
     align-content: center;
 }
 
 .membership-img img{
-	width: 200px;
-	height: 200px;
-	margin-top: 37px;
+   width: 200px;
+   height: 200px;
+   margin-top: 37px;
 }
 
 .membership-img p{
-	font-size: 48px;
+   font-size: 48px;
 }
 
 .membership-text{
-	margin-left: 100px;
-	padding-top: 35px;
+   margin-left: 100px;
+   padding-top: 35px;
 }
 
 .membership-text h2{
-	font-size: 36px;
+   font-size: 36px;
 }
 
 .membership-text p{
-	font-size: 18px;
+   font-size: 18px;
 }
 
 .membership-link{
-	width: 150px;
-	height: 40px;
-	border-radius: 40px;
-	border: 1px solid black;
-	text-align: center;
-	align-items:center;
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-	font-size: 18px;
+   width: 150px;
+   height: 40px;
+   border-radius: 40px;
+   border: 1px solid black;
+   text-align: center;
+   align-items:center;
+   text-decoration: none;
+   color: black;
+   cursor: pointer;
+   font-size: 18px;
 }
    
 /* 메인화면 다이닝 및 서비스 */
 .main-dining{
-	display:flex;
-	justify-content: center;
-	padding: 50px;
+   display:flex;
+   justify-content: center;
+   padding: 50px;
 }
 
 .dining-img{
-	display: flex;
-	text-align:center;
-	flex-wrap: wrap;
+   display: flex;
+   text-align:center;
+   flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     width: 600px;
@@ -628,51 +632,51 @@
 }
 
 .dining-img img{
-	width: 600px;
-	height: 800px;
+   width: 600px;
+   height: 800px;
 }
 
 .dining-img img:hover{
-	transform: scale(1.1, 1.1);
-	transition-duration: 0.5s;
+   transform: scale(1.1, 1.1);
+   transition-duration: 0.5s;
 }
 .dining-img img{
-	width:600px;
-	height:800px;
+   width:600px;
+   height:800px;
 }
 
 .dining-txt{
-	display: flex;
-	flex-direction: column;
+   display: flex;
+   flex-direction: column;
     justify-content: center;
-	text-align: center;
-	align-items:center;
-	padding-right: 120px;
+   text-align: center;
+   align-items:center;
+   padding-right: 120px;
 }
 
 .dining-txt h2{
-	font-size: 36px;
+   font-size: 36px;
 }
 
 .dining-txt p{
-	font-size: 18px;
+   font-size: 18px;
 }
 
 .dining-text{
-	display: flex;
-	flex-direction: column;
+   display: flex;
+   flex-direction: column;
     justify-content: center;
-	text-align: center;
-	align-items:center;
-	padding-left: 120px;
+   text-align: center;
+   align-items:center;
+   padding-left: 120px;
 }
 
 .dining-text h2{
-	font-size: 36px;
+   font-size: 36px;
 }
 
 .dining-text p{
-	font-size: 18px;
+   font-size: 18px;
 }
 
 /* 위로 올리기 버튼 */
@@ -687,12 +691,15 @@ cursor: pointer;
 } 
 /* 카카오봇 버튼 */
 .btn_kakao{
-	display: block; 
+   display: block; 
 position: fixed; 
 bottom: 120px;  
 right: 45px;   
 outline: none; 
 cursor: pointer; 
+<<<<<<< HEAD
+}
+=======
 }
 
 /* 메인페이지 팝업창 */
@@ -783,3 +790,4 @@ cursor: pointer;
 
 
 
+>>>>>>> branch 'master' of https://github.com/sangin525/SemiProject.git

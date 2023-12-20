@@ -276,13 +276,65 @@ public class MemberDAO {
 			return member;
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return null;
 	}
 
+	// 아이디찾기
+	public void findId(Connection con, MemberDTO member) {
+		String query = "SELECT m_id FROM member WHERE m_name = ? AND m_email = ?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getEmail());
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				String foundId = rs.getString("M_ID");
+				member.setId(foundId);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 비밀번호 찾기
+	public boolean findPwd(Connection con, MemberDTO member) {
+		String query = "SELECT M_EMAIL FROM member WHERE M_NAME = ? AND M_ID = ?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getId());
+			ResultSet rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				String foundEmail = rs.getString("M_EMAIL");
+				member.setEmail(foundEmail);
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+	// 비밀번호 업데이트
+	public void updatePassword(Connection con, String email, String hashedPassword) {
+		String query = "UPDATE member SET M_PWD = ? WHERE M_EMAIL = ?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, hashedPassword);
+			pstmt.setString(2, email);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
-
-

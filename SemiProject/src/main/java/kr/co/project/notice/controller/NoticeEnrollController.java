@@ -33,7 +33,6 @@ public class NoticeEnrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		String content = request.getParameter("contents");
-		System.out.println(content);
 		
 		NoticeDTO notice = new NoticeDTO();
 		
@@ -43,7 +42,7 @@ public class NoticeEnrollController extends HttpServlet {
 //		파일 업로드 처리 추가
 		Collection<Part> parts = request.getParts();
 
-		String uploadDirectory = "C:\\Users\\rddck\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";	
+		String uploadDirectory = "C:\\Users\\kaw198\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";	
 
 		File filePath = new File(uploadDirectory);
 		if (!filePath.exists()) {

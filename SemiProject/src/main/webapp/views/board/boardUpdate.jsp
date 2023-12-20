@@ -16,11 +16,11 @@
 
 
 	<section class="boardSection">
-		
+	<form action ="/boardUpdate.do" method ="POST">
 		<div style="border-bottom:3px solid #ffd2d2; margin-bottom:10px;">
 			<div class="divSort">
 				<h1 style="margin-bottom:0;">문의 사항</h1>
-				<li class="BoardEnrollLi">비밀글<input type="checkbox"></li>
+				<li class="BoardEnrollLi">비밀글<input type="checkbox" id="secretBox" name="secretBox"></li>
 			</div>
 				<ul class="BoardEnrollUl">
 					<li>객실 문의<input type="checkbox"></li>
@@ -31,11 +31,11 @@
 				</ul>
 		</div>
 		
-		<div class="divCenter">
+		<div class="divCenter" style="min-width:1000px;">
 			<h1>문의 사항</h1>
 		</div>
 		
-		<form action ="/boardUpdate.do" method ="POST">
+
 			<div class="boardEnroll">
 				<div class="divCenter2">
 					<input type="hidden" id="boardNo" name="boardNo" value="${sessionScope.boardNo}">
@@ -46,15 +46,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="divCenter4">
-					<!-- 파일 첨부 -->
-					<div>
-						<label for="file" class="input-file-button" style="width:70px; margin-right:10px;">파일 첨부</label>
-						<input type="file" id ="file" name="file" style="display:none;" onchange="displayFileName(this)">
-					
-						<input class="upload-name" disabled>
-					</div>
-					
+			<div class="divCenter4" style="justify-content:flex-end">
 					<button style="justify-content:center;" type="submit" class="right-btn-board" onclick="save()">제출</button>
 				</div>
 		</form>

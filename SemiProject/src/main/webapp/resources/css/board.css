@@ -1,17 +1,21 @@
 .boardBody {
 	/* common CSS */
-	font-family: Arial, sans-serif;
-	margin: 0px;
-	padding: 0px;
-	background-color: #f4f4f4;
+   font-family: Arial, sans-serif;
+   margin: 0px;
+   padding: 0px;
+   font-family: 'sejong';
+   -ms-overflow-style: none;
 	/* board 추가 body 내용 */
 	height: 850px;
+
 }
+
+
 
 .boardSection {
 	/* common 내용 */
-	max-width: 1200px;
-	min-height:700px;
+	max-width: 1300px;
+	min-height:900px;
 	margin: 20px auto;
 	padding: 20px;
 	/* 추가 내용 */
@@ -20,6 +24,22 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top:50px;
+}
+
+.boardNoticeSection {
+	/* common 내용 */
+	max-width: 1300px;
+	min-height:750px;
+	margin: 20px auto;
+	padding: 20px;
+	/* 추가 내용 */
+	height: 60%;
+	/* 정렬 */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top:50px;
 }
 
 /* ----------------------------table CSS 모음 ----------------------------------*/
@@ -30,8 +50,9 @@
 	align-items: center;
 	flex-direction: column;
 	/* 크기 */
-	min-width:1100px;
+	min-width:1200px;
 	min-height: 400px;
+	margin-top: 20px;
 	
 	border-collapse: separate;
     border-spacing: 0 10px; /* 여기서 10px는 간격을 나타냅니다. */
@@ -41,7 +62,7 @@
 }
 
 .boardThead {
-	min-width:1100px;
+	min-width:1200px;
 	border-bottom: 3px solid red;
 	height: 70px;
 	text-align: center;
@@ -51,7 +72,7 @@
 }
 
 .boardTbody {
-	min-width:1100px;
+	min-width:1200px;
 	margin-bottom: 10px;
 	height: 300px;
 	
@@ -66,7 +87,7 @@
 }
 
 .tdEmpty {
-	min-width: 1000px;
+	min-width: 1200px;
 	height: 50px;
 	font-size: 16px;
 	text-align: center;
@@ -115,19 +136,20 @@
 }
 
 thead.boardThead tr{
-	min-width:1000px;
+	min-width:1200px;
 	display:flex;
 	justify-content:center;
 }
 
 tbody.boardTbody tr{
-	width:1000px;
+	width:1200px;
 	
 	height:60px;
 	display:flex;
 	align-items:center;
 	justify-content:center;
 	/* List 종류 모두 사용 */
+	margin-top:20px;
 }
 
 /* -------------------------------- div 모음 -------------------------------- */
@@ -135,21 +157,25 @@ tbody.boardTbody tr{
 .divSort {
 	display:flex;
 	justify-content:space-between;
-	min-width: 1000px;
+	min-width: 1200px;
 	align-items:flex-end;
 	/* boardList 사용 */
+	margin-bottom:20px;
 }
 .divSort2{
 	display:flex;
 	justify-content:center;
-	min-width:1100px;
+	min-width:1200px;
+	
+	margin-top:15px;
+	margin-bottom:15px;
 	
 	/* boardList 사용 */
 }
 
 .divSort3{
 	background-color:#f5f5f5;
-	width:1050px;
+	width:1200px;
 	height:100px;
 	margin-bottom:30px;
 	
@@ -276,7 +302,7 @@ tbody.boardTbody tr{
 .divCenter {
 	display: flex;
 	justify-content: center;
-	width: 150px;
+	min-width: 1200px;
 }
 
 .divRight {
@@ -561,7 +587,7 @@ tbody.boardTbody tr{
 
 /* ---------------------input 모음 ---------------------------- */
 .titleText {
-	width: 990px;
+	width: 1200px;
 	height: 40px;
 	resize: none;
 	padding: 10px;
@@ -767,6 +793,7 @@ tbody.boardTbody tr{
     gap: 2px;
     align-items: center;
     height: 40px;
+    margin-top:25px;
 }
 
 .detailP{

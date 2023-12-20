@@ -66,7 +66,7 @@
 								<button onclick="boardDelete()" class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/trash3.svg">삭제</button>
 							</span>
 							<span class="divbuttonSort">
-								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/list-task.svg"><a class="aBtn" href="/BoardList.do?cpage=1">목록</a></div>
+								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/list-task.svg"><a class="aBtn" href="/BoardList.do?cpage=1&category=전체">목록</a></div>
 								<div class="right-btn-board"><img class="btnStyle" src="/resources/boardIcon/file-earmark-plus.svg"><a class="aBtn" href="/views/board/boardEnroll.jsp">글 작성</a></div>
 							</span>
 						</div>
@@ -77,7 +77,7 @@
 
 		<!-- 댓글 -->
 			<div class="answerSortDiv">
-			 	<p><img class="img" src="/resources/boardIcon/chat-dots.svg">댓글 목록</p>
+			 	<p><img class="img" src="/resources/boardIcon/chat-dots.svg">답변</p>
 			</div>
 			
 			<div class="divAnswerBox">

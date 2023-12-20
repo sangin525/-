@@ -27,4 +27,8 @@ public interface NoticeService {
 	public int commentDetailUpdate(String content, int commentNo);
 	// 답변 삭제
 	public int commentDelete(int commentNo);
+	// 공지사항 검색
+	public int noticeSearchCount(String SearchName);
+	// 공지사항 검색
+	public ArrayList<NoticeDTO> noticeSearchList(BoardPageInfo pi, String SearchName);
 }
