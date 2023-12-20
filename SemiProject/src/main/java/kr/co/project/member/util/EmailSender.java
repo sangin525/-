@@ -14,13 +14,12 @@ import javax.mail.internet.MimeMessage;
 public class EmailSender {
 	public static void sendNewPassword(String toEmail, String newPassword) throws MessagingException {
 		// 이메일 송신 계정 정보
-		String fromEmail = "a01027735977@gmail.com"; // 발신자 이메일 주소
-		String password = "xoyb vkcg fsbh gbav"; // 발신자 이메일 비밀번호
+		String fromEmail = ""; // 발신자 이메일 주소
+		String password = ""; // 발신자 이메일 비밀번호
 
 		// SMTP 서버 설정 (Gmail 예시)
 		String host = "smtp.gmail.com";
 		int port = 465;
-
 
 		// 메일 송신을 위한 속성 설정
 		Properties properties = new Properties();
