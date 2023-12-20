@@ -46,6 +46,11 @@ public class MemberServiceImpl implements MemberService {
 	public int memberUpdate(MemberDTO member, String beforeEmail) {
 		return memberDAO.memberUpdate(con, member, beforeEmail);
 	}
+	
+	// 비밀번호수정 비밀번호 조회
+	public MemberDTO passwordSelect(String id) {
+		return memberDAO.passwordSelect(con, id);
+	}
 
 	// 비밀번호 수정
 	@Override
