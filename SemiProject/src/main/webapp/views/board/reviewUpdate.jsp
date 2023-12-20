@@ -62,6 +62,7 @@
 							<span class="icon-arrow" id="icon-year"></span>
 							<ul class="dropdown-options" id="dropdownOptionsYear"
 								style="display: none;">
+								<li data-value="2024년">2024년</li>
 								<li data-value="2023년">2023년</li>
 								<li data-value="2022년">2022년</li>
 								<li data-value="2021년">2021년</li>
