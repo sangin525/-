@@ -21,7 +21,6 @@ public class EmailSender {
 		String host = "smtp.gmail.com";
 		int port = 465;
 
-
 		// 메일 송신을 위한 속성 설정
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", "true");
