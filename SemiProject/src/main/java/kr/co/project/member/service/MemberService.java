@@ -17,6 +17,9 @@ public interface MemberService {
 
 	// 회원 정보 수정
 	public int memberUpdate(MemberDTO member, String beforeEmail);
+	
+	// 비밀번호수정 비밀번호 조회
+	public MemberDTO passwordSelect(String id);
 
 	// 비밀번호 수정
 	public int pwdUpdate(MemberDTO member);
