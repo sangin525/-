@@ -48,7 +48,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach var="item" items="${list}">
-									<tr onclick="detailPage(${item.r_no})">
+									<tr>
 										<td>${row}</td>
 										<td>${item.per_no}</td>
 										<td>${item.checkIn}</td>
