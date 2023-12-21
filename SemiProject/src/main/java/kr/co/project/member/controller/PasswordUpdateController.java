@@ -91,7 +91,7 @@ public class PasswordUpdateController extends HttpServlet {
 						view.forward(request, response);
 				
 					 }
-					}
+					} 
 				} else if (!passwordMatcher.matches()) {
 					 PwdUpdateAlert(response, "비밀번호가 정책에 맞지 않습니다.");
 				} else if (newPwd.equals(pwdChk)) {
