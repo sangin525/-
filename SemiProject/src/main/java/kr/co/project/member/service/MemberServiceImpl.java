@@ -60,8 +60,8 @@ public class MemberServiceImpl implements MemberService {
 
 	// 회원탈퇴 비밀번호 일치 확인
 	@Override
-	public MemberDTO selectPwd(String pwd) {
-		return memberDAO.selectPwd(con, pwd);
+	public MemberDTO selectPwd(String id) {
+		return memberDAO.selectPwd(con, id);
 	}
 
 	// 회원 탈퇴

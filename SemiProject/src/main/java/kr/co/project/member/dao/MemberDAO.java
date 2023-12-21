@@ -231,15 +231,15 @@ public class MemberDAO {
 	}
 
 	// 회원탈퇴 확인
-	public MemberDTO selectPwd(Connection con, String pwd) {
+	public MemberDTO selectPwd(Connection con, String id) {
 
 		// 쿼리작성
-		String query = "SELECT m_pwd" + "		FROM member" + "		WHERE m_pwd = ?";
+		String query = "SELECT m_pwd" + "		FROM member" + "		WHERE m_id = ?";
 		// 쿼리 실행준비
 		try {
 			pstmt = con.prepareStatement(query);
 			// 물음표 채우기
-			pstmt.setString(1, pwd);
+			pstmt.setString(1, id);
 			// 실행
 			ResultSet rs = pstmt.executeQuery();
 
@@ -247,8 +247,9 @@ public class MemberDAO {
 
 			while (rs.next()) {
 				String resultPwd = rs.getString("M_PWD");
-
+				
 				member.setPwd(resultPwd);
+
 			}
 			return member;
 		} catch (SQLException e) {
