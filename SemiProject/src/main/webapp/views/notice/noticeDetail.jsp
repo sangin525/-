@@ -99,7 +99,6 @@
 								<input type="hidden" value="${board.commentNo}" name="answerNo">
 								
 								<div>
-									<c:if test="${sessionScope.no == board.m_No}">
 										<c:choose>
 											<c:when test="${board.commentContent eq null}">
 												<a onclick="commentInput();" class="answerTextClick"
@@ -112,7 +111,6 @@
 										</c:choose>
 											<a onclick="commentDelete();" class="answerTextClick"
 											style="width: 30px; text-align: center;">삭제</a>
-									</c:if>
 								</div>
 							</span>
 								
