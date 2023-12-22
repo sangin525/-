@@ -21,7 +21,9 @@
 	<%@ include file="../common/hotelInfoSidebar.jsp" %>
 	<div class="membership">
 	<div class="membership-title">
-	<h2>CLUB HARU</h2>
+	<h3 class="secondtit">CLUB HARU</h3>
+        <hr>
+	
 	<p>클럽하루 멤버십은 품격있는 라이프 스타일과 특별한 경험을 제안합니다.</p>
 	<p>호텔하루에서 다채로운 혜택과 최상의 서비스를 누려보세요.</p>
 	</div>

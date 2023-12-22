@@ -55,8 +55,8 @@ public class reviewEnrollController extends HttpServlet {
 		String star = request.getParameter("rating");
 		// 2. 파일 업로드
 		Collection<Part> parts = request.getParts();
-
-		String uploadDirectory = "C:\\Users\\kaw19\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";	
+		
+		String uploadDirectory = "C:\\Users\\rddck\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";	
 
 		File filePath = new File(uploadDirectory);
 		if (!filePath.exists()) {
