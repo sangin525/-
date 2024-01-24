@@ -325,13 +325,13 @@ public class MemberDAO {
 	}
 
 	// 비밀번호 업데이트
-	public void updatePassword(Connection con, String email, String hashedPassword) {
-		String query = "UPDATE member SET M_PWD = ? WHERE M_EMAIL = ?";
+	public void updatePassword(Connection con, String Id, String hashedPassword) {
+		String query = "UPDATE member SET M_PWD = ? WHERE M_ID = ?";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, hashedPassword);
-			pstmt.setString(2, email);
+			pstmt.setString(2, Id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
