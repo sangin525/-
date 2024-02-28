@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import kr.co.project.member.dto.MemberDTO;
 import kr.co.project.member.service.MemberServiceImpl;
 
@@ -45,11 +47,21 @@ public class PasswordUpdateController extends HttpServlet {
 		String pwd = request.getParameter("password");
 		String newPwd = request.getParameter("newPassword");
 		String pwdChk = request.getParameter("passwordChk");
+
 		
-		
+		// 임의의 문자열 생성
+				String salt = BCrypt.gensalt(12);
+				// 사용자가 입력한 비밀번호 + Slat 암호화
+				String hashedPassword = BCrypt.hashpw(newPwd, salt);
+		// 서비스 객체 생성
+		MemberServiceImpl memberService = new MemberServiceImpl();
+		MemberDTO memberPwd = memberService.passwordSelect(id);
+		System.out.println("pwd1 : "+memberPwd.getPwd());
+		String pwd2 = memberPwd.getPwd();
 		//DTO 객체 생성
-		MemberDTO member = new MemberDTO(id, pwd, newPwd);
-		
+		MemberDTO member = new MemberDTO(id, pwd2, hashedPassword);
+		System.out.println("pwd2 : "+member.getPwd());
+
 		
 		// 패스워드 유효성 검사
 				String pwdPattern = "^(?=.*[a-zA-Z])(?=.*[@$!%*?&\\#])[A-Za-z\\d@$!%*?&\\#]{8,20}$";
@@ -58,26 +70,28 @@ public class PasswordUpdateController extends HttpServlet {
 
 				//비번 유효성 검사 통과하면 비밀번호 수정 가능하게
 				// 비번 틀렷을 때 : alert '비밀번호가 정책에 맞지 않습니다.'
+
 				if (newPwd.equals(pwdChk)  && passwordMatcher.matches() && !newPwd.equals(pwd)) {
 					// 비밀번호 변경 진행
-					// 서비스 객체 생성
-					MemberServiceImpl memberService = new MemberServiceImpl();
+					if (BCrypt.checkpw(pwd, memberPwd.getPwd())) {
+						System.out.println("성공");
+					
 					int result = memberService.pwdUpdate(member);
-					System.out.println(result);
 					if (result == 0) {
 						System.out.println(result);
 
 						PwdUpdateAlert(response, "비밀번호 수정에 실패했습니다.");
 						System.out.println(result);
+					} 
 
-					} else {
-						System.out.println(result);
+					 else {
+						
 
 						RequestDispatcher view = request.getRequestDispatcher("/views/member/mypage/MyPage.jsp");
 						view.forward(request, response);
-						System.out.println(result);
-
-					}
+				
+					 }
+					} 
 				} else if (!passwordMatcher.matches()) {
 					 PwdUpdateAlert(response, "비밀번호가 정책에 맞지 않습니다.");
 				} else if (newPwd.equals(pwdChk)) {

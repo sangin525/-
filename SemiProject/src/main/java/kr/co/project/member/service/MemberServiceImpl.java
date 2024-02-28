@@ -46,6 +46,11 @@ public class MemberServiceImpl implements MemberService {
 	public int memberUpdate(MemberDTO member, String beforeEmail) {
 		return memberDAO.memberUpdate(con, member, beforeEmail);
 	}
+	
+	// 비밀번호수정 비밀번호 조회
+	public MemberDTO passwordSelect(String id) {
+		return memberDAO.passwordSelect(con, id);
+	}
 
 	// 비밀번호 수정
 	@Override
@@ -55,8 +60,8 @@ public class MemberServiceImpl implements MemberService {
 
 	// 회원탈퇴 비밀번호 일치 확인
 	@Override
-	public MemberDTO selectPwd(String pwd) {
-		return memberDAO.selectPwd(con, pwd);
+	public MemberDTO selectPwd(String id) {
+		return memberDAO.selectPwd(con, id);
 	}
 
 	// 회원 탈퇴

@@ -174,9 +174,41 @@ public class MemberDAO {
 
 		return 0;
 	}
+	
+	// 비밀번호 변경 기존 비밀번호 조회
+	public MemberDTO passwordSelect(Connection con, String id) {
+		String query = "SELECT m_pwd from member where m_id = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, id);
+			
+			// 실행
+						ResultSet rs = pstmt.executeQuery();
+
+						MemberDTO member = new MemberDTO();
+
+						while (rs.next()) {
+							String resultPwd = rs.getString("M_PWD");
+
+							member.setPwd(resultPwd);
+						}
+						return member;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
 
 	// 비밀번호 변경
 	public int pwdUpdate(Connection con, MemberDTO member) {
+		System.out.println("1:"+member.getPwd());
+		System.out.println(member.getNewPwd());
+		System.out.println(member.getId());
 		// 쿼리작성
 		String query = "UPDATE member" + "		SET m_pwd = ?" + "		WHERE m_pwd = ?" + "		AND m_id = ?";
 		// 쿼리 실행할 준비
@@ -199,15 +231,15 @@ public class MemberDAO {
 	}
 
 	// 회원탈퇴 확인
-	public MemberDTO selectPwd(Connection con, String pwd) {
+	public MemberDTO selectPwd(Connection con, String id) {
 
 		// 쿼리작성
-		String query = "SELECT m_pwd" + "		FROM member" + "		WHERE m_pwd = ?";
+		String query = "SELECT m_pwd" + "		FROM member" + "		WHERE m_id = ?";
 		// 쿼리 실행준비
 		try {
 			pstmt = con.prepareStatement(query);
 			// 물음표 채우기
-			pstmt.setString(1, pwd);
+			pstmt.setString(1, id);
 			// 실행
 			ResultSet rs = pstmt.executeQuery();
 
@@ -215,8 +247,9 @@ public class MemberDAO {
 
 			while (rs.next()) {
 				String resultPwd = rs.getString("M_PWD");
-
+				
 				member.setPwd(resultPwd);
+
 			}
 			return member;
 		} catch (SQLException e) {
@@ -337,4 +370,6 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
+
+
 }

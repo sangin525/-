@@ -50,7 +50,9 @@ public class BoardEnrollController extends HttpServlet {
 //		파일 업로드 처리 추가
 		Collection<Part> parts = request.getParts();
 
+
 		String uploadDirectory = "C:\\Users\\suinr\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";	
+
 
 		File filePath = new File(uploadDirectory);
 		if (!filePath.exists()) {

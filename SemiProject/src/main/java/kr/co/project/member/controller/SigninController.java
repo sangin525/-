@@ -44,6 +44,7 @@ public class SigninController extends HttpServlet {
 		// 암호화된 패스워드 조회
 		MemberDTO member = memberService.memberSignin(id);
 		System.out.println(pwd);
+		System.out.println(member.getPwd());
 		// 암호화된 패스워드 확인
 //				if(BCrypt.checkpw("사용자가 입력한 패스워드", "암호화된 패스워드")) {
 		if (BCrypt.checkpw(pwd, member.getPwd())) {

@@ -688,7 +688,9 @@ public class BoardDAO {
 
 		// 리뷰 작성
 		public int reviewEnroll(Connection con, BoardDTO board, int no) {
+
 			String uploadDirectory = "C:\\Users\\suinr\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";
+
 		    String query = "INSERT INTO review"
 		            + "        VALUES(REVIEW_SEQ.nextval,"
 		            + "                ?,"
@@ -885,7 +887,9 @@ public class BoardDAO {
 	
 		// 리뷰 업데이트
 		public int reviewUpdate(Connection con, BoardDTO board, int reviewNo) {
+
 			String uploadDirectory = "C:\\Users\\suinr\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\uploads\\review";
+
 		    String query = "Update review set review_title = ?,"
 		    		+ "						review_content = ?,"
 		    		+ "						review_room = ?,"

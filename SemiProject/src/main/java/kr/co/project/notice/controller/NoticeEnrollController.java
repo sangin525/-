@@ -43,7 +43,9 @@ public class NoticeEnrollController extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 
 
+
 		String uploadDirectory = "C:\\Users\\suinr\\git\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\boardUpload";	
+
 
 		File filePath = new File(uploadDirectory);
 		if (!filePath.exists()) {

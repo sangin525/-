@@ -100,6 +100,10 @@
 	text-align: center;
 }
 
+.td1, .td2, .td3, .td4, .td5, .td6{
+	font-weight:900;
+}
+
 .th2, .td2 {
 	/* 제목 */
 	width: 40%;
