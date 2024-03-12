@@ -70,16 +70,10 @@
 <br>
 <br>
 
-> 2. 호텔개요
+> 2. 로그인
 <br>
 <img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/2edefd2e-af14-4daa-acf3-6540ac7d97c0"></img>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/5c5a1da7-51dc-4e5b-a987-bf278effb19b"></img>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/1792ad1f-d397-46c1-83e4-1643febe5cce"></img>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/a5bdba4e-709b-4d13-80fb-98323aceda75"></img>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/ee465eb9-182f-4710-bc71-fde86b4b3311"></img>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/5edee9a4-fe50-41d5-a332-d208a411511a"></img>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/960e1f62-1bd2-44cb-bf2d-ba5ea6024ceb"></img>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/be8f8817-ce5b-4535-9622-d01540f047b4"></img>
+<img width="400 src="https://github.com/sangin525/SemiProject/blob/master/login.png"></img>
 <br>
 <br>
 
