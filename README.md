@@ -65,23 +65,26 @@
 
 > 1. 메인페이지
 
-<img width="380" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/943ec511-dec4-46f0-915e-eb048a4e2a97"></img>
 <img width="380" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/19926bf3-517c-4da1-87e1-27f721c64b72"></img>
 <br>
 <br>
 
 > 2. 로그인
 <br>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/2edefd2e-af14-4daa-acf3-6540ac7d97c0"></img>
-<img width="400 src="https://github.com/sangin525/SemiProject/blob/master/login.png"></img>
+<img width="400" src="https://github.com/sangin525/SemiProject/blob/master/login.png"></img>
 <br>
 <br>
 
-> 3. 카카오 봇 채팅
+> 3. 리뷰
 <br>
-<img width="400" src="https://github.com/BobbyBaek/SemiProject/assets/150643104/3c000726-e34a-41ba-8ceb-0dfa65e2bfa0"></img>
+<img width="400" src="https://github.com/sangin525/SemiProject/blob/master/review.png"></img>
+<img width="400" src="https://github.com/sangin525/SemiProject/blob/master/review2.png"></img>
 <br>
 
+> 4. 마이페이지
+<br>
+<img width="400" src="https://github.com/sangin525/SemiProject/blob/master/mypage.png"></img>
+<br>
 
 ## 느낀점 및 후기
 <br>
